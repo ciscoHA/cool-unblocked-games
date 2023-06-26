@@ -1,0 +1,277 @@
+<html>
+  <head>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;800;900&display=swap");
+
+      body,
+      html {
+        overflow-x: hidden;
+      }
+
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: #16202c;
+      }
+
+      .top {
+        position: flex;
+        top: 0;
+        left: 0;
+        padding: 0px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        width: 100vw;
+        height: auto;
+        background-color: #2a455d;
+        align-items: center;
+        align-content: center;
+        text-align: center;
+      }
+
+      .bodya {
+        padding-left: 15px;
+        padding-right: 15px;
+        margin-top: 120px; /* Adjust the margin-top value as needed */
+        margin-left: 20px;
+        margin-right: 20px;
+        color: white;
+        text-decoration-color: white;
+        background-color: #16202c;
+        align-items: center;
+        align-content: center;
+      }
+
+      .centre {
+        margin-left: 315px;
+        margin-top: -120px;
+        margin-bottom: 20px;
+        padding: 12px;
+      }
+
+      .suggest-img {
+        width: 100px;
+        max-width: 100px;
+        border-radius: 5px;
+      }
+
+      #suggest-video {
+        width: 100px;
+        border-radius: 5px;
+        position: relative;
+        transition: outline 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Add transition property for smooth animation */
+      }
+
+      #suggest-video.playing {
+        outline: 2px solid #3C97EE;
+        box-shadow: 1px 1px 4px #2a455d; /* Add a box shadow for a smoother transition effect */
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="top">
+      <h1>
+        <a href="index.html">
+          <img
+            src="images/logo/Coolmath_Games_logo.png"
+            alt="logo"
+            width="410"
+            height="60"
+          />
+        </a>
+      </h1>
+    </div>
+    <div class="bodya">
+      <div class="centre">
+        <p
+          style="font-family: 'M Plus Rounded 1c', sans-serif; font-weight: 800"
+        >
+          You'll Also Like
+        </p>
+        <div style="position: relative; display: inline-block">
+          <img
+            class="suggest-img"
+            src="images/games/run-3-preview.png"
+            alt="Image"
+          />
+        </div>
+
+        <script>
+          // Get the image element
+          var image = document.querySelector(".suggest-img");
+
+          // Create a video element
+          var video = document.createElement("video");
+          video.src = "images/games/run-3-preview-video.mp4"; // Replace with the actual path to your video file
+          video.loop = true;
+          video.id = "suggest-video"; // Add an ID to the video element
+
+          // Add event listeners for hover
+          image.addEventListener("mouseenter", function () {
+            // Replace the image with the video
+            image.parentNode.replaceChild(video, image);
+
+            // Play the video from the beginning
+            video.currentTime = 0;
+            video.play();
+            video.classList.add("playing"); // Add the 'playing' class to apply the outline and box shadow
+          });
+
+          video.addEventListener("mouseleave", function () {
+            // Replace the video with the image
+            video.parentNode.replaceChild(image, video);
+            video.pause();
+            video.classList.remove("playing"); // Remove the 'playing' class to remove the outline and box shadow
+          });
+        </script>
+      </div>
+      <div
+        style="
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          overflow: hidden;
+        "
+      >
+        <iframe
+          src="https://ciscoha.github.io/crispy-run3-1889/tn6pS9dCf37xAhkJv/index.html"
+          width="800px"
+          height="600px"
+          frameborder="0"
+          style="display: block; border: 0px solid #060d19"
+        ></iframe>
+        <p
+          style="
+            background-color: #060d19;
+            width: 760px;
+            padding: 10px;
+            margin-top: 0px;
+            padding-left: 30px;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+            outline: 0px solid #060d19;
+            font-family: 'M Plus Rounded 1c', sans-serif;
+            font-weight: 800;
+            font-size: xx-large;
+          "
+        >
+          Run 3
+        </p>
+        <p
+          style="
+            background-color: #060d19;
+            width: 760px;
+            padding: 10px;
+            margin-top: 0px;
+            padding-left: 30px;
+            border-radius: 10px;
+            outline: 0px solid #060d19;
+            font-family: 'M Plus Rounded 1c', sans-serif;
+            font-weight: 400;
+            font-size: medium;
+            padding-bottom: 20px;
+            padding-top: 20px;
+          "
+        >
+          <b><font size="5">Instructions</font></b>
+          <br />
+          <br />
+          There's a whole new galaxy waiting to be explored! Use the arrow keys
+          to run and jump through the space tunnels. Use the left and right
+          arrow keys to rotate the world as you go.
+          <br />
+          <br />
+          There are two ways you can play Run 3: Explore Mode and Infinite Mode.
+          To add more levels to your Galaxy Map, choose Explore Mode. The Runner
+          will encounter lots of new tunnels and areas, and may bump into some
+          friends along the way!
+          <br />
+          <br />
+          For an endless run, choose Infinite Mode. You'll find power cells
+          scattered across the tunnels in this mode. You'll have to watch your
+          step though! If you fall out of the tunnel in Infinite Mode, it's game
+          over. You can use power cells to continue your run with a new
+          character.
+          <br />
+          <br />
+          <b><font size="4">RUN 3 TIPS & TRICKS</font></b>
+          <br />
+          <br />
+          With all of the levels and characters in Run 3, it can get
+          overwhelming while playing. Check out a few tips to help you succeed
+          right off the bat.
+          <br />
+          <br />
+          <b><font size="3">New aliens, new tricks</font></b>
+          <br />
+          <br />
+          There are 9 characters you can unlock as you play through the levels.
+          If you save up enough power cells, you can unlock new characters right
+          away! Each alien has their own set of skills that will help you
+          navigate the galaxy. If you find yourself stuck in a tricky tunnel,
+          try swapping out your character for a new one. For example, the Skater
+          will perform better in the snow levels!
+          <br />
+          <br />
+          <b><font size="3">Control your jumps</font></b>
+          <br />
+          <br />
+          The longer you hold down the up arrow key, the higher and longer
+          you'll jump. For platforms with a small gap in between, try tapping
+          the up arrow to make a small jump. This technique can help you avoid
+          overshooting your landing.
+          <br />
+          <br />
+          <b><font size="3">Look ahead</font></b>
+          <br />
+          <br />
+          Put your focus on the platforms just ahead of your character. Take
+          note of all the different sides of the tunnel to plan your next jumps.
+          This should help you determine which way to turn the tunnels so that
+          your character has plenty of space to run.
+          <br />
+          <br />
+          <b><font size="3">Infinite practice</font></b>
+          <br />
+          <br />
+          Infinite Mode is great for collecting power cells to unlock
+          characters, but it can also be great for practice too! If you're stuck
+          on a level on the galaxy map, try a few runs through the infinite
+          tunnels. The tunnels won't be the same every time, so you'll get a
+          good feel for the different obstacles.
+          <br />
+          <br />
+          <b><font size="4">Can you still play Run 3 without Flash?</font></b>
+          <br />
+          <br />
+          Run 3 is playable without flash, as well as the original Run game.
+          Getting these games up after Adobe Flash Player was no longer
+          supported has been a priority of ours. We have converted it from Flash
+          to HTML, along with roughly 100 other games.
+          <br />
+          <br />
+          <b><font size="3">How old is Run 3?</font></b>
+          <br />
+          <br />
+          Run 3 came out about a decade ago, somewhere between 2013 and 2014
+          depending on who you ask. While it didn't get uploaded to Coolmath
+          Games until 2017, it became an instant hit once it was published on
+          the website. Fans tend to be drawn to this game for its fast-paced
+          gameplay and creative characters, even years after it was first put on
+          our site.
+          <br />
+          <br />
+          <b><font size="3">Is the Run 3 Character a girl?</font></b>
+          <br />
+          <br />
+          Yes, the first Run 3 character that you start out with, Runner, is a
+          girl. As you proceed through the game you will get all sorts of
+          different characters such as Skater, Lizard, and Bunny. Utilize all of
+          their unique abilities in order to succeed in this popular platformer
+          game.
+        </p>
+      </div>
+    </div>
+  </body>
+</html>
