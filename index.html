@@ -1,158 +1,238 @@
 <html>
-  <head>
-    <style>
-      @import url("https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;800;900&display=swap");
-      
-      body {
-        margin: 0;
-        padding: 0;
-        background-color: #16202c;
-      }
+<head>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;800;900&display=swap");
+    
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #16202c;
+    }
 
-      .top {
-        position: flex;
-        top: 0;
-        left: 0;
-        padding: 0px;
-        padding-top: 20px;
-        padding-bottom: 20px;
-        width: 100vw;
-        height: auto;
-        background-color: #2a455d;
-        align-items: center;
-        align-content: center;
-        text-align: center;
-      }
+    .top {
+      position: flex;
+      top: 0;
+      left: 0;
+      padding: 0px;
+      padding-top: 20px;
+      padding-bottom: 20px;
+      width: 100vw;
+      height: auto;
+      background-color: #2a455d;
+      align-items: center;
+      align-content: center;
+      text-align: center;
+    }
 
-      .bodya {
-        padding-left: 15px;
-        padding-right: 15px;
-        margin-top: 120px; /* Adjust the margin-top value as needed */
-        margin-left: 20px;
-        margin-right: 20px;
-        color: white;
-        text-decoration-color: white;
-        background-color: #16202c;
-        align-items: center;
-        align-content: center;
-      }
+    .bodya {
+      padding-left: 15px;
+      padding-right: 15px;
+      margin-top: 120px; /* Adjust the margin-top value as needed */
+      margin-left: 20px;
+      margin-right: 20px;
+      color: white;
+      text-decoration-color: white;
+      background-color: #16202c;
+      align-items: center;
+      align-content: center;
+    }
 
-      .list-title {
-        padding: 2.5px 17px;
-        margin-top: -100px;
-        padding-bottom: -40px;
-        border-radius: 10px;
-        padding-right: 80px;
-        margin-bottom: 40px;
-        background-color: #e14603;
-        font-size: larger;
-        font-weight: 900;
-        border: none;
-        resize: none;
-        width: 200px;
-        height: auto;
-        font-family: "M Plus Rounded 1c", sans-serif;
-      }
+    .list-title {
+      padding: 2.5px 17px;
+      margin-top: -100px;
+      padding-bottom: -40px;
+      border-radius: 10px;
+      padding-right: 110px;
+      margin-bottom: 40px;
+      background-color: #e14603;
+      font-size: larger;
+      font-weight: 900;
+      border: none;
+      resize: none;
+      width: 200px;
+      height: auto;
+      font-family: "M Plus Rounded 1c", sans-serif;
+    }
 
-      .list {
-        margin-top: -20px;
-        border-radius: 5px;
-        display: flex;
-        align-items: center;
-      }
+    .list {
+      margin-top: -20px;
+      border-radius: 5px;
+      display: flex;
+      align-items: center;
+    }
 
-      .list-img2 {
-        border: 1px solid #e14603;
-        margin-top: -13px;
-        border-radius: 5px;
-        display: flex;
-        align-items: center;
-      }
+    .list-img2 {
+      border: 1px solid #e14603;
+      margin-top: -13px;
+      border-radius: 5px;
+      display: flex;
+      align-items: center;
+    }
 
-      .list-text {
-        text-align: left;
-        font-size: medium;
-        font-family: "M Plus Rounded 1c", sans-serif;
-        color: #ffaa23;
-        font-weight: 800;
-        text-decoration: none;
-      }
+    .list-text {
+      text-align: left;
+      font-size: medium;
+      font-family: "M Plus Rounded 1c", sans-serif;
+      color: #ffaa23;
+      font-weight: 800;
+      text-decoration: none;
+    }
 
-      .list-text.underline {
-        text-decoration: underline;
-      }
+    .list-text.underline {
+      text-decoration: underline;
+    }
 
-      .list-textb {
-        margin-top: -5px;
-        text-align: left;
-        font-size: small;
-        margin-left: 10px;
-        font-family: "M Plus Rounded 1c", sans-serif;
-        color: white;
-        font-weight: 400;
-      }
-    </style>
-    <script>
-      function highlightImage() {
-        var img = document.getElementById("list-img");
-        var litext = document.getElementById("list-text");
-        img.style.outline = "2px solid #e14603";
-        img.src = "images/games/run-3-zoom.png"; // Replace with the path to the new image file
-        litext.classList.add("underline"); // Add the "underline" class to the text
-      }
+    .list-textb {
+      margin-top: -5px;
+      text-align: left;
+      font-size: small;
+      margin-left: 10px;
+      font-family: "M Plus Rounded 1c", sans-serif;
+      color: white;
+      font-weight: 400;
+    }
+  </style>
+  <script>
+    function highlightImage1() {
+      var img = document.getElementById("list-img1");
+      var litext = document.getElementById("list-text1");
+      img.style.outline = "2px solid #e14603";
+      img.src = "images/games/run-3-zoom.png"; // Replace with the path to the new image file
+      litext.classList.add("underline"); // Add the "underline" class to the text
+    }
 
-      function removeHighlight() {
-        var img = document.getElementById("list-img");
-        var litext = document.getElementById("list-text");
-        img.style.outline = "none";
-        img.src = "images/games/run-3.png"; // Replace with the original image file path
-        litext.classList.remove("underline"); // Remove the "underline" class from the text
-      }
-    </script>
-  </head>
-  <body>
-    <div class="top">
-      <h1>
-        <a href="index.html">
-          <img
-            src="images/logo/Coolmath_Games_logo.png"
-            alt="logo"
-            width="410"
-            height="60"
-          />
-        </a>
-      </h1>
+    function removeHighlight1() {
+      var img = document.getElementById("list-img1");
+      var litext = document.getElementById("list-text1");
+      img.style.outline = "none";
+      img.src = "images/games/run-3.png"; // Replace with the original image file path
+      litext.classList.remove("underline"); // Remove the "underline" class from the text
+    }
+
+    function highlightImage2() {
+      var img = document.getElementById("list-img2");
+      var litext = document.getElementById("list-text2");
+      img.style.outline = "2px solid #e14603";
+      img.src = "images/games/moto-x3m-zoom.png"; // Replace with the path to the new image file
+      litext.classList.add("underline"); // Add the "underline" class to the text
+    }
+
+    function removeHighlight2() {
+      var img = document.getElementById("list-img2");
+      var litext = document.getElementById("list-text2");
+      img.style.outline = "none";
+      img.src = "images/games/moto-x3m.png"; // Replace with the original image file path
+      litext.classList.remove("underline"); // Remove the "underline" class from the text
+    }
+    
+    function highlightImage3() {
+      var img = document.getElementById("list-img3");
+      var litext = document.getElementById("list-text3");
+      img.style.outline = "2px solid #e14603";
+      img.src = "images/games/tomb-of-the-mask-zoom.png"; // Replace with the path to the new image file
+      litext.classList.add("underline"); // Add the "underline" class to the text
+    }
+
+    function removeHighlight3() {
+      var img = document.getElementById("list-img3");
+      var litext = document.getElementById("list-text3");
+      img.style.outline = "none";
+      img.src = "images/games/tomb-of-the-mask.png"; // Replace with the original image file path
+      litext.classList.remove("underline"); // Remove the "underline" class from the text
+    }
+  </script>
+</head>
+<body>
+  <div class="top">
+    <h1>
+      <a href="index.html">
+        <img
+          src="images/logo/Coolmath_Games_logo.png"
+          alt="logo"
+          width="410"
+          height="60"
+        />
+      </a>
+    </h1>
+  </div>
+  <div class="bodya">
+    <div class="list-title-b">
+      <p class="list-title">TOP 10 GAMES</p>
     </div>
-    <div class="bodya">
-      <div class="list-title-b">
-        <p class="list-title">TOP 10 GAMES</p>
-      </div>
-      <div class="list">
-        <a href="games/run-3.html">
-          <img
-            id="list-img"
-            class="list-img2"
-            src="images/games/run-3.png"
-            alt="Run 3 Logo Image"
-            width="90px"
-            onmouseover="highlightImage()"
-            onmouseout="removeHighlight()"
-          />
-        </a>
-        <p class="list-textb">
-          <a
-            href="games/run-3.html"
-            id="list-text"
-            class="list-text"
-            onmouseover="highlightImage()"
-            onmouseout="removeHighlight()"
-            >Run 3</a
-          ><br />
-          Run, skate and jump through a
-          <br />
-          brand new galaxy!
-        </p>
-      </div>
+    <div class="list">
+      <a href="games/run-3.html">
+        <img
+          id="list-img1"
+          class="list-img2"
+          src="images/games/run-3.png"
+          alt="Run 3 Logo Image"
+          width="90px"
+          onmouseover="highlightImage1()"
+          onmouseout="removeHighlight1()"
+        />
+      </a>
+      <p class="list-textb">
+        <a
+          href="games/run-3.html"
+          id="list-text1"
+          class="list-text"
+          onmouseover="highlightImage1()"
+          onmouseout="removeHighlight1()"
+          >Run 3</a
+        ><br />
+        Run, skate and jump through a brand <br />new galaxy!
+      </p>
     </div>
-  </body>
+    
+    <div class="list" style="margin-top: 10;">
+      <a href="games/moto-x3m.html">
+        <img
+          id="list-img2"
+          class="list-img2"
+          src="images/games/moto-x3m.png"
+          alt="Moto X3M Logo Image"
+          width="90px"
+          onmouseover="highlightImage2()"
+          onmouseout="removeHighlight2()"
+        />
+      </a>
+      <p class="list-textb">
+        <a
+          href="games/moto-x3m.html"
+          id="list-text2"
+          class="list-text"
+          onmouseover="highlightImage2()"
+          onmouseout="removeHighlight2()"
+          >Moto X3M</a
+        ><br />
+        Can you make it through the course?
+      </p>
+    </div>
+    
+    <div class="list" style="margin-top: 20;">
+      <a href="games/tomb-of-the-mask.html">
+        <img
+          id="list-img3"
+          class="list-img2"
+          src="images/games/tomb-of-the-mask.png"
+          alt="Some Other Game Logo Image"
+          width="90px"
+          onmouseover="highlightImage3()"
+          onmouseout="removeHighlight3()"
+        />
+      </a>
+      <p class="list-textb">
+        <a
+          href="games/tomb-of-the-mask.html"
+          id="list-text3"
+          class="list-text"
+          onmouseover="highlightImage3()"
+          onmouseout="removeHighlight3()"
+          >Tomb of the Mask</a
+        ><br />
+        unleash your inner explorer, and conquer an endless maze of obstacles.
+      </p>
+    </div>
+  </div>
+</body>
 </html>
