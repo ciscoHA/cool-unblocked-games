@@ -67,6 +67,23 @@
         box-shadow: 1px 1px 4px #2a455d; /* Add a box shadow for a smoother transition effect */
       }
     </style>
+    <script>
+      function toggleFullscreen() {
+        var iframe = document.getElementById("game-iframe");
+
+        if (!document.fullscreenElement) {
+          iframe.requestFullscreen().catch((err) => {
+            console.log(
+              `Error attempting to enable full-screen mode: ${err.message} (${err.name})`
+            );
+          });
+        } else {
+          if (document.exitFullscreen) {
+            document.exitFullscreen();
+          }
+        }
+      }
+    </script>
   </head>
 
   <body>
@@ -137,6 +154,7 @@
         "
       >
         <iframe
+        id="game-iframe"
           src="https://ciscoha.github.io/MotoX3M-fork/"
           width="798px"
           height="532px"
@@ -159,6 +177,24 @@
           "
         >
           Moto X3M
+          <button
+            style="
+              margin-left: 700px;
+              margin-top: -40px;
+              margin-bottom: auto;
+              background: none;
+              border: none;
+              padding: 0;
+            "
+            onclick="toggleFullscreen()"
+          >
+            <img
+              src="../images/icons/zoom.png"
+              alt="Fullscreen"
+              width="32"
+              height="32"
+            />
+          </button>
         </p>
         <p
           style="
