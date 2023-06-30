@@ -2,18 +2,18 @@
   <head>
     <style>
       @import url("https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;800;900&display=swap");
-
+    
       body,
       html {
         overflow-x: hidden;
       }
-
+    
       body {
         margin: 0;
         padding: 0;
         background-color: #16202c;
       }
-
+    
       .top {
         position: flex;
         top: 0;
@@ -28,43 +28,76 @@
         align-content: center;
         text-align: center;
       }
-
+    
       .bodya {
         padding-left: 15px;
         padding-right: 15px;
         margin-top: 120px; /* Adjust the margin-top value as needed */
-        margin-left: 20px;
-        margin-right: 20px;
+        margin-left: auto;
+        margin-right: auto;
         color: white;
         text-decoration-color: white;
         background-color: #16202c;
         align-items: center;
         align-content: center;
+        max-width: 800px;
       }
-
+    
       .centre {
         margin-left: 315px;
         margin-top: -120px;
         margin-bottom: 20px;
         padding: 12px;
       }
-
+    
       .suggest-img {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        overflow: hidden;
+        display: absolute;
+        margin-right: 10px;
         width: 100px;
         max-width: 100px;
         border-radius: 5px;
       }
-
+    
       #suggest-video {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        overflow: hidden;
+        display: absolute;
+        margin-right: 10px;
         width: 100px;
+        max-width: 100px;
         border-radius: 5px;
-        position: relative;
         transition: outline 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Add transition property for smooth animation */
       }
-
+    
       #suggest-video.playing {
         outline: 2px solid #3c97ee;
         box-shadow: 1px 1px 4px #2a455d; /* Add a box shadow for a smoother transition effect */
+      }
+    
+      .suggest-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        margin-left: -580px;
+      }
+    
+      .suggest-text {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        overflow: hidden;
+        display: absolute;
+        margin-left: -684px;
+        font-family: "M Plus Rounded 1c", sans-serif;
+        font-weight: 800;
       }
     </style>
     <script>
@@ -72,11 +105,13 @@
         var iframe = document.getElementById("game-iframe");
 
         if (!document.fullscreenElement) {
-          iframe.requestFullscreen().catch((err) => {
-            console.log(
-              `Error attempting to enable full-screen mode: ${err.message} (${err.name})`
-            );
-          });
+          iframe
+            .requestFullscreen()
+            .catch((err) => {
+              console.log(
+                `Error attempting to enable full-screen mode: ${err.message} (${err.name})`
+              );
+            });
         } else {
           if (document.exitFullscreen) {
             document.exitFullscreen();
@@ -100,14 +135,10 @@
       </h1>
     </div>
     <div class="bodya">
-      <div class="centre">
-        <p
-          style="font-family: 'M Plus Rounded 1c', sans-serif; font-weight: 800"
-        >
-          You'll Also Like
-        </p>
+      <p class="suggest-text">You'll Also Like</p>
+      <div class="suggest-container">
         <a href="../games/run-3.html">
-          <div style="position: relative; display: inline-block">
+          <div style="position: relative; display: block">
             <img
               class="suggest-img"
               src="../images/games/run-3-preview.png"
@@ -115,33 +146,72 @@
             />
           </div>
         </a>
-
         <script>
           // Get the image element
-          var image = document.querySelector(".suggest-img");
+          var image1 = document.querySelector(".suggest-img");
 
           // Create a video element
-          var video = document.createElement("video");
-          video.src = "../images/games/run-3-preview-video.mp4"; // Replace with the actual path to your video file
-          video.loop = true;
-          video.id = "suggest-video"; // Add an ID to the video element
+          var video1 = document.createElement("video");
+          video1.src =
+            "../images/games/run-3-preview-video.mp4"; // Replace with the actual path to your video file
+          video1.loop = true;
+          video1.id = "suggest-video"; // Add an ID to the video element
 
           // Add event listeners for hover
-          image.addEventListener("mouseenter", function () {
+          image1.addEventListener("mouseenter", function () {
             // Replace the image with the video
-            image.parentNode.replaceChild(video, image);
+            image1.parentNode.replaceChild(video1, image1);
 
             // Play the video from the beginning
-            video.currentTime = 0;
-            video.play();
-            video.classList.add("playing"); // Add the 'playing' class to apply the outline and box shadow
+            video1.currentTime = 0;
+            video1.play();
+            video1.classList.add("playing"); // Add the 'playing' class to apply the outline and box shadow
           });
 
-          video.addEventListener("mouseleave", function () {
+          video1.addEventListener("mouseleave", function () {
             // Replace the video with the image
-            video.parentNode.replaceChild(image, video);
-            video.pause();
-            video.classList.remove("playing"); // Remove the 'playing' class to remove the outline and box shadow
+            video1.parentNode.replaceChild(image1, video1);
+            video1.pause();
+            video1.classList.remove("playing"); // Remove the 'playing' class to remove the outline and box shadow
+          });
+        </script>
+
+        <a href="../games/tomb-of-the-mask.html">
+          <div style="position: relative; display: block">
+            <img
+              class="suggest-img"
+              src="../images/games/tomb-of-the-mask-preview.png"
+              alt="Image"
+            />
+          </div>
+        </a>
+        <script>
+          // Get the image element
+          var image2 = document.querySelectorAll(".suggest-img")[1];
+
+          // Create a video element
+          var video2 = document.createElement("video");
+          video2.src =
+            "../images/games/tomb-of-the-mask-preview-video.mp4"; // Replace with the actual path to your video file
+          video2.loop = true;
+          video2.id = "suggest-video"; // Add an ID to the video element
+
+          // Add event listeners for hover
+          image2.addEventListener("mouseenter", function () {
+            // Replace the image with the video
+            image2.parentNode.replaceChild(video2, image2);
+
+            // Play the video from the beginning
+            video2.currentTime = 0;
+            video2.play();
+            video2.classList.add("playing"); // Add the 'playing' class to apply the outline and box shadow
+          });
+
+          video2.addEventListener("mouseleave", function () {
+            // Replace the video with the image
+            video2.parentNode.replaceChild(image2, video2);
+            video2.pause();
+            video2.classList.remove("playing"); // Remove the 'playing' class to remove the outline and box shadow
           });
         </script>
       </div>
@@ -154,10 +224,10 @@
         "
       >
         <iframe
-        id="game-iframe"
+          id="game-iframe"
           src="https://ciscoha.github.io/MotoX3M-fork/"
-          width="798px"
-          height="532px"
+          width="800px"
+          height="533px"
           frameborder="0"
           style="display: block; border: 0px solid #060d19"
         ></iframe>
