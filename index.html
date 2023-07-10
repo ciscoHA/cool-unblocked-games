@@ -1,238 +1,650 @@
+<!DOCTYPE html>
 <html>
   <head>
+    <title>Cool Unblocked Games</title>
+    <link rel="icon" href="/favicon-16.png" sizes="16x16" />
+    <link rel="icon" href="/favicon-32.png" sizes="32x32" />
+    <link rel="icon" href="/favicon-64.png" sizes="64x64" />
+    <link rel="icon" href="/favicon-128.png" sizes="128x128" />
     <style>
       @import url("https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;800;900&display=swap");
+      @import url("https://fonts.googleapis.com/css2?family=Rubik+Spray+Paint&display=swap");
+
+      .left {
+        margin-right: 0px;
+      }
+
+      .right {
+        margin-left: 15px;
+      }
+
+      a {
+        text-decoration: none !important;
+      }
 
       body {
         margin: 0;
         padding: 0;
-        background-color: #16202c;
+        font-family: Arial, sans-serif;
+        background-image: url("blank.png");
+        background-color: #141414;
       }
 
-      .top {
-        position: flex;
-        top: 0;
-        left: 0;
-        padding: 0px;
-        padding-top: 20px;
-        padding-bottom: 20px;
-        width: 100vw;
-        height: auto;
-        background-color: #2a455d;
-        align-items: center;
-        align-content: center;
-        text-align: center;
-      }
-
-      .bodya {
-        padding-left: 15px;
-        padding-right: 15px;
-        margin-top: 120px; /* Adjust the margin-top value as needed */
-        margin-left: 20px;
-        margin-right: 20px;
-        color: white;
-        text-decoration-color: white;
-        background-color: #16202c;
-        align-items: center;
-        align-content: center;
-      }
-
-      .list-title {
-        padding: 2.5px 17px;
-        margin-top: -100px;
-        padding-bottom: -40px;
-        border-radius: 10px;
-        padding-right: 110px;
-        margin-bottom: 40px;
-        background-color: #e14603;
-        font-size: larger;
-        font-weight: 900;
-        border: none;
-        resize: none;
-        width: 200px;
-        height: auto;
+      .navbar {
         font-family: "M Plus Rounded 1c", sans-serif;
-      }
-
-      .list {
-        margin-top: -20px;
-        border-radius: 5px;
+        font-weight: bold;
+        font-size: large;
+        background-color: #70d3dc;
+        width: 100%;
         display: flex;
+        flex-direction: column;
         align-items: center;
+        padding-top: 10px;
+        padding-bottom: 10px;
       }
 
-      .list-img2 {
-        border: 1px solid #e14603;
-        margin-top: -13px;
-        border-radius: 5px;
-        display: flex;
-        align-items: center;
-      }
-
-      .list-text {
-        text-align: left;
-        font-size: medium;
-        font-family: "M Plus Rounded 1c", sans-serif;
-        color: #ffaa23;
-        font-weight: 800;
-        text-decoration: none;
-      }
-
-      .list-text.underline {
-        text-decoration: underline;
-      }
-
-      .list-textb {
+      .logo {
         margin-top: -5px;
-        text-align: left;
-        font-size: small;
-        margin-left: 10px;
-        font-family: "M Plus Rounded 1c", sans-serif;
+        margin-bottom: 0px;
+      }
+
+      .navbar-menu {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .navbar-menu a {
+        display: block;
+        color: #3c3c3c;
+        text-align: center;
+        padding: 5px 10px;
+        margin-right: 5px;
+        margin-left: 5px;
+        text-decoration: none;
+        border: 2px solid transparent;
+        border-radius: 10px;
+      }
+
+      .navbar-menu a:hover {
+        outline: 5px solid #3c3c3c;
+      }
+
+      .suggest-game {
+        padding: 10px;
+        margin-top: 10px;
+      }
+
+      .suggest-game a {
+        display: block;
+        text-decoration: none;
         color: white;
-        font-weight: 400;
+        font-size: large;
+        margin-top: 5px;
+      }
+
+      .suggest-game img {
+        margin-bottom: -5px;
+        border-radius: 5px;
+        width: 249px;
+        height: 140px;
+        border: #141414 solid 4px;
+      }
+
+      span {
+        font-size: large;
+      }
+
+      .suggest-text.underline {
+        text-decoration: underline !important;
+      }
+
+      .game-list {
+        margin-top: -15px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
       }
     </style>
     <script>
-      function highlightImage1() {
-        var img = document.getElementById("list-img1");
-        var litext = document.getElementById("list-text1");
-        img.style.outline = "2px solid #e14603";
-        img.src = "images/games/run-3-zoom.png"; // Replace with the path to the new image file
-        litext.classList.add("underline"); // Add the "underline" class to the text
+      function goToRandomPage() {
+        var pages = [
+          "/games/drive-mad.html",
+          "/games/getaway-shootout.html",
+          "/games/jelly-truck.html",
+          "/games/moto-x3m-pool-party.html",
+          "/games/moto-x3m-winter.html",
+          "/games/moto-x3m.html",
+          "/games/run-3.html",
+          "/games/slope.html",
+          "/games/stack.html",
+          "/games/tomb-of-the-mask.html",
+        ];
+
+        var randomIndex = Math.floor(Math.random() * pages.length);
+
+        var randomPage = pages[randomIndex];
+
+        window.location.href = randomPage;
       }
 
-      function removeHighlight1() {
-        var img = document.getElementById("list-img1");
-        var litext = document.getElementById("list-text1");
-        img.style.outline = "none";
-        img.src = "images/games/run-3.png"; // Replace with the original image file path
-        litext.classList.remove("underline"); // Remove the "underline" class from the text
+      function highlightImage(elementId, textClass) {
+        var img = document.getElementById(elementId);
+        var litext = document.getElementsByClassName(textClass)[0];
+        img.style.outline = "5px solid #70d3dc";
+        litext.classList.add("underline");
       }
 
-      function highlightImage2() {
-        var img = document.getElementById("list-img2");
-        var litext = document.getElementById("list-text2");
-        img.style.outline = "2px solid #e14603";
-        img.src = "images/games/moto-x3m-zoom.png"; // Replace with the path to the new image file
-        litext.classList.add("underline"); // Add the "underline" class to the text
+      function removeHighlight(elementId, textClass) {
+        var img = document.getElementById(elementId);
+        var litext = document.getElementsByClassName(textClass)[0];
+        img.style.outline = "3px solid #70d3dc";
+        litext.classList.remove("underline");
       }
 
-      function removeHighlight2() {
-        var img = document.getElementById("list-img2");
-        var litext = document.getElementById("list-text2");
-        img.style.outline = "none";
-        img.src = "images/games/moto-x3m.png"; // Replace with the original image file path
-        litext.classList.remove("underline"); // Remove the "underline" class from the text
+      function highlightImage2(elementId, textClass) {
+        var img = document.getElementById(elementId);
+        var litext = document.getElementsByClassName(textClass)[0];
+        img.style.outline = "6px solid #dc7070";
+        img.style.transition = "outline-width 0.2s";
+        litext.classList.add("underline");
       }
 
-      function highlightImage3() {
-        var img = document.getElementById("list-img3");
-        var litext = document.getElementById("list-text3");
-        img.style.outline = "2px solid #e14603";
-        img.src = "images/games/tomb-of-the-mask-zoom.png"; // Replace with the path to the new image file
-        litext.classList.add("underline"); // Add the "underline" class to the text
+      function removeHighlight2(elementId, textClass) {
+        var img = document.getElementById(elementId);
+        var litext = document.getElementsByClassName(textClass)[0];
+        img.style.outline = "3px solid #dc7070";
+        img.style.transition = "outline-width 0.2s";
+        litext.classList.remove("underline");
       }
 
-      function removeHighlight3() {
-        var img = document.getElementById("list-img3");
-        var litext = document.getElementById("list-text3");
-        img.style.outline = "none";
-        img.src = "images/games/tomb-of-the-mask.png"; // Replace with the original image file path
-        litext.classList.remove("underline"); // Remove the "underline" class from the text
+      function highlightImage3(elementId, textClass) {
+        var img = document.getElementById(elementId);
+        var litext = document.getElementsByClassName(textClass)[0];
+        img.style.outline = "6px solid #c370dc";
+        litext.classList.add("underline");
+      }
+
+      function removeHighlight3(elementId, textClass) {
+        var img = document.getElementById(elementId);
+        var litext = document.getElementsByClassName(textClass)[0];
+        img.style.outline = "3px solid #c370dc";
+        litext.classList.remove("underline");
       }
     </script>
   </head>
+
   <body>
-    <div class="top">
-      <h1>
-        <a href="index.html">
-          <img
-            src="images/logo/Coolmath_Games_logo.png"
-            alt="logo"
-            width="410"
-            height="60"
-          />
+    <div class="navbar">
+      <div class="logo">
+        <a
+          style="
+            text-align: left;
+            text-decoration: none;
+            font-size: 310%;
+            color: #3c3c3c;
+            font-family: 'Rubik Vinyl';
+            font-weight: bold;
+          "
+          href="#"
+        >
+          Cool Unblocked Games
         </a>
-      </h1>
-    </div>
-    <div class="bodya">
-      <div class="list-title-b">
-        <p class="list-title">TOP 10 GAMES</p>
       </div>
-      <div class="list">
+      <div class="navbar-menu">
+        <a href="#popular-games">Popular</a>
+        <a href="#multiplayer-games">Multiplayer</a>
+        <a href="#" onclick="goToRandomPage()">Random</a>
+        <a href="about.html">Contact</a>
+      </div>
+    </div>
+    <p
+      style="
+        text-align: center;
+        color: #dc7070;
+        font-family: 'M Plus Rounded 1c', sans-serif;
+        font-weight: bold;
+        font-size: x-large;
+        border-radius: 0px;
+        padding-top: 0%;
+        margin-right: 40%;
+        margin-left: 40%;
+        outline: #dc7070 solid 4px;
+        border-radius: 5px;
+      "
+    >
+      Featured Games
+    </p>
+    <div
+      class="game-list"
+      style="
+        font-family: 'M Plus Rounded 1c', sans-serif;
+        font-weight: bold;
+        text-align: center;
+        align-items: center;
+        align-content: center;
+        border-radius: 10px;
+      "
+    >
+      <div class="suggest-game">
         <a href="games/run-3.html">
           <img
-            id="list-img1"
-            class="list-img2"
-            src="images/games/run-3.png"
-            alt="Run 3 Logo Image"
-            width="90px"
-            onmouseover="highlightImage1()"
-            onmouseout="removeHighlight1()"
+            style="outline: 3px solid #dc7070; border: 1px solid #dc7070"
+            id="suggest-img1"
+            onmouseover="highlightImage2('suggest-img1', 'suggest-text1')"
+            onmouseout="removeHighlight2('suggest-img1', 'suggest-text1')"
+            src="images/games/list/run-3.png"
+            alt="Run 3"
           />
         </a>
-        <p class="list-textb">
-          <a
-            href="games/run-3.html"
-            id="list-text1"
-            class="list-text"
-            onmouseover="highlightImage1()"
-            onmouseout="removeHighlight1()"
-            >Run 3</a
-          ><br />
-          Run, skate and jump through a brand <br />new galaxy!
-        </p>
+        <a
+          href="games/run-3.html"
+          class="suggest-text suggest-text1"
+          onmouseover="highlightImage2('suggest-img1', 'suggest-text1')"
+          onmouseout="removeHighlight2('suggest-img1', 'suggest-text1')"
+        >
+          <span>Run 3</span>
+        </a>
       </div>
-
-      <div class="list" style="margin-top: 10">
+      <div class="suggest-game">
+        <a href="games/jelly-truck.html">
+          <img
+            style="outline: 3px solid #dc7070; border: 1px solid #dc7070"
+            id="suggest-img2"
+            onmouseover="highlightImage2('suggest-img2', 'suggest-text2')"
+            onmouseout="removeHighlight2('suggest-img2', 'suggest-text2')"
+            src="images/games/list/jelly-truck.png"
+            alt="Jelly Truck"
+          />
+        </a>
+        <a
+          href="games/jelly-truck.html"
+          class="suggest-text suggest-text2"
+          onmouseover="highlightImage2('suggest-img2', 'suggest-text2')"
+          onmouseout="removeHighlight2('suggest-img2', 'suggest-text2')"
+        >
+          <span>Jelly Truck</span>
+        </a>
+      </div>
+      <div class="suggest-game">
         <a href="games/moto-x3m.html">
           <img
-            id="list-img2"
-            class="list-img2"
-            src="images/games/moto-x3m.png"
-            alt="Moto X3M Logo Image"
-            width="90px"
-            onmouseover="highlightImage2()"
-            onmouseout="removeHighlight2()"
+            style="outline: 3px solid #dc7070; border: 1px solid #dc7070"
+            id="suggest-img3"
+            onmouseover="highlightImage2('suggest-img3', 'suggest-text3')"
+            onmouseout="removeHighlight2('suggest-img3', 'suggest-text3')"
+            src="images/games/list/moto-x3m.png"
+            alt="Moto X3M"
           />
         </a>
-        <p class="list-textb">
-          <a
-            href="games/moto-x3m.html"
-            id="list-text2"
-            class="list-text"
-            onmouseover="highlightImage2()"
-            onmouseout="removeHighlight2()"
-            >Moto X3M</a
-          ><br />
-          Can you make it through the course?
-        </p>
+        <a
+          href="games/moto-x3m.html"
+          class="suggest-text suggest-text3"
+          onmouseover="highlightImage2('suggest-img3', 'suggest-text3')"
+          onmouseout="removeHighlight2('suggest-img3', 'suggest-text3')"
+        >
+          <span>Moto X3M</span>
+        </a>
       </div>
-
-      <div class="list" style="margin-top: 20">
+      <div class="suggest-game">
+        <a href="games/getaway-shootout.html">
+          <img
+            style="outline: 3px solid #dc7070; border: 1px solid #dc7070"
+            id="suggest-img4"
+            onmouseover="highlightImage2('suggest-img4', 'suggest-text4')"
+            onmouseout="removeHighlight2('suggest-img4', 'suggest-text4')"
+            src="images/games/list/getaway-shootout.png"
+            alt="Getaway Shootout"
+          />
+        </a>
+        <a
+          href="games/getaway-shootout.html"
+          class="suggest-text suggest-text4"
+          onmouseover="highlightImage2('suggest-img4', 'suggest-text4')"
+          onmouseout="removeHighlight2('suggest-img4', 'suggest-text4')"
+        >
+          <span style="text-decoration: #c370dc underline"
+            >Getaway Shootout</span
+          >
+        </a>
+      </div>
+    </div>
+    <div
+      class="news"
+      style="
+        background-color: #70d3dc;
+        text-align: center;
+        color: #3c3c3c;
+        border-radius: 0px;
+        padding-top: 0%;
+        width: 1080px;
+        border-radius: 5px;
+        margin-left: auto;
+        margin-right: auto;
+        padding-bottom: 15px;
+        margin-top: -20px;
+        margin-bottom: 30px;
+      "
+    >
+      <p
+        style="
+          font-family: 'Rubik Vinyl';
+          font-weight: bold;
+          font-size: xx-large;
+        "
+      >
+        News
+      </p>
+      <p
+        style="
+          font-family: 'M Plus Rounded 1c', sans-serif;
+          font-weight: bold;
+          font-size: large;
+          margin-top: -15px;
+          margin-bottom: -5px;
+        "
+      >
+        this website is so cool<br /><a
+          style="text-decoration: underline !important; color: #3c3c3c"
+          href="https://ciscoha.github.io/turbo-octo-memory/"
+          >Alternative Website Link</a
+        >
+      </p>
+    </div>
+    <p
+      id="popular-games"
+      style="
+        text-align: center;
+        color: #70d3dc;
+        font-family: 'M Plus Rounded 1c', sans-serif;
+        font-weight: bold;
+        font-size: x-large;
+        border-radius: 0px;
+        padding-top: 0%;
+        margin-right: 40%;
+        margin-left: 40%;
+        outline: #70d3dc solid 4px;
+        border-radius: 5px;
+      "
+    >
+      Popular Games
+    </p>
+    <div
+      class="game-list"
+      style="
+        font-family: 'M Plus Rounded 1c', sans-serif;
+        font-weight: bold;
+        text-align: center;
+        align-items: center;
+        align-content: center;
+        border-radius: 10px;
+      "
+    >
+      <div class="suggest-game">
+        <a href="games/run-3.html">
+          <img
+            style="outline: 3px solid #70d3dc; border: 1px solid #70d3dc"
+            id="suggest-img5"
+            onmouseover="highlightImage('suggest-img5', 'suggest-text5')"
+            onmouseout="removeHighlight('suggest-img5', 'suggest-text5')"
+            src="images/games/list/run-3.png"
+            alt="Run 3"
+          />
+        </a>
+        <a
+          href="games/run-3.html"
+          class="suggest-text suggest-text5"
+          onmouseover="highlightImage('suggest-img5', 'suggest-text5')"
+          onmouseout="removeHighlight('suggest-img5', 'suggest-text5')"
+        >
+          <span>Run 3</span>
+        </a>
+      </div>
+      <div class="suggest-game">
+        <a href="games/slope.html">
+          <img
+            style="outline: 3px solid #70d3dc; border: 1px solid #70d3dc"
+            id="suggest-img6"
+            onmouseover="highlightImage('suggest-img6', 'suggest-text6')"
+            onmouseout="removeHighlight('suggest-img6', 'suggest-text6')"
+            src="images/games/list/slope.png"
+            alt="Slope"
+          />
+        </a>
+        <a
+          href="games/slope.html"
+          class="suggest-text suggest-text6"
+          onmouseover="highlightImage('suggest-img6', 'suggest-text6')"
+          onmouseout="removeHighlight('suggest-img6', 'suggest-text6')"
+        >
+          <span>Slope</span>
+        </a>
+      </div>
+      <div class="suggest-game">
+        <a href="games/drive-mad.html">
+          <img
+            style="outline: 3px solid #70d3dc; border: 1px solid #70d3dc"
+            id="suggest-img7"
+            onmouseover="highlightImage('suggest-img7', 'suggest-text7')"
+            onmouseout="removeHighlight('suggest-img7', 'suggest-text7')"
+            src="images/games/list/drive-mad.png"
+            alt="Drive Mad"
+          />
+        </a>
+        <a
+          href="games/drive-mad.html"
+          class="suggest-text suggest-text7"
+          onmouseover="highlightImage('suggest-img7', 'suggest-text7')"
+          onmouseout="removeHighlight('suggest-img7', 'suggest-text7')"
+        >
+          <span>Drive Mad</span>
+        </a>
+      </div>
+      <div class="suggest-game">
         <a href="games/tomb-of-the-mask.html">
           <img
-            id="list-img3"
-            class="list-img2"
-            src="images/games/tomb-of-the-mask.png"
-            alt="Some Other Game Logo Image"
-            width="90px"
-            onmouseover="highlightImage3()"
-            onmouseout="removeHighlight3()"
+            style="outline: 3px solid #70d3dc; border: 1px solid #70d3dc"
+            id="suggest-img8"
+            onmouseover="highlightImage('suggest-img8', 'suggest-text8')"
+            onmouseout="removeHighlight('suggest-img8', 'suggest-text8')"
+            src="images/games/list/tomb-of-the-mask.png"
+            alt="Tomb of the Mask"
           />
         </a>
-        <p class="list-textb">
-          <a
-            href="games/tomb-of-the-mask.html"
-            id="list-text3"
-            class="list-text"
-            onmouseover="highlightImage3()"
-            onmouseout="removeHighlight3()"
-            >Tomb of the Mask</a
-          ><br />
-          unleash your inner explorer, and <br />
-          conquer an endless maze of obstacles!
-        </p>
+        <a
+          href="games/tomb-of-the-mask.html"
+          class="suggest-text suggest-text8"
+          onmouseover="highlightImage('suggest-img8', 'suggest-text8')"
+          onmouseout="removeHighlight('suggest-img8', 'suggest-text8')"
+        >
+          <span>Tomb of the Mask</span>
+        </a>
+      </div>
+      <div class="suggest-game">
+        <a href="games/getaway-shootout.html">
+          <img
+            style="outline: 3px solid #70d3dc; border: 1px solid #70d3dc"
+            id="suggest-img9"
+            onmouseover="highlightImage('suggest-img9', 'suggest-text9')"
+            onmouseout="removeHighlight('suggest-img9', 'suggest-text9')"
+            src="images/games/list/getaway-shootout.png"
+            alt="Getaway Shootout"
+          />
+        </a>
+        <a
+          href="games/getaway-shootout.html"
+          class="suggest-text suggest-text9"
+          onmouseover="highlightImage('suggest-img9', 'suggest-text9')"
+          onmouseout="removeHighlight('suggest-img9', 'suggest-text9')"
+        >
+          <span style="text-decoration: #c370dc underline"
+            >Getaway Shootout</span
+          >
+        </a>
+      </div>
+    </div>
+    <div
+      class="game-list"
+      style="
+        font-family: 'M Plus Rounded 1c', sans-serif;
+        font-weight: bold;
+        text-align: center;
+        align-items: center;
+        align-content: center;
+        border-radius: 10px;
+      "
+    >
+      <div class="suggest-game">
+        <a href="games/moto-x3m.html">
+          <img
+            style="outline: 3px solid #70d3dc; border: 1px solid #70d3dc"
+            id="suggest-img10"
+            onmouseover="highlightImage('suggest-img10', 'suggest-text10')"
+            onmouseout="removeHighlight('suggest-img10', 'suggest-text10')"
+            src="images/games/list/moto-x3m.png"
+            alt="Moto X3M"
+          />
+        </a>
+        <a
+          href="games/moto-x3m.html"
+          class="suggest-text suggest-text10"
+          onmouseover="highlightImage('suggest-img10', 'suggest-text10')"
+          onmouseout="removeHighlight('suggest-img10', 'suggest-text10')"
+        >
+          <span>Moto X3M</span>
+        </a>
+      </div>
+      <div class="suggest-game">
+        <a href="games/moto-x3m-winter.html">
+          <img
+            style="outline: 3px solid #70d3dc; border: 1px solid #70d3dc"
+            id="suggest-img11"
+            onmouseover="highlightImage('suggest-img11', 'suggest-text11')"
+            onmouseout="removeHighlight('suggest-img11', 'suggest-text11')"
+            src="images/games/list/moto-x3m-winter.png"
+            alt="Moto X3M Winter"
+          />
+        </a>
+        <a
+          href="games/moto-x3m-winter.html"
+          class="suggest-text suggest-text11"
+          onmouseover="highlightImage('suggest-img11', 'suggest-text11')"
+          onmouseout="removeHighlight('suggest-img11', 'suggest-text11')"
+        >
+          <span>Moto X3M Winter</span>
+        </a>
+      </div>
+      <div class="suggest-game">
+        <a href="games/moto-x3m-pool-party.html">
+          <img
+            style="outline: 3px solid #70d3dc; border: 1px solid #70d3dc"
+            id="suggest-img12"
+            onmouseover="highlightImage('suggest-img12', 'suggest-text12')"
+            onmouseout="removeHighlight('suggest-img12', 'suggest-text12')"
+            src="images/games/list/moto-x3m-pool-party.png"
+            alt="Moto X3M Pool Party"
+          />
+        </a>
+        <a
+          href="games/moto-x3m-pool-party.html"
+          class="suggest-text suggest-text12"
+          onmouseover="highlightImage('suggest-img12', 'suggest-text12')"
+          onmouseout="removeHighlight('suggest-img12', 'suggest-text12')"
+        >
+          <span>Moto X3M Pool Party</span>
+        </a>
+      </div>
+      <div class="suggest-game">
+        <a href="games/jelly-truck.html">
+          <img
+            style="outline: 3px solid #70d3dc; border: 1px solid #70d3dc"
+            id="suggest-img13"
+            onmouseover="highlightImage('suggest-img13', 'suggest-text13')"
+            onmouseout="removeHighlight('suggest-img13', 'suggest-text13')"
+            src="images/games/list/jelly-truck.png"
+            alt="Moto X3M Pool Party"
+          />
+        </a>
+        <a
+          href="games/jelly-truck.html"
+          class="suggest-text suggest-text13"
+          onmouseover="highlightImage('suggest-img13', 'suggest-text13')"
+          onmouseout="removeHighlight('suggest-img13', 'suggest-text13')"
+        >
+          <span>Jelly Truck</span>
+        </a>
+      </div>
+      <div class="suggest-game">
+        <a href="games/stack.html">
+          <img
+            style="outline: 3px solid #70d3dc; border: 1px solid #70d3dc"
+            id="suggest-img14"
+            onmouseover="highlightImage('suggest-img14', 'suggest-text14')"
+            onmouseout="removeHighlight('suggest-img14', 'suggest-text14')"
+            src="images/games/list/stack.png"
+            alt="Stack"
+          />
+        </a>
+        <a
+          href="games/stack.html"
+          class="suggest-text suggest-text14"
+          onmouseover="highlightImage('suggest-img14', 'suggest-text14')"
+          onmouseout="removeHighlight('suggest-img14', 'suggest-text14')"
+        >
+          <span>Stack</span>
+        </a>
+      </div>
+    </div>
+    <p
+      id="multiplayer-games"
+      style="
+        text-align: center;
+        color: #c370dc;
+        font-family: 'M Plus Rounded 1c', sans-serif;
+        font-weight: bold;
+        font-size: x-large;
+        border-radius: 0px;
+        padding-top: 0%;
+        margin-right: 40%;
+        margin-left: 40%;
+        outline: #c370dc solid 4px;
+        border-radius: 5px;
+      "
+    >
+      Multiplayer Games
+    </p>
+    <div
+      class="game-list"
+      style="
+        font-family: 'M Plus Rounded 1c', sans-serif;
+        font-weight: bold;
+        text-align: center;
+        align-items: center;
+        align-content: center;
+        border-radius: 10px;
+      "
+    >
+      <div class="suggest-game">
+        <a href="games/getaway-shootout.html">
+          <img
+            style="outline: 3px solid #c370dc; border: 1px solid #c370dc"
+            id="suggest-img15"
+            onmouseover="highlightImage3('suggest-img15', 'suggest-text15')"
+            onmouseout="removeHighlight3('suggest-img15', 'suggest-text15')"
+            src="images/games/list/getaway-shootout.png"
+            alt="Getaway Shootout"
+          />
+        </a>
+        <a
+          href="games/getaway-shootout.html"
+          class="suggest-text suggest-text15"
+          onmouseover="highlightImage3('suggest-img15', 'suggest-text15')"
+          onmouseout="removeHighlight3('suggest-img15', 'suggest-text15')"
+        >
+          <span style="text-decoration: #c370dc underline"
+            >Getaway Shootout</span
+          >
+        </a>
       </div>
     </div>
   </body>

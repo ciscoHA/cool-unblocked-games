@@ -1,117 +1,211 @@
+<!DOCTYPE html>
 <html>
   <head>
+    <title>Cool Unblocked Games</title>
+    <link rel="icon" href="/favicon-16.png" sizes="16x16" />
+    <link rel="icon" href="/favicon-32.png" sizes="32x32" />
+    <link rel="icon" href="/favicon-64.png" sizes="64x64" />
+    <link rel="icon" href="/favicon-128.png" sizes="128x128" />
     <style>
       @import url("https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;800;900&display=swap");
-    
-      body,
-      html {
-        overflow-x: hidden;
+      @import url("https://fonts.googleapis.com/css2?family=Rubik+Vinyl&display=swap");
+
+      .left {
+        margin-right: 0px;
       }
-    
+
+      .right {
+        margin-left: 15px;
+      }
+
+      a {
+        text-decoration: none !important;
+      }
+
       body {
         margin: 0;
         padding: 0;
-        background-color: #16202c;
+        font-family: Arial, sans-serif;
+        background-image: url("blank.png");
+        background-color: #141414;
       }
-    
-      .top {
-        position: flex;
-        top: 0;
-        left: 0;
-        padding: 0px;
-        padding-top: 20px;
-        padding-bottom: 20px;
-        width: 100vw;
-        height: auto;
-        background-color: #2a455d;
-        align-items: center;
-        align-content: center;
-        text-align: center;
-      }
-    
-      .bodya {
-        padding-left: 15px;
-        padding-right: 15px;
-        margin-top: 120px; /* Adjust the margin-top value as needed */
-        margin-left: auto;
-        margin-right: auto;
-        color: white;
-        text-decoration-color: white;
-        background-color: #16202c;
-        align-items: center;
-        align-content: center;
-        max-width: 800px;
-      }
-    
-      .centre {
-        margin-left: 315px;
-        margin-top: -120px;
-        margin-bottom: 20px;
-        padding: 12px;
-      }
-    
-      .suggest-img {
+      .navbar {
+        font-family: "M Plus Rounded 1c", sans-serif;
+        font-weight: bold;
+        font-size: large;
+        background-color: #70d3dc;
+        width: 100%;
         display: flex;
         flex-direction: column;
         align-items: center;
-        overflow: hidden;
-        display: absolute;
-        margin-right: 10px;
-        width: 100px;
-        max-width: 100px;
-        border-radius: 5px;
+        padding-top: 10px;
+        padding-bottom: 10px;
       }
-    
-      #suggest-video {
+
+      .logo {
+        margin-top: -5px;
+        margin-bottom: 0px;
+      }
+
+      .navbar-menu {
         display: flex;
-        flex-direction: column;
-        align-items: center;
-        overflow: hidden;
-        display: absolute;
-        margin-right: 10px;
-        width: 100px;
-        max-width: 100px;
-        border-radius: 5px;
-        transition: outline 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Add transition property for smooth animation */
-      }
-    
-      #suggest-video.playing {
-        outline: 2px solid #3c97ee;
-        box-shadow: 1px 1px 4px #2a455d; /* Add a box shadow for a smoother transition effect */
-      }
-    
-      .suggest-container {
-        display: flex;
-        flex-wrap: wrap;
         justify-content: center;
-        margin-top: 20px;
-        margin-bottom: 20px;
-        margin-left: -580px;
-      }
-    
-      .suggest-text {
-        display: flex;
-        flex-direction: column;
         align-items: center;
-        overflow: hidden;
-        display: absolute;
-        margin-left: -684px;
+      }
+
+      .navbar-menu a {
+        display: block;
+        color: #3c3c3c;
+        text-align: center;
+        padding: 5px 10px;
+        margin-right: 5px;
+        margin-left: 5px;
+        text-decoration: none;
+        border: 2px solid transparent;
+        border-radius: 10px;
+      }
+
+      .navbar-menu a:hover {
+        outline: 5px solid #3c3c3c;
+      }
+
+      .suggest-game {
+        padding: 10px;
+        margin-top: 10px;
+      }
+
+      .suggest-game a {
+        display: block;
+        text-decoration: none;
+        color: white;
+        font-size: large;
+        margin-top: 5px;
+      }
+
+      .suggest-game img {
+        margin-bottom: -5px;
+        border-radius: 5px;
+        width: 249px;
+        height: 140px;
+        border: #141414 solid 4px;
+      }
+      span {
+        font-size: large;
+      }
+
+      .suggest-text.underline {
+        text-decoration: underline !important;
+      }
+
+      .game-list {
+        margin-top: -15px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .game-desc {
+        color: #3c3c3c;
+        background-color: #70d3dc;
+        background-image: url("../wood.png");
+        width: 740px;
+        padding: 10px;
+        margin-top: 30px;
+        padding-left: 30px;
+        padding-right: 30px;
+        border-radius: 10px;
+        outline: 0px solid #70d3dc;
         font-family: "M Plus Rounded 1c", sans-serif;
         font-weight: 800;
+        font-size: large;
+        display: block;
+        align-items: center;
+      }
+
+      .game-title {
+        color: #3c3c3c;
+        background-color: #70d3dc;
+        background-image: url("../wood.png");
+        width: 780px;
+        padding: 10px;
+        margin-top: 0px;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        outline: 0px solid #70d3dc;
+        font-family: "M Plus Rounded 1c", sans-serif;
+        font-weight: 800;
+        font-size: xx-large;
+        display: flex;
+        justify-content: space-between;
+        align-items: center; /* Align vertically at the center */
+      }
+
+      .game-title button {
+        background: none;
+        border: none;
+        padding: 0;
+        margin-left: 0px; /* Adjust margin as needed */
+        padding-right: 15px;
+      }
+
+      .game-title button img {
+        width: 32px;
+        height: 32px;
+        vertical-align: middle; /* Vertically align the image */
+      }
+
+      .game-title > div {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding-left: 20px;
+      }
+
+      .game-title-text {
+        font-size: xx-large;
+        padding-bottom: 5px; /* Add a small bottom padding */
+      }
+
+      .game-title-subtext {
+        margin-top: -5px;
+        font-size: large;
+        font-weight: 600;
+        text-align: left;
+        padding-left: 0; /* Remove the left padding */
+        white-space: nowrap; /* Prevent subtext from wrapping */
       }
     </style>
     <script>
+      function goToRandomPage() {
+        var pages = [
+          "/games/drive-mad.html",
+          "/games/getaway-shootout.html",
+          "/games/jelly-truck.html",
+          "/games/moto-x3m-pool-party.html",
+          "/games/moto-x3m-winter.html",
+          "/games/moto-x3m.html",
+          "/games/run-3.html",
+          "/games/slope.html",
+          "/games/stack.html",
+          "/games/tomb-of-the-mask.html",
+        ];
+
+        var randomIndex = Math.floor(Math.random() * pages.length);
+
+        var randomPage = pages[randomIndex];
+
+        window.location.href = randomPage;
+      }
+
       function toggleFullscreen() {
         var iframe = document.getElementById("game-iframe");
 
         if (!document.fullscreenElement) {
-          iframe
-            .requestFullscreen()
-            .catch((err) => {
-              console.log(
-                `Error attempting to enable full-screen mode: ${err.message} (${err.name})`
-              );
-            });
+          iframe.requestFullscreen().catch((err) => {
+            console.log(
+              `Error attempting to enable full-screen mode: ${err.message} (${err.name})`
+            );
+          });
         } else {
           if (document.exitFullscreen) {
             document.exitFullscreen();
@@ -120,182 +214,77 @@
       }
     </script>
   </head>
-
   <body>
-    <div class="top">
-      <h1>
-        <a href="../index.html">
-          <img
-            src="../images/logo/Coolmath_Games_logo.png"
-            alt="logo"
-            width="410"
-            height="60"
-          />
+    <div class="navbar">
+      <div class="logo">
+        <a
+          style="
+            text-align: left;
+            text-decoration: none;
+            font-size: 310%;
+            color: #3c3c3c;
+            font-family: 'Rubik Vinyl';
+            font-weight: bold;
+          "
+          href="../index.html"
+        >
+          Cool Unblocked Games
         </a>
-      </h1>
+      </div>
+      <div class="navbar-menu">
+        <a href="../index.html#popular-games">Popular</a>
+        <a href="../index.html#multiplayer-games">Multiplayer</a>
+        <a href="#" onclick="goToRandomPage()">Random</a>
+        <a href="../about.html">Contact</a>
+      </div>
     </div>
-    <div class="bodya">
-      <p class="suggest-text">You'll Also Like</p>
-      <div class="suggest-container">
-        <a href="../games/moto-x3m.html">
-          <div style="position: relative; display: block">
-            <img
-              class="suggest-img"
-              src="../images/games/moto-x3m-preview.png"
-              alt="Image"
-            />
-          </div>
-        </a>
-        <script>
-          // Get the image element
-          var image1 = document.querySelector(".suggest-img");
-
-          // Create a video element
-          var video1 = document.createElement("video");
-          video1.src =
-            "../images/games/moto-x3m-preview-video.mp4"; // Replace with the actual path to your video file
-          video1.loop = true;
-          video1.id = "suggest-video"; // Add an ID to the video element
-
-          // Add event listeners for hover
-          image1.addEventListener("mouseenter", function () {
-            // Replace the image with the video
-            image1.parentNode.replaceChild(video1, image1);
-
-            // Play the video from the beginning
-            video1.currentTime = 0;
-            video1.play();
-            video1.classList.add("playing"); // Add the 'playing' class to apply the outline and box shadow
-          });
-
-          video1.addEventListener("mouseleave", function () {
-            // Replace the video with the image
-            video1.parentNode.replaceChild(image1, video1);
-            video1.pause();
-            video1.classList.remove("playing"); // Remove the 'playing' class to remove the outline and box shadow
-          });
-        </script>
-
-        <a href="../games/run-3.html">
-          <div style="position: relative; display: block">
-            <img
-              class="suggest-img"
-              src="../images/games/run-3-preview.png"
-              alt="Image"
-            />
-          </div>
-        </a>
-        <script>
-          // Get the image element
-          var image2 = document.querySelectorAll(".suggest-img")[1];
-
-          // Create a video element
-          var video2 = document.createElement("video");
-          video2.src =
-            "../images/games/run-3-preview-video.mp4"; // Replace with the actual path to your video file
-          video2.loop = true;
-          video2.id = "suggest-video"; // Add an ID to the video element
-
-          // Add event listeners for hover
-          image2.addEventListener("mouseenter", function () {
-            // Replace the image with the video
-            image2.parentNode.replaceChild(video2, image2);
-
-            // Play the video from the beginning
-            video2.currentTime = 0;
-            video2.play();
-            video2.classList.add("playing"); // Add the 'playing' class to apply the outline and box shadow
-          });
-
-          video2.addEventListener("mouseleave", function () {
-            // Replace the video with the image
-            video2.parentNode.replaceChild(image2, video2);
-            video2.pause();
-            video2.classList.remove("playing"); // Remove the 'playing' class to remove the outline and box shadow
-          });
-        </script>
+    <div
+      style="
+        margin-top: 100px;
+        margin-bottom: 100px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        overflow: hidden;
+      "
+    >
+      <iframe
+        id="game-iframe"
+        src="https://ciscoha.github.io/unblocked-list/tomb-of-the-mask/"
+        width="800px"
+        height="600px"
+        frameborder="0"
+        style="display: block; border: 0px solid #70d3dc"
+      ></iframe>
+      <div class="game-title">
+        <div>
+          <span class="game-title-text">Tomb of the Mask</span>
+          <span class="game-title-subtext">
+            By
+            <a
+              href="https://happymagenta.com/"
+              style="color: #3c3c3c !important"
+              >Happymagenta UAB, Shelzy, Playgendary, (binstudio????)</a
+            >
+          </span>
+        </div>
+        <button onclick="toggleFullscreen()">
+          <img
+            src="../images/icons/zoom.png"
+            alt="Fullscreen"
+            width="32"
+            height="32"
+          />
+        </button>
       </div>
-      <div
-        style="
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          overflow: hidden;
-        "
-      >
-        <iframe
-          id="game-iframe"
-          src="https://ciscoha.github.io/fork-list/file/index.html"
-          width="800px"
-          height="600px"
-          frameborder="0"
-          style="display: block; border: 0px solid #060d19"
-        ></iframe>
-        <p
-          style="
-            background-color: #060d19;
-            width: 760px;
-            padding: 10px;
-            margin-top: 0px;
-            padding-left: 30px;
-            border-bottom-left-radius: 10px;
-            border-bottom-right-radius: 10px;
-            outline: 0px solid #060d19;
-            font-family: 'M Plus Rounded 1c', sans-serif;
-            font-weight: 800;
-            font-size: xx-large;
-          "
-        >
-          Tomb of the Mask
-          <button
-            style="
-              margin-left: 700px;
-              margin-top: -40px;
-              margin-bottom: auto;
-              background: none;
-              border: none;
-              padding: 0;
-            "
-            onclick="toggleFullscreen()"
-          >
-            <img
-              src="../images/icons/zoom.png"
-              alt="Fullscreen"
-              width="32"
-              height="32"
-            />
-          </button>
-        </p>
-        <p
-          style="
-            background-color: #060d19;
-            width: 760px;
-            padding: 10px;
-            margin-top: 0px;
-            padding-left: 30px;
-            border-radius: 10px;
-            outline: 0px solid #060d19;
-            font-family: 'M Plus Rounded 1c', sans-serif;
-            font-weight: 400;
-            font-size: medium;
-            padding-bottom: 20px;
-            padding-top: 20px;
-          "
-        >
-          <b><font size="5">Instructions and Overview</font></b>
-          <br />
-          <br />
-          Use the arrow keys to slide across the level from wall to wall, as you
-          avoid obstacles and solve puzzles.
-          <br />
-          <br />
-          Tomb of the Mask is an arcade game with an infinite procedurally
-          generated vertical labyrinth. Seeking for adventure you get into a
-          tomb where you find a strange mask. You put it on and suddenly realize
-          that you can now climb walls - easily and promptly. And that's when
-          all the fun begins.
-        </p>
-      </div>
+
+      <p class="game-desc">
+        <b><font size="6">Instructions and Overview</font></b>
+        <br />
+        <br />
+        Use the arrow keys to slide around the labyrinth, going from wall to
+        wall.
+      </p>
     </div>
   </body>
 </html>

@@ -8,7 +8,7 @@
     <link rel="icon" href="/favicon-128.png" sizes="128x128" />
     <style>
       @import url("https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;800;900&display=swap");
-      @import url("https://fonts.googleapis.com/css2?family=Rubik+Vinyl&display=swap");
+      @import url("https://fonts.googleapis.com/css2?family=Rubik+Spray+Paint&display=swap");
 
       .left {
         margin-right: 0px;
@@ -29,6 +29,7 @@
         background-image: url("blank.png");
         background-color: #141414;
       }
+
       .navbar {
         font-family: "M Plus Rounded 1c", sans-serif;
         font-weight: bold;
@@ -89,6 +90,7 @@
         height: 140px;
         border: #141414 solid 4px;
       }
+
       span {
         font-size: large;
       }
@@ -102,77 +104,6 @@
         display: flex;
         justify-content: center;
         align-items: center;
-      }
-
-      .game-desc {
-        color: #3c3c3c;
-        background-color: #70d3dc;
-        background-image: url("../wood.png");
-        width: 740px;
-        padding: 10px;
-        margin-top: 30px;
-        padding-left: 30px;
-        padding-right: 30px;
-        border-radius: 10px;
-        outline: 0px solid #70d3dc;
-        font-family: "M Plus Rounded 1c", sans-serif;
-        font-weight: 800;
-        font-size: large;
-        display: block;
-        align-items: center;
-      }
-
-      .game-title {
-        color: #3c3c3c;
-        background-color: #70d3dc;
-        background-image: url("../wood.png");
-        width: 780px;
-        padding: 10px;
-        margin-top: 0px;
-        border-bottom-left-radius: 10px;
-        border-bottom-right-radius: 10px;
-        outline: 0px solid #70d3dc;
-        font-family: "M Plus Rounded 1c", sans-serif;
-        font-weight: 800;
-        font-size: xx-large;
-        display: flex;
-        justify-content: space-between;
-        align-items: center; /* Align vertically at the center */
-      }
-
-      .game-title button {
-        background: none;
-        border: none;
-        padding: 0;
-        margin-left: 0px; /* Adjust margin as needed */
-        padding-right: 15px;
-      }
-
-      .game-title button img {
-        width: 32px;
-        height: 32px;
-        vertical-align: middle; /* Vertically align the image */
-      }
-
-      .game-title > div {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        padding-left: 20px;
-      }
-
-      .game-title-text {
-        font-size: xx-large;
-        padding-bottom: 5px; /* Add a small bottom padding */
-      }
-
-      .game-title-subtext {
-        margin-top: -5px;
-        font-size: large;
-        font-weight: 600;
-        text-align: left;
-        padding-left: 0; /* Remove the left padding */
-        white-space: nowrap; /* Prevent subtext from wrapping */
       }
     </style>
     <script>
@@ -197,23 +128,52 @@
         window.location.href = randomPage;
       }
 
-      function toggleFullscreen() {
-        var iframe = document.getElementById("game-iframe");
+      function highlightImage(elementId, textClass) {
+        var img = document.getElementById(elementId);
+        var litext = document.getElementsByClassName(textClass)[0];
+        img.style.outline = "5px solid #70d3dc";
+        litext.classList.add("underline");
+      }
 
-        if (!document.fullscreenElement) {
-          iframe.requestFullscreen().catch((err) => {
-            console.log(
-              `Error attempting to enable full-screen mode: ${err.message} (${err.name})`
-            );
-          });
-        } else {
-          if (document.exitFullscreen) {
-            document.exitFullscreen();
-          }
-        }
+      function removeHighlight(elementId, textClass) {
+        var img = document.getElementById(elementId);
+        var litext = document.getElementsByClassName(textClass)[0];
+        img.style.outline = "3px solid #70d3dc";
+        litext.classList.remove("underline");
+      }
+
+      function highlightImage2(elementId, textClass) {
+        var img = document.getElementById(elementId);
+        var litext = document.getElementsByClassName(textClass)[0];
+        img.style.outline = "6px solid #dc7070";
+        img.style.transition = "outline-width 0.2s";
+        litext.classList.add("underline");
+      }
+
+      function removeHighlight2(elementId, textClass) {
+        var img = document.getElementById(elementId);
+        var litext = document.getElementsByClassName(textClass)[0];
+        img.style.outline = "3px solid #dc7070";
+        img.style.transition = "outline-width 0.2s";
+        litext.classList.remove("underline");
+      }
+
+      function highlightImage3(elementId, textClass) {
+        var img = document.getElementById(elementId);
+        var litext = document.getElementsByClassName(textClass)[0];
+        img.style.outline = "6px solid #c370dc";
+        litext.classList.add("underline");
+      }
+
+      function removeHighlight3(elementId, textClass) {
+        var img = document.getElementById(elementId);
+        var litext = document.getElementsByClassName(textClass)[0];
+        img.style.outline = "3px solid #c370dc";
+        litext.classList.remove("underline");
       }
     </script>
   </head>
+
   <body>
     <div class="navbar">
       <div class="logo">
@@ -226,7 +186,7 @@
             font-family: 'Rubik Vinyl';
             font-weight: bold;
           "
-          href="../index.html"
+          href="/index.html"
         >
           Cool Unblocked Games
         </a>
@@ -235,54 +195,73 @@
         <a href="../index.html#popular-games">Popular</a>
         <a href="../index.html#multiplayer-games">Multiplayer</a>
         <a href="#" onclick="goToRandomPage()">Random</a>
-        <a href="../about.html">Contact</a>
+        <a href="#">Contact</a>
       </div>
     </div>
     <div
+      class="news"
       style="
-        margin-top: 100px;
-        margin-bottom: 100px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        overflow: hidden;
+        background-color: #70d3dc;
+        text-align: center;
+        color: #3c3c3c;
+        border-radius: 0px;
+        padding-top: 0%;
+        width: 1080px;
+        border-radius: 5px;
+        margin-left: auto;
+        margin-right: auto;
+        padding-bottom: 15px;
+        margin-top: -20px;
+        margin-bottom: 30px;
       "
     >
-      <iframe
-        id="game-iframe"
-        src="https://ciscoha.github.io/unblocked-list/moto-x3m/"
-        width="800px"
-        height="532px"
-        frameborder="0"
-        style="display: block; border: 0px solid #70d3dc"
-      ></iframe>
-      <div class="game-title">
-        <div>
-          <span class="game-title-text">Moto X3M v1.1.5</span>
-          <span class="game-title-subtext">
-            By
-            <a
-              href="http://madpuffers.com/"
-              style="color: #3c3c3c !important"
-              >MadPuffers</a
-            >
-          </span>
-        </div>
-        <button onclick="toggleFullscreen()">
-          <img
-            src="../images/icons/zoom.png"
-            alt="Fullscreen"
-            width="32"
-            height="32"
-          />
-        </button>
-      </div>
-
-      <p class="game-desc">
-        <b><font size="6">Instructions and Overview</font></b>
+      <p
+        style="
+          font-family: 'Rubik Vinyl';
+          font-weight: bold;
+          font-size: xx-large;
+        "
+      >
+        Contact
+      </p>
+      <p
+        style="
+          color: #3c3c3c !important;
+          font-family: 'M Plus Rounded 1c', sans-serif;
+          font-weight: bold;
+          font-size: large;
+          margin-top: -15px;
+          margin-bottom: -5px;
+        "
+      >
+        <a
+          style="
+            color: #3c3c3c !important;
+            text-decoration: underline !important;
+          "
+          href="https://forms.gle/gvpTfVKfNj2YwRzG6"
+          >Suggest a Game (google forms)</a
+        ><br /><a
+          style="
+            color: #3c3c3c !important;
+            text-decoration: underline !important;
+          "
+          href="https://forms.gle/KS3T86Zm92p9tMZ4A"
+          >Suggest a Website Change (google forms)</a
+        ><br /><br /><a
+          style="
+            text-decoration: underline !important;
+            color: #3c3c3c !important;
+          "
+          href="https://ciscoha.github.io/turbo-octo-memory/"
+          >Alternative Website Link</a
+        >
         <br />
         <br />
-        Drive, Spin, and Trick through the levels. But reach the end quickly if you want all 3 stars!
+        <img
+          style="width: 200px"
+          src="https://media.tenor.com/P2fPNhg742gAAAAC/roblox-bedwars.gif"
+        />
       </p>
     </div>
   </body>
