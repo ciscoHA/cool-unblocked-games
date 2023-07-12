@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Tomb of the Mask - Cool Unblocked Games</title>
+    <title>Duck Life 3 - Cool Unblocked Games</title>
     <link rel="icon" href="../favicon-16.png" sizes="16x16" />
     <link rel="icon" href="../favicon-32.png" sizes="32x32" />
     <link rel="icon" href="../favicon-64.png" sizes="64x64" />
     <link rel="icon" href="../favicon-128.png" sizes="128x128" />
+    <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
     <style>
       @import url("https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;800;900&display=swap");
       @import url("https://fonts.googleapis.com/css2?family=Rubik+Vinyl&display=swap");
@@ -149,8 +150,8 @@
       }
 
       .game-title button img {
-        width: 32px;
-        height: 32px;
+        width: 40px;
+        height: 40px;
         vertical-align: middle; /* Vertically align the image */
       }
 
@@ -173,6 +174,41 @@
         text-align: left;
         padding-left: 0; /* Remove the left padding */
         white-space: nowrap; /* Prevent subtext from wrapping */
+      }
+
+      .popup {
+        position: absolute;
+        display: inline-block;
+        margin-bottom: 2.5%;
+        margin-left: 670px;
+        z-index: 2;
+      }
+
+      .popup .popuptext {
+        text-rendering: optimizeLegibility;
+        visibility: hidden;
+        width: 160px;
+        background-color: #3c3c3c;
+        font-size: medium;
+        font-family: "M Plus Rounded 1c";
+        color: #fff;
+        text-align: center;
+        border-radius: 6px;
+        padding: 8px;
+        position: absolute;
+        z-index: 2;
+        bottom: 125%;
+        left: 50%;
+        margin-left: -80px;
+        opacity: 0;
+        transition: opacity 0.3s;
+        margin-bottom: 2.5%;
+        margin-left: 605px;
+      }
+
+      .popup:hover .popuptext {
+        visibility: visible;
+        opacity: 1;
       }
     </style>
     <script>
@@ -253,38 +289,60 @@
         overflow: hidden;
       "
     >
-      <iframe
+      <embed
         id="game-iframe"
-        src="https://ciscoha.github.io/unblocked-list/tomb-of-the-mask/"
+        src="https://ciscoha.github.io/unblocked-list/duck-life-3.swf"
         width="800px"
-        height="600px"
+        height="513px"
         frameborder="0"
         style="
+          z-index: 1;
           display: block;
           border: 0px solid #70d3dc;
           background-image: url('../loading.png');
           background-size: auto;
           background-position: 50%;
         "
-      ></iframe>
+      />
       <div class="game-title">
         <div>
-          <span class="game-title-text">Tomb of the Mask</span>
+          <span class="game-title-text">Duck Life 3: Evolution</span>
           <span class="game-title-subtext">
             By
             <a
-              href="https://happymagenta.com/"
+              href="https://games.wixgames.co.uk/"
               style="color: #3c3c3c !important"
-              >Happymagenta UAB, Shelzy, Playgendary, (binstudio????)</a
+              >Wix Games</a
             >
           </span>
+        </div>
+        <div
+          class="popup"
+          style="
+            z-index: 2 !important;
+            padding: 0;
+            margin-left: 0px;
+            margin-right: -250px !important;
+            align-items: left !important;
+          "
+        >
+          <img
+            class="popup"
+            src="../images/icons/flash.png"
+            alt="Flash"
+            width="40"
+            height="40"
+          />
+          <span style="z-index: 2 !important" class="popuptext"
+            >Emulated by Ruffle</span
+          >
         </div>
         <button onclick="toggleFullscreen()">
           <img
             src="../images/icons/zoom.png"
             alt="Fullscreen"
-            width="32"
-            height="32"
+            width="64"
+            height="64"
           />
         </button>
       </div>
@@ -293,8 +351,7 @@
         <b><font size="6">Instructions and Overview</font></b>
         <br />
         <br />
-        Use the arrow keys to slide around the labyrinth, going from wall to
-        wall.
+        Grow your Duck, become the champion!
       </p>
     </div>
   </body>
