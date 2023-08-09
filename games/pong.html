@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Drive Mad - Cool Unblocked Games</title>
+    <title>Pong. - Cool Unblocked Games</title>
     <link rel="icon" href="../favicon-16.png" sizes="16x16" />
     <link rel="icon" href="../favicon-32.png" sizes="32x32" />
     <link rel="icon" href="../favicon-64.png" sizes="64x64" />
     <link rel="icon" href="../favicon-128.png" sizes="128x128" />
+    <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
     <style>
       @import url("https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;800;900&display=swap");
-      @font-face {
+@font-face {
         font-family: Rubik Vinyl;
         src: url(../fonts/RubikVinyl-Regular.ttf);
       }
@@ -152,8 +153,8 @@
       }
 
       .game-title button img {
-        width: 32px;
-        height: 32px;
+        width: 40px;
+        height: 40px;
         vertical-align: middle; /* Vertically align the image */
       }
 
@@ -176,6 +177,41 @@
         text-align: left;
         padding-left: 0; /* Remove the left padding */
         white-space: nowrap; /* Prevent subtext from wrapping */
+      }
+
+      .popup {
+        position: absolute;
+        display: inline-block;
+        margin-bottom: 2.5%;
+        margin-left: 670px;
+        z-index: 2;
+      }
+
+      .popup .popuptext {
+        text-rendering: optimizeLegibility;
+        visibility: hidden;
+        width: 160px;
+        background-color: #3c3c3c;
+        font-size: medium;
+        font-family: "M Plus Rounded 1c";
+        color: #fff;
+        text-align: center;
+        border-radius: 6px;
+        padding: 8px;
+        position: absolute;
+        z-index: 2;
+        bottom: 125%;
+        left: 50%;
+        margin-left: -80px;
+        opacity: 0;
+        transition: opacity 0.3s;
+        margin-bottom: 2.5%;
+        margin-left: 605px;
+      }
+
+      .popup:hover .popuptext {
+        visibility: visible;
+        opacity: 1;
       }
     </style>
     <script>
@@ -258,11 +294,12 @@
     >
       <iframe
         id="game-iframe"
-        src="https://ciscoha.github.io/unblocked-list/drive-mad/"
+        src="https://ciscoha.github.io/unblocked-list/pong/pong.html"
         width="800px"
         height="600px"
         frameborder="0"
         style="
+          z-index: 1;
           display: block;
           border: 0px solid #70d3dc;
           background-image: url('../loading.png');
@@ -272,13 +309,13 @@
       ></iframe>
       <div class="game-title">
         <div>
-          <span class="game-title-text">Drive Mad</span>
+          <span class="game-title-text">Pong.</span>
           <span class="game-title-subtext">
             By
             <a
-              href="https://www.martinmagni.com/"
+              href=""
               style="color: #3c3c3c !important"
-              >Martin Magni</a
+              >Cool Unblocked Games</a
             >
           </span>
         </div>
@@ -286,8 +323,8 @@
           <img
             src="../images/icons/zoom.png"
             alt="Fullscreen"
-            width="32"
-            height="32"
+            width="64"
+            height="64"
           />
         </button>
       </div>
@@ -296,7 +333,7 @@
         <b><font size="6">Instructions and Overview</font></b>
         <br />
         <br />
-        Drive yourself mad through an endless series of levels!
+        Essential
       </p>
     </div>
   </body>

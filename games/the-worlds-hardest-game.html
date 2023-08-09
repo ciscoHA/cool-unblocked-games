@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Drive Mad - Cool Unblocked Games</title>
+    <title>World's Hardest Game - Cool Unblocked Games</title>
     <link rel="icon" href="../favicon-16.png" sizes="16x16" />
     <link rel="icon" href="../favicon-32.png" sizes="32x32" />
     <link rel="icon" href="../favicon-64.png" sizes="64x64" />
     <link rel="icon" href="../favicon-128.png" sizes="128x128" />
+    <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
     <style>
       @import url("https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;800;900&display=swap");
       @font-face {
@@ -32,6 +33,7 @@
         background-image: url("blank.png");
         background-color: #141414;
       }
+
       .navbar {
         font-family: "M Plus Rounded 1c", sans-serif;
         font-weight: bold;
@@ -92,6 +94,7 @@
         height: 140px;
         border: #141414 solid 4px;
       }
+
       span {
         font-size: large;
       }
@@ -140,9 +143,17 @@
         font-size: xx-large;
         display: flex;
         justify-content: space-between;
-        align-items: center; /* Align vertically at the center */
-      }
+        align-items: center;
+        display: flex; /* Use flexbox to horizontally align popup and fullscreen button */
+        align-items: center; /* Vertically align items within .game-title */
+        justify-content: flex-start; /* Align items from the start (left) of .game-title */
+        position: relative; /* Create a positioning context for the absolute-positioned .popup */
 
+        display: flex; /* Use flexbox to horizontally align the title and button */
+        justify-content: space-between; /* Put space between the title and button */
+        align-items: center; /* Vertically center items within .game-title */
+        position: relative; /* Create a positioning context for the absolute-positioned .popup */
+      }
       .game-title button {
         background: none;
         border: none;
@@ -152,8 +163,8 @@
       }
 
       .game-title button img {
-        width: 32px;
-        height: 32px;
+        width: 40px;
+        height: 40px;
         vertical-align: middle; /* Vertically align the image */
       }
 
@@ -177,6 +188,47 @@
         padding-left: 0; /* Remove the left padding */
         white-space: nowrap; /* Prevent subtext from wrapping */
       }
+      .game-title button {
+        margin-left: 15px; /* Add a 15px margin to the left of the "Fullscreen" button */
+      }
+      .popup {
+        position: absolute;
+        right: 80px; /* Position the .popup 40px from the right edge of .game-title */
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 2;
+      }
+
+      .popup-icon {
+        width: 40px;
+        height: 40px;
+        vertical-align: middle;
+        margin-right: 5px;
+      }
+
+      .popuptext {
+        text-rendering: optimizeLegibility;
+        visibility: hidden;
+        width: 160px;
+        background-color: #3c3c3c;
+        font-size: medium;
+        font-family: "M Plus Rounded 1c";
+        color: #fff;
+        text-align: center;
+        border-radius: 6px;
+        padding: 8px;
+        position: absolute;
+        bottom: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        opacity: 0;
+        transition: opacity 0.3s;
+      }
+
+      .popup:hover .popuptext {
+        visibility: visible;
+        opacity: 1;
+      }
     </style>
     <script>
       function goToRandomPage() {
@@ -199,7 +251,6 @@
         ];
 
         var randomIndex = Math.floor(Math.random() * pages.length);
-
         var randomPage = pages[randomIndex];
 
         window.location.href = randomPage;
@@ -256,38 +307,49 @@
         overflow: hidden;
       "
     >
-      <iframe
+      <embed
         id="game-iframe"
-        src="https://ciscoha.github.io/unblocked-list/drive-mad/"
+        src="https://ciscoha.github.io/unblocked-list/the-worlds-hardest-game.swf"
         width="800px"
         height="600px"
         frameborder="0"
         style="
+          z-index: 1;
           display: block;
           border: 0px solid #70d3dc;
           background-image: url('../loading.png');
           background-size: auto;
           background-position: 50%;
         "
-      ></iframe>
+      />
       <div class="game-title">
         <div>
-          <span class="game-title-text">Drive Mad</span>
+          <span class="game-title-text">The World's Hardest Game</span>
           <span class="game-title-subtext">
             By
             <a
-              href="https://www.martinmagni.com/"
+              href="https://snubby.newgrounds.com/"
               style="color: #3c3c3c !important"
-              >Martin Magni</a
+              >Snubby</a
             >
           </span>
+        </div>
+        <div class="popup">
+          <img
+            class="popup-icon"
+            src="../images/icons/flash.png"
+            alt="Flash"
+            width="40"
+            height="40"
+          />
+          <span class="popuptext">Emulated by Ruffle</span>
         </div>
         <button onclick="toggleFullscreen()">
           <img
             src="../images/icons/zoom.png"
             alt="Fullscreen"
-            width="32"
-            height="32"
+            width="64"
+            height="64"
           />
         </button>
       </div>
@@ -296,7 +358,7 @@
         <b><font size="6">Instructions and Overview</font></b>
         <br />
         <br />
-        Drive yourself mad through an endless series of levels!
+        A bit tricky
       </p>
     </div>
   </body>
