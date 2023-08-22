@@ -32,15 +32,21 @@
       content="https://www.coolunblockedgames.github.io/index.html"
     />
 
-    <link rel="icon" href="favicon-16.png" sizes="16x16" />
-    <link rel="icon" href="favicon-32.png" sizes="32x32" />
-    <link rel="icon" href="favicon-64.png" sizes="64x64" />
-    <link rel="icon" href="favicon-128.png" sizes="128x128" />
+    <link rel="icon" href="../favicon-16.png" sizes="16x16" />
+    <link rel="icon" href="../favicon-32.png" sizes="32x32" />
+    <link rel="icon" href="../favicon-64.png" sizes="64x64" />
+    <link rel="icon" href="../favicon.ico" sizes="64x64" />
+    <link rel="icon" href="../favicon-128.png" sizes="128x128" />
+    <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico" sizes="64x64"/>
+    
     <style>
       @import url("https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;800;900&display=swap");
       @font-face {
         font-family: Rubik Vinyl;
-        src: url(/fonts/RubikVinRegular.ttf);
+        src: url(/fonts/RubikVinRegular.ttf),
+          url(../fonts/RubikVinyl-Regular.ttf),
+          url("https://fonts.googleapis.com/css2?family=Rubik+Spray+Paint&family=Rubik+Vinyl&display=swap"),
+          url(fonts/RubikVinRegular.ttf);
       }
 
       .left {
@@ -140,7 +146,7 @@
       }
 
       .news {
-          background-color: #64d8e3;
+        background-color: #64d8e3;
         text-align: center;
         color: #3c3c3c;
         border-radius: 0px;
@@ -152,7 +158,7 @@
         padding-bottom: 15px;
         margin-top: -20px;
         margin-bottom: 30px;
-        }
+      }
 
       /* Mobile devices */
       @media (max-width: 320px),
@@ -162,7 +168,7 @@
           overflow-x: auto;
           font-size: xx-large; /* Adjust the font size for mobile devices */
         }
-        
+
         .game-list {
           overflow-x: auto;
           display: flex;
@@ -178,19 +184,18 @@
 
         .news {
           background-color: #64d8e3;
-        text-align: center;
-        color: #3c3c3c;
-        border-radius: 0px;
-        padding-top: 0%;
-        width: 580px;
-        border-radius: 5px;
-        margin-left: auto;
-        margin-right: auto;
-        padding-bottom: 15px;
-        margin-top: -20px;
-        margin-bottom: 30px;
+          text-align: center;
+          color: #3c3c3c;
+          border-radius: 0px;
+          padding-top: 0%;
+          width: 580px;
+          border-radius: 5px;
+          margin-left: auto;
+          margin-right: auto;
+          padding-bottom: 15px;
+          margin-top: -20px;
+          margin-bottom: 30px;
         }
-        
       }
     </style>
     <script>
@@ -413,9 +418,7 @@
         </a>
       </div>
     </div>
-    <div
-      class="news"
-    >
+    <div class="news">
       <p
         style="
           font-family: 'Rubik Vinyl';
