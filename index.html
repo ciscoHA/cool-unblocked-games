@@ -2,7 +2,10 @@
 <html>
   <head>
     <title>Cool Unblocked Games</title>
-    <meta name="google-site-verification" content="Q-GasTm6p0RsCSA7j-x1U7mX_Cz6ItjUz8q3bzM6YYo" />
+    <meta
+      name="google-site-verification"
+      content="Q-GasTm6p0RsCSA7j-x1U7mX_Cz6ItjUz8q3bzM6YYo"
+    />
     <meta name="robots" content="nosnippet" />
     <meta property="og:title" content="Cool Unblocked Games" />
     <meta
@@ -219,8 +222,28 @@
           margin-bottom: 30px;
         }
       }
+      .rotate-message {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 10px;
+  z-index: 9999;
+}
+
+@media (max-width: 768px) and (orientation: portrait) {
+  .rotate-message {
+    display: block;
+  }
+}
+
     </style>
     <script>
+
       function goToRandomPage() {
         var pages = [
           "games/circloo.html",
@@ -294,6 +317,11 @@
   </head>
 
   <body>
+    <div class="rotate-message">
+      <p>Please rotate your device for the best viewing experience.</p>
+    </div>
+    
+
     <div class="navbar">
       <div class="logo">
         <a
