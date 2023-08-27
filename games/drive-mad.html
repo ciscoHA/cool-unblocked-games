@@ -34,6 +34,15 @@
         font-family: Rubik Vinyl;
         src: url(../fonts/RubikVinyl-Regular.ttf);
       }
+      
+      @media (max-width: 320px),
+        (min-width: 321px) and (max-width: 480px),
+        (min-width: 481px) and (max-width: 768px) {
+        body {
+          overflow-x: auto;
+          font-size: xx-large; /* Adjust the font size for mobile devices */
+        }
+      }
 
       .left {
         margin-right: 0px;
@@ -51,7 +60,7 @@
         margin: 0;
         padding: 0;
         font-family: Arial, sans-serif;
-        background-image: url("blank.png");
+        background-image: url("../blank.png");
         background-color: #141414;
       }
       .navbar {
