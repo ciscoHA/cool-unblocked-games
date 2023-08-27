@@ -44,8 +44,17 @@
       }
 
       .logo {
+        font-size: 310%;
         margin-top: -5px;
         margin-bottom: 0px;
+      }
+
+      @media (max-width: 320px),
+        (min-width: 321px) and (max-width: 480px),
+        (min-width: 481px) and (max-width: 768px) {
+        .logo {
+          font-size: 285%;
+        }
       }
 
       .navbar-menu {
@@ -186,7 +195,6 @@
           style="
             text-align: left;
             text-decoration: none;
-            font-size: 310%;
             color: #3c3c3c;
             font-family: 'Rubik Vinyl';
             font-weight: bold;
@@ -211,7 +219,7 @@
         color: #3c3c3c;
         border-radius: 0px;
         padding-top: 0%;
-        width: 1080px;
+        width: 80%;
         border-radius: 5px;
         margin-left: auto;
         margin-right: auto;
