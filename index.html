@@ -63,15 +63,20 @@
       as="image"
       sizes="48x48"
     />
-    <link rel=”preload” href=”/fonts/RubikVinRegular.ttf″ as=”font”
-    type=”font/ttf″ crossorigin>
 
     <style>
       @import url("https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;800;900&display=swap");
       @font-face {
-        font-family: Rubik Vinyl;
-        src: url(/fonts/RubikVinRegular.ttf),
-          url("https://fonts.googleapis.com/css2?family=Rubik+Spray+Paint&family=Rubik+Vinyl&display=swap");
+        font-family: Satisfactory Base;
+        src: url(/fonts/SatisfactoryBase-jEoZ9.otf);
+      }
+      @font-face {
+        font-family: Satisfactory Baseline;
+        src: url(/fonts/SatisfactoryBaseline-z8BdX.otf);
+      }
+      @font-face {
+        font-family: Satisfactory Topline;
+        src: url(/fonts/SatisfactoryTopline-1GAPZ.otf);
       }
 
       .left {
@@ -107,7 +112,7 @@
         padding-bottom: 10px;
       }
       .logo {
-        font-size: 100%;
+        font-size: 120%;
         margin-top: -5px;
         margin-bottom: 0px;
       }
@@ -223,43 +228,41 @@
         }
       }
       .overlay {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.7);
-  z-index: 9998;
-}
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+        z-index: 9998;
+      }
 
-.rotate-message {
-  display: none;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: rgba(96, 196, 224, 1);
-  color: white;
-  padding: 10px 20px;
-  border-radius: 10px;
-  z-index: 9999;
-}
+      .rotate-message {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: rgba(96, 196, 224, 1);
+        color: white;
+        padding: 10px 20px;
+        border-radius: 10px;
+        z-index: 9999;
+      }
 
-@media (max-width: 768px) and (orientation: portrait) {
-  .overlay,
-  .rotate-message {
-    display: block;
-  }
+      @media (max-width: 768px) and (orientation: portrait) {
+        .overlay,
+        .rotate-message {
+          display: block;
+        }
 
-  body {
-    overflow: hidden;
-  }
-}
-
+        body {
+          overflow: hidden;
+        }
+      }
     </style>
     <script>
-
       function goToRandomPage() {
         var pages = [
           "games/circloo.html",
@@ -337,22 +340,65 @@
     <div class="rotate-message">
       <p>Please rotate your device for the best viewing experience.</p>
     </div>
-    
 
     <div class="navbar">
       <div class="logo">
-        <a
-          style="
-            text-align: left;
-            text-decoration: none;
-            font-size: 310%;
-            color: #3c3c3c;
-            font-family: 'Rubik Vinyl';
-            font-weight: bold;
-          "
-          href="/index.html"
-        >
-          Cool Unblocked Games
+        <a style="text-decoration: none !important" href="/#">
+          <span
+            style="
+              text-align: left;
+              text-decoration: none;
+              font-size: 310%;
+              color: #3c3c3c;
+              font-family: 'Satisfactory Baseline';
+              font-weight: normal;
+            "
+            >Cool</span
+          >
+          <span
+            style="
+              text-align: left;
+              text-decoration: none;
+              font-size: 310%;
+              color: #3c3c3c;
+              font-family: 'Satisfactory Topline';
+              font-weight: normal;
+            "
+            >Un<span
+              style="
+                text-align: left;
+                text-decoration: none;
+                font-size: 100%;
+                color: #3c3c3c;
+                font-family: 'Satisfactory Baseline';
+                font-weight: normal;
+                margin-right: -17px;
+              "
+              >b</span
+            >
+            LockeD</span
+          >
+          <span
+            style="
+              text-align: left;
+              text-decoration: none;
+              font-size: 310%;
+              color: #3c3c3c;
+              font-family: 'Satisfactory Baseline';
+              font-weight: normal;
+            "
+            >GamE</span
+          ><span
+            style="
+              text-align: left;
+              text-decoration: none;
+              font-size: 310%;
+              color: #3c3c3c;
+              font-family: 'Satisfactory Topline';
+              font-weight: normal;
+            "
+            >s</span
+          >
         </a>
       </div>
       <div class="navbar-menu">
@@ -366,9 +412,9 @@
       style="
         text-align: center;
         color: #dc7070;
-        font-family: 'M Plus Rounded 1c', sans-serif;
-        font-weight: bold;
-        font-size: x-large;
+        font-family: 'Satisfactory Base', sans-serif;
+        font-weight: normal;
+        font-size: 240%;
         border-radius: 0px;
         padding-top: 0%;
         margin-right: 40%;
@@ -488,9 +534,9 @@
     <div class="news">
       <p
         style="
-          font-family: 'Rubik Vinyl';
+          font-family: 'Satisfactory Topline';
           font-weight: bold;
-          font-size: xx-large;
+          font-size: 225%;
         "
       >
         News
@@ -500,7 +546,7 @@
           font-family: 'M Plus Rounded 1c', sans-serif;
           font-weight: bold;
           font-size: large;
-          margin-top: -15px;
+          margin-top: -20px;
           margin-bottom: -5px;
         "
       >
@@ -536,9 +582,9 @@
       style="
         text-align: center;
         color: #60c4e0;
-        font-family: 'M Plus Rounded 1c', sans-serif;
-        font-weight: bold;
-        font-size: x-large;
+        font-family: 'Satisfactory Base', sans-serif;
+        font-weight: normal;
+        font-size: 240%;
         border-radius: 0px;
         padding-top: 0%;
         margin-right: 40%;
@@ -1044,9 +1090,9 @@
       style="
         text-align: center;
         color: #c370dc;
-        font-family: 'M Plus Rounded 1c', sans-serif;
-        font-weight: bold;
-        font-size: x-large;
+        font-family: 'Satisfactory Base', sans-serif;
+        font-weight: normal;
+        font-size: 240%;
         border-radius: 0px;
         padding-top: 0%;
         margin-right: 40%;
