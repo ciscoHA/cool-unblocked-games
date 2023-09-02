@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>404 - Page Not Found</title>
+    <meta name="robots" content="noindex">
+    <style>
+      @font-face {
+        font-family: Satisfactory Base;
+        src: url(/fonts/SatisfactoryBase-jEoZ9.otf);
+      }
+      @font-face {
+        font-family: Satisfactory Baseline;
+        src: url(/fonts/SatisfactoryBaseline-z8BdX.otf);
+      }
+      @font-face {
+        font-family: Satisfactory Topline;
+        src: url(/fonts/SatisfactoryTopline-1GAPZ.otf);
+      }
+
+      body {
+        margin: 0;
+        padding: 0;
+        font-size: x-large;
+        color: white;
+        font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+          "Lucida Sans", Arial, sans-serif;
+        background-image: url("../blankr.png");
+        background-size: cover;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+      }
+
+      .content {
+        display: flex;
+        align-items: center;
+        background: rgba(0, 0, 0, 0);
+        padding: 20px;
+        max-width: 800px; /* Adjust as needed */
+      }
+
+      .image-container {
+        flex: 1;
+        padding: 20px;
+      }
+
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+
+      .text-container {
+        flex: 2;
+        padding: 20px;
+      }
+
+      .text {
+        text-align: left; /* Align text to the left */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="content">
+      <div class="image-container">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Question_mark_white-transparent.svg/1200px-Question_mark_white-transparent.svg.png" alt="Image Description">
+      </div>
+      <div class="text-container">
+        <h1>404</h1>
+        <h2 style="font-size: x-large;">Sorry, the page you are looking for doesn't exist.</h2>
+        <p class="text">
+          <a href="../index.html" style="background-color: #60c4e0; padding: 7px; border-radius: 10px; text-decoration: none; color: #3c3c3c;">Return to the Homepage</a> 
+        </p>
+      </div>
+    </div>
+  </body>
+</html>
