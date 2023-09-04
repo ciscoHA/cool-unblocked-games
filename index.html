@@ -30,6 +30,7 @@
     <meta name="author" content="CiscoHA on github" />
 
     <link rel="icon" href="https://ciscoha.github.io/unblocked-list/favicon.ico">
+    <link rel="canonical" href="https://coolubg.github.io/" />
     <style>
       @import url("https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;800;900&display=swap");
       @font-face {
@@ -69,7 +70,7 @@
         font-family: "M Plus Rounded 1c", sans-serif;
         font-weight: bold;
         font-size: large;
-        background-color: #60c4e0;
+        background-color: #58aafc;
         width: 100%;
         display: flex;
         flex-direction: column;
@@ -142,7 +143,7 @@
       }
 
       .news {
-        background-color: #60c4e0;
+        background-color: #58aafc;
         text-align: center;
         color: #3c3c3c;
         border-radius: 0px;
@@ -174,12 +175,12 @@
 
         .suggest-game {
           overflow-x: auto;
-          width: 45%; /* Display two suggestions side by side */
+          width: 40%; /* Display two suggestions side by side */
           margin: 10px;
         }
 
         .news {
-          background-color: #60c4e0;
+          background-color: #58aafc;
           text-align: center;
           color: #3c3c3c;
           border-radius: 0px;
@@ -192,6 +193,19 @@
           margin-top: -20px;
           margin-bottom: 30px;
         }
+
+        #list-type {
+          width: 50%;
+          transform: translate(-25%, 0);
+        }
+
+        #news-title {
+          font-size: 180% !important;
+          font-weight: normal !important;
+          padding-bottom: -50px !important;
+          margin-bottom: 30px !important;
+        }
+
       }
       .overlay {
         display: none;
@@ -258,14 +272,14 @@
       function highlightImage(elementId, textClass) {
         var img = document.getElementById(elementId);
         var litext = document.getElementsByClassName(textClass)[0];
-        img.style.outline = "5px solid #60c4e0";
+        img.style.outline = "5px solid #58aafc";
         litext.classList.add("underline");
       }
 
       function removeHighlight(elementId, textClass) {
         var img = document.getElementById(elementId);
         var litext = document.getElementsByClassName(textClass)[0];
-        img.style.outline = "3px solid #60c4e0";
+        img.style.outline = "3px solid #58aafc";
         litext.classList.remove("underline");
       }
 
@@ -375,6 +389,7 @@
       </div>
     </div>
     <p
+    id="list-type"
       style="
         text-align: center;
         color: #dc7070;
@@ -499,6 +514,7 @@
     </div>
     <div class="news">
       <p
+      id="news-title"
         style="
           font-family: 'Satisfactory Topline';
           font-weight: bold;
@@ -544,10 +560,10 @@
       </p>
     </div>
     <p
-      id="popular-games"
+    id="list-type"
       style="
         text-align: center;
-        color: #60c4e0;
+        color: #58aafc;
         font-family: 'Satisfactory Base', sans-serif;
         font-weight: normal;
         font-size: 240%;
@@ -555,7 +571,7 @@
         padding-top: 0%;
         margin-right: 40%;
         margin-left: 40%;
-        outline: #60c4e0 solid 4px;
+        outline: #58aafc solid 4px;
         border-radius: 5px;
       "
     >
@@ -575,7 +591,7 @@
       <div class="suggest-game">
         <a href="games/run-3.html">
           <img
-            style="outline: 3px solid #60c4e0; border: 1px solid #60c4e0"
+            style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
             id="suggest-img5"
             onmouseover="highlightImage('suggest-img5', 'suggest-text5')"
             onmouseout="removeHighlight('suggest-img5', 'suggest-text5')"
@@ -595,7 +611,7 @@
       <div class="suggest-game">
         <a href="games/slope.html">
           <img
-            style="outline: 3px solid #60c4e0; border: 1px solid #60c4e0"
+            style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
             id="suggest-img6"
             onmouseover="highlightImage('suggest-img6', 'suggest-text6')"
             onmouseout="removeHighlight('suggest-img6', 'suggest-text6')"
@@ -615,7 +631,7 @@
       <div class="suggest-game">
         <a href="games/drive-mad.html">
           <img
-            style="outline: 3px solid #60c4e0; border: 1px solid #60c4e0"
+            style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
             id="suggest-img7"
             onmouseover="highlightImage('suggest-img7', 'suggest-text7')"
             onmouseout="removeHighlight('suggest-img7', 'suggest-text7')"
@@ -635,7 +651,7 @@
       <div class="suggest-game">
         <a href="games/tomb-of-the-mask.html">
           <img
-            style="outline: 3px solid #60c4e0; border: 1px solid #60c4e0"
+            style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
             id="suggest-img8"
             onmouseover="highlightImage('suggest-img8', 'suggest-text8')"
             onmouseout="removeHighlight('suggest-img8', 'suggest-text8')"
@@ -655,7 +671,7 @@
       <div class="suggest-game">
         <a href="games/getaway-shootout.html">
           <img
-            style="outline: 3px solid #60c4e0; border: 1px solid #60c4e0"
+            style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
             id="suggest-img9"
             onmouseover="highlightImage('suggest-img9', 'suggest-text9')"
             onmouseout="removeHighlight('suggest-img9', 'suggest-text9')"
@@ -701,7 +717,7 @@
       <div class="suggest-game">
         <a href="games/moto-x3m.html">
           <img
-            style="outline: 3px solid #60c4e0; border: 1px solid #60c4e0"
+            style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
             id="suggest-img10"
             onmouseover="highlightImage('suggest-img10', 'suggest-text10')"
             onmouseout="removeHighlight('suggest-img10', 'suggest-text10')"
@@ -721,7 +737,7 @@
       <div class="suggest-game">
         <a href="games/moto-x3m-winter.html">
           <img
-            style="outline: 3px solid #60c4e0; border: 1px solid #60c4e0"
+            style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
             id="suggest-img11"
             onmouseover="highlightImage('suggest-img11', 'suggest-text11')"
             onmouseout="removeHighlight('suggest-img11', 'suggest-text11')"
@@ -741,7 +757,7 @@
       <div class="suggest-game">
         <a href="games/moto-x3m-pool-party.html">
           <img
-            style="outline: 3px solid #60c4e0; border: 1px solid #60c4e0"
+            style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
             id="suggest-img12"
             onmouseover="highlightImage('suggest-img12', 'suggest-text12')"
             onmouseout="removeHighlight('suggest-img12', 'suggest-text12')"
@@ -761,7 +777,7 @@
       <div class="suggest-game">
         <a href="games/jelly-truck.html">
           <img
-            style="outline: 3px solid #60c4e0; border: 1px solid #60c4e0"
+            style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
             id="suggest-img13"
             onmouseover="highlightImage('suggest-img13', 'suggest-text13')"
             onmouseout="removeHighlight('suggest-img13', 'suggest-text13')"
@@ -781,7 +797,7 @@
       <div class="suggest-game">
         <a href="games/stack.html">
           <img
-            style="outline: 3px solid #60c4e0; border: 1px solid #60c4e0"
+            style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
             id="suggest-img14"
             onmouseover="highlightImage('suggest-img14', 'suggest-text14')"
             onmouseout="removeHighlight('suggest-img14', 'suggest-text14')"
@@ -813,7 +829,7 @@
       <div class="suggest-game">
         <a href="games/jacksmith.html">
           <img
-            style="outline: 3px solid #60c4e0; border: 1px solid #60c4e0"
+            style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
             id="suggest-img15"
             onmouseover="highlightImage('suggest-img15', 'suggest-text15')"
             onmouseout="removeHighlight('suggest-img15', 'suggest-text15')"
@@ -833,7 +849,7 @@
       <div class="suggest-game">
         <a href="games/duck-life-3.html">
           <img
-            style="outline: 3px solid #60c4e0; border: 1px solid #60c4e0"
+            style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
             id="suggest-img16"
             onmouseover="highlightImage('suggest-img16', 'suggest-text16')"
             onmouseout="removeHighlight('suggest-img16', 'suggest-text16')"
@@ -853,7 +869,7 @@
       <div class="suggest-game">
         <a href="games/raft-wars.html">
           <img
-            style="outline: 3px solid #60c4e0; border: 1px solid #60c4e0"
+            style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
             id="suggest-img17"
             onmouseover="highlightImage('suggest-img17', 'suggest-text17')"
             onmouseout="removeHighlight('suggest-img17', 'suggest-text17')"
@@ -873,7 +889,7 @@
       <div class="suggest-game">
         <a href="games/rooftop-snipers.html">
           <img
-            style="outline: 3px solid #60c4e0; border: 1px solid #60c4e0"
+            style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
             id="suggest-img18"
             onmouseover="highlightImage('suggest-img18', 'suggest-text18')"
             onmouseout="removeHighlight('suggest-img18', 'suggest-text18')"
@@ -907,7 +923,7 @@
       <div class="suggest-game">
         <a href="games/circloo.html">
           <img
-            style="outline: 3px solid #60c4e0; border: 1px solid #60c4e0"
+            style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
             id="suggest-img19"
             onmouseover="highlightImage('suggest-img19', 'suggest-text19')"
             onmouseout="removeHighlight('suggest-img19', 'suggest-text19')"
@@ -939,7 +955,7 @@
       <div class="suggest-game">
         <a href="games/learn-to-fly-2.html">
           <img
-            style="outline: 3px solid #60c4e0; border: 1px solid #60c4e0"
+            style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
             id="suggest-img20"
             onmouseover="highlightImage('suggest-img20', 'suggest-text20')"
             onmouseout="removeHighlight('suggest-img20', 'suggest-text20')"
@@ -959,7 +975,7 @@
       <div class="suggest-game">
         <a href="games/asteroids.html">
           <img
-            style="outline: 3px solid #60c4e0; border: 1px solid #60c4e0"
+            style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
             id="suggest-img21"
             onmouseover="highlightImage('suggest-img21', 'suggest-text21')"
             onmouseout="removeHighlight('suggest-img21', 'suggest-text21')"
@@ -979,7 +995,7 @@
       <div class="suggest-game">
         <a href="games/pong.html">
           <img
-            style="outline: 3px solid #60c4e0; border: 1px solid #60c4e0"
+            style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
             id="suggest-img22"
             onmouseover="highlightImage('suggest-img22', 'suggest-text22')"
             onmouseout="removeHighlight('suggest-img22', 'suggest-text22')"
@@ -1013,7 +1029,7 @@
       <div class="suggest-game">
         <a href="games/the-worlds-hardest-game.html">
           <img
-            style="outline: 3px solid #60c4e0; border: 1px solid #60c4e0"
+            style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
             id="suggest-img23"
             onmouseover="highlightImage('suggest-img23', 'suggest-text23')"
             onmouseout="removeHighlight('suggest-img23', 'suggest-text23')"
@@ -1033,7 +1049,7 @@
       <div class="suggest-game">
         <a href="games/tanuki-sunset.html">
           <img
-            style="outline: 3px solid #60c4e0; border: 1px solid #60c4e0"
+            style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
             id="suggest-img24"
             onmouseover="highlightImage('suggest-img24', 'suggest-text24')"
             onmouseout="removeHighlight('suggest-img24', 'suggest-text24')"
@@ -1065,7 +1081,7 @@
       <div class="suggest-game">
         <a href="games/awesome-tanks-2.html">
           <img
-            style="outline: 3px solid #60c4e0; border: 1px solid #60c4e0"
+            style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
             id="suggest-img25"
             onmouseover="highlightImage('suggest-img25', 'suggest-text25')"
             onmouseout="removeHighlight('suggest-img25', 'suggest-text25')"
@@ -1085,7 +1101,7 @@
       <div class="suggest-game">
         <a href="games/papas-freezeria.html">
           <img
-            style="outline: 3px solid #60c4e0; border: 1px solid #60c4e0"
+            style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
             id="suggest-img26"
             onmouseover="highlightImage('suggest-img26', 'suggest-text26')"
             onmouseout="removeHighlight('suggest-img26', 'suggest-text26')"
@@ -1105,7 +1121,7 @@
       <div class="suggest-game">
         <a href="games/retro-bowl.html">
           <img
-            style="outline: 3px solid #60c4e0; border: 1px solid #60c4e0"
+            style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
             id="suggest-img27"
             onmouseover="highlightImage('suggest-img27', 'suggest-text27')"
             onmouseout="removeHighlight('suggest-img27', 'suggest-text27')"
@@ -1125,7 +1141,7 @@
       <div class="suggest-game">
         <a href="games/the-worlds-hardest-game-2.html">
           <img
-            style="outline: 3px solid #60c4e0; border: 1px solid #60c4e0"
+            style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
             id="suggest-img28"
             onmouseover="highlightImage('suggest-img28', 'suggest-text28')"
             onmouseout="removeHighlight('suggest-img28', 'suggest-text28')"
@@ -1145,7 +1161,7 @@
       <div class="suggest-game">
         <a href="games/duck-life.html">
           <img
-            style="outline: 3px solid #60c4e0; border: 1px solid #60c4e0"
+            style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
             id="suggest-img29"
             onmouseover="highlightImage('suggest-img29', 'suggest-text29')"
             onmouseout="removeHighlight('suggest-img29', 'suggest-text29')"
@@ -1164,7 +1180,7 @@
       </div>
     </div>
     <p
-      id="multiplayer-games"
+    id="list-type"
       style="
         text-align: center;
         color: #c370dc;
@@ -1307,13 +1323,13 @@
           font-weight: bold;
           font-family: 'M Plus Rounded 1c';
           text-decoration: none !important;
-          color: #60c4e0 !important;
+          color: #58aafc !important;
         "
       >
         <a
           style="
             text-decoration: underline !important;
-            color: #60c4e0 !important;
+            color: #58aafc !important;
             padding-right: 1%;
           "
           href="/about.html"
@@ -1322,7 +1338,7 @@
         <a
           style="
             text-decoration: underline !important;
-            color: #60c4e0 !important;
+            color: #58aafc !important;
             padding-right: 1%;
           "
           href="/about.html"

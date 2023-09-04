@@ -84,7 +84,7 @@
         font-family: "M Plus Rounded 1c", sans-serif;
         font-weight: bold;
         font-size: large;
-        background-color: #60c4e0;
+        background-color: #58aafc;
         width: 100%;
         display: flex;
         flex-direction: column;
@@ -102,7 +102,17 @@
         (min-width: 321px) and (max-width: 480px),
         (min-width: 481px) and (max-width: 768px) {
         .logo {
-          font-size: 285%;
+          font-size: 120%;
+        }
+        #game-iframe {
+          width: 650px;
+          height: 488px;
+        }
+        .game-title {
+          width: 630px !important;
+        }
+        .game-desc {
+          width: 590px !important;
         }
       }
 
@@ -165,7 +175,7 @@
 
       .game-desc {
         color: #3c3c3c;
-        background-color: #60c4e0;
+        background-color: #58aafc;
         background-image: url("../wood.png");
         width: 740px;
         padding: 10px;
@@ -173,7 +183,7 @@
         padding-left: 30px;
         padding-right: 30px;
         border-radius: 10px;
-        outline: 0px solid #60c4e0;
+        outline: 0px solid #58aafc;
         font-family: "M Plus Rounded 1c", sans-serif;
         font-weight: 800;
         font-size: large;
@@ -183,14 +193,14 @@
 
       .game-title {
         color: #3c3c3c;
-        background-color: #60c4e0;
+        background-color: #58aafc;
         background-image: url("../wood.png");
         width: 780px;
         padding: 10px;
         margin-top: 0px;
         border-bottom-left-radius: 10px;
         border-bottom-right-radius: 10px;
-        outline: 0px solid #60c4e0;
+        outline: 0px solid #58aafc;
         font-family: "M Plus Rounded 1c", sans-serif;
         font-weight: 800;
         font-size: xx-large;
@@ -363,15 +373,13 @@
         height="600px"
         frameborder="0"
         style="
-          overflow: hidden !important;
-          overflow-x: hidden !important;
-          overflow-y: hidden !important;
-          display: block;
-          border: 0px solid #60c4e0;
-          background-image: url('../loading.png');
-          background-size: auto;
-          background-position: 50%;
-        "
+        border: none;
+        background-image: url('../loading.png');
+        background-size: auto;
+        background-position: 50%;
+        display: block;
+        margin: 0 auto;
+    "
       ></iframe>
       <div class="game-title">
         <div>

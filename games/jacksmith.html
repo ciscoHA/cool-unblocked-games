@@ -2,24 +2,44 @@
 <html>
   <head>
     <title>Jacksmith</title>
-    <meta name="robots" content="nosnippet">
+    <meta name="robots" content="nosnippet" />
     <meta
-    name="description"
-    content="Jacksmith is a game where you craft weapons for the army to fight off monsters. Explore over 20 Cool, Free, Unblocked Games."
-  />
-    <meta property="og:title" content="Jacksmith">
-    <meta property="og:description" content="Jacksmith is a game where you craft weapons for the army to fight off monsters. Explore over 20 Cool, Free, Unblocked Games.">
-    <meta property="og:image" content="https://ciscoha.github.io/unblocked-list/icon-600.png"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      name="description"
+      content="Jacksmith is a game where you craft weapons for the army to fight off monsters. Explore over 20 Cool, Free, Unblocked Games."
+    />
+    <meta property="og:title" content="Jacksmith" />
+    <meta
+      property="og:description"
+      content="Jacksmith is a game where you craft weapons for the army to fight off monsters. Explore over 20 Cool, Free, Unblocked Games."
+    />
+    <meta
+      property="og:image"
+      content="https://ciscoha.github.io/unblocked-list/icon-600.png"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    
-    <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico" sizes="64x64"/>
-    <link rel="shortcut icon" type="image/x-icon" href="../favicon-48.png" sizes="48x48"/>
-    <link rel="shortcut icon" type="image/x-icon" href="/favicon-48.png" sizes="48x48"/>
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="../favicon.ico"
+      sizes="64x64"
+    />
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="../favicon-48.png"
+      sizes="48x48"
+    />
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="/favicon-48.png"
+      sizes="48x48"
+    />
     <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
     <style>
       @import url("https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;800;900&display=swap");
- @font-face {
+      @font-face {
         font-family: Satisfactory Base;
         src: url(/fonts/SatisfactoryBase-jEoZ9.otf);
       }
@@ -60,11 +80,12 @@
         background-image: url("../blank.png");
         background-color: #141414;
       }
+
       .navbar {
         font-family: "M Plus Rounded 1c", sans-serif;
         font-weight: bold;
         font-size: large;
-        background-color: #60c4e0;
+        background-color: #58aafc;
         width: 100%;
         display: flex;
         flex-direction: column;
@@ -82,7 +103,17 @@
         (min-width: 321px) and (max-width: 480px),
         (min-width: 481px) and (max-width: 768px) {
         .logo {
-          font-size: 285%;
+          font-size: 120%;
+        }
+        #game-iframe {
+          width: 650px;
+          height: 487px;
+        }
+        .game-title {
+          width: 630px !important;
+        }
+        .game-desc {
+          width: 590px !important;
         }
       }
 
@@ -128,6 +159,7 @@
         height: 140px;
         border: #141414 solid 4px;
       }
+
       span {
         font-size: large;
       }
@@ -145,7 +177,7 @@
 
       .game-desc {
         color: #3c3c3c;
-        background-color: #60c4e0;
+        background-color: #58aafc;
         background-image: url("../wood.png");
         width: 740px;
         padding: 10px;
@@ -153,7 +185,7 @@
         padding-left: 30px;
         padding-right: 30px;
         border-radius: 10px;
-        outline: 0px solid #60c4e0;
+        outline: 0px solid #58aafc;
         font-family: "M Plus Rounded 1c", sans-serif;
         font-weight: 800;
         font-size: large;
@@ -163,22 +195,30 @@
 
       .game-title {
         color: #3c3c3c;
-        background-color: #60c4e0;
+        background-color: #58aafc;
         background-image: url("../wood.png");
         width: 780px;
         padding: 10px;
         margin-top: 0px;
         border-bottom-left-radius: 10px;
         border-bottom-right-radius: 10px;
-        outline: 0px solid #60c4e0;
+        outline: 0px solid #58aafc;
         font-family: "M Plus Rounded 1c", sans-serif;
         font-weight: 800;
         font-size: xx-large;
         display: flex;
         justify-content: space-between;
-        align-items: center; /* Align vertically at the center */
-      }
+        align-items: center;
+        display: flex; /* Use flexbox to horizontally align popup and fullscreen button */
+        align-items: center; /* Vertically align items within .game-title */
+        justify-content: flex-start; /* Align items from the start (left) of .game-title */
+        position: relative; /* Create a positioning context for the absolute-positioned .popup */
 
+        display: flex; /* Use flexbox to horizontally align the title and button */
+        justify-content: space-between; /* Put space between the title and button */
+        align-items: center; /* Vertically center items within .game-title */
+        position: relative; /* Create a positioning context for the absolute-positioned .popup */
+      }
       .game-title button {
         background: none;
         border: none;
@@ -213,16 +253,25 @@
         padding-left: 0; /* Remove the left padding */
         white-space: nowrap; /* Prevent subtext from wrapping */
       }
-
+      .game-title button {
+        margin-left: 15px; /* Add a 15px margin to the left of the "Fullscreen" button */
+      }
       .popup {
         position: absolute;
-        display: inline-block;
-        margin-bottom: 2.5%;
-        margin-left: 670px;
+        right: 80px; /* Position the .popup 40px from the right edge of .game-title */
+        top: 50%;
+        transform: translateY(-50%);
         z-index: 2;
       }
 
-      .popup .popuptext {
+      .popup-icon {
+        width: 40px;
+        height: 40px;
+        vertical-align: middle;
+        margin-right: 5px;
+      }
+
+      .popuptext {
         text-rendering: optimizeLegibility;
         visibility: hidden;
         width: 160px;
@@ -234,14 +283,11 @@
         border-radius: 6px;
         padding: 8px;
         position: absolute;
-        z-index: 2;
-        bottom: 125%;
+        bottom: 100%;
         left: 50%;
-        margin-left: -80px;
+        transform: translateX(-50%);
         opacity: 0;
         transition: opacity 0.3s;
-        margin-bottom: 2.5%;
-        margin-left: 605px;
       }
 
       .popup:hover .popuptext {
@@ -380,7 +426,7 @@
         style="
           z-index: 1;
           display: block;
-          border: 0px solid #60c4e0;
+          border: 0px solid #58aafc;
           background-image: url('../loading.png');
           background-size: auto;
           background-position: 50%;
@@ -398,26 +444,15 @@
             >
           </span>
         </div>
-        <div
-          class="popup"
-          style="
-            z-index: 2 !important;
-            padding: 0;
-            margin-left: 0px;
-            margin-right: -250px !important;
-            align-items: left !important;
-          "
-        >
+        <div class="popup">
           <img
-            class="popup"
+            class="popup-icon"
             src="../images/icons/flash.png"
             alt="Flash"
             width="40"
             height="40"
           />
-          <span style="z-index: 2 !important" class="popuptext"
-            >Emulated by Ruffle</span
-          >
+          <span class="popuptext">Emulated by Ruffle</span>
         </div>
         <button onclick="toggleFullscreen()">
           <img
