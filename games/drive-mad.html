@@ -14,7 +14,7 @@
     />
     <meta
       property="og:image"
-      content="https://ciscoha.github.io/unblocked-list/icon-600.png"
+      content="https://ciscoha.github.io/unblocked-list/favicon.ico"
     />
 
     
@@ -37,6 +37,14 @@
         src: url(/fonts/SatisfactoryTopline-1GAPZ.otf);
       }
       
+      .game-title-subtext a {
+        color: #3c3c3c;
+      }
+
+      .game-title-subtext a:hover {
+        text-decoration: underline !important; /* Underline the link on hover */
+      }
+
       @media (max-width: 320px),
         (min-width: 321px) and (max-width: 480px),
         (min-width: 481px) and (max-width: 768px) {
@@ -335,9 +343,10 @@
         </a>
       </div>
       <div class="navbar-menu">
-        <a href="../index.html#popular-games">Popular</a>
+      <a href="../index.html#popular-games">Popular</a>
         <a href="../index.html#multiplayer-games">Multiplayer</a>
         <a href="#" onclick="goToRandomPage()">Random</a>
+        <a href="../list.html">All Games</a>
         <a href="../about.html">Contact</a>
       </div>
     </div>
