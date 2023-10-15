@@ -200,6 +200,10 @@
           padding-bottom: -50px !important;
           margin-bottom: 30px !important;
         }
+
+        .list {
+          font-size: 55% !important;
+        }
       }
       .overlay {
         display: none;
@@ -225,7 +229,6 @@
         z-index: 9999;
       }
 
-
       #iconi {
         border: 0px;
         height: 26px;
@@ -249,12 +252,18 @@
       }
 
       .list a {
-        color: #dc7070;
+        color: #fc5858;
       }
 
-      .list a:hover {
+      .list span {
+        font-size: 130%;
+      }
+
+      .list aaaa:hover {
         text-decoration: underline !important; /* Underline the link on hover */
       }
+      
+      
     </style>
     <script>
       function goToRandomPage() {
@@ -282,49 +291,18 @@
 
         window.location.href = randomPage;
       }
-
       function highlightImage(elementId, textClass) {
         var img = document.getElementById(elementId);
-        var litext = document.getElementsByClassName(textClass)[0];
-        img.style.outline = "5px solid #58aafc";
-        litext.classList.add("underline");
+        var litext = img.nextElementSibling;
+        img.style.outline = "3px solid #fc5858";
+        litext.style.textDecoration = "underline";
       }
 
       function removeHighlight(elementId, textClass) {
         var img = document.getElementById(elementId);
-        var litext = document.getElementsByClassName(textClass)[0];
-        img.style.outline = "3px solid #58aafc";
-        litext.classList.remove("underline");
-      }
-
-      function highlightImage2(elementId, textClass) {
-        var img = document.getElementById(elementId);
-        var litext = document.getElementsByClassName(textClass)[0];
-        img.style.outline = "6px solid #dc7070";
-        img.style.transition = "outline-width 0.2s";
-        litext.classList.add("underline");
-      }
-
-      function removeHighlight2(elementId, textClass) {
-        var img = document.getElementById(elementId);
-        var litext = document.getElementsByClassName(textClass)[0];
-        img.style.outline = "3px solid #dc7070";
-        img.style.transition = "outline-width 0.2s";
-        litext.classList.remove("underline");
-      }
-
-      function highlightImage3(elementId, textClass) {
-        var img = document.getElementById(elementId);
-        var litext = document.getElementsByClassName(textClass)[0];
-        img.style.outline = "6px solid #c370dc";
-        litext.classList.add("underline");
-      }
-
-      function removeHighlight3(elementId, textClass) {
-        var img = document.getElementById(elementId);
-        var litext = document.getElementsByClassName(textClass)[0];
-        img.style.outline = "3px solid #c370dc";
-        litext.classList.remove("underline");
+        var litext = img.nextElementSibling;
+        img.style.outline = "0px solid #fc5858";
+        litext.style.textDecoration = "none";
       }
     </script>
   </head>
@@ -335,6 +313,20 @@
         <p>Please rotate your device for the best viewing experience.</p>
       </div>
     </div>
+    <a id="home-button" href="/index.html">
+      <img
+        style="
+          position: fixed;
+          width: 55px;
+          margin: -2px;
+          margin-left: -8px;
+          padding: 15px;
+          border-radius: 0px;
+          background-color: rgba(88, 170, 252, 0);
+        "
+        src="/logo-s.png"
+      />
+    </a>
     <div itemscope itemtype="https://schema.org/WebSite">
       <meta itemprop="url" content="https://coolubg.github.io/" />
       <meta itemprop="name" content="Cool Unblocked Games" />
@@ -412,25 +404,32 @@
     <p
       id="list-type"
       style="
+        font-size: 250%;
+        font-family: 'Satisfactory Base';
+        display: flex;
+        width: fit-content;
+        margin: 0 auto;
+        margin-top: 15px;
+        margin-bottom: 20px;
+        padding: 4px;
+        padding-left: 8px;
+        padding-right: 8px;
+        border-radius: 10px;
+        text-decoration: none;
+        color: #fc5858;
         text-align: center;
-        color: #dc7070;
-        font-family: 'Satisfactory Base', sans-serif;
-        font-weight: normal;
-        font-size: 240%;
-        border-radius: 0px;
-        padding-top: 0%;
-        margin-right: 40%;
-        margin-left: 40%;
-        outline: #dc7070 solid 4px;
+        padding: 0.25%;
+        outline: #fc5858 solid 4px;
         border-radius: 5px;
       "
     >
       All Games A<span
-        style="
-          text-align: center;
-          font-family: 'Courier New', Courier, monospace;
-          font-size: 100%;
-        "
+      style="
+      text-align: center;
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+      font-size: 85%;
+      font-weight: normal;
+    "
         >-</span
       >Z
     </p>
@@ -438,96 +437,274 @@
       class="list"
       style="
         font-family: 'M Plus Rounded 1c', sans-serif;
-        font-weight: bold;
-        font-size: 140%;
-        margin-top: 0px;
-        margin-bottom: -5px;
-        margin-left: 15%;
-        color: #dc7070;
-        background-color: #141414;
-        outline: #dc7070 solid 4px;
-        margin-right: 15%;
-        border-radius: 10px;
-        padding-top: 5px;
-        padding-bottom: 5px;
-        padding: 8px;
+    font-weight: bold;
+    font-size: 100%;
+    margin-top: 0px;
+    margin-bottom: -5px;
+    margin-left: 15%;
+    color: #fc5858;
+    background-color: #141414;
+    outline: #fc5858 solid 4px;
+    margin-right: 15%;
+    border-radius: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding: 8px;
+    align-items: left;
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    align-items: left; /* Center items horizontally */
       "
     >
-    <a href="/games/alien-hominid.html">Alien Hominid</a>
-      <br />
-      <a href="/games/asteroids.html">Asteroids</a>
-      <br />
-      <a href="/games/awesome-tanks-2.html">Awesome Tanks 2</a>
-      <br />
-      <a href="/games/bloons-td-2.html">Bloons TD 2</a>
-      <br />
-      <a href="/games/breaking-the-bank.html">Breaking the Bank</a>
-      <br />
-      <a href="/games/circloo.html">CircloO</a>
-      <br />
-      <a href="/games/drive-mad.html">Drive Mad</a>
-      <br />
-      <a href="/games/duck-life.html">Duck Life</a>
-      <br />
-      <a href="/games/duck-life-3.html">Duck Life 3: Evolution</a>
-      <br />
-      <a href="/games/duck-life-4.html">Duck Life 4</a>
-      <br />
-      <a href="/games/escaping-the-prison.html">Escaping the Prison</a>
-      <br />
-      <a href="/games/fireboy&watergirl.html">Fireboy & Watergirl</a>
-      <img id="iconi" src="images/icons/multiplayer.png" alt="Multiplayer" />
-      <br />
-      <a href="/games/fleeing-the-complex.html">Fleeing the Complex</a>
-      <br />
-      <a href="/games/getaway-shootout.html">Getaway Shootout</a>
-      <img id="iconi" src="images/icons/multiplayer.png" alt="Multiplayer" />
-      <br />
-      <a href="/games/infiltrating-the-airship.html">Infiltrating the Airship</a>
-      <br />
-      <a href="/games/jacksmith.html">Jacksmith</a>
-      <br />
-      <a href="/games/jelly-truck.html">Jelly Truck</a>
-      <br />
-      <a href="/games/learn-to-fly-2.html">Learn to Fly 2</a>
-      <br />
-      <a href="/games/line-rider.html">Line Rider</a>
-      <br />
-      <a href="/games/moto-x3m.html">Moto X3M</a>
-      <br />
-      <a href="/games/moto-x3m-winter.html">Moto X3M Winter</a>
-      <br />
-      <a href="/games/moto-x3m-pool-party.html">Moto X3M Pool Party</a>
-      <br />
-      <a href="/games/papas-freezeria.html">Papa's Freezeria</a>
-      <br />
-      <a href="/games/pong.html">Pong.</a>
-      <img id="iconi" src="images/icons/multiplayer.png" alt="Multiplayer" />
-      <br />
-      <a href="/games/raft-wars.html">Raft Wars Classic</a>
-      <br />
-      <a href="/games/retro-bowl.html">Retro Bowl</a>
-      <br />
-      <a href="/games/rooftop-snipers.html">Rooftop Snipers</a>
-      <img id="iconi" src="images/icons/multiplayer.png" alt="Multiplayer" />
-      <br />
-      <a href="/games/run-3.html">Run 3</a>
-      <br />
-      <a href="/games/slope.html">Slope</a>
-      <br />
-      <a href="/games/stack.html">Stack</a>
-      <br />
-      <a href="/games/tanuki-sunset.html">Tanuki Sunset</a>
-      <br />
-      <a href="/games/the-fancy-pants-adventures.html">The Fancy Pants Adventures</a>
-      <br />
-      <a href="/games/the-worlds-hardest-game.html">The World's Hardest Game</a>
-      <br />
-      <a href="/games/the-worlds-hardest-game-2.html"
-        >The World's Hardest Game 2</a
-      >
-      <br />
-      <a href="/games/tomb-of-the-mask.html">Tomb of the Mask</a>
+    <a style="vertical-align: middle; margin: 5px 0;" href="games/alien-hominid.html" class="suggest-text suggest-text1" onmouseover="highlightImage('suggest-img1', 'suggest-text1')" onmouseout="removeHighlight('suggest-img1', 'suggest-text1')">
+      <img style="border-radius: 4px; vertical-align: middle" width="70px" id="suggest-img1" src="/images/games/list/alien-hominid.png" alt="Alien Hominid" />
+      <span style="vertical-align: middle">Alien Hominid</span>
+    </a>
+
+    <a style="vertical-align: middle; margin: 5px 0;" href="games/appel.html" class="suggest-text suggest-text102" onmouseover="highlightImage('suggest-img102', 'suggest-text102')" onmouseout="removeHighlight('suggest-img102', 'suggest-text102')">
+      <img style="border-radius: 4px; vertical-align: middle" width="70px" id="suggest-img102" src="/images/games/list/appel.png" alt="Appel" />
+      <span style="vertical-align: middle">Appel</span>
+    </a>
+  
+    <a style="vertical-align: middle; margin: 5px 0;" href="games/asteroids.html" class="suggest-text suggest-text2" onmouseover="highlightImage('suggest-img2', 'suggest-text2')" onmouseout="removeHighlight('suggest-img2', 'suggest-text2')">
+      <img style="border-radius: 4px; vertical-align: middle" width="70px" id="suggest-img2" src="/images/games/list/asteroids.png" alt="Asteroids" />
+      <span style="vertical-align: middle">Asteroids</span>
+    </a>
+
+    <a style="vertical-align: middle; margin: 5px 0;" href="games/awesome-tanks.html" class="suggest-text suggest-text103" onmouseover="highlightImage('suggest-img103', 'suggest-text103')" onmouseout="removeHighlight('suggest-img103', 'suggest-text103')">
+      <img style="border-radius: 4px; vertical-align: middle" width="70px" id="suggest-img103" src="/images/games/list/awesome-tanks.png" alt="Awesome Tanks" />
+      <span style="vertical-align: middle">Awesome Tanks</span>
+    </a>
+
+
+    <a style="vertical-align: middle; margin: 5px 0;" href="games/awesome-tanks-2.html" class="suggest-text suggest-text3" onmouseover="highlightImage('suggest-img3', 'suggest-text3')" onmouseout="removeHighlight('suggest-img3', 'suggest-text3')">
+      <img style="border-radius: 4px; vertical-align: middle" width="70px" id="suggest-img3" src="/images/games/list/awesome-tanks-2.png" alt="Awesome Tanks 2" />
+      <span style="vertical-align: middle">Awesome Tanks 2</span>
+    </a>
+
+    <a style="vertical-align: middle; margin: 5px 0;" href="games/bloons-td-2.html" class="suggest-text suggest-text4" onmouseover="highlightImage('suggest-img4', 'suggest-text4')" onmouseout="removeHighlight('suggest-img4', 'suggest-text4')">
+      <img style="border-radius: 4px; vertical-align: middle" width="70px" id="suggest-img4" src="/images/games/list/bloons-td-2.png" alt="Bloons TD 2" />
+      <span style="vertical-align: middle">Bloons TD 2</span>
+
+      <a style="vertical-align: middle; margin: 5px 0;" href="games/breaking-the-bank.html" class="suggest-text suggest-text5" onmouseover="highlightImage('suggest-img5', 'suggest-text5')" onmouseout="removeHighlight('suggest-img5', 'suggest-text5')">
+        <img style="border-radius: 4px; vertical-align: middle" width="70px" id="suggest-img5" src="/images/games/list/breaking-the-bank.png" alt="Breaking the Bank" />
+        <span style="vertical-align: middle">Breaking the Bank</span>
+    </a>
+
+    <a style="vertical-align: middle; margin: 5px 0;" href="games/circloo.html" class="suggest-text suggest-text6" onmouseover="highlightImage('suggest-img6', 'suggest-text6')" onmouseout="removeHighlight('suggest-img6', 'suggest-text6')">
+      <img style="border-radius: 4px; vertical-align: middle" width="70px" id="suggest-img6" src="/images/games/list/circloo.png" alt="CircloO" />
+      <span style="vertical-align: middle">CircloO</span>
+  </a>
+
+  <a style="vertical-align: middle; margin: 5px 0;" href="games/cut-the-rope.html" class="suggest-text suggest-text106" onmouseover="highlightImage('suggest-img106', 'suggest-text106')" onmouseout="removeHighlight('suggest-img106', 'suggest-text106')">
+    <img style="border-radius: 4px; vertical-align: middle" width="70px" id="suggest-img106" src="/images/games/list/cut-the-rope.png" alt="Cut the Rope" />
+    <span style="vertical-align: middle">Cut the Rope</span>
+</a>
+
+<a style="vertical-align: middle; margin: 5px 0;" href="games/doom.html" class="suggest-text suggest-text107" onmouseover="highlightImage('suggest-img107', 'suggest-text107')" onmouseout="removeHighlight('suggest-img107', 'suggest-text107')">
+  <img style="border-radius: 4px; vertical-align: middle" width="70px" id="suggest-img107" src="/images/games/list/doom.png" alt="DOOM" />
+  <span style="vertical-align: middle">DOOM</span>
+</a>
+
+
+  <a style="vertical-align: middle; margin: 5px 0;" href="games/drive-mad.html" class="suggest-text suggest-text7" onmouseover="highlightImage('suggest-img7', 'suggest-text7')" onmouseout="removeHighlight('suggest-img7', 'suggest-text7')">
+    <img style="border-radius: 4px; vertical-align: middle" width="70px" id="suggest-img7" src="/images/games/list/drive-mad.png" alt="Drive Mad" />
+    <span style="vertical-align: middle">Drive Mad</span>
+</a>
+
+<a style="vertical-align: middle; margin: 5px 0;" href="games/duck-life.html" class="suggest-text suggest-text8" onmouseover="highlightImage('suggest-img8', 'suggest-text8')" onmouseout="removeHighlight('suggest-img8', 'suggest-text8')">
+  <img style="border-radius: 4px; vertical-align: middle" width="70px" id="suggest-img8" src="/images/games/list/duck-life.png" alt="Duck Life" />
+  <span style="vertical-align: middle">Duck Life</span>
+</a>
+
+<a style="vertical-align: middle; margin: 5px 0;" href="games/duck-life-2.html" class="suggest-text suggest-text1-8" onmouseover="highlightImage('suggest-img108', 'suggest-text108')" onmouseout="removeHighlight('suggest-img108', 'suggest-text108')">
+  <img style="border-radius: 4px; vertical-align: middle" width="70px" id="suggest-img108" src="/images/games/list/duck-life-2.png" alt="Duck Life World Champion" />
+  <span style="vertical-align: middle">Duck Life 2: World Champion</span>
+</a>
+
+<a style="vertical-align: middle; margin: 5px 0;" href="games/duck-life-3.html" class="suggest-text suggest-text9" onmouseover="highlightImage('suggest-img9', 'suggest-text9')" onmouseout="removeHighlight('suggest-img9', 'suggest-text9')">
+  <img style="border-radius: 4px; vertical-align: middle" width="70px" id="suggest-img9" src="/images/games/list/duck-life-3.png" alt="Duck Life 3 Evolution" />
+  <span style="vertical-align: middle">Duck Life 3: Evolution</span>
+</a>
+
+<a style="vertical-align: middle; margin: 5px 0;" href="games/duck-life-4.html" class="suggest-text suggest-text10" onmouseover="highlightImage('suggest-img10', 'suggest-text10')" onmouseout="removeHighlight('suggest-img10', 'suggest-text10')">
+  <img style="border-radius: 4px; vertical-align: middle" width="70px" id="suggest-img10" src="/images/games/list/duck-life-4.png" alt="Duck Life 4" />
+  <span style="vertical-align: middle">Duck Life 4</span>
+</a>
+
+<a style="vertical-align: middle; margin: 5px 0;" href="games/escaping-the-prison.html" class="suggest-text suggest-text11" onmouseover="highlightImage('suggest-img11', 'suggest-text11')" onmouseout="removeHighlight('suggest-img11', 'suggest-text11')">
+  <img style="border-radius: 4px; vertical-align: middle" width="70px" id="suggest-img11" src="/images/games/list/escaping-the-prison.png" alt="Escaping the Prison" />
+  <span style="vertical-align: middle">Escaping the Prison</span>
+</a>
+
+<a style="vertical-align: middle; margin: 5px 0;" href="games/fireboy&watergirl.html" class="suggest-text suggest-text12" onmouseover="highlightImage('suggest-img12', 'suggest-text12')" onmouseout="removeHighlight('suggest-img12', 'suggest-text12')">
+  <img style="border-radius: 4px; vertical-align: middle" width="70px" id="suggest-img12" src="/images/games/list/fireboy&watergirl.png" alt="Fireboy & Watergirl" />
+  <span style="vertical-align: middle">Fireboy & Watergirl</span>
+</a>
+
+<a style="vertical-align: middle; margin: 5px 0;" href="games/fleeing-the-complex.html" class="suggest-text suggest-text13" onmouseover="highlightImage('suggest-img13', 'suggest-text13')" onmouseout="removeHighlight('suggest-img13', 'suggest-text13')">
+  <img style="border-radius: 4px; vertical-align: middle" width="70px" id="suggest-img13" src="/images/games/list/fleeing-the-complex.png" alt="Fleeing the Complex" />
+  <span style="vertical-align: middle">Fleeing the Complex</span>
+</a>
+
+<a style="vertical-align: middle; margin: 5px 0;" href="games/getaway-shootout.html" class="suggest-text suggest-text14" onmouseover="highlightImage('suggest-img14', 'suggest-text14')" onmouseout="removeHighlight('suggest-img14', 'suggest-text14')">
+  <img style="border-radius: 4px; vertical-align: middle" width="70px" id="suggest-img14" src="/images/games/list/getaway-shootout.png" alt="Getaway Shootout" />
+  <span style="vertical-align: middle">Getaway Shootout</span>
+</a>
+
+<a style="vertical-align: middle; margin: 5px 0;" href="games/gun-mayhem.html" class="suggest-text suggest-text114" onmouseover="highlightImage('suggest-img114', 'suggest-text114')" onmouseout="removeHighlight('suggest-img114', 'suggest-text114')">
+  <img style="border-radius: 4px; vertical-align: middle" width="70px" id="suggest-img14" src="/images/games/list/gun-mayhem.png" alt="Gun Mayhem" />
+  <span style="vertical-align: middle">Gun Mayhem</span>
+</a>
+
+<a style="vertical-align: middle; margin: 5px 0;" href="games/infiltrating-the-airship.html" class="suggest-text suggest-text15" onmouseover="highlightImage('suggest-img15', 'suggest-text15')" onmouseout="removeHighlight('suggest-img15', 'suggest-text15')">
+  <img style="border-radius: 4px; vertical-align: middle" width="70px" id="suggest-img15" src="/images/games/list/infiltrating-the-airship.png" alt="Infiltrating the Airship" />
+  <span style="vertical-align: middle">Infiltrating the Airship</span>
+</a>
+
+<a style="vertical-align: middle; margin: 5px 0;" href="games/jacksmith.html" class="suggest-text suggest-text16" onmouseover="highlightImage('suggest-img16', 'suggest-text16')" onmouseout="removeHighlight('suggest-img16', 'suggest-text16')">
+  <img style="border-radius: 4px; vertical-align: middle" width="70px" id="suggest-img16" src="/images/games/list/jacksmith.png" alt="Jacksmith" />
+  <span style="vertical-align: middle">Jacksmith</span>
+</a>
+
+<a style="vertical-align: middle; margin: 5px 0;" href="games/jelly-truck.html" class="suggest-text suggest-text17" onmouseover="highlightImage('suggest-img17', 'suggest-text17')" onmouseout="removeHighlight('suggest-img17', 'suggest-text17')">
+  <img style="border-radius: 4px; vertical-align: middle" width="70px" id="suggest-img17" src="/images/games/list/jelly-truck.png" alt="Jelly Truck" />
+  <span style="vertical-align: middle">Jelly Truck</span>
+</a>
+
+<a style="vertical-align: middle; margin: 5px 0;" href="games/learn-to-fly.html" class="suggest-text suggest-text118" onmouseover="highlightImage('suggest-img118', 'suggest-text118')" onmouseout="removeHighlight('suggest-img118', 'suggest-text118')">
+  <img style="border-radius: 4px; vertical-align: middle" width="70px" id="suggest-img118" src="/images/games/list/learn-to-fly.png" alt="Learn to Fly" />
+  <span style="vertical-align: middle">Learn to Fly</span>
+</a>
+
+<a style="vertical-align: middle; margin: 5px 0;" href="games/learn-to-fly-2.html" class="suggest-text suggest-text18" onmouseover="highlightImage('suggest-img18', 'suggest-text18')" onmouseout="removeHighlight('suggest-img18', 'suggest-text18')">
+  <img style="border-radius: 4px; vertical-align: middle" width="70px" id="suggest-img18" src="/images/games/list/learn-to-fly-2.png" alt="Learn to Fly 2" />
+  <span style="vertical-align: middle">Learn to Fly 2</span>
+</a>
+
+<a style="vertical-align: middle; margin: 5px 0;" href="games/line-rider.html" class="suggest-text suggest-text19" onmouseover="highlightImage('suggest-img19', 'suggest-text19')" onmouseout="removeHighlight('suggest-img19', 'suggest-text19')">
+  <img style="border-radius: 4px; vertical-align: middle" width="70px" id="suggest-img19" src="/images/games/list/line-rider.png" alt="Line Rider" />
+  <span style="vertical-align: middle">Line Rider</span>
+</a>
+
+<a style="vertical-align: middle; margin: 5px 0;" href="games/moto-x3m.html" class="suggest-text suggest-text20" onmouseover="highlightImage('suggest-img20', 'suggest-text20')" onmouseout="removeHighlight('suggest-img20', 'suggest-text20')">
+  <img style="border-radius: 4px; vertical-align: middle" width="70px" id="suggest-img20" src="/images/games/list/moto-x3m.png" alt="Moto X3M" />
+  <span style="vertical-align: middle">Moto X3M</span>
+</a>
+
+<a style="vertical-align: middle; margin: 5px 0;" href="games/moto-x3m-2.html" class="suggest-text suggest-text120" onmouseover="highlightImage('suggest-img120', 'suggest-text120')" onmouseout="removeHighlight('suggest-img120', 'suggest-text120')">
+  <img style="border-radius: 4px; vertical-align: middle" width="70px" id="suggest-img120" src="/images/games/list/moto-x3m-2.png" alt="Moto X3M 2" />
+  <span style="vertical-align: middle">Moto X3M 2</span>
+</a>
+
+<a style="vertical-align: middle; margin: 5px 0;" href="games/moto-x3m-3.html" class="suggest-text suggest-text121" onmouseover="highlightImage('suggest-img121', 'suggest-text121')" onmouseout="removeHighlight('suggest-img121', 'suggest-text121')">
+  <img style="border-radius: 4px; vertical-align: middle" width="70px" id="suggest-img121" src="/images/games/list/moto-x3m-3.png" alt="Moto X3M 3" />
+  <span style="vertical-align: middle">Moto X3M 3</span>
+</a>
+
+<a style="vertical-align: middle; margin: 5px 0;" href="games/moto-x3m-winter.html" class="suggest-text suggest-text21" onmouseover="highlightImage('suggest-img21', 'suggest-text21')" onmouseout="removeHighlight('suggest-img21', 'suggest-text21')">
+  <img style="border-radius: 4px; vertical-align: middle" width="70px" id="suggest-img21" src="/images/games/list/moto-x3m-winter.png" alt="Moto X3M Winter" />
+  <span style="vertical-align: middle">Moto X3M Winter</span>
+</a>
+
+<a style="vertical-align: middle; margin: 5px 0;" href="games/moto-x3m-pool-party.html" class="suggest-text suggest-text22" onmouseover="highlightImage('suggest-img22', 'suggest-text22')" onmouseout="removeHighlight('suggest-img22', 'suggest-text22')">
+  <img style="border-radius: 4px; vertical-align: middle" width="70px" id="suggest-img22" src="/images/games/list/moto-x3m-pool-party.png" alt="Moto X3M Pool Party" />
+  <span style="vertical-align: middle">Moto X3M Pool Party</span>
+</a>
+
+<a style="vertical-align: middle; margin: 5px 0;" href="games/moto-x3m-spooky-land.html" class="suggest-text suggest-text122" onmouseover="highlightImage('suggest-img122', 'suggest-text122')" onmouseout="removeHighlight('suggest-img122', 'suggest-text122')">
+  <img style="border-radius: 4px; vertical-align: middle" width="70px" id="suggest-img122" src="/images/games/list/moto-x3m-spooky-land.png" alt="Moto X3M Spooky Land" />
+  <span style="vertical-align: middle">Moto X3M Spooky Land</span>
+</a>
+
+<a style="vertical-align: middle; margin: 5px 0;" href="games/papas-freezeria.html" class="suggest-text suggest-text23" onmouseover="highlightImage('suggest-img23', 'suggest-text23')" onmouseout="removeHighlight('suggest-img23', 'suggest-text23')">
+  <img style="border-radius: 4px; vertical-align: middle" width="70px" id="suggest-img23" src="/images/games/list/papas-freezeria.png" alt="Papa's Freezeria" />
+  <span style="vertical-align: middle">Papa's Freezeria</span>
+</a>
+
+<a style="vertical-align: middle; margin: 5px 0;" href="games/plants-vs-zombies.html" class="suggest-text suggest-text123" onmouseover="highlightImage('suggest-img123', 'suggest-text123')" onmouseout="removeHighlight('suggest-img123', 'suggest-text123')">
+  <img style="border-radius: 4px; vertical-align: middle" width="70px" id="suggest-img123" src="/images/games/list/plants-vs-zombies.png" alt="Plants VS Zombies" />
+  <span style="vertical-align: middle">Plants VS. Zombies</span>
+</a>
+
+<a style="vertical-align: middle; margin: 5px 0;" href="games/pong.html" class="suggest-text suggest-text24" onmouseover="highlightImage('suggest-img24', 'suggest-text24')" onmouseout="removeHighlight('suggest-img24', 'suggest-text24')">
+  <img style="border-radius: 4px; vertical-align: middle" width="70px" id="suggest-img24" src="/images/games/list/pong.png" alt="Pong." />
+  <span style="vertical-align: middle">Pong.</span>
+</a>
+
+<a style="vertical-align: middle; margin: 5px 0;" href="games/raft-wars.html" class="suggest-text suggest-text25" onmouseover="highlightImage('suggest-img25', 'suggest-text25')" onmouseout="removeHighlight('suggest-img25', 'suggest-text25')">
+  <img style="border-radius: 4px; vertical-align: middle" width="70px" id="suggest-img25" src="/images/games/list/raft-wars.png" alt="Raft Wars" />
+  <span style="vertical-align: middle">Raft Wars</span>
+</a>
+
+<a style="vertical-align: middle; margin: 5px 0;" href="games/retro-bowl.html" class="suggest-text suggest-text26" onmouseover="highlightImage('suggest-img26', 'suggest-text26')" onmouseout="removeHighlight('suggest-img26', 'suggest-text26')">
+  <img style="border-radius: 4px; vertical-align: middle" width="70px" id="suggest-img26" src="/images/games/list/retro-bowl.png" alt="Retro Bowl" />
+  <span style="vertical-align: middle">Retro Bowl</span>
+</a>
+
+<a style="vertical-align: middle; margin: 5px 0;" href="games/rooftop-snipers.html" class="suggest-text suggest-text27" onmouseover="highlightImage('suggest-img27', 'suggest-text27')" onmouseout="removeHighlight('suggest-img27', 'suggest-text27')">
+  <img style="border-radius: 4px; vertical-align: middle" width="70px" id="suggest-img27" src="/images/games/list/rooftop-snipers.png" alt="Rooftop Snipers" />
+  <span style="vertical-align: middle">Rooftop Snipers</span>
+</a>
+
+<a style="vertical-align: middle; margin: 5px 0;" href="games/rooftop-snipers.html" class="suggest-text suggest-text28" onmouseover="highlightImage('suggest-img28', 'suggest-text28')" onmouseout="removeHighlight('suggest-img28', 'suggest-text28')">
+  <img style="border-radius: 4px; vertical-align: middle" width="70px" id="suggest-img28" src="/images/games/list/run-3.png" alt="Run 3" />
+  <span style="vertical-align: middle">Run 3</span>
+</a>
+
+<a style="vertical-align: middle; margin: 5px 0;" href="games/slope.html" class="suggest-text suggest-text29" onmouseover="highlightImage('suggest-img29', 'suggest-text29')" onmouseout="removeHighlight('suggest-img29', 'suggest-text29')">
+  <img style="border-radius: 4px; vertical-align: middle" width="70px" id="suggest-img29" src="/images/games/list/slope.png" alt="Slope" />
+  <span style="vertical-align: middle">Slope</span>
+</a>
+
+<a style="vertical-align: middle; margin: 5px 0;" href="games/stack.html" class="suggest-text suggest-text129" onmouseover="highlightImage('suggest-img129', 'suggest-text129')" onmouseout="removeHighlight('suggest-img129', 'suggest-text129')">
+  <img style="border-radius: 4px; vertical-align: middle" width="70px" id="suggest-img129" src="/images/games/list/stack.png" alt="Stack" />
+  <span style="vertical-align: middle">Stack</span>
+</a>
+
+<a style="vertical-align: middle; margin: 5px 0;" href="games/stealing-the-diamond.html" class="suggest-text suggest-text130" onmouseover="highlightImage('suggest-img130', 'suggest-text130')" onmouseout="removeHighlight('suggest-img130', 'suggest-text130')">
+  <img style="border-radius: 4px; vertical-align: middle" width="70px" id="suggest-img130" src="/images/games/list/stealing-the-diamond.png" alt="Stack" />
+  <span style="vertical-align: middle">Stealing the Diamond</span>
+</a>
+
+<a style="vertical-align: middle; margin: 5px 0;" href="games/tanuki-sunset.html" class="suggest-text suggest-text30" onmouseover="highlightImage('suggest-img30', 'suggest-text30')" onmouseout="removeHighlight('suggest-img30', 'suggest-text30')">
+  <img style="border-radius: 4px; vertical-align: middle" width="70px" id="suggest-img30" src="/images/games/list/tanuki-sunset.png" alt="Tanuki Sunset" />
+  <span style="vertical-align: middle">Tanuki Sunset</span>
+</a>
+
+<a style="vertical-align: middle; margin: 5px 0;" href="games/the-fancy-pants-adventures.html" class="suggest-text suggest-text31" onmouseover="highlightImage('suggest-img31', 'suggest-text31')" onmouseout="removeHighlight('suggest-img31', 'suggest-text31')">
+  <img style="border-radius: 4px; vertical-align: middle" width="70px" id="suggest-img31" src="/images/games/list/the-fancy-pants-adventures-world-1.png" alt="The Fancy Pants Adventures" />
+  <span style="vertical-align: middle">The Fancy Pants Adventures World 1</span>
+</a>
+
+<a style="vertical-align: middle; margin: 5px 0;" href="games/the-fancy-pants-adventures-world-2.html" class="suggest-text suggest-text131" onmouseover="highlightImage('suggest-img131', 'suggest-text131')" onmouseout="removeHighlight('suggest-img131', 'suggest-text131')">
+  <img style="border-radius: 4px; vertical-align: middle" width="70px" id="suggest-img131" src="/images/games/list/the-fancy-pants-adventures-world-2.png" alt="The Fancy Pants Adventures World 2" />
+  <span style="vertical-align: middle">The Fancy Pants Adventures World 2</span>
+</a>
+
+<a style="vertical-align: middle; margin: 5px 0;" href="games/the-fancy-pants-adventures-world-3.html" class="suggest-text suggest-text132" onmouseover="highlightImage('suggest-img132', 'suggest-text132')" onmouseout="removeHighlight('suggest-img132', 'suggest-text132')">
+  <img style="border-radius: 4px; vertical-align: middle" width="70px" id="suggest-img132" src="/images/games/list/the-fancy-pants-adventures-world-3.png" alt="The Fancy Pants Adventures World 3" />
+  <span style="vertical-align: middle">The Fancy Pants Adventures World 3</span>
+</a>
+
+<a style="vertical-align: middle; margin: 5px 0;" href="games/the-worlds-hardest-game.html" class="suggest-text suggest-text32" onmouseover="highlightImage('suggest-img32', 'suggest-text32')" onmouseout="removeHighlight('suggest-img32', 'suggest-text32')">
+  <img style="border-radius: 4px; vertical-align: middle" width="70px" id="suggest-img32" src="/images/games/list/worlds-hardest-game.png" alt="The World's Hardest Game" />
+  <span style="vertical-align: middle">The World's Hardest Game</span>
+</a>
+<a style="vertical-align: middle; margin: 5px 0;" href="games/the-worlds-hardest-game-2.html" class="suggest-text suggest-text33" onmouseover="highlightImage('suggest-img33', 'suggest-text33')" onmouseout="removeHighlight('suggest-img33', 'suggest-text33')">
+  <img style="border-radius: 4px; vertical-align: middle" width="70px" id="suggest-img33" src="/images/games/list/worlds-hardest-game-2.png" alt="The World's Hardest Game 2" />
+  <span style="vertical-align: middle">The World's Hardest Game 2</span>
+</a>
+
+<a style="vertical-align: middle; margin: 5px 0;" href="games/tomb-of-the-mask.html" class="suggest-text suggest-text34" onmouseover="highlightImage('suggest-img34', 'suggest-text34')" onmouseout="removeHighlight('suggest-img34', 'suggest-text34')">
+  <img style="border-radius: 4px; vertical-align: middle" width="70px" id="suggest-img34" src="/images/games/list/tomb-of-the-mask.png" alt="Tomb of the Mask" />
+  <span style="vertical-align: middle">Tomb of the Mask</span>
+</a>
+
+<a style="vertical-align: middle; margin: 5px 0;" href="games/watermelon-game.html" class="suggest-text suggest-text35" onmouseover="highlightImage('suggest-img35', 'suggest-text35')" onmouseout="removeHighlight('suggest-img35', 'suggest-text35')">
+  <img style="border-radius: 4px; vertical-align: middle" width="70px" id="suggest-img35" src="/images/games/list/watermelon-game.png" alt="Watermelon Game" />
+  <span style="vertical-align: middle">Watermelon Game</span>
+</a>
     </div>
     <br /><br />
     <div style="background-color: #141414">
