@@ -1,29 +1,22 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Awesome Tanks</title>
+    <title>Minecraftish MMO</title>
 
     <meta
-      name="description"
-      content="Awesome Tanks is a game where you are a awesome tank, fighting not quite so awesome tanks. Play for free at Cool UBG"
-    />
-    <meta property="og:title" content="Awesome Tanks 2" />
-    <meta
-      property="og:description"
-      content="Awesome Tanks is a game where you are a awesome tank, fighting not quite so awesome tanks. Play for free at Cool UBG"
-    />
-    <meta
-      property="og:image"
-      content="https://ciscoha.github.io/unblocked-list/favicon.ico"
-    />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    name="description"
+    content="Minecraftish MMO is a game where you play minecraft ish online. Play for free at Cool UBG"
+  />
+    <meta property="og:title" content="Minecraftish MMO">
+    <meta property="og:description" content="Minecraftish MMO is a game where you play minecraft ish online. Play for free at Cool UBG">
+    <meta property="og:image" content="https://ciscoha.github.io/unblocked-list/favicon.ico"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    
 
-
-    <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
     <style>
       @import url("https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;800;900&display=swap");
-      @font-face {
+       @font-face {
         font-family: Satisfactory Base;
         src: url(/fonts/SatisfactoryBase-jEoZ9.otf);
       }
@@ -72,7 +65,6 @@
         background-image: url("../blank.png");
         background-color: #141414;
       }
-
       .navbar {
         font-family: "M Plus Rounded 1c", sans-serif;
         font-weight: bold;
@@ -96,6 +88,13 @@
         (min-width: 481px) and (max-width: 768px) {
         .logo {
           font-size: 120%;
+        }
+        #game-iframe {
+          width: 650px;
+          height: 490px;
+        }
+        .game-title {
+          width: 630px !important;
         }
         .game-desc {
           width: 590px !important;
@@ -144,7 +143,6 @@
         height: 140px;
         border: #141414 solid 4px;
       }
-
       span {
         font-size: large;
       }
@@ -164,7 +162,7 @@
         color: #3c3c3c;
         background-color: #58aafc;
         background-image: url("../wood.png");
-        width: 713px;
+        width: 740px;
         padding: 10px;
         margin-top: 30px;
         padding-left: 30px;
@@ -182,7 +180,7 @@
         color: #3c3c3c;
         background-color: #58aafc;
         background-image: url("../wood.png");
-        width: 643px;
+        width: 780px;
         padding: 10px;
         margin-top: 0px;
         border-bottom-left-radius: 10px;
@@ -193,17 +191,9 @@
         font-size: xx-large;
         display: flex;
         justify-content: space-between;
-        align-items: center;
-        display: flex; /* Use flexbox to horizontally align popup and fullscreen button */
-        align-items: center; /* Vertically align items within .game-title */
-        justify-content: flex-start; /* Align items from the start (left) of .game-title */
-        position: relative; /* Create a positioning context for the absolute-positioned .popup */
-
-        display: flex; /* Use flexbox to horizontally align the title and button */
-        justify-content: space-between; /* Put space between the title and button */
-        align-items: center; /* Vertically center items within .game-title */
-        position: relative; /* Create a positioning context for the absolute-positioned .popup */
+        align-items: center; /* Align vertically at the center */
       }
+
       .game-title button {
         background: none;
         border: none;
@@ -213,8 +203,8 @@
       }
 
       .game-title button img {
-        width: 40px;
-        height: 40px;
+        width: 32px;
+        height: 32px;
         vertical-align: middle; /* Vertically align the image */
       }
 
@@ -238,47 +228,6 @@
         padding-left: 0; /* Remove the left padding */
         white-space: nowrap; /* Prevent subtext from wrapping */
       }
-      .game-title button {
-        margin-left: 15px; /* Add a 15px margin to the left of the "Fullscreen" button */
-      }
-      .popup {
-        position: absolute;
-        right: 80px; /* Position the .popup 40px from the right edge of .game-title */
-        top: 50%;
-        transform: translateY(-50%);
-        z-index: 2;
-      }
-
-      .popup-icon {
-        width: 40px;
-        height: 40px;
-        vertical-align: middle;
-        margin-right: 5px;
-      }
-
-      .popuptext {
-        text-rendering: optimizeLegibility;
-        visibility: hidden;
-        width: 160px;
-        background-color: #3c3c3c;
-        font-size: medium;
-        font-family: "M Plus Rounded 1c";
-        color: #fff;
-        text-align: center;
-        border-radius: 6px;
-        padding: 8px;
-        position: absolute;
-        bottom: 100%;
-        left: 50%;
-        transform: translateX(-50%);
-        opacity: 0;
-        transition: opacity 0.3s;
-      }
-
-      .popup:hover .popuptext {
-        visibility: visible;
-        opacity: 1;
-      }
     </style>
     <script>
       function goToRandomPage() {
@@ -301,6 +250,7 @@
         ];
 
         var randomIndex = Math.floor(Math.random() * pages.length);
+
         var randomPage = pages[randomIndex];
 
         window.location.href = randomPage;
@@ -416,48 +366,38 @@
         overflow: hidden;
       "
     >
-    <iframe
-    id="game-iframe"
-    src="https://ciscoha.github.io/unblocked-list/awesome-tanks/"
-    width="663px"
-    height="663px"
-    frameborder="0"
-    style="
-        border: none;
-        background-image: url('../loading.png');
-        background-size: auto;
-        background-position: 50%;
-        display: block;
-        margin: 0 auto;
-    "
-></iframe>
-
+      <iframe
+        id="game-iframe"
+        src="https://ciscoha.github.io/unblocked-list/minecraftish-MMO/"
+        width="800px"
+        height="600px"
+        frameborder="0"
+        style="
+          display: block;
+          border: 0px solid #58aafc;
+          background-image: url('../loading.png');
+          background-size: auto;
+          background-position: 50%;
+        "
+      ></iframe>
       <div class="game-title">
         <div>
-          <span class="game-title-text">Awesome Tanks</span>
+          <span class="game-title-text">Minecraftish MMO</span>
           <span class="game-title-subtext">
             By
-            <a style="color: #3c3c3c !important"
-              >Alexander Gette, Jurij Krivonos, Waterflame</a
+            <a
+              href="https://scratch.mit.edu/users/Griffpatch"
+              style="color: #3c3c3c !important"
+              >Griffpatch, Mojang</a
             >
           </span>
-        </div>
-        <div class="popup">
-          <img
-            class="popup-icon"
-            src="../images/icons/flash.png"
-            alt="Flash"
-            width="40"
-            height="40"
-          />
-          <span class="popuptext">Emulated by Ruffle</span>
         </div>
         <button onclick="toggleFullscreen()">
           <img
             src="../images/icons/zoom.png"
             alt="Fullscreen"
-            width="64"
-            height="64"
+            width="32"
+            height="32"
           />
         </button>
       </div>
@@ -466,7 +406,7 @@
         <b><font size="6">Instructions and Overview</font></b>
         <br />
         <br />
-        You are a awesome tank, for the first time! <br> <br> Awesome Tanks is a game where you are a awesome tank, fighting not quite so awesome tanks.
+        Disc us, Among us
       </p>
     </div>
   </body>
