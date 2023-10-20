@@ -10,7 +10,7 @@
     <meta property="og:title" content="DOOM" />
     <meta
       property="og:description"
-      content="DOOM is very popular platformer game where you run to the end. Play for free at Cool UBG"
+      content="DOOM is a 1993 first person shooter where it is doom Play for free at Cool UBG"
     />
     <meta
       property="og:image"
@@ -235,13 +235,6 @@
         padding-left: 0; /* Remove the left padding */
         white-space: nowrap; /* Prevent subtext from wrapping */
       }
-
-      canvas {
-        display: block;
-        width: 800px;
-        height: 500px;
-        object-fit: contain;
-      }
     </style>
     <script>
       function goToRandomPage() {
@@ -380,29 +373,30 @@
         overflow: hidden;
       "
     >
-      <canvas id="game-iframe"></canvas>
-      <script>
-        const canvas = document.querySelector("canvas");
-
-        Dos(canvas, { autolock: true }).ready((fs, main) => {
-          fs.extract(
-            "https://ciscoha.github.io/unblocked-list/doom/DOOM.ZIP"
-          ).then(() => {
-            main(["SETUP.EXE"]).then((ci) => {
-              window.ci = ci;
-            });
-          });
-        });
-      </script>
+      <iframe
+        id="game-iframe"
+        src="https://raz0red.github.io/webprboom/"
+        width="800px"
+        height="600px"
+        frameborder="0"
+        style="
+          display: block;
+          border: 0px solid #58aafc;
+          background-image: url('../loading.png');
+          background-size: auto;
+          background-position: 50%;
+        "
+      >
+      </iframe>
       <div class="game-title">
         <div>
-          <span class="game-title-text">DOOM Episode 1</span>
+          <span class="game-title-text">DOOM And Freedoom</span>
           <span class="game-title-subtext">
             By
             <a
-              href="https://www.idsoftware.com/"
+              href="https://github.com/raz0red"
               style="color: #3c3c3c !important"
-              >id Software</a
+              >raz0red, UstymUkhman, PrBoom, Freedoom, id Software</a
             >
           </span>
         </div>
