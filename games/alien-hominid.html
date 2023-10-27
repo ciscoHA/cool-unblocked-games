@@ -92,16 +92,17 @@
           font-size: 120%;
         }
         #game-iframe {
-          width: 650px;
-          height: 465px;
-        }
-        .game-title {
-          width: 630px !important;
-        }
-        .game-desc {
-          width: 590px !important;
-        }
-      }
+        width: 90vw; /* 80% of viewport width */
+        max-width: 800px; /* Set a maximum width */
+        height: calc(90vw * 0.75); /* Maintain the 4:3 aspect ratio */
+    }
+    .game-title {
+        width: calc(90vw - 20px) !important; /* Adjusted width based on game iframe width */
+    }
+    .game-desc {
+        width: calc(90vw - 60px) !important; /* Adjusted width based on game title width */
+    }
+}
 
       .navbar-menu {
         display: flex;
