@@ -95,17 +95,21 @@
           font-size: 120%;
         }
         #game-iframe {
-        width: 90vw; /* 80% of viewport width */
-        max-width: 800px; /* Set a maximum width */
-        height: calc(90vw * 0.75); /* Maintain the 4:3 aspect ratio */
-    }
-    .game-title {
-        width: calc(90vw - 20px) !important; /* Adjusted width based on game iframe width */
-    }
-    .game-desc {
-        width: calc(90vw - 60px) !important; /* Adjusted width based on game title width */
-    }
-}
+          width: 90vw; /* 80% of viewport width */
+          max-width: 800px; /* Set a maximum width */
+          height: calc(90vw * 0.75); /* Maintain the 4:3 aspect ratio */
+        }
+        .game-title {
+          width: calc(
+            90vw - 20px
+          ) !important; /* Adjusted width based on game iframe width */
+        }
+        .game-desc {
+          width: calc(
+            90vw - 60px
+          ) !important; /* Adjusted width based on game title width */
+        }
+      }
 
       .navbar-menu {
         display: flex;
@@ -132,7 +136,6 @@
       .game-desc a:hover {
         text-decoration: underline !important;
       }
-
 
       .suggest-game {
         padding: 10px;
@@ -266,6 +269,8 @@
 
         window.location.href = randomPage;
       }
+      
+      document.getElementById("fullscreenButton").addEventListener("click", toggleFullscreen);
 
       function toggleFullscreen() {
         var iframe = document.getElementById("game-iframe");
@@ -429,7 +434,7 @@
             >
           </span>
         </div>
-        <button onclick="toggleFullscreen()">
+        <button id="fullscreenButton" onclick="toggleFullscreen()">
           <img
             src="../images/icons/zoom.png"
             alt="Fullscreen"
