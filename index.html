@@ -510,6 +510,13 @@
         img.style.outline = "3px solid #58aafc";
         litext.classList.remove("underline");
       }
+
+      function showImage() {
+        document.getElementById('no-load').style.display = 'block';
+    }
+
+    // Set a timeout to call the showImage function after 3000 milliseconds (3 seconds)
+    setTimeout(showImage, 3500);
     </script>
   </head>
 
@@ -616,7 +623,10 @@
       </div>
     </div>
     <div class="container">
-      <div class="important" style="position: absolute; margin-left: 2% !important; margin: 1%; width: 10%; height: 78%; background-image: url(/images/ad.png); max-width: 140px; max-height: 564px;">
+      <div class="important" style="position: absolute; margin-left: 2% !important; margin: 1%; width: 10%; height: 78%;">
+        <div class="important" style="position: absolute; margin-left: 2% !important; margin: 1%; width: 10%; height: 78%; max-width: 140px; max-height: 564px;">
+        <img src="/images/ad2.png" style="width: 140px; height: 564px; display: none;" id="no-load">   
+        </div>
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4293684626558852"
         crossorigin="anonymous"></script>
    <!-- vertical ad unit 1 -->
