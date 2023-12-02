@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sort a HTML List Alphabetically</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;800;900&display=swap");
+      ul.game-list {
+        list-style-type: none;
+        padding: 0;
+        display: flex;
+        flex-wrap: wrap; /* Allow the items to wrap to the next line */
+      }
+
+      ul.game-list li {
+        display: inline-block;
+        margin-right: 10px;
+        margin-bottom: 10px; /* Add some space between list items and allow wrapping */
+      }
+
+      .sortButtonDiv {
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center; /* Optionally, you can use this to horizontally center the content */
+      }
+
+      .sortButtonDiv Button {
+        white-space: nowrap;
+        margin: 1%;
+        width: 10%;
+        font-family: "M Plus Rounded 1c", sans-serif;
+        cursor: pointer;
+        background-color: #58aafc;
+        font-size: 130%;
+        font-weight: bold;
+        color: #3c3c3c;
+        border-radius: 5px;
+        border-color: transparent;
+      }
+
+      .suggest-gameL {
+        padding: 0.5%;
+        padding-top: 1.5%;
+        padding-bottom: 1.5%;
+        margin-top: 0;
+        overflow: hidden !important;
+      }
+
+      .suggest-gameL a {
+        display: block;
+        text-decoration: none;
+        color: white;
+        font-size: 90%;
+        overflow-x: hidden !important;
+        overflow: hidden !important;
+        margin-top: -0.4rem;
+        margin-bottom: -0.4rem;
+      }
+
+      .suggest-gameL img {
+        margin: 0.4rem;
+        border-radius: 0.4rem;
+        position: relative;
+        width: 14.3vw; /* 30% of the viewport width */
+        height: auto; /* 16.89% of the viewport width to maintain a 16:9 aspect ratio */
+        border: #141414 solid 4rem;
+      }
+
+      body {
+        background-color: #141414;
+      }
+
+      span {
+        font-size: large;
+      }
+
+      .suggest-text.underline {
+        text-decoration: underline !important;
+      }
+
+      .game-list {
+        font-family: "M Plus Rounded 1c", sans-serif;
+        font-weight: bold;
+        text-align: center;
+        margin-top: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      #AllGamesDiv {
+            width: 200px;
+            height: 200px;
+            background-color: lightgray;
+            margin: 20px;
+            display: inline; /* Initially visible */
+        }
+    </style>
+  </head>
+  <body>
+    <br />
+    <div class="sortButtonDiv">
+      <button onclick="toggleVisibility()" >Hide Games</button>
+      <br><br>
+      <button onclick="sortList()" id="sortButton">Original</button>
+    </div>
+    <div id="AllGamesDiv">
+    <ul
+      id="id01"
+      class="game-list"
+      style="color: transparent; list-style-type: none; padding: 0"
+    >
+    <li data-date="29/11/2023">
+        Run 3
+        <div class="suggest-gameL">
+          <a href="games/run-3.html">
+            <img
+              style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
+              id="suggest-img5"
+              onmouseover="highlightImage('suggest-img5', 'suggest-text5')"
+              onmouseout="removeHighlight('suggest-img5', 'suggest-text5')"
+              src="images/games/list/run-3.png"
+              alt="Run 3"
+            />
+          </a>
+          <a
+            href="games/run-3.html"
+            class="suggest-text suggest-text5"
+            onmouseover="highlightImage('suggest-img5', 'suggest-text5')"
+            onmouseout="removeHighlight('suggest-img5', 'suggest-text5')"
+          >
+            <span>Run 3</span>
+          </a>
+        </div>
+      </li>
+      <li data-date="28/11/2023">
+        Slope
+        <div class="suggest-gameL">
+          <a href="games/slope.html">
+            <img
+              style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
+              id="suggest-img6"
+              onmouseover="highlightImage('suggest-img6', 'suggest-text6')"
+              onmouseout="removeHighlight('suggest-img6', 'suggest-text6')"
+              src="images/games/list/slope.png"
+              alt="Slope"
+            />
+          </a>
+          <a
+            href="games/slope.html"
+            class="suggest-text suggest-text6"
+            onmouseover="highlightImage('suggest-img6', 'suggest-text6')"
+            onmouseout="removeHighlight('suggest-img6', 'suggest-text6')"
+          >
+            <span>Slope</span>
+          </a>
+        </div>
+      </li>
+      <li data-date="27/11/2023">
+        FNAF 2
+        <div class="suggest-gameL">
+          <a href="games/fnaf-2.html">
+            <img
+              style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
+              id="suggest-img7"
+              onmouseover="highlightImage('suggest-img7', 'suggest-text7')"
+              onmouseout="removeHighlight('suggest-img7', 'suggest-text7')"
+              src="images/games/list/fnaf-2.png"
+              alt="Five nights at freddy's"
+            />
+          </a>
+          <a
+            href="games/fnaf-2.html"
+            class="suggest-text suggest-text7"
+            onmouseover="highlightImage('suggest-img7', 'suggest-text7')"
+            onmouseout="removeHighlight('suggest-img7', 'suggest-text7')"
+          >
+            <span>FNAF 2</span>
+          </a>
+        </div>
+      </li>
+      <li data-date="26/11/2023">
+        Tomb of the Mask
+        <div class="suggest-gameL">
+          <a href="games/tomb-of-the-mask.html">
+            <img
+              style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
+              id="suggest-img8"
+              onmouseover="highlightImage('suggest-img8', 'suggest-text8')"
+              onmouseout="removeHighlight('suggest-img8', 'suggest-text8')"
+              src="images/games/list/tomb-of-the-mask.png"
+              alt="Tomb of the Mask"
+            />
+          </a>
+          <a
+            href="games/tomb-of-the-mask.html"
+            class="suggest-text suggest-text8"
+            onmouseover="highlightImage('suggest-img8', 'suggest-text8')"
+            onmouseout="removeHighlight('suggest-img8', 'suggest-text8')"
+          >
+            <span>Tomb of the Mask</span>
+          </a>
+        </div>
+      </li>
+      <li data-date="27/11/2023">
+        Snow Rider 3D
+        <div class="suggest-gameL">
+          <a href="games/snow-rider-3d.html">
+            <img
+              style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
+              id="suggest-img9"
+              onmouseover="highlightImage('suggest-img9', 'suggest-text9')"
+              onmouseout="removeHighlight('suggest-img9', 'suggest-text9')"
+              src="images/games/list/snow-rider-3d.png"
+              alt="Snow Rider 3D"
+            />
+          </a>
+          <a
+            href="games/snow-rider-3d.html"
+            class="suggest-text suggest-text9"
+            onmouseover="highlightImage('suggest-img9', 'suggest-text9')"
+            onmouseout="removeHighlight('suggest-img9', 'suggest-text9')"
+          >
+            <span>Snow Rider 3D</span>
+          </a>
+        </div>
+      </li>
+
+      <li data-date="29/10/2023">
+        Jacksmith
+        <div class="suggest-gameL">
+          <a href="games/jacksmith.html">
+            <img
+              style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
+              id="suggest-img10"
+              onmouseover="highlightImage('suggest-img10', 'suggest-text10')"
+              onmouseout="removeHighlight('suggest-img10', 'suggest-text10')"
+              src="images/games/list/jacksmith.png"
+              alt="Snow Rider 3D"
+            />
+          </a>
+          <a
+            href="games/jacksmith.html"
+            class="suggest-text suggest-text10"
+            onmouseover="highlightImage('suggest-img10', 'suggest-text10')"
+            onmouseout="removeHighlight('suggest-img10', 'suggest-text10')"
+          >
+            <span>Jacksmith</span>
+          </a>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <script>
+// Enumeration for sorting states
+const SortState = {
+  ASCENDING: "ascending",
+  DESCENDING: "descending",
+  DATE_ASCENDING: "date-ascending",
+  DATE_DESCENDING: "date-descending",
+  ORIGINAL: "original",
+};
+
+// Variable to keep track of the current sorting state (default to ASCENDING)
+let currentSortState = SortState.ASCENDING;
+
+// Variable to store the original order of list items
+let originalOrder = [];
+
+function parseDate(dateString) {
+  const [day, month, year] = dateString.split('/');
+  return new Date(`${month}/${day}/${year}`);
+}
+
+function sortList() {
+  var list, i, switching, b, shouldSwitch;
+  list = document.getElementById("id01");
+
+  // Save the original order if not done yet
+  if (originalOrder.length === 0) {
+    originalOrder = Array.from(list.getElementsByTagName("LI"));
+  }
+
+  switching = true;
+
+  while (switching) {
+    switching = false;
+    b = list.getElementsByTagName("LI");
+
+    for (i = 0; i < b.length - 1; i++) {
+      shouldSwitch = false;
+
+      // Check the current sorting state and determine the switch condition
+      switch (currentSortState) {
+        case SortState.ASCENDING:
+          shouldSwitch =
+            b[i].innerHTML.toLowerCase() >
+            b[i + 1].innerHTML.toLowerCase();
+          break;
+        case SortState.DESCENDING:
+          shouldSwitch =
+            b[i].innerHTML.toLowerCase() <
+            b[i + 1].innerHTML.toLowerCase();
+          break;
+        case SortState.DATE_ASCENDING:
+          shouldSwitch =
+            parseDate(b[i].getAttribute('data-date')) <
+            parseDate(b[i + 1].getAttribute('data-date'));
+          break;
+        case SortState.DATE_DESCENDING:
+          shouldSwitch =
+            parseDate(b[i].getAttribute('data-date')) >
+            parseDate(b[i + 1].getAttribute('data-date'));
+          break;
+        case SortState.ORIGINAL:
+          shouldSwitch =
+            originalOrder.indexOf(b[i]) > originalOrder.indexOf(b[i + 1]);
+          break;
+      }
+
+      if (shouldSwitch) {
+        b[i].parentNode.insertBefore(b[i + 1], b[i]);
+        switching = true;
+      }
+    }
+  }
+
+  // Toggle the sorting state
+  toggleSortState();
+}
+
+
+// Function to toggle the sorting state
+function toggleSortState() {
+  var button = document.getElementById("sortButton");
+  switch (currentSortState) {
+    case SortState.ASCENDING:
+      currentSortState = SortState.DESCENDING;
+      button.innerHTML = "A-Z";
+      break;
+    case SortState.DESCENDING:
+      currentSortState = SortState.DATE_ASCENDING;
+      button.innerHTML = "Z-A";
+      break;
+    case SortState.DATE_ASCENDING:
+      currentSortState = SortState.DATE_DESCENDING;
+      button.innerHTML = "New-Old";
+      break;
+    case SortState.DATE_DESCENDING:
+      currentSortState = SortState.ORIGINAL;
+      button.innerHTML = "Old-New";
+      break;
+    case SortState.ORIGINAL:
+      currentSortState = SortState.ASCENDING;
+      button.innerHTML = "Original";
+      break;
+  }
+}
+
+
+
+function toggleVisibility() {
+  var AllGamesDiv = document.getElementById("AllGamesDiv");
+  var toggleButton = document.querySelector("button");
+
+  if (AllGamesDiv.style.display === "inline" || AllGamesDiv.style.display === "") {
+    AllGamesDiv.style.display = "none";
+    toggleButton.innerText = "Show Games";
+  } else {
+    AllGamesDiv.style.display = "inline";
+    toggleButton.innerText = "Hide Games";
+  }
+}
+
+  </script>
+  
+  </body>
+</html>
