@@ -513,6 +513,7 @@
 
       function showImage() {
         document.getElementById('no-load').style.display = 'block';
+        document.getElementById('no-load2').style.display = 'block';
     }
 
     // Set a timeout to call the showImage function after 3000 milliseconds (3 seconds)
@@ -625,7 +626,7 @@
     <div class="container">
       <div class="important" style="position: absolute; margin-left: 2% !important; margin: 1%; width: 10%; height: 78%;">
         <div class="important" style="position: absolute; margin-left: 2% !important; margin: 1%; width: 10%; height: 78%; max-width: 140px; max-height: 564px;">
-        <img src="/images/ad2.png" style="width: 140px; height: 564px; display: none;" id="no-load">   
+        <img src="/images/ad.png" style="width: 140px; height: 564px; display: none;" id="no-load">   
         </div>
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4293684626558852"
         crossorigin="anonymous"></script>
@@ -639,6 +640,9 @@
    </script>
       </div>
       <div class="important" style="position: absolute; margin-left: 88% !important; margin: 1%; width: 10%; height: 78%;">
+        <div class="important" style="max-width: 140px; max-height: 564px;">
+          <img src="/images/ad.png" style="width: 140px; height: 564px; display: none;" id="no-load2">   
+        </div>
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4293684626558852"
         crossorigin="anonymous"></script>
    <!-- vertical ad unit 1 -->
@@ -847,7 +851,7 @@
         width: fit-content;
         margin: 0 auto;
         margin-top: 0px;
-        margin-bottom: 40px;
+        margin-bottom: 20px;
         padding: 4px;
         padding-left: 8px;
         padding-right: 8px;
@@ -862,7 +866,7 @@
     >
       Popular Games
     </p>
-    <a
+   <!-- <a
       href="/list.html"
       style="
         font-size: 330%;
@@ -882,7 +886,7 @@
         text-align: center;
       "
       >View All Games</a
-    >
+    > -->
     <div
       class="game-list"
       style="
@@ -2398,6 +2402,52 @@
             onmouseout="removeHighlightL('suggest-imgL27', 'suggest-textL27')"
           >
             <span>Duck Life 2</span>
+          </a>
+        </div>
+      </li>
+      <li data-date="2/12/2023">
+        Run 2
+        <div class="suggest-gameL">
+          <a href="games/run-2.html">
+            <img
+              style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
+              id="suggest-imgL28"
+              onmouseover="highlightImageL('suggest-imgL28', 'suggest-textL28')"
+              onmouseout="removeHighlightL('suggest-imgL28', 'suggest-textL28')"
+              src="images/games/list/run-2.png"
+              alt="Run 2"
+            />
+          </a>
+          <a
+            href="games/run-2.html"
+            class="suggest-text suggest-textL28"
+            onmouseover="highlightImageL('suggest-imgL28', 'suggest-textL28')"
+            onmouseout="removeHighlightL('suggest-imgL28', 'suggest-textL28')"
+          >
+            <span>Run 2</span>
+          </a>
+        </div>
+      </li>
+      <li data-date="2/12/2023">
+        Temple Run 2
+        <div class="suggest-gameL">
+          <a href="games/temple-run-2.html">
+            <img
+              style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
+              id="suggest-imgL29"
+              onmouseover="highlightImageL('suggest-imgL29', 'suggest-textL29')"
+              onmouseout="removeHighlightL('suggest-imgL29', 'suggest-textL29')"
+              src="images/games/list/temple-run-2.png"
+              alt="Temple Run 2"
+            />
+          </a>
+          <a
+            href="games/temple-run-2.html"
+            class="suggest-text suggest-textL29"
+            onmouseover="highlightImageL('suggest-imgL29', 'suggest-textL29')"
+            onmouseout="removeHighlightL('suggest-imgL29', 'suggest-textL29')"
+          >
+            <span>Temple Run 2</span>
           </a>
         </div>
       </li>
