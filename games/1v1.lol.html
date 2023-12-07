@@ -1,23 +1,26 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Five Nights At Freddy's</title>
+    <title>1v1.lol</title>
     <meta name="google-adsense-account" content="ca-pub-4293684626558852">
     <meta
-    name="description"
-    content="Five Nights At Freddy's FULL (scratch unblocked) is five nights at freddy's but unblocked. Play for free at Cool UBG"
-  />
-    <meta property="og:title" content="Five Nights At Freddy's">
-    <meta property="og:description" content="Five Nights At Freddy's FULL (scratch unblocked) is five nights at freddy's but unblocked. Play for free at Cool UBG">
-    <meta property="og:image" content="https://ciscoha.github.io/unblocked-list/favicon.ico"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      name="description"
+      content="1v1.lol unblocked is a game where you 1v1, lol. Play for free at Cool UBG"
+    />
+    <meta property="og:title" content="1v1.lol" />
+    <meta
+      property="og:description"
+      content="1v1.lol unblocked is a game where you 1v1, lol. Play for free at Cool UBG"
+    />
+    <meta
+      property="og:image"
+      content="https://ciscoha.github.io/unblocked-list/favicon.ico"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    
-
-    <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
     <style>
       @import url("https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;800;900&display=swap");
-       @font-face {
+      @font-face {
         font-family: Satisfactory Base;
         src: url(/fonts/SatisfactoryBase-jEoZ9.otf);
       }
@@ -42,6 +45,7 @@
         (min-width: 321px) and (max-width: 480px),
         (min-width: 481px) and (max-width: 768px) {
         body {
+          background-image: url("../blank.png");
           overflow-x: auto;
           font-size: xx-large; /* Adjust the font size for mobile devices */
         }
@@ -66,7 +70,6 @@
         background-image: url("../blank.png");
         background-color: #141414;
       }
-
       .navbar {
         font-family: "M Plus Rounded 1c", sans-serif;
         font-weight: bold;
@@ -85,6 +88,7 @@
         margin-bottom: 0px;
       }
 
+
       @media (max-width: 320px),
         (min-width: 321px) and (max-width: 480px),
         (min-width: 481px) and (max-width: 768px) {
@@ -92,17 +96,21 @@
           font-size: 120%;
         }
         #game-iframe {
-        width: 90vw; /* 80% of viewport width */
-        max-width: 800px; /* Set a maximum width */
-        height: calc(90vw * 0.75); /* Maintain the 4:3 aspect ratio */
-    }
-    .game-title {
-        width: calc(90vw - 20px) !important; /* Adjusted width based on game iframe width */
-    }
-    .game-desc {
-        width: calc(90vw - 60px) !important; /* Adjusted width based on game title width */
-    }
-}
+          width: 90vw; /* 80% of viewport width */
+          max-width: 800px; /* Set a maximum width */
+          height: calc(90vw * 0.75); /* Maintain the 4:3 aspect ratio */
+        }
+        .game-title {
+          width: calc(
+            90vw - 20px
+          ) !important; /* Adjusted width based on game iframe width */
+        }
+        .game-desc {
+          width: calc(
+            90vw - 60px
+          ) !important; /* Adjusted width based on game title width */
+        }
+      }
 
       .navbar-menu {
         display: flex;
@@ -146,7 +154,6 @@
         height: 140px;
         border: #141414 solid 4px;
       }
-
       span {
         font-size: large;
       }
@@ -195,17 +202,9 @@
         font-size: xx-large;
         display: flex;
         justify-content: space-between;
-        align-items: center;
-        display: flex; /* Use flexbox to horizontally align popup and fullscreen button */
-        align-items: center; /* Vertically align items within .game-title */
-        justify-content: flex-start; /* Align items from the start (left) of .game-title */
-        position: relative; /* Create a positioning context for the absolute-positioned .popup */
-
-        display: flex; /* Use flexbox to horizontally align the title and button */
-        justify-content: space-between; /* Put space between the title and button */
-        align-items: center; /* Vertically center items within .game-title */
-        position: relative; /* Create a positioning context for the absolute-positioned .popup */
+        align-items: center; /* Align vertically at the center */
       }
+
       .game-title button {
         background: none;
         border: none;
@@ -215,8 +214,8 @@
       }
 
       .game-title button img {
-        width: 40px;
-        height: 40px;
+        width: 32px;
+        height: 32px;
         vertical-align: middle; /* Vertically align the image */
       }
 
@@ -240,47 +239,6 @@
         padding-left: 0; /* Remove the left padding */
         white-space: nowrap; /* Prevent subtext from wrapping */
       }
-      .game-title button {
-        margin-left: 15px; /* Add a 15px margin to the left of the "Fullscreen" button */
-      }
-      .popup {
-        position: absolute;
-        right: 80px; /* Position the .popup 40px from the right edge of .game-title */
-        top: 50%;
-        transform: translateY(-50%);
-        z-index: 2;
-      }
-
-      .popup-icon {
-        width: 40px;
-        height: 40px;
-        vertical-align: middle;
-        margin-right: 5px;
-      }
-
-      .popuptext {
-        text-rendering: optimizeLegibility;
-        visibility: hidden;
-        width: 160px;
-        background-color: #3c3c3c;
-        font-size: medium;
-        font-family: "M Plus Rounded 1c";
-        color: #fff;
-        text-align: center;
-        border-radius: 6px;
-        padding: 8px;
-        position: absolute;
-        bottom: 100%;
-        left: 50%;
-        transform: translateX(-50%);
-        opacity: 0;
-        transition: opacity 0.3s;
-      }
-
-      .popup:hover .popuptext {
-        visibility: visible;
-        opacity: 1;
-      }
     </style>
     <script>
       function goToRandomPage() {
@@ -303,6 +261,7 @@
         ];
 
         var randomIndex = Math.floor(Math.random() * pages.length);
+
         var randomPage = pages[randomIndex];
 
         window.location.href = randomPage;
@@ -340,9 +299,6 @@
         src="/logo-s.png"
       />
     </a>
-    <h1 style="width: 0px; font-size: 0; display: block">
-      Cool Unblocked Games
-    </h1>
     <div class="navbar">
       <div class="logo">
         <a style="text-decoration: none !important" href="/#">
@@ -404,7 +360,7 @@
         </a>
       </div>
       <div class="navbar-menu">
-      <a href="../index.html#popular-games">Popular</a>
+        <a href="../index.html#popular-games">Popular</a>
         <a href="../index.html#multiplayer-games">Multiplayer</a>
         <a href="#" onclick="goToRandomPage()">Random</a>
         <a href="../list.html">All Games</a>
@@ -434,49 +390,38 @@
         overflow: hidden;
       "
     >
-      <embed
+      <iframe
         id="game-iframe"
-        src="https://ciscoha.github.io/unblocked-list/fnaf"
+        src="https://ciscoha.github.io/unblocked-list/1v1.lol/ifr.htm"
         width="800px"
-        height="578px"
+        height="600px"
         frameborder="0"
         style="
-          z-index: 1;
           display: block;
           border: 0px solid #58aafc;
           background-image: url('../loading.png');
           background-size: auto;
           background-position: 50%;
         "
-      />
+      ></iframe>
       <div class="game-title">
         <div>
-          <span class="game-title-text">Five Nights at Freddy's</span>
+          <span class="game-title-text">1v1.lol</span>
           <span class="game-title-subtext">
             By
             <a
-              href="https://scratch.mit.edu/users/gustacraft123/"
+              href="https://www.justplay.lol/"
               style="color: #3c3c3c !important"
-              >gustacraft123, Scott Cawthon</a
+              >JustPlay.lol</a
             >
           </span>
-        </div>
-        <div class="popup">
-          <img
-            class="popup-icon"
-            src="../images/icons/flash.png"
-            alt="Flash"
-            width="40"
-            height="40"
-          />
-          <span class="popuptext">Emulated by Ruffle</span>
         </div>
         <button onclick="toggleFullscreen()">
           <img
             src="../images/icons/zoom.png"
             alt="Fullscreen"
-            width="64"
-            height="64"
+            width="32"
+            height="32"
           />
         </button>
       </div>
@@ -485,7 +430,7 @@
         <b><font size="6">Instructions and Overview</font></b>
         <br />
         <br />
-        Freddy bear
+        Fortnite
       </p>
     </div>
   </body>
