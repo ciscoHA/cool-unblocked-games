@@ -1926,9 +1926,23 @@
     <br />
     <br />
     <div class="sortButtonDiv">
-      <button id="button" onclick="toggleVisibility()">Hide Games</button>
+      <button id="toggleButton" onclick="toggleVisibility()">Hide Games</button>
+      <script>
+    function toggleVisibility() {
+      var allGamesDiv = document.getElementById("AllGamesDiv");
+      var toggleButton = document.getElementById("toggleButton");
+
+      if (allGamesDiv.style.display === "inline" || allGamesDiv.style.display === "") {
+        allGamesDiv.style.display = "none";
+        toggleButton.innerText = "Show Games";
+      } else {
+        allGamesDiv.style.display = "inline";
+        toggleButton.innerText = "Hide Games";
+      }
+    }
+      </script>
       <br /><br />
-      <button id="button" onclick="sortList()" id="sortButton">A-Z</button>
+      <button onclick="sortList()" id="sortButton">A-Z</button>
     </div>
     <div id="AllGamesDiv">
       <ul
@@ -3481,19 +3495,14 @@
       </ul>
     </div>
     <script>
-      // Enumeration for sorting states
       const SortState = {
         ASCENDING: "ascending",
         DESCENDING: "descending",
         DATE_ASCENDING: "date-ascending",
         DATE_DESCENDING: "date-descending",
-        ORIGINAL: "original",
       };
   
-      // Variable to keep track of the current sorting state (default to ASCENDING)
       let currentSortState = SortState.ASCENDING;
-  
-      // Variable to store the original order of list items
       let originalOrder = [];
   
       function parseDate(dateString) {
@@ -3505,7 +3514,6 @@
         var list, i, switching, b, shouldSwitch;
         list = document.getElementById("id01");
   
-        // Save the original order if not done yet
         if (originalOrder.length === 0) {
           originalOrder = Array.from(list.getElementsByTagName("LI"));
         }
@@ -3519,7 +3527,6 @@
           for (i = 0; i < b.length - 1; i++) {
             shouldSwitch = false;
   
-            // Check the current sorting state and determine the switch condition
             switch (currentSortState) {
               case SortState.ASCENDING:
                 shouldSwitch =
@@ -3541,10 +3548,6 @@
                   parseDate(b[i].getAttribute('data-date')) >
                   parseDate(b[i + 1].getAttribute('data-date'));
                 break;
-              case SortState.ORIGINAL:
-                shouldSwitch =
-                  originalOrder.indexOf(b[i]) > originalOrder.indexOf(b[i + 1]);
-                break;
             }
   
             if (shouldSwitch) {
@@ -3554,11 +3557,9 @@
           }
         }
   
-        // Toggle the sorting state
         toggleSortState();
       }
   
-      // Function to toggle the sorting state
       function toggleSortState() {
         var button = document.getElementById("sortButton");
         switch (currentSortState) {
@@ -3575,37 +3576,25 @@
             button.innerHTML = "New-Old";
             break;
           case SortState.DATE_DESCENDING:
-            currentSortState = SortState.ORIGINAL;
-            button.innerHTML = "Old-New";
-            break;
-          case SortState.ORIGINAL:
             currentSortState = SortState.ASCENDING;
-            button.innerHTML = "Original";
+            button.innerHTML = "Old-New";
             break;
         }
       }
   
-      function sortAZ() {
-        currentSortState = SortState.ASCENDING;
-        sortList();
+      function toggleVisibility() {
+        var allGamesDiv = document.getElementById("AllGamesDiv");
+        var toggleButton = document.getElementById("sortButton");
+  
+        if (allGamesDiv.style.display === "inline" || allGamesDiv.style.display === "") {
+          allGamesDiv.style.display = "none";
+          toggleButton.innerText = "Show Games";
+        } else {
+          allGamesDiv.style.display = "inline";
+          toggleButton.innerText = "Hide Games";
+        }
       }
   
-      function sortZA() {
-        currentSortState = SortState.DESCENDING;
-        sortList();
-      }
-  
-      function sortNewOld() {
-        currentSortState = SortState.DATE_ASCENDING;
-        sortList();
-      }
-  
-      function sortOldNew() {
-        currentSortState = SortState.DATE_DESCENDING;
-        sortList();
-      }
-  
-      // Automatically sort the list when the page is loaded
       window.onload = function () {
         sortList();
       };
