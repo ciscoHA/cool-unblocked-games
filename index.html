@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta name="google-adsense-account" content="ca-pub-4293684626558852">
+    <meta name="google-adsense-account" content="ca-pub-4293684626558852" />
     <link rel="icon" type="image/x-icon" sizes="48x48" href="/favicon.ico" />
     <link rel="icon" type="shortcut icon" sizes="48x48" href="/favicon.ico" />
     <link
@@ -84,6 +84,84 @@
       a {
         text-decoration: none !important;
       }
+
+[id^="suggest-img"] {
+  box-shadow: 2px 1px 11px #58aafc;
+}
+
+#list-type {
+  box-shadow: 2px 1px 11px #fc5858;
+  text-shadow: 0px 0px 2px #fc5858;
+}
+
+#suggest-img1 {
+  box-shadow: 2px 1px 11px #fc5858;
+}
+#suggest-img2 {
+  box-shadow: 2px 1px 11px #fc5858;
+}
+#suggest-img3 {
+  box-shadow: 2px 1px 11px #fc5858;
+}
+#suggest-img4 {
+  box-shadow: 2px 1px 11px #fc5858;
+}
+
+#popular-games {
+  box-shadow: 2px 1px 11px #58aafc;
+  text-shadow: 0px 0px 2px #58aafc;
+}
+
+#multiplayer-games {
+  box-shadow: 2px 1px 11px #d058fc;
+  text-shadow: 0px 0px 2px #d058fc;
+}
+
+#online-games {
+  box-shadow: 2px 1px 11px #d058fc;
+  text-shadow: 0px 0px 2px #d058fc;
+}
+
+#suggest-img112 {
+  box-shadow: 2px 1px 11px #d058fc;
+}
+#suggest-img111 {
+  box-shadow: 2px 1px 11px #d058fc;
+}
+#suggest-img110 {
+  box-shadow: 2px 1px 11px #d058fc;
+}
+#suggest-img109 {
+  box-shadow: 2px 1px 11px #d058fc;
+}
+#suggest-img107 {
+  box-shadow: 2px 1px 11px #d058fc;
+}
+#suggest-img106 {
+  box-shadow: 2px 1px 11px #d058fc;
+}
+#suggest-img105 {
+  box-shadow: 2px 1px 11px #d058fc;
+}
+#suggest-img104 {
+  box-shadow: 2px 1px 11px #d058fc;
+}
+#suggest-img103 {
+  box-shadow: 2px 1px 11px #d058fc;
+}
+#suggest-img102 {
+  box-shadow: 2px 1px 11px #d058fc;
+}
+#suggest-img101 {
+  box-shadow: 2px 1px 11px #d058fc;
+}
+#suggest-img100 {
+  box-shadow: 2px 1px 11px #d058fc;
+}
+
+#button {
+  box-shadow: 0px 0px 8px #58aafc
+}
 
       body {
         margin: 0;
@@ -208,7 +286,7 @@
         margin-right: auto;
         padding-bottom: 1%;
         margin-top: -1rem;
-        margin-bottom: 1.5rem;
+        margin-bottom: 2.2rem;
       }
 
       #img-broken {
@@ -229,13 +307,13 @@
         }
 
         .suggest-game img {
-        margin: 0.4rem;
-        border-radius: 0.4rem;
-        position: relative;
-        width: 32vw; /* 30% of the viewport width */
-        height: auto; /* 16.89% of the viewport width to maintain a 16:9 aspect ratio */
-        border: #141414 solid 4rem;
-      }
+          margin: 0.4rem;
+          border-radius: 0.4rem;
+          position: relative;
+          width: 32vw; /* 30% of the viewport width */
+          height: auto; /* 16.89% of the viewport width to maintain a 16:9 aspect ratio */
+          border: #141414 solid 4rem;
+        }
 
         .game-list {
           overflow-x: auto;
@@ -398,7 +476,7 @@
         width: 14.3vw; /* 30% of the viewport width */
         height: auto; /* 16.89% of the viewport width to maintain a 16:9 aspect ratio */
         border: #141414 solid 4rem;
-        }
+      }
 
       .game-list {
         font-family: "M Plus Rounded 1c", sans-serif;
@@ -409,8 +487,8 @@
       }
 
       #AllGamesDiv {
-            display: inline; /* Initially visible */
-        }
+        display: inline; /* Initially visible */
+      }
     </style>
     <script>
       function goToRandomPage() {
@@ -457,7 +535,7 @@
         var img = document.getElementById(elementId);
         var litext = document.getElementsByClassName(textClass)[0];
         img.style.outline = "6px solid #fc5858";
-        img.style.transition = "outline-width 0.2s";
+        img.style.transition = "outline-width 0s";
         litext.classList.add("underline");
       }
 
@@ -465,7 +543,7 @@
         var img = document.getElementById(elementId);
         var litext = document.getElementsByClassName(textClass)[0];
         img.style.outline = "3px solid #fc5858";
-        img.style.transition = "outline-width 0.2s";
+        img.style.transition = "outline-width 0s";
         litext.classList.remove("underline");
       }
 
@@ -511,15 +589,13 @@
         litext.classList.remove("underline");
       }
 
-      
-        //function showImage() {
-        //document.getElementById('no-load').style.display = 'block';
-       // document.getElementById('no-load2').style.display = 'block';
-      //} 
-      
+      //function showImage() {
+      //document.getElementById('no-load').style.display = 'block';
+      // document.getElementById('no-load2').style.display = 'block';
+      //}
 
-    // Set a timeout to call the showImage function after 3000 milliseconds (3 seconds)
-    setTimeout(showImage, 3500);
+      // Set a timeout to call the showImage function after 3000 milliseconds (3 seconds)
+      setTimeout(showImage, 3500);
     </script>
   </head>
 
@@ -592,7 +668,7 @@
               "
               >b</span
             >
-            LockeD</span
+            Locked</span
           >
           <span
             style="
@@ -626,29 +702,61 @@
       </div>
     </div>
     <div class="container">
-      <div class="important" style="position: absolute; margin-left: 2% !important; margin: 1%; width: 10%; height: 78%; max-width: 140px; max-height: 564px;">
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4293684626558852"
-        crossorigin="anonymous"></script>
-   <!-- vertical ad unit 1 -->
-   <ins class="adsbygoogle"
-        style="display:inline-block;width:140px;height:564px"
-        data-ad-client="ca-pub-4293684626558852"
-        data-ad-slot="6738911587"></ins>
-   <script>
-        (adsbygoogle = window.adsbygoogle || []).push({});
-   </script>
+      <div
+        class="important"
+        style="
+          position: absolute;
+          margin-left: 2% !important;
+          margin: 1%;
+          width: 10%;
+          height: 78%;
+          max-width: 140px;
+          max-height: 564px;
+        "
+      >
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4293684626558852"
+          crossorigin="anonymous"
+        ></script>
+        <!-- vertical ad unit 1 -->
+        <ins
+          class="adsbygoogle"
+          style="display: inline-block; width: 140px; height: 564px"
+          data-ad-client="ca-pub-4293684626558852"
+          data-ad-slot="6738911587"
+        ></ins>
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
       </div>
-      <div class="important" style="position: absolute; margin-left: 88% !important; margin: 1%; width: 10%; height: 78%; max-width: 140px; max-height: 564px;">
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4293684626558852"
-        crossorigin="anonymous"></script>
-   <!-- vertical ad unit 1 -->
-   <ins class="adsbygoogle"
-        style="display:inline-block;width:140px;height:564px"
-        data-ad-client="ca-pub-4293684626558852"
-        data-ad-slot="6738911587"></ins>
-   <script>
-        (adsbygoogle = window.adsbygoogle || []).push({});
-   </script>
+      <div
+        class="important"
+        style="
+          position: absolute;
+          margin-left: 88% !important;
+          margin: 1%;
+          width: 10%;
+          height: 78%;
+          max-width: 140px;
+          max-height: 564px;
+        "
+      >
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4293684626558852"
+          crossorigin="anonymous"
+        ></script>
+        <!-- vertical ad unit 1 -->
+        <ins
+          class="adsbygoogle"
+          style="display: inline-block; width: 140px; height: 564px"
+          data-ad-client="ca-pub-4293684626558852"
+          data-ad-slot="6738911587"
+        ></ins>
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
       </div>
     </div>
     <p
@@ -707,23 +815,23 @@
         </a>
       </div>
       <div class="suggest-game">
-        <a href="games/bad-piggies.html">
+        <a href="games/neverball.html">
           <img
             style="outline: 3px solid #fc5858; border: 1px solid #fc5858"
             id="suggest-img2"
             onmouseover="highlightImage2('suggest-img2', 'suggest-text2')"
             onmouseout="removeHighlight2('suggest-img2', 'suggest-text2')"
-            src="images/games/list/bad-piggies.png"
-            alt="Bad Piggies"
+            src="images/games/list/neverball.png"
+            alt="Neverball"
           />
         </a>
         <a
-          href="games/bad-piggies.html"
+          href="games/neverball.html"
           class="suggest-text suggest-text2"
           onmouseover="highlightImage2('suggest-img2', 'suggest-text2')"
           onmouseout="removeHighlight2('suggest-img2', 'suggest-text2')"
         >
-          <span>Bad Piggies</span>
+          <span>Neverball</span>
         </a>
       </div>
       <div class="suggest-game">
@@ -790,7 +898,7 @@
       >
         this website is so cool<br />
         <a
-          href="/list.html"
+          href="/#AllGamesDiv"
           style="
             font-size: 220%;
             font-family: 'Satisfactory Base';
@@ -811,7 +919,13 @@
             outline: #3c3c3c solid 4px;
           "
           >View All Games</a
-        ><br /><a
+        ><br />
+        <a
+          style="text-decoration: underline !important; color: #3c3c3c"
+          href="#AllGamesDiv"
+          onclick="sortNewOld()"
+          >View the Latest Games</a
+        ><br><a
           style="
             color: #3c3c3c !important;
             text-decoration: underline !important;
@@ -831,11 +945,6 @@
           >coolunblockedgames.github.io</a
         >
         <br />
-        <a
-          style="text-decoration: underline !important; color: #3c3c3c"
-          href="https://ciscoha.github.io/turbo-octo-memory"
-          >.github.io/turbo-octo-memory</a
-        >
       </p>
     </div>
     <p
@@ -862,7 +971,7 @@
     >
       Popular Games
     </p>
-   <!-- <a
+    <!-- <a
       href="/list.html"
       style="
         font-size: 330%;
@@ -992,8 +1101,8 @@
           onmouseout="removeHighlight('suggest-img9', 'suggest-text9')"
           style="margin-bottom: 0px !important"
         >
-          <span>Snow Rider 3D</span
-          > <!--<img
+          <span>Snow Rider 3D</span>
+          <!--<img
             style="
               border: 0px;
               height: 1.5rem;
@@ -1138,131 +1247,131 @@
       </div>
     </div>
     <div
-    class="game-list"
-    style="
-      font-family: 'M Plus Rounded 1c', sans-serif;
-      font-weight: bold;
-      text-align: center;
-      align-items: center;
-      align-content: center;
-      border-radius: 10px;
-    "
-  >
-    <div class="suggest-game">
-      <a href="games/plants-vs-zombies.html">
-        <img
-          style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
-          id="suggest-img200"
+      class="game-list"
+      style="
+        font-family: 'M Plus Rounded 1c', sans-serif;
+        font-weight: bold;
+        text-align: center;
+        align-items: center;
+        align-content: center;
+        border-radius: 10px;
+      "
+    >
+      <div class="suggest-game">
+        <a href="games/plants-vs-zombies.html">
+          <img
+            style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
+            id="suggest-img200"
+            onmouseover="highlightImage4('suggest-img200', 'suggest-text200')"
+            onmouseout="removeHighlight4('suggest-img200', 'suggest-text200')"
+            src="images/games/list/plants-vs-zombies.png"
+            alt="Plants VS. Zombies"
+          />
+        </a>
+        <a
+          href="games/plants-vs-zombies.html"
+          class="suggest-text suggest-text200"
           onmouseover="highlightImage4('suggest-img200', 'suggest-text200')"
           onmouseout="removeHighlight4('suggest-img200', 'suggest-text200')"
-          src="images/games/list/plants-vs-zombies.png"
-          alt="Plants VS. Zombies"
-        />
-      </a>
-      <a
-        href="games/plants-vs-zombies.html"
-        class="suggest-text suggest-text200"
-        onmouseover="highlightImage4('suggest-img200', 'suggest-text200')"
-        onmouseout="removeHighlight4('suggest-img200', 'suggest-text200')"
-      >
-        <span>Plants VS. Zombies</span>
-      </a>
-    </div>
-    <div class="suggest-game" style="margin-bottom: -5px">
-      <a href="games/gun-mayhem.html">
-        <img
-          style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
-          id="suggest-img201"
-          onmouseover="highlightImage4('suggest-img201', 'suggest-tex201')"
-          onmouseout="removeHighlight4('suggest-img201', 'suggest-tex201')"
-          src="images/games/list/gun-mayhem.png"
-          alt="Gun Mayhem"
-        />
-      </a>
-      <a
-        href="games/gun-mayhem.html"
-        class="suggest-text suggest-text201"
-        onmouseover="highlightImage4('suggest-img201', 'suggest-text201')"
-        onmouseout="removeHighlight4('suggest-img201', 'suggest-text201')"
-      >
-        <span>Gun Mayhem</span>
-        <img
-          style="
-            border: 0px;
-            height: 1.5rem;
-            width: auto;
-            vertical-align: middle;
-            position: relative;
-            top: -2.5px;
-            left: 5px;
-            margin-right: -7px;
-          "
-          src="images/icons/multiplayer.png"
-          alt="Multiplayer"
-        />
-      </a>
-    </div>
-    <div class="suggest-game">
-      <a href="games/doom.html">
-        <img
-          style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
-          id="suggest-img202"
+        >
+          <span>Plants VS. Zombies</span>
+        </a>
+      </div>
+      <div class="suggest-game" style="margin-bottom: -5px">
+        <a href="games/gun-mayhem.html">
+          <img
+            style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
+            id="suggest-img201"
+            onmouseover="highlightImage4('suggest-img201', 'suggest-tex201')"
+            onmouseout="removeHighlight4('suggest-img201', 'suggest-tex201')"
+            src="images/games/list/gun-mayhem.png"
+            alt="Gun Mayhem"
+          />
+        </a>
+        <a
+          href="games/gun-mayhem.html"
+          class="suggest-text suggest-text201"
+          onmouseover="highlightImage4('suggest-img201', 'suggest-text201')"
+          onmouseout="removeHighlight4('suggest-img201', 'suggest-text201')"
+        >
+          <span>Gun Mayhem</span>
+          <img
+            style="
+              border: 0px;
+              height: 1.5rem;
+              width: auto;
+              vertical-align: middle;
+              position: relative;
+              top: -2.5px;
+              left: 5px;
+              margin-right: -7px;
+            "
+            src="images/icons/multiplayer.png"
+            alt="Multiplayer"
+          />
+        </a>
+      </div>
+      <div class="suggest-game">
+        <a href="games/doom.html">
+          <img
+            style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
+            id="suggest-img202"
+            onmouseover="highlightImage4('suggest-img202', 'suggest-text202')"
+            onmouseout="removeHighlight4('suggest-img202', 'suggest-text202')"
+            src="images/games/list/doom.png"
+            alt="DOOM and Freedoom Collection"
+          />
+        </a>
+        <a
+          href="games/doom.html"
+          class="suggest-text suggest-text202"
           onmouseover="highlightImage4('suggest-img202', 'suggest-text202')"
           onmouseout="removeHighlight4('suggest-img202', 'suggest-text202')"
-          src="images/games/list/doom.png"
-          alt="DOOM and Freedoom Collection"
-        />
-      </a>
-      <a
-        href="games/doom.html"
-        class="suggest-text suggest-text202"
-        onmouseover="highlightImage4('suggest-img202', 'suggest-text202')"
-        onmouseout="removeHighlight4('suggest-img202', 'suggest-text202')"
-      >
-        <span>DOOM Collection</span>
-      </a>
-    </div>
-    <div class="suggest-game">
-      <a href="games/cut-the-rope.html">
-        <img
-          style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
-          id="suggest-img204"
+        >
+          <span>DOOM Collection</span>
+        </a>
+      </div>
+      <div class="suggest-game">
+        <a href="games/cut-the-rope.html">
+          <img
+            style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
+            id="suggest-img204"
+            onmouseover="highlightImage4('suggest-img204', 'suggest-text204')"
+            onmouseout="removeHighlight4('suggest-img204', 'suggest-text204')"
+            src="images/games/list/cut-the-rope.png"
+            alt="Cut the Rope"
+          />
+        </a>
+        <a
+          href="games/cut-the-rope.html"
+          class="suggest-text suggest-text204"
           onmouseover="highlightImage4('suggest-img204', 'suggest-text204')"
           onmouseout="removeHighlight4('suggest-img204', 'suggest-text204')"
-          src="images/games/list/cut-the-rope.png"
-          alt="Cut the Rope"
-        />
-      </a>
-      <a
-        href="games/cut-the-rope.html"
-        class="suggest-text suggest-text204"
-        onmouseover="highlightImage4('suggest-img204', 'suggest-text204')"
-        onmouseout="removeHighlight4('suggest-img204', 'suggest-text204')"
-      >
-        <span>Cut the Rope</span>
-      </a>
-    </div>
-    <div class="suggest-game">
-      <a href="games/watermelon-game.html">
-        <img
-          style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
-          id="suggest-img205"
+        >
+          <span>Cut the Rope</span>
+        </a>
+      </div>
+      <div class="suggest-game">
+        <a href="games/watermelon-game.html">
+          <img
+            style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
+            id="suggest-img205"
+            onmouseover="highlightImage4('suggest-img205', 'suggest-text205')"
+            onmouseout="removeHighlight4('suggest-img205', 'suggest-text205')"
+            src="images/games/list/watermelon-game.png"
+            alt="Watermelon Game"
+          />
+        </a>
+        <a
+          href="games/watermelon-game.html"
+          class="suggest-text suggest-text205"
           onmouseover="highlightImage4('suggest-img205', 'suggest-text205')"
           onmouseout="removeHighlight4('suggest-img205', 'suggest-text205')"
-          src="images/games/list/watermelon-game.png"
-          alt="Watermelon Game"
-        />
-      </a>
-      <a
-        href="games/watermelon-game.html"
-        class="suggest-text suggest-text205"
-        onmouseover="highlightImage4('suggest-img205', 'suggest-text205')"
-        onmouseout="removeHighlight4('suggest-img205', 'suggest-text205')"
-      >
-        <span>Watermelon Game</span>
-      </a>
+        >
+          <span>Watermelon Game</span>
+        </a>
+      </div>
     </div>
-  </div>
     <div
       class="game-list"
       style="
@@ -1355,6 +1464,7 @@
         </a>
       </div>
     </div>
+    <!-- <hr style="margin: 10px; margin-bottom: 20px; border: 1px solid #58aafc;"> -->
     <p
       id="multiplayer-games"
       style="
@@ -1615,19 +1725,19 @@
         >
           <span>Mini Golf Online</span
           ><img
-          style="
-            border: 0px;
-            height: 1.5rem;
-            width: auto;
-            vertical-align: middle;
-            position: relative;
-            top: -2.5px;
-            left: 5px;
-            margin-right: -7px;
-          "
-          src="images/icons/online.png"
-          alt="Online"
-        />
+            style="
+              border: 0px;
+              height: 1.5rem;
+              width: auto;
+              vertical-align: middle;
+              position: relative;
+              top: -2.5px;
+              left: 5px;
+              margin-right: -7px;
+            "
+            src="images/icons/online.png"
+            alt="Online"
+          />
         </a>
       </div>
       <div class="suggest-game">
@@ -1649,19 +1759,19 @@
         >
           <span>Among Us Online</span
           ><img
-          style="
-            border: 0px;
-            height: 1.5rem;
-            width: auto;
-            vertical-align: middle;
-            position: relative;
-            top: -2.5px;
-            left: 5px;
-            margin-right: -7px;
-          "
-          src="images/icons/online.png"
-          alt="Online"
-        />
+            style="
+              border: 0px;
+              height: 1.5rem;
+              width: auto;
+              vertical-align: middle;
+              position: relative;
+              top: -2.5px;
+              left: 5px;
+              margin-right: -7px;
+            "
+            src="images/icons/online.png"
+            alt="Online"
+          />
         </a>
       </div>
       <div class="suggest-game">
@@ -1683,19 +1793,19 @@
         >
           <span>Minecraft-ish MMO</span
           ><img
-          style="
-            border: 0px;
-            height: 1.5rem;
-            width: auto;
-            vertical-align: middle;
-            position: relative;
-            top: -2.5px;
-            left: 5px;
-            margin-right: -7px;
-          "
-          src="images/icons/online.png"
-          alt="Online"
-        />
+            style="
+              border: 0px;
+              height: 1.5rem;
+              width: auto;
+              vertical-align: middle;
+              position: relative;
+              top: -2.5px;
+              left: 5px;
+              margin-right: -7px;
+            "
+            src="images/icons/online.png"
+            alt="Online"
+          />
         </a>
       </div>
       <div class="suggest-game">
@@ -1717,19 +1827,19 @@
         >
           <span>Cloud Platformer Fun</span
           ><img
-          style="
-            border: 0px;
-            height: 1.5rem;
-            width: auto;
-            vertical-align: middle;
-            position: relative;
-            top: -2.5px;
-            left: 5px;
-            margin-right: -7px;
-          "
-          src="images/icons/online.png"
-          alt="Online"
-        />
+            style="
+              border: 0px;
+              height: 1.5rem;
+              width: auto;
+              vertical-align: middle;
+              position: relative;
+              top: -2.5px;
+              left: 5px;
+              margin-right: -7px;
+            "
+            src="images/icons/online.png"
+            alt="Online"
+          />
         </a>
       </div>
       <div class="suggest-game">
@@ -1751,6 +1861,52 @@
         >
           <span>Slither.io</span
           ><img
+            style="
+              border: 0px;
+              height: 1.5rem;
+              width: auto;
+              vertical-align: middle;
+              position: relative;
+              top: -2.5px;
+              left: 5px;
+              margin-right: -7px;
+            "
+            src="images/icons/online.png"
+            alt="Online"
+          />
+        </a>
+      </div>
+    </div>
+    <div
+    class="game-list"
+    style="
+      font-family: 'M Plus Rounded 1c', sans-serif;
+      font-weight: bold;
+      text-align: center;
+      align-items: center;
+      align-content: center;
+      border-radius: 10px;
+    "
+  >
+    <div class="suggest-game">
+      <a href="games/1v1.lol.html">
+        <img
+          style="outline: 3px solid #d058fc; border: 1px solid #d058fc"
+          id="suggest-img112"
+          onmouseover="highlightImage3('suggest-img112', 'suggest-text112')"
+          onmouseout="removeHighlight3('suggest-img112', 'suggest-text112')"
+          src="images/games/list/1v1.lol.png"
+          alt="1v1.lol"
+        />
+      </a>
+      <a
+        href="games/1v1.lol.html"
+        class="suggest-text suggest-text107"
+        onmouseover="highlightImage3('suggest-img112', 'suggest-text112')"
+        onmouseout="removeHighlight3('suggest-img112', 'suggest-text112')"
+      >
+        <span>1v1.lol</span
+        ><img
           style="
             border: 0px;
             height: 1.5rem;
@@ -1764,1687 +1920,1697 @@
           src="images/icons/online.png"
           alt="Online"
         />
-        </a>
-      </div>
+      </a>
     </div>
-    <br>    <br />
+  </div>
+    <br />
+    <br />
     <div class="sortButtonDiv">
-      <button onclick="toggleVisibility()" >Hide Games</button>
-      <br><br>
-      <button onclick="sortList()" id="sortButton">Original</button>
+      <button id="button" onclick="toggleVisibility()">Hide Games</button>
+      <br /><br />
+      <button id="button" onclick="sortList()" id="sortButton">A-Z</button>
     </div>
     <div id="AllGamesDiv">
-    <ul
-      id="id01"
-      class="game-list"
-      style="color: transparent; list-style-type: none; padding: 0"
-    >
-    <li data-date="29/11/2023">
-        CircloO
-        <div class="suggest-gameL">
-          <a href="games/circloo.html">
-            <img
-              style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
-              id="suggest-imgL1"
+      <ul
+        id="id01"
+        class="game-list"
+        style="color: transparent; list-style-type: none; padding: 0"
+      >
+        <li data-date="29/11/2023">
+          CircloO
+          <div class="suggest-gameL">
+            <a href="games/circloo.html">
+              <img
+                style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
+                id="suggest-imgL1"
+                onmouseover="highlightImageL('suggest-imgL1', 'suggest-textL1')"
+                onmouseout="removeHighlightL('suggest-imgL1', 'suggest-textL1')"
+                src="images/games/list/circloo.png"
+                alt="CircloO"
+              />
+            </a>
+            <a
+              href="games/circloo.html"
+              class="suggest-text suggest-textL1"
               onmouseover="highlightImageL('suggest-imgL1', 'suggest-textL1')"
               onmouseout="removeHighlightL('suggest-imgL1', 'suggest-textL1')"
-              src="images/games/list/circloo.png"
-              alt="CircloO"
-            />
-          </a>
-          <a
-            href="games/circloo.html"
-            class="suggest-text suggest-textL1"
-            onmouseover="highlightImageL('suggest-imgL1', 'suggest-textL1')"
-            onmouseout="removeHighlightL('suggest-imgL1', 'suggest-textL1')"
-          >
-            <span>CircloO</span>
-          </a>
-        </div>
-      </li>
-      <li data-date="28/11/2023">
-        Slope
-        <div class="suggest-gameL">
-          <a href="games/slope.html">
-            <img
-              style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
-              id="suggest-imgL2"
+            >
+              <span>CircloO</span>
+            </a>
+          </div>
+        </li>
+        <li data-date="28/11/2023">
+          Slope
+          <div class="suggest-gameL">
+            <a href="games/slope.html">
+              <img
+                style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
+                id="suggest-imgL2"
+                onmouseover="highlightImageL('suggest-imgL2', 'suggest-textL2')"
+                onmouseout="removeHighlightL('suggest-imgL2', 'suggest-textL2')"
+                src="images/games/list/slope.png"
+                alt="Slope"
+              />
+            </a>
+            <a
+              href="games/slope.html"
+              class="suggest-text suggest-textL2"
               onmouseover="highlightImageL('suggest-imgL2', 'suggest-textL2')"
               onmouseout="removeHighlightL('suggest-imgL2', 'suggest-textL2')"
-              src="images/games/list/slope.png"
-              alt="Slope"
-            />
-          </a>
-          <a
-            href="games/slope.html"
-            class="suggest-text suggest-textL2"
-            onmouseover="highlightImageL('suggest-imgL2', 'suggest-textL2')"
-            onmouseout="removeHighlightL('suggest-imgL2', 'suggest-textL2')"
-          >
-            <span>Slope</span>
-          </a>
-        </div>
-      </li>
-      <li data-date="27/11/2023">
-        Watermelon Game
-        <div class="suggest-gameL">
-          <a href="games/watermelon-game.html">
-            <img
-              style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
-              id="suggest-imgL3"
+            >
+              <span>Slope</span>
+            </a>
+          </div>
+        </li>
+        <li data-date="13/10/2023">
+          Watermelon Game
+          <div class="suggest-gameL">
+            <a href="games/watermelon-game.html">
+              <img
+                style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
+                id="suggest-imgL3"
+                onmouseover="highlightImageL('suggest-imgL3', 'suggest-textL3')"
+                onmouseout="removeHighlightL('suggest-imgL3', 'suggest-textL3')"
+                src="images/games/list/watermelon-game.png"
+                alt="Watermelon Suika Game"
+              />
+            </a>
+            <a
+              href="games/watermelon-game.html"
+              class="suggest-text suggest-textL3"
               onmouseover="highlightImageL('suggest-imgL3', 'suggest-textL3')"
               onmouseout="removeHighlightL('suggest-imgL3', 'suggest-textL3')"
-              src="images/games/list/watermelon-game.png"
-              alt="Watermelon Suika Game"
-            />
-          </a>
-          <a
-            href="games/watermelon-game.html"
-            class="suggest-text suggest-textL3"
-            onmouseover="highlightImageL('suggest-imgL3', 'suggest-textL3')"
-            onmouseout="removeHighlightL('suggest-imgL3', 'suggest-textL3')"
-          >
-            <span>Watermelon Game</span>
-          </a>
-        </div>
-      </li>
-      <li data-date="26/11/2023">
-        Tomb of the Mask
-        <div class="suggest-gameL">
-          <a href="games/tomb-of-the-mask.html">
-            <img
-              style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
-              id="suggest-imgL4"
+            >
+              <span>Watermelon Game</span>
+            </a>
+          </div>
+        </li>
+        <li data-date="26/11/2023">
+          Tomb of the Mask
+          <div class="suggest-gameL">
+            <a href="games/tomb-of-the-mask.html">
+              <img
+                style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
+                id="suggest-imgL4"
+                onmouseover="highlightImageL('suggest-imgL4', 'suggest-textL4')"
+                onmouseout="removeHighlightL('suggest-imgL4', 'suggest-textL4')"
+                src="images/games/list/tomb-of-the-mask.png"
+                alt="Tomb of the Mask"
+              />
+            </a>
+            <a
+              href="games/tomb-of-the-mask.html"
+              class="suggest-text suggest-textL4"
               onmouseover="highlightImageL('suggest-imgL4', 'suggest-textL4')"
               onmouseout="removeHighlightL('suggest-imgL4', 'suggest-textL4')"
-              src="images/games/list/tomb-of-the-mask.png"
-              alt="Tomb of the Mask"
-            />
-          </a>
-          <a
-            href="games/tomb-of-the-mask.html"
-            class="suggest-text suggest-textL4"
-            onmouseover="highlightImageL('suggest-imgL4', 'suggest-textL4')"
-            onmouseout="removeHighlightL('suggest-imgL4', 'suggest-textL4')"
-          >
-            <span>Tomb of the Mask</span>
-          </a>
-        </div>
-      </li>
-      <li data-date="27/11/2023">
-        Snow Rider 3D
-        <div class="suggest-gameL">
-          <a href="games/snow-rider-3d.html">
-            <img
-              style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
-              id="suggest-imgL5"
+            >
+              <span>Tomb of the Mask</span>
+            </a>
+          </div>
+        </li>
+        <li data-date="9/11/2023">
+          Snow Rider 3D
+          <div class="suggest-gameL">
+            <a href="games/snow-rider-3d.html">
+              <img
+                style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
+                id="suggest-imgL5"
+                onmouseover="highlightImageL('suggest-imgL5', 'suggest-textL5')"
+                onmouseout="removeHighlightL('suggest-imgL5', 'suggest-textL5')"
+                src="images/games/list/snow-rider-3d.png"
+                alt="Snow Rider 3D"
+              />
+            </a>
+            <a
+              href="games/snow-rider-3d.html"
+              class="suggest-text suggest-textL5"
               onmouseover="highlightImageL('suggest-imgL5', 'suggest-textL5')"
               onmouseout="removeHighlightL('suggest-imgL5', 'suggest-textL5')"
-              src="images/games/list/snow-rider-3d.png"
-              alt="Snow Rider 3D"
-            />
-          </a>
-          <a
-            href="games/snow-rider-3d.html"
-            class="suggest-text suggest-textL5"
-            onmouseover="highlightImageL('suggest-imgL5', 'suggest-textL5')"
-            onmouseout="removeHighlightL('suggest-imgL5', 'suggest-textL5')"
-          >
-            <span>Snow Rider 3D</span>
-          </a>
-        </div>
-      </li>
+            >
+              <span>Snow Rider 3D</span>
+            </a>
+          </div>
+        </li>
 
-      <li data-date="29/10/2023">
-        Jelly Truck
-        <div class="suggest-gameL">
-          <a href="games/jelly-truck.html">
-            <img
-              style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
-              id="suggest-imgL6"
+        <li data-date="29/10/2023">
+          Jelly Truck
+          <div class="suggest-gameL">
+            <a href="games/jelly-truck.html">
+              <img
+                style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
+                id="suggest-imgL6"
+                onmouseover="highlightImageL('suggest-imgL6', 'suggest-textL6')"
+                onmouseout="removeHighlightL('suggest-imgL6', 'suggest-textL6')"
+                src="images/games/list/jelly-truck.png"
+                alt="Jelly Truck"
+              />
+            </a>
+            <a
+              href="games/jelly-truck.html"
+              class="suggest-text suggest-textL6"
               onmouseover="highlightImageL('suggest-imgL6', 'suggest-textL6')"
               onmouseout="removeHighlightL('suggest-imgL6', 'suggest-textL6')"
-              src="images/games/list/jelly-truck.png"
-              alt="Jelly Truck"
-            />
-          </a>
-          <a
-            href="games/jelly-truck.html"
-            class="suggest-text suggest-textL6"
-            onmouseover="highlightImageL('suggest-imgL6', 'suggest-textL6')"
-            onmouseout="removeHighlightL('suggest-imgL6', 'suggest-textL6')"
-          >
-            <span>Jelly Truck</span>
-          </a>
-        </div>
-      </li>
-      <li data-date="29/10/2023">
-        Jacksmith
-        <div class="suggest-gameL">
-          <a href="games/jacksmith.html">
-            <img
-              style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
-              id="suggest-imgL7"
+            >
+              <span>Jelly Truck</span>
+            </a>
+          </div>
+        </li>
+        <li data-date="29/10/2023">
+          Jacksmith
+          <div class="suggest-gameL">
+            <a href="games/jacksmith.html">
+              <img
+                style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
+                id="suggest-imgL7"
+                onmouseover="highlightImageL('suggest-imgL7', 'suggest-textL7')"
+                onmouseout="removeHighlightL('suggest-imgL7', 'suggest-textL7')"
+                src="images/games/list/jacksmith.png"
+                alt="Jacksmith"
+              />
+            </a>
+            <a
+              href="games/jacksmith.html"
+              class="suggest-text suggest-textL7"
               onmouseover="highlightImageL('suggest-imgL7', 'suggest-textL7')"
               onmouseout="removeHighlightL('suggest-imgL7', 'suggest-textL7')"
-              src="images/games/list/jacksmith.png"
-              alt="Jacksmith"
-            />
-          </a>
-          <a
-            href="games/jacksmith.html"
-            class="suggest-text suggest-textL7"
-            onmouseover="highlightImageL('suggest-imgL7', 'suggest-textL7')"
-            onmouseout="removeHighlightL('suggest-imgL7', 'suggest-textL7')"
-          >
-            <span>Jacksmith</span>
-          </a>
-        </div>
-      </li>
-      <li data-date="29/10/2023">
-        Awesome Tanks 2
-        <div class="suggest-gameL">
-          <a href="games/awesome-tanks-2.html">
-            <img
-              style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
-              id="suggest-imgL8"
+            >
+              <span>Jacksmith</span>
+            </a>
+          </div>
+        </li>
+        <li data-date="1/09/2023">
+          Awesome Tanks 2
+          <div class="suggest-gameL">
+            <a href="games/awesome-tanks-2.html">
+              <img
+                style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
+                id="suggest-imgL8"
+                onmouseover="highlightImageL('suggest-imgL8', 'suggest-textL8')"
+                onmouseout="removeHighlightL('suggest-imgL8', 'suggest-textL8')"
+                src="images/games/list/awesome-tanks-2.png"
+                alt="Awesome Tanks 2"
+              />
+            </a>
+            <a
+              href="games/awesome-tanks-2.html"
+              class="suggest-text suggest-textL8"
               onmouseover="highlightImageL('suggest-imgL8', 'suggest-textL8')"
               onmouseout="removeHighlightL('suggest-imgL8', 'suggest-textL8')"
-              src="images/games/list/awesome-tanks-2.png"
-              alt="Awesome Tanks 2"
-            />
-          </a>
-          <a
-            href="games/awesome-tanks-2.html"
-            class="suggest-text suggest-textL8"
-            onmouseover="highlightImageL('suggest-imgL8', 'suggest-textL8')"
-            onmouseout="removeHighlightL('suggest-imgL8', 'suggest-textL8')"
-          >
-            <span>Awesome Tanks 2</span>
-          </a>
-        </div>
-      </li>
-      <li data-date="29/10/2023">
-        Alien Hominid
-        <div class="suggest-gameL">
-          <a href="games/alien-hominid.html">
-            <img
-              style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
-              id="suggest-imgL9"
+            >
+              <span>Awesome Tanks 2</span>
+            </a>
+          </div>
+        </li>
+        <li data-date="29/10/2023">
+          Alien Hominid
+          <div class="suggest-gameL">
+            <a href="games/alien-hominid.html">
+              <img
+                style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
+                id="suggest-imgL9"
+                onmouseover="highlightImageL('suggest-imgL9', 'suggest-textL9')"
+                onmouseout="removeHighlightL('suggest-imgL9', 'suggest-textL9')"
+                src="images/games/list/alien-hominid.png"
+                alt="Alien Hominid"
+              />
+            </a>
+            <a
+              href="games/alien-hominid.html"
+              class="suggest-text suggest-textL9"
               onmouseover="highlightImageL('suggest-imgL9', 'suggest-textL9')"
               onmouseout="removeHighlightL('suggest-imgL9', 'suggest-textL9')"
-              src="images/games/list/alien-hominid.png"
-              alt="Alien Hominid"
-            />
-          </a>
-          <a
-            href="games/alien-hominid.html"
-            class="suggest-text suggest-textL9"
-            onmouseover="highlightImageL('suggest-imgL9', 'suggest-textL9')"
-            onmouseout="removeHighlightL('suggest-imgL9', 'suggest-textL9')"
-          >
-            <span>Alien Hominid</span>
-          </a>
-        </div>
-      </li>
-      <li data-date="29/10/2023">
-        Tanuki Sunset
-        <div class="suggest-gameL">
-          <a href="games/tanuki-sunset.html">
-            <img
-              style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
-              id="suggest-imgL10"
+            >
+              <span>Alien Hominid</span>
+            </a>
+          </div>
+        </li>
+        <li data-date="9/08/2023">
+          Tanuki Sunset
+          <div class="suggest-gameL">
+            <a href="games/tanuki-sunset.html">
+              <img
+                style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
+                id="suggest-imgL10"
+                onmouseover="highlightImageL('suggest-imgL10', 'suggest-textL10')"
+                onmouseout="removeHighlightL('suggest-imgL10', 'suggest-textL10')"
+                src="images/games/list/tanuki-sunset.png"
+                alt="Tanuki Sunset"
+              />
+            </a>
+            <a
+              href="games/tanuki-sunset.html"
+              class="suggest-text suggest-textL10"
               onmouseover="highlightImageL('suggest-imgL10', 'suggest-textL10')"
               onmouseout="removeHighlightL('suggest-imgL10', 'suggest-textL10')"
-              src="images/games/list/tanuki-sunset.png"
-              alt="Tanuki Sunset"
-            />
-          </a>
-          <a
-            href="games/tanuki-sunset.html"
-            class="suggest-text suggest-textL10"
-            onmouseover="highlightImageL('suggest-imgL10', 'suggest-textL10')"
-            onmouseout="removeHighlightL('suggest-imgL10', 'suggest-textL10')"
-          >
-            <span>Tanuki Sunset</span>
-          </a>
-        </div>
-      </li>
-      <li data-date="29/10/2023">
-        Getaway Shootout
-        <div class="suggest-gameL">
-          <a href="games/getaway-shootout.html">
-            <img
-              style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
-              id="suggest-imgL11"
+            >
+              <span>Tanuki Sunset</span>
+            </a>
+          </div>
+        </li>
+        <li data-date="29/10/2023">
+          Getaway Shootout
+          <div class="suggest-gameL">
+            <a href="games/getaway-shootout.html">
+              <img
+                style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
+                id="suggest-imgL11"
+                onmouseover="highlightImageL('suggest-imgL11', 'suggest-textL11')"
+                onmouseout="removeHighlightL('suggest-imgL11', 'suggest-textL11')"
+                src="images/games/list/getaway-shootout.png"
+                alt="Getaway Shootout"
+              />
+            </a>
+            <a
+              href="games/getaway-shootout.html"
+              class="suggest-text suggest-textL11"
               onmouseover="highlightImageL('suggest-imgL11', 'suggest-textL11')"
               onmouseout="removeHighlightL('suggest-imgL11', 'suggest-textL11')"
-              src="images/games/list/getaway-shootout.png"
-              alt="Getaway Shootout"
-            />
-          </a>
-          <a
-            href="games/getaway-shootout.html"
-            class="suggest-text suggest-textL11"
-            onmouseover="highlightImageL('suggest-imgL11', 'suggest-textL11')"
-            onmouseout="removeHighlightL('suggest-imgL11', 'suggest-textL11')"
-          >
-            <span>Getaway Shootout</span>
-          </a>
-        </div>
-      </li>
-      <li data-date="29/10/2023">
-        Cut the Rope
-        <div class="suggest-gameL">
-          <a href="games/cut-the-rope.html">
-            <img
-              style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
-              id="suggest-imgL12"
+            >
+              <span>Getaway Shootout</span>
+            </a>
+          </div>
+        </li>
+        <li data-date="4/10/2023">
+          Cut the Rope
+          <div class="suggest-gameL">
+            <a href="games/cut-the-rope.html">
+              <img
+                style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
+                id="suggest-imgL12"
+                onmouseover="highlightImageL('suggest-imgL12', 'suggest-textL12')"
+                onmouseout="removeHighlightL('suggest-imgL12', 'suggest-textL12')"
+                src="images/games/list/cut-the-rope.png"
+                alt="Cut the Rope"
+              />
+            </a>
+            <a
+              href="games/cut-the-rope.html"
+              class="suggest-text suggest-textL12"
               onmouseover="highlightImageL('suggest-imgL12', 'suggest-textL12')"
               onmouseout="removeHighlightL('suggest-imgL12', 'suggest-textL12')"
-              src="images/games/list/cut-the-rope.png"
-              alt="Cut the Rope"
-            />
-          </a>
-          <a
-            href="games/cut-the-rope.html"
-            class="suggest-text suggest-textL12"
-            onmouseover="highlightImageL('suggest-imgL12', 'suggest-textL12')"
-            onmouseout="removeHighlightL('suggest-imgL12', 'suggest-textL12')"
-          >
-            <span>Cut the Rope</span>
-          </a>
-        </div>
-      </li>
-      <li data-date="29/10/2023">
-        Five Night's at Freddy's
-        <div class="suggest-gameL">
-          <a href="games/fnaf.html">
-            <img
-              style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
-              id="suggest-imgL13"
+            >
+              <span>Cut the Rope</span>
+            </a>
+          </div>
+        </li>
+        <li data-date="29/10/2023">
+          Five Night's at Freddy's
+          <div class="suggest-gameL">
+            <a href="games/fnaf.html">
+              <img
+                style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
+                id="suggest-imgL13"
+                onmouseover="highlightImageL('suggest-imgL13', 'suggest-textL13')"
+                onmouseout="removeHighlightL('suggest-imgL13', 'suggest-textL13')"
+                src="images/games/list/fnaf.png"
+                alt="FNAF Five night's at freddy's"
+              />
+            </a>
+            <a
+              href="games/fnaf.html"
+              class="suggest-text suggest-textL13"
               onmouseover="highlightImageL('suggest-imgL13', 'suggest-textL13')"
               onmouseout="removeHighlightL('suggest-imgL13', 'suggest-textL13')"
-              src="images/games/list/fnaf.png"
-              alt="FNAF Five night's at freddy's"
-            />
-          </a>
-          <a
-            href="games/fnaf.html"
-            class="suggest-text suggest-textL13"
-            onmouseover="highlightImageL('suggest-imgL13', 'suggest-textL13')"
-            onmouseout="removeHighlightL('suggest-imgL13', 'suggest-textL13')"
-          >
-            <span>FNAF</span>
-          </a>
-        </div>
-      </li>
-      <li data-date="29/10/2023">
-        Drive Mad
-        <div class="suggest-gameL">
-          <a href="games/drive-mad.html">
-            <img
-              style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
-              id="suggest-imgL14"
+            >
+              <span>FNAF</span>
+            </a>
+          </div>
+        </li>
+        <li data-date="29/10/2023">
+          Drive Mad
+          <div class="suggest-gameL">
+            <a href="games/drive-mad.html">
+              <img
+                style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
+                id="suggest-imgL14"
+                onmouseover="highlightImageL('suggest-imgL14', 'suggest-textL14')"
+                onmouseout="removeHighlightL('suggest-imgL14', 'suggest-textL14')"
+                src="images/games/list/drive-mad.png"
+                alt="Drive Mad"
+              />
+            </a>
+            <a
+              href="games/drive-mad.html"
+              class="suggest-text suggest-textL14"
               onmouseover="highlightImageL('suggest-imgL14', 'suggest-textL14')"
               onmouseout="removeHighlightL('suggest-imgL14', 'suggest-textL14')"
-              src="images/games/list/drive-mad.png"
-              alt="Drive Mad"
-            />
-          </a>
-          <a
-            href="games/drive-mad.html"
-            class="suggest-text suggest-textL14"
-            onmouseover="highlightImageL('suggest-imgL14', 'suggest-textL14')"
-            onmouseout="removeHighlightL('suggest-imgL14', 'suggest-textL14')"
-          >
-            <span>Drive Mad</span>
-          </a>
-        </div>
-      </li>
-      <li data-date="29/10/2023">
-        Run 3
-        <div class="suggest-gameL">
-          <a href="games/run-3.html">
-            <img
-              style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
-              id="suggest-imgL15"
+            >
+              <span>Drive Mad</span>
+            </a>
+          </div>
+        </li>
+        <li data-date="29/10/2023">
+          Run 3
+          <div class="suggest-gameL">
+            <a href="games/run-3.html">
+              <img
+                style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
+                id="suggest-imgL15"
+                onmouseover="highlightImageL('suggest-imgL15', 'suggest-textL15')"
+                onmouseout="removeHighlightL('suggest-imgL15', 'suggest-textL15')"
+                src="images/games/list/run-3.png"
+                alt="Run 3"
+              />
+            </a>
+            <a
+              href="games/run-3.html"
+              class="suggest-text suggest-textL15"
               onmouseover="highlightImageL('suggest-imgL15', 'suggest-textL15')"
               onmouseout="removeHighlightL('suggest-imgL15', 'suggest-textL15')"
-              src="images/games/list/run-3.png"
-              alt="Run 3"
-            />
-          </a>
-          <a
-            href="games/run-3.html"
-            class="suggest-text suggest-textL15"
-            onmouseover="highlightImageL('suggest-imgL15', 'suggest-textL15')"
-            onmouseout="removeHighlightL('suggest-imgL15', 'suggest-textL15')"
-          >
-            <span>Run 3</span>
-          </a>
-        </div>
-      </li>
-      <li data-date="29/10/2023">
-        Among Us Online
-        <div class="suggest-gameL">
-          <a href="games/among-us-online.html">
-            <img
-              style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
-              id="suggest-imgL16"
+            >
+              <span>Run 3</span>
+            </a>
+          </div>
+        </li>
+        <li data-date="29/10/2023">
+          Among Us Online
+          <div class="suggest-gameL">
+            <a href="games/among-us-online.html">
+              <img
+                style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
+                id="suggest-imgL16"
+                onmouseover="highlightImageL('suggest-imgL16', 'suggest-textL16')"
+                onmouseout="removeHighlightL('suggest-imgL16', 'suggest-textL16')"
+                src="images/games/list/among-us-online-scratch.png"
+                alt="Among Us Online"
+              />
+            </a>
+            <a
+              href="games/among-us-online.html"
+              class="suggest-text suggest-textL16"
               onmouseover="highlightImageL('suggest-imgL16', 'suggest-textL16')"
               onmouseout="removeHighlightL('suggest-imgL16', 'suggest-textL16')"
-              src="images/games/list/among-us-online-scratch.png"
-              alt="Among Us Online"
-            />
-          </a>
-          <a
-            href="games/among-us-online.html"
-            class="suggest-text suggest-textL16"
-            onmouseover="highlightImageL('suggest-imgL16', 'suggest-textL16')"
-            onmouseout="removeHighlightL('suggest-imgL16', 'suggest-textL16')"
-          >
-            <span>Among Us Online</span>
-          </a>
-        </div>
-      </li>
-      <li data-date="29/10/2023">
-        Appel
-        <div class="suggest-gameL">
-          <a href="games/appel.html">
-            <img
-              style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
-              id="suggest-imgL17"
+            >
+              <span>Among Us Online</span>
+            </a>
+          </div>
+        </li>
+        <li data-date="29/10/2023">
+          Appel
+          <div class="suggest-gameL">
+            <a href="games/appel.html">
+              <img
+                style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
+                id="suggest-imgL17"
+                onmouseover="highlightImageL('suggest-imgL17', 'suggest-textL17')"
+                onmouseout="removeHighlightL('suggest-imgL17', 'suggest-textL17')"
+                src="images/games/list/appel.png"
+                alt="Appel"
+              />
+            </a>
+            <a
+              href="games/appel.html"
+              class="suggest-text suggest-textL17"
               onmouseover="highlightImageL('suggest-imgL17', 'suggest-textL17')"
               onmouseout="removeHighlightL('suggest-imgL17', 'suggest-textL17')"
-              src="images/games/list/appel.png"
-              alt="Appel"
-            />
-          </a>
-          <a
-            href="games/appel.html"
-            class="suggest-text suggest-textL17"
-            onmouseover="highlightImageL('suggest-imgL17', 'suggest-textL17')"
-            onmouseout="removeHighlightL('suggest-imgL17', 'suggest-textL17')"
-          >
-            <span>Appel</span>
-          </a>
-        </div>
-      </li>
-      <li data-date="29/10/2023">
-        Awesome Tanks
-        <div class="suggest-gameL">
-          <a href="games/awesome-tanks.html">
-            <img
-              style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
-              id="suggest-imgL18"
+            >
+              <span>Appel</span>
+            </a>
+          </div>
+        </li>
+        <li data-date="23/09/2023">
+          Awesome Tanks
+          <div class="suggest-gameL">
+            <a href="games/awesome-tanks.html">
+              <img
+                style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
+                id="suggest-imgL18"
+                onmouseover="highlightImageL('suggest-imgL18', 'suggest-textL18')"
+                onmouseout="removeHighlightL('suggest-imgL18', 'suggest-textL18')"
+                src="images/games/list/awesome-tanks.png"
+                alt="Awesome Tanks"
+              />
+            </a>
+            <a
+              href="games/awesome-tanks.html"
+              class="suggest-text suggest-textL18"
               onmouseover="highlightImageL('suggest-imgL18', 'suggest-textL18')"
               onmouseout="removeHighlightL('suggest-imgL18', 'suggest-textL18')"
-              src="images/games/list/awesome-tanks.png"
-              alt="Awesome Tanks"
-            />
-          </a>
-          <a
-            href="games/awesome-tanks.html"
-            class="suggest-text suggest-textL18"
-            onmouseover="highlightImageL('suggest-imgL18', 'suggest-textL18')"
-            onmouseout="removeHighlightL('suggest-imgL18', 'suggest-textL18')"
-          >
-            <span>Awesome Tanks</span>
-          </a>
-        </div>
-      </li>
-      <li data-date="29/10/2023">
-        Asteroids
-        <div class="suggest-gameL">
-          <a href="games/asteroids.html">
-            <img
-              style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
-              id="suggest-imgL19"
+            >
+              <span>Awesome Tanks</span>
+            </a>
+          </div>
+        </li>
+        <li data-date="29/10/2023">
+          Asteroids
+          <div class="suggest-gameL">
+            <a href="games/asteroids.html">
+              <img
+                style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
+                id="suggest-imgL19"
+                onmouseover="highlightImageL('suggest-imgL19', 'suggest-textL19')"
+                onmouseout="removeHighlightL('suggest-imgL19', 'suggest-textL19')"
+                src="images/games/list/asteroids.png"
+                alt="Asteroids"
+              />
+            </a>
+            <a
+              href="games/asteroids.html"
+              class="suggest-text suggest-textL19"
               onmouseover="highlightImageL('suggest-imgL19', 'suggest-textL19')"
               onmouseout="removeHighlightL('suggest-imgL19', 'suggest-textL19')"
-              src="images/games/list/asteroids.png"
-              alt="Asteroids"
-            />
-          </a>
-          <a
-            href="games/asteroids.html"
-            class="suggest-text suggest-textL19"
-            onmouseover="highlightImageL('suggest-imgL19', 'suggest-textL19')"
-            onmouseout="removeHighlightL('suggest-imgL19', 'suggest-textL19')"
-          >
-            <span>Asteroids</span>
-          </a>
-        </div>
-      </li>
-      <li data-date="29/10/2023">
-        Bloons TD 2
-        <div class="suggest-gameL">
-          <a href="games/bloons-td-2.html">
-            <img
-              style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
-              id="suggest-imgL20"
+            >
+              <span>Asteroids</span>
+            </a>
+          </div>
+        </li>
+        <li data-date="29/10/2023">
+          Bloons TD 2
+          <div class="suggest-gameL">
+            <a href="games/bloons-td-2.html">
+              <img
+                style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
+                id="suggest-imgL20"
+                onmouseover="highlightImageL('suggest-imgL20', 'suggest-textL20')"
+                onmouseout="removeHighlightL('suggest-imgL20', 'suggest-textL20')"
+                src="images/games/list/bloons-td-2.png"
+                alt="Bloons TD 2"
+              />
+            </a>
+            <a
+              href="games/bloons-td-2.html"
+              class="suggest-text suggest-textL20"
               onmouseover="highlightImageL('suggest-imgL20', 'suggest-textL20')"
               onmouseout="removeHighlightL('suggest-imgL20', 'suggest-textL20')"
-              src="images/games/list/bloons-td-2.png"
-              alt="Bloons TD 2"
-            />
-          </a>
-          <a
-            href="games/bloons-td-2.html"
-            class="suggest-text suggest-textL20"
-            onmouseover="highlightImageL('suggest-imgL20', 'suggest-textL20')"
-            onmouseout="removeHighlightL('suggest-imgL20', 'suggest-textL20')"
-          >
-            <span>Bloons TD 2</span>
-          </a>
-        </div>
-      </li>
-      <li data-date="29/10/2023">
-        Bloons TD 4 Expansion
-        <div class="suggest-gameL">
-          <a href="games/bloons-td-4-exp.html">
-            <img
-              style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
-              id="suggest-imgL21"
+            >
+              <span>Bloons TD 2</span>
+            </a>
+          </div>
+        </li>
+        <li data-date="29/10/2023">
+          Bloons TD 4 Expansion
+          <div class="suggest-gameL">
+            <a href="games/bloons-td-4-exp.html">
+              <img
+                style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
+                id="suggest-imgL21"
+                onmouseover="highlightImageL('suggest-imgL21', 'suggest-textL21')"
+                onmouseout="removeHighlightL('suggest-imgL21', 'suggest-textL21')"
+                src="images/games/list/btd4-exp.png"
+                alt="Bloons TD 4"
+              />
+            </a>
+            <a
+              href="games/bloons-td-4-exp.html"
+              class="suggest-text suggest-textL21"
               onmouseover="highlightImageL('suggest-imgL21', 'suggest-textL21')"
               onmouseout="removeHighlightL('suggest-imgL21', 'suggest-textL21')"
-              src="images/games/list/btd4-exp.png"
-              alt="Bloons TD 4"
-            />
-          </a>
-          <a
-            href="games/bloons-td-4-exp.html"
-            class="suggest-text suggest-textL21"
-            onmouseover="highlightImageL('suggest-imgL21', 'suggest-textL21')"
-            onmouseout="removeHighlightL('suggest-imgL21', 'suggest-textL21')"
-          >
-            <span>Bloons TD 4 Expansion</span>
-          </a>
-        </div>
-      </li>
-      <li data-date="29/10/2023">
-        Bob the Robber
-        <div class="suggest-gameL">
-          <a href="games/bob-the-robber.html">
-            <img
-              style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
-              id="suggest-imgL22"
+            >
+              <span>Bloons TD 4 Expansion</span>
+            </a>
+          </div>
+        </li>
+        <li data-date="29/10/2023">
+          Bob the Robber
+          <div class="suggest-gameL">
+            <a href="games/bob-the-robber.html">
+              <img
+                style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
+                id="suggest-imgL22"
+                onmouseover="highlightImageL('suggest-imgL22', 'suggest-textL22')"
+                onmouseout="removeHighlightL('suggest-imgL22', 'suggest-textL22')"
+                src="images/games/list/bob-the-robber.png"
+                alt="Bob the Robber"
+              />
+            </a>
+            <a
+              href="games/bob-the-robber.html"
+              class="suggest-text suggest-textL22"
               onmouseover="highlightImageL('suggest-imgL22', 'suggest-textL22')"
               onmouseout="removeHighlightL('suggest-imgL22', 'suggest-textL22')"
-              src="images/games/list/bob-the-robber.png"
-              alt="Bob the Robber"
-            />
-          </a>
-          <a
-            href="games/bob-the-robber.html"
-            class="suggest-text suggest-textL22"
-            onmouseover="highlightImageL('suggest-imgL22', 'suggest-textL22')"
-            onmouseout="removeHighlightL('suggest-imgL22', 'suggest-textL22')"
-          >
-            <span>Bob the Robber</span>
-          </a>
-        </div>
-      </li>
-      <li data-date="29/10/2023">
-        Breaking the Bank
-        <div class="suggest-gameL">
-          <a href="games/breaking-the-bank.html">
-            <img
-              style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
-              id="suggest-imgL23"
+            >
+              <span>Bob the Robber</span>
+            </a>
+          </div>
+        </li>
+        <li data-date="29/10/2023">
+          Breaking the Bank
+          <div class="suggest-gameL">
+            <a href="games/breaking-the-bank.html">
+              <img
+                style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
+                id="suggest-imgL23"
+                onmouseover="highlightImageL('suggest-imgL23', 'suggest-textL23')"
+                onmouseout="removeHighlightL('suggest-imgL23', 'suggest-textL23')"
+                src="images/games/list/breaking-the-bank.png"
+                alt="Breaking the Bank"
+              />
+            </a>
+            <a
+              href="games/breaking-the-bank.html"
+              class="suggest-text suggest-textL23"
               onmouseover="highlightImageL('suggest-imgL23', 'suggest-textL23')"
               onmouseout="removeHighlightL('suggest-imgL23', 'suggest-textL23')"
-              src="images/games/list/breaking-the-bank.png"
-              alt="Breaking the Bank"
-            />
-          </a>
-          <a
-            href="games/breaking-the-bank.html"
-            class="suggest-text suggest-textL23"
-            onmouseover="highlightImageL('suggest-imgL23', 'suggest-textL23')"
-            onmouseout="removeHighlightL('suggest-imgL23', 'suggest-textL23')"
-          >
-            <span>Breaking the Bank</span>
-          </a>
-        </div>
-      </li>
-      <li data-date="29/10/2023">
-        Cloud Platformer Fun
-        <div class="suggest-gameL">
-          <a href="games/cloud-platformer-fun.html">
-            <img
-              style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
-              id="suggest-imgL24"
+            >
+              <span>Breaking the Bank</span>
+            </a>
+          </div>
+        </li>
+        <li data-date="29/10/2023">
+          Cloud Platformer Fun
+          <div class="suggest-gameL">
+            <a href="games/cloud-platformer-fun.html">
+              <img
+                style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
+                id="suggest-imgL24"
+                onmouseover="highlightImageL('suggest-imgL24', 'suggest-textL24')"
+                onmouseout="removeHighlightL('suggest-imgL24', 'suggest-textL24')"
+                src="images/games/list/cloud-platformer-fun.png"
+                alt="Cloud Platformer Fun"
+              />
+            </a>
+            <a
+              href="games/cloud-platformer-fun.html"
+              class="suggest-text suggest-textL24"
               onmouseover="highlightImageL('suggest-imgL24', 'suggest-textL24')"
               onmouseout="removeHighlightL('suggest-imgL24', 'suggest-textL24')"
-              src="images/games/list/cloud-platformer-fun.png"
-              alt="Cloud Platformer Fun"
-            />
-          </a>
-          <a
-            href="games/cloud-platformer-fun.html"
-            class="suggest-text suggest-textL24"
-            onmouseover="highlightImageL('suggest-imgL24', 'suggest-textL24')"
-            onmouseout="removeHighlightL('suggest-imgL24', 'suggest-textL24')"
-          >
-            <span>Cloud Platformer Fun</span>
-          </a>
-        </div>
-      </li>
-      <li data-date="29/10/2023">
-        DOOM Collection
-        <div class="suggest-gameL">
-          <a href="games/doom.html">
-            <img
-              style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
-              id="suggest-imgL25"
+            >
+              <span>Cloud Platformer Fun</span>
+            </a>
+          </div>
+        </li>
+        <li data-date="29/09/2023">
+          DOOM Collection
+          <div class="suggest-gameL">
+            <a href="games/doom.html">
+              <img
+                style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
+                id="suggest-imgL25"
+                onmouseover="highlightImageL('suggest-imgL25', 'suggest-textL25')"
+                onmouseout="removeHighlightL('suggest-imgL25', 'suggest-textL25')"
+                src="images/games/list/doom.png"
+                alt="DOOM Collection"
+              />
+            </a>
+            <a
+              href="games/doom.html"
+              class="suggest-text suggest-textL25"
               onmouseover="highlightImageL('suggest-imgL25', 'suggest-textL25')"
               onmouseout="removeHighlightL('suggest-imgL25', 'suggest-textL25')"
-              src="images/games/list/doom.png"
-              alt="DOOM Collection"
-            />
-          </a>
-          <a
-            href="games/doom.html"
-            class="suggest-text suggest-textL25"
-            onmouseover="highlightImageL('suggest-imgL25', 'suggest-textL25')"
-            onmouseout="removeHighlightL('suggest-imgL25', 'suggest-textL25')"
-          >
-            <span>DOOM Collection</span>
-          </a>
-        </div>
-      </li>
-      <li data-date="29/10/2023">
-        Duck Life
-        <div class="suggest-gameL">
-          <a href="games/duck-life.html">
-            <img
-              style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
-              id="suggest-imgL26"
+            >
+              <span>DOOM Collection</span>
+            </a>
+          </div>
+        </li>
+        <li data-date="2/09/2023">
+          Duck Life
+          <div class="suggest-gameL">
+            <a href="games/duck-life.html">
+              <img
+                style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
+                id="suggest-imgL26"
+                onmouseover="highlightImageL('suggest-imgL26', 'suggest-textL26')"
+                onmouseout="removeHighlightL('suggest-imgL26', 'suggest-textL26')"
+                src="images/games/list/duck-life.png"
+                alt="Duck Life"
+              />
+            </a>
+            <a
+              href="games/duck-life.html"
+              class="suggest-text suggest-textL26"
               onmouseover="highlightImageL('suggest-imgL26', 'suggest-textL26')"
               onmouseout="removeHighlightL('suggest-imgL26', 'suggest-textL26')"
-              src="images/games/list/duck-life.png"
-              alt="Duck Life"
-            />
-          </a>
-          <a
-            href="games/duck-life.html"
-            class="suggest-text suggest-textL26"
-            onmouseover="highlightImageL('suggest-imgL26', 'suggest-textL26')"
-            onmouseout="removeHighlightL('suggest-imgL26', 'suggest-textL26')"
-          >
-            <span>Duck Life</span>
-          </a>
-        </div>
-      </li>
-      <li data-date="29/10/2023">
-        Duck Life 2
-        <div class="suggest-gameL">
-          <a href="games/duck-life-2.html">
-            <img
-              style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
-              id="suggest-imgL27"
+            >
+              <span>Duck Life</span>
+            </a>
+          </div>
+        </li>
+        <li data-date="29/10/2023">
+          Duck Life 2
+          <div class="suggest-gameL">
+            <a href="games/duck-life-2.html">
+              <img
+                style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
+                id="suggest-imgL27"
+                onmouseover="highlightImageL('suggest-imgL27', 'suggest-textL27')"
+                onmouseout="removeHighlightL('suggest-imgL27', 'suggest-textL27')"
+                src="images/games/list/duck-life-2.png"
+                alt="Duck Life 2"
+              />
+            </a>
+            <a
+              href="games/duck-life-2.html"
+              class="suggest-text suggest-textL27"
               onmouseover="highlightImageL('suggest-imgL27', 'suggest-textL27')"
               onmouseout="removeHighlightL('suggest-imgL27', 'suggest-textL27')"
-              src="images/games/list/duck-life-2.png"
-              alt="Duck Life 2"
-            />
-          </a>
-          <a
-            href="games/duck-life-2.html"
-            class="suggest-text suggest-textL27"
-            onmouseover="highlightImageL('suggest-imgL27', 'suggest-textL27')"
-            onmouseout="removeHighlightL('suggest-imgL27', 'suggest-textL27')"
-          >
-            <span>Duck Life 2</span>
-          </a>
-        </div>
-      </li>
-      <li data-date="2/12/2023">
-        Run 2
-        <div class="suggest-gameL">
-          <a href="games/run-2.html">
-            <img
-              style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
-              id="suggest-imgL28"
+            >
+              <span>Duck Life 2</span>
+            </a>
+          </div>
+        </li>
+        <li data-date="2/12/2023">
+          Run 2
+          <div class="suggest-gameL">
+            <a href="games/run-2.html">
+              <img
+                style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
+                id="suggest-imgL28"
+                onmouseover="highlightImageL('suggest-imgL28', 'suggest-textL28')"
+                onmouseout="removeHighlightL('suggest-imgL28', 'suggest-textL28')"
+                src="images/games/list/run-2.png"
+                alt="Run 2"
+              />
+            </a>
+            <a
+              href="games/run-2.html"
+              class="suggest-text suggest-textL28"
               onmouseover="highlightImageL('suggest-imgL28', 'suggest-textL28')"
               onmouseout="removeHighlightL('suggest-imgL28', 'suggest-textL28')"
-              src="images/games/list/run-2.png"
-              alt="Run 2"
-            />
-          </a>
-          <a
-            href="games/run-2.html"
-            class="suggest-text suggest-textL28"
-            onmouseover="highlightImageL('suggest-imgL28', 'suggest-textL28')"
-            onmouseout="removeHighlightL('suggest-imgL28', 'suggest-textL28')"
-          >
-            <span>Run 2</span>
-          </a>
-        </div>
-      </li>
-      <li data-date="2/12/2023">
-        Temple Run 2
-        <div class="suggest-gameL">
-          <a href="games/temple-run-2.html">
-            <img
-              style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
-              id="suggest-imgL29"
+            >
+              <span>Run 2</span>
+            </a>
+          </div>
+        </li>
+        <li data-date="2/12/2023">
+          Temple Run 2
+          <div class="suggest-gameL">
+            <a href="games/temple-run-2.html">
+              <img
+                style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
+                id="suggest-imgL29"
+                onmouseover="highlightImageL('suggest-imgL29', 'suggest-textL29')"
+                onmouseout="removeHighlightL('suggest-imgL29', 'suggest-textL29')"
+                src="images/games/list/temple-run-2.png"
+                alt="Temple Run 2"
+              />
+            </a>
+            <a
+              href="games/temple-run-2.html"
+              class="suggest-text suggest-textL29"
               onmouseover="highlightImageL('suggest-imgL29', 'suggest-textL29')"
               onmouseout="removeHighlightL('suggest-imgL29', 'suggest-textL29')"
-              src="images/games/list/temple-run-2.png"
-              alt="Temple Run 2"
-            />
-          </a>
-          <a
-            href="games/temple-run-2.html"
-            class="suggest-text suggest-textL29"
-            onmouseover="highlightImageL('suggest-imgL29', 'suggest-textL29')"
-            onmouseout="removeHighlightL('suggest-imgL29', 'suggest-textL29')"
-          >
-            <span>Temple Run 2</span>
-          </a>
-        </div>
-      </li>
-      <li data-date="2/11/2023">
-        Duck Life 3
-        <div class="suggest-gameL">
-          <a href="games/duck-life-3.html">
-            <img
-              style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
-              id="suggest-imgL30"
+            >
+              <span>Temple Run 2</span>
+            </a>
+          </div>
+        </li>
+        <li data-date="30/06/2023">
+          Duck Life 3
+          <div class="suggest-gameL">
+            <a href="games/duck-life-3.html">
+              <img
+                style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
+                id="suggest-imgL30"
+                onmouseover="highlightImageL('suggest-imgL30', 'suggest-textL30')"
+                onmouseout="removeHighlightL('suggest-imgL30', 'suggest-textL30')"
+                src="images/games/list/duck-life-3.png"
+                alt="Duck Life 3"
+              />
+            </a>
+            <a
+              href="games/duck-life-3.html"
+              class="suggest-text suggest-textL30"
               onmouseover="highlightImageL('suggest-imgL30', 'suggest-textL30')"
               onmouseout="removeHighlightL('suggest-imgL30', 'suggest-textL30')"
-              src="images/games/list/duck-life-3.png"
-              alt="Duck Life 3"
-            />
-          </a>
-          <a
-            href="games/duck-life-3.html"
-            class="suggest-text suggest-textL30"
-            onmouseover="highlightImageL('suggest-imgL30', 'suggest-textL30')"
-            onmouseout="removeHighlightL('suggest-imgL30', 'suggest-textL30')"
-          >
-            <span>Duck Life 3</span>
-          </a>
-        </div>
-      </li>
-      <li data-date="2/11/2023">
-        Duck Life 4
-        <div class="suggest-gameL">
-          <a href="games/duck-life-4.html">
-            <img
-              style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
-              id="suggest-imgL31"
+            >
+              <span>Duck Life 3</span>
+            </a>
+          </div>
+        </li>
+        <li data-date="30/06/2023">
+          Duck Life 4
+          <div class="suggest-gameL">
+            <a href="games/duck-life-4.html">
+              <img
+                style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
+                id="suggest-imgL31"
+                onmouseover="highlightImageL('suggest-imgL31', 'suggest-textL31')"
+                onmouseout="removeHighlightL('suggest-imgL31', 'suggest-textL31')"
+                src="images/games/list/duck-life-4.png"
+                alt="Duck Life 4"
+              />
+            </a>
+            <a
+              href="games/duck-life-4.html"
+              class="suggest-text suggest-textL31"
               onmouseover="highlightImageL('suggest-imgL31', 'suggest-textL31')"
               onmouseout="removeHighlightL('suggest-imgL31', 'suggest-textL31')"
-              src="images/games/list/duck-life-4.png"
-              alt="Duck Life 4"
-            />
-          </a>
-          <a
-            href="games/duck-life-4.html"
-            class="suggest-text suggest-textL31"
-            onmouseover="highlightImageL('suggest-imgL31', 'suggest-textL31')"
-            onmouseout="removeHighlightL('suggest-imgL31', 'suggest-textL31')"
-          >
-            <span>Duck Life 4</span>
-          </a>
-        </div>
-      </li>
-      <li data-date="2/11/2023">
-        Escapinig the Prison
-        <div class="suggest-gameL">
-          <a href="games/escaping-the-prison.html">
-            <img
-              style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
-              id="suggest-imgL32"
+            >
+              <span>Duck Life 4</span>
+            </a>
+          </div>
+        </li>
+        <li data-date="30/06/2023">
+          Escapinig the Prison
+          <div class="suggest-gameL">
+            <a href="games/escaping-the-prison.html">
+              <img
+                style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
+                id="suggest-imgL32"
+                onmouseover="highlightImageL('suggest-imgL32', 'suggest-textL32')"
+                onmouseout="removeHighlightL('suggest-imgL32', 'suggest-textL32')"
+                src="images/games/list/escaping-the-prison.png"
+                alt="Escaping the Prison"
+              />
+            </a>
+            <a
+              href="games/escaping-the-prison.html"
+              class="suggest-text suggest-textL32"
               onmouseover="highlightImageL('suggest-imgL32', 'suggest-textL32')"
               onmouseout="removeHighlightL('suggest-imgL32', 'suggest-textL32')"
-              src="images/games/list/escaping-the-prison.png"
-              alt="Escaping the Prison"
-            />
-          </a>
-          <a
-            href="games/escaping-the-prison.html"
-            class="suggest-text suggest-textL32"
-            onmouseover="highlightImageL('suggest-imgL32', 'suggest-textL32')"
-            onmouseout="removeHighlightL('suggest-imgL32', 'suggest-textL32')"
-          >
-            <span>Escaping the Prison</span>
-          </a>
-        </div>
-      </li>
-      <li data-date="2/11/2023">
-        Fireboy & Watergirl
-        <div class="suggest-gameL">
-          <a href="games/fireboy&watergirl.html">
-            <img
-              style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
-              id="suggest-imgL31"
-              onmouseover="highlightImageL('suggest-imgL31', 'suggest-textL31')"
-              onmouseout="removeHighlightL('suggest-imgL31', 'suggest-textL31')"
-              src="images/games/list/fireboy&watergirl.png"
-              alt="Fireboy and Watergirl"
-            />
-          </a>
-          <a
-            href="games/fireboy&watergirl.html"
-            class="suggest-text suggest-textL31"
-            onmouseover="highlightImageL('suggest-imgL31', 'suggest-textL31')"
-            onmouseout="removeHighlightL('suggest-imgL31', 'suggest-textL31')"
-          >
-            <span>Fireboy & Watergirl</span>
-          </a>
-        </div>
-      </li>
-      <li data-date="2/11/2023">
-        Fleeing the Complex
-        <div class="suggest-gameL">
-          <a href="games/fleeing-the-complex.html">
-            <img
-              style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
-              id="suggest-imgL32"
-              onmouseover="highlightImageL('suggest-imgL32', 'suggest-textL32')"
-              onmouseout="removeHighlightL('suggest-imgL32', 'suggest-textL32')"
-              src="images/games/list/fleeing-the-complex.png"
-              alt="Fleeing the Complex"
-            />
-          </a>
-          <a
-            href="games/fleeing-the-complex.html"
-            class="suggest-text suggest-textL32"
-            onmouseover="highlightImageL('suggest-imgL32', 'suggest-textL32')"
-            onmouseout="removeHighlightL('suggest-imgL32', 'suggest-textL32')"
-          >
-            <span>Fleeing the Complex</span>
-          </a>
-        </div>
-      </li>
-      <li data-date="2/11/2023">
-        Five Night's at Freddy's 2
-        <div class="suggest-gameL">
-          <a href="games/fnaf-2.html">
-            <img
-              style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
-              id="suggest-imgL33"
+            >
+              <span>Escaping the Prison</span>
+            </a>
+          </div>
+        </li>
+        <li data-date="30/06/2023">
+          Fireboy & Watergirl
+          <div class="suggest-gameL">
+            <a href="games/fireboy&watergirl.html">
+              <img
+                style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
+                id="suggest-imgLB31"
+                onmouseover="highlightImageL('suggest-imgLB31', 'suggest-textLB31')"
+                onmouseout="removeHighlightL('suggest-imgLB31', 'suggest-textLB31')"
+                src="images/games/list/fireboy&watergirl.png"
+                alt="Fireboy and Watergirl"
+              />
+            </a>
+            <a
+              href="games/fireboy&watergirl.html"
+              class="suggest-text suggest-textLB31"
+              onmouseover="highlightImageL('suggest-imgLB31', 'suggest-textLB31')"
+              onmouseout="removeHighlightL('suggest-imgLB31', 'suggest-textLB1')"
+            >
+              <span>Fireboy & Watergirl</span>
+            </a>
+          </div>
+        </li>
+        <li data-date="16/09/2023">
+          Fleeing the Complex
+          <div class="suggest-gameL">
+            <a href="games/fleeing-the-complex.html">
+              <img
+                style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
+                id="suggest-imgLB32"
+                onmouseover="highlightImageL('suggest-imgLB32', 'suggest-textLB32')"
+                onmouseout="removeHighlightL('suggest-imgLB32', 'suggest-textLB32')"
+                src="images/games/list/fleeing-the-complex.png"
+                alt="Fleeing the Complex"
+              />
+            </a>
+            <a
+              href="games/fleeing-the-complex.html"
+              class="suggest-text suggest-textLB32"
+              onmouseover="highlightImageL('suggest-imgLB32', 'suggest-textLB32')"
+              onmouseout="removeHighlightL('suggest-imgLB32', 'suggest-textLB32')"
+            >
+              <span>Fleeing the Complex</span>
+            </a>
+          </div>
+        </li>
+        <li data-date="8/11/2023">
+          Five Night's at Freddy's 2
+          <div class="suggest-gameL">
+            <a href="games/fnaf-2.html">
+              <img
+                style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
+                id="suggest-imgL33"
+                onmouseover="highlightImageL('suggest-imgL33', 'suggest-textL33')"
+                onmouseout="removeHighlightL('suggest-imgL33', 'suggest-textL33')"
+                src="images/games/list/fnaf-2.png"
+                alt="Five Night's at Freddy's 2"
+              />
+            </a>
+            <a
+              href="games/fnaf-2.html"
+              class="suggest-text suggest-textL33"
               onmouseover="highlightImageL('suggest-imgL33', 'suggest-textL33')"
               onmouseout="removeHighlightL('suggest-imgL33', 'suggest-textL33')"
-              src="images/games/list/fnaf-2.png"
-              alt="Five Night's at Freddy's 2"
-            />
-          </a>
-          <a
-            href="games/fnaf-2.html"
-            class="suggest-text suggest-textL33"
-            onmouseover="highlightImageL('suggest-imgL33', 'suggest-textL33')"
-            onmouseout="removeHighlightL('suggest-imgL33', 'suggest-textL33')"
-          >
-            <span>FNAF 2</span>
-          </a>
-        </div>
-      </li>
-      <li data-date="2/11/2023">
-        Gun Mayhem
-        <div class="suggest-gameL">
-          <a href="games/gun-mayhem.html">
-            <img
-              style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
-              id="suggest-imgL34"
+            >
+              <span>FNAF 2</span>
+            </a>
+          </div>
+        </li>
+        <li data-date="30/06/2023">
+          Gun Mayhem
+          <div class="suggest-gameL">
+            <a href="games/gun-mayhem.html">
+              <img
+                style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
+                id="suggest-imgL34"
+                onmouseover="highlightImageL('suggest-imgL34', 'suggest-textL34')"
+                onmouseout="removeHighlightL('suggest-imgL34', 'suggest-textL34')"
+                src="images/games/list/gun-mayhem.png"
+                alt="Gun Mayhem"
+              />
+            </a>
+            <a
+              href="games/gun-mayhem.html"
+              class="suggest-text suggest-textL34"
               onmouseover="highlightImageL('suggest-imgL34', 'suggest-textL34')"
               onmouseout="removeHighlightL('suggest-imgL34', 'suggest-textL34')"
-              src="images/games/list/gun-mayhem.png"
-              alt="Gun Mayhem"
-            />
-          </a>
-          <a
-            href="games/gun-mayhem.html"
-            class="suggest-text suggest-textL34"
-            onmouseover="highlightImageL('suggest-imgL34', 'suggest-textL34')"
-            onmouseout="removeHighlightL('suggest-imgL34', 'suggest-textL34')"
-          >
-            <span>Gun Mayhem</span>
-          </a>
-        </div>
-      </li>
-      <li data-date="2/11/2023">
-        Infiltrating the Airship
-        <div class="suggest-gameL">
-          <a href="games/infiltrating-the-airship.html">
-            <img
-              style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
-              id="suggest-imgL35"
+            >
+              <span>Gun Mayhem</span>
+            </a>
+          </div>
+        </li>
+        <li data-date="30/06/2023">
+          Infiltrating the Airship
+          <div class="suggest-gameL">
+            <a href="games/infiltrating-the-airship.html">
+              <img
+                style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
+                id="suggest-imgL35"
+                onmouseover="highlightImageL('suggest-imgL35', 'suggest-textL35')"
+                onmouseout="removeHighlightL('suggest-imgL35', 'suggest-textL35')"
+                src="images/games/list/infiltrating-the-airship.png"
+                alt="Infiltrating the Airship"
+              />
+            </a>
+            <a
+              href="games/infiltrating-the-airship.html"
+              class="suggest-text suggest-textL35"
               onmouseover="highlightImageL('suggest-imgL35', 'suggest-textL35')"
               onmouseout="removeHighlightL('suggest-imgL35', 'suggest-textL35')"
-              src="images/games/list/infiltrating-the-airship.png"
-              alt="Infiltrating the Airship"
-            />
-          </a>
-          <a
-            href="games/infiltrating-the-airship.html"
-            class="suggest-text suggest-textL35"
-            onmouseover="highlightImageL('suggest-imgL35', 'suggest-textL35')"
-            onmouseout="removeHighlightL('suggest-imgL35', 'suggest-textL35')"
-          >
-            <span>Infiltrating the Airship</span>
-          </a>
-        </div>
-      </li>
-      <li data-date="2/11/2023">
-        Learn to Fly 2
-        <div class="suggest-gameL">
-          <a href="games/learn-to-fly-2.html">
-            <img
-              style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
-              id="suggest-imgL36"
+            >
+              <span>Infiltrating the Airship</span>
+            </a>
+          </div>
+        </li>
+        <li data-date="30/06/2023">
+          Learn to Fly 2
+          <div class="suggest-gameL">
+            <a href="games/learn-to-fly-2.html">
+              <img
+                style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
+                id="suggest-imgL36"
+                onmouseover="highlightImageL('suggest-imgL36', 'suggest-textL36')"
+                onmouseout="removeHighlightL('suggest-imgL36', 'suggest-textL36')"
+                src="images/games/list/learn-to-fly-2.png"
+                alt="Learn to Fly 2"
+              />
+            </a>
+            <a
+              href="games/learn-to-fly-2.html"
+              class="suggest-text suggest-textL36"
               onmouseover="highlightImageL('suggest-imgL36', 'suggest-textL36')"
               onmouseout="removeHighlightL('suggest-imgL36', 'suggest-textL36')"
-              src="images/games/list/learn-to-fly-2.png"
-              alt="Learn to Fly 2"
-            />
-          </a>
-          <a
-            href="games/learn-to-fly-2.html"
-            class="suggest-text suggest-textL36"
-            onmouseover="highlightImageL('suggest-imgL36', 'suggest-textL36')"
-            onmouseout="removeHighlightL('suggest-imgL36', 'suggest-textL36')"
-          >
-            <span>Learn to Fly 2</span>
-          </a>
-        </div>
-      </li>
-      <li data-date="2/11/2023">
-        Learn to Fly
-        <div class="suggest-gameL">
-          <a href="games/learn-to-fly.html">
-            <img
-              style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
-              id="suggest-imgL37"
+            >
+              <span>Learn to Fly 2</span>
+            </a>
+          </div>
+        </li>
+        <li data-date="30/06/2023">
+          Learn to Fly
+          <div class="suggest-gameL">
+            <a href="games/learn-to-fly.html">
+              <img
+                style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
+                id="suggest-imgL37"
+                onmouseover="highlightImageL('suggest-imgL37', 'suggest-textL37')"
+                onmouseout="removeHighlightL('suggest-imgL37', 'suggest-textL37')"
+                src="images/games/list/learn-to-fly.png"
+                alt="Learn to Fly"
+              />
+            </a>
+            <a
+              href="games/learn-to-fly.html"
+              class="suggest-text suggest-textL37"
               onmouseover="highlightImageL('suggest-imgL37', 'suggest-textL37')"
               onmouseout="removeHighlightL('suggest-imgL37', 'suggest-textL37')"
-              src="images/games/list/learn-to-fly.png"
-              alt="Learn to Fly"
-            />
-          </a>
-          <a
-            href="games/learn-to-fly.html"
-            class="suggest-text suggest-textL37"
-            onmouseover="highlightImageL('suggest-imgL37', 'suggest-textL37')"
-            onmouseout="removeHighlightL('suggest-imgL37', 'suggest-textL37')"
-          >
-            <span>Learn to Fly</span>
-          </a>
-        </div>
-      </li>
-      <li data-date="2/11/2023">
-        Line Rider
-        <div class="suggest-gameL">
-          <a href="games/line-rider.html">
-            <img
-              style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
-              id="suggest-imgL38"
+            >
+              <span>Learn to Fly</span>
+            </a>
+          </div>
+        </li>
+        <li data-date="30/06/2023">
+          Line Rider
+          <div class="suggest-gameL">
+            <a href="games/line-rider.html">
+              <img
+                style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
+                id="suggest-imgL38"
+                onmouseover="highlightImageL('suggest-imgL38', 'suggest-textL38')"
+                onmouseout="removeHighlightL('suggest-imgL38', 'suggest-textL38')"
+                src="images/games/list/line-rider.png"
+                alt="Line Rider"
+              />
+            </a>
+            <a
+              href="games/line-rider.html"
+              class="suggest-text suggest-textL38"
               onmouseover="highlightImageL('suggest-imgL38', 'suggest-textL38')"
               onmouseout="removeHighlightL('suggest-imgL38', 'suggest-textL38')"
-              src="images/games/list/line-rider.png"
-              alt="Line Rider"
-            />
-          </a>
-          <a
-            href="games/line-rider.html"
-            class="suggest-text suggest-textL38"
-            onmouseover="highlightImageL('suggest-imgL38', 'suggest-textL38')"
-            onmouseout="removeHighlightL('suggest-imgL38', 'suggest-textL38')"
-          >
-            <span>Line Rider</span>
-          </a>
-        </div>
-      </li>
-      <li data-date="2/11/2023">
-        Minecraft-ish MMO
-        <div class="suggest-gameL">
-          <a href="games/minecraftish-mmo.html">
-            <img
-              style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
-              id="suggest-imgL39"
+            >
+              <span>Line Rider</span>
+            </a>
+          </div>
+        </li>
+        <li data-date="30/06/2023">
+          Minecraft-ish MMO
+          <div class="suggest-gameL">
+            <a href="games/minecraftish-mmo.html">
+              <img
+                style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
+                id="suggest-imgL39"
+                onmouseover="highlightImageL('suggest-imgL39', 'suggest-textL39')"
+                onmouseout="removeHighlightL('suggest-imgL39', 'suggest-textL39')"
+                src="images/games/list/minecraftish-mmo.png"
+                alt="Minecraft-ish MMO"
+              />
+            </a>
+            <a
+              href="games/minecraftish-mmo.html"
+              class="suggest-text suggest-textL39"
               onmouseover="highlightImageL('suggest-imgL39', 'suggest-textL39')"
               onmouseout="removeHighlightL('suggest-imgL39', 'suggest-textL39')"
-              src="images/games/list/minecraftish-mmo.png"
-              alt="Minecraft-ish MMO"
-            />
-          </a>
-          <a
-            href="games/minecraftish-mmo.html"
-            class="suggest-text suggest-textL39"
-            onmouseover="highlightImageL('suggest-imgL39', 'suggest-textL39')"
-            onmouseout="removeHighlightL('suggest-imgL39', 'suggest-textL39')"
-          >
-            <span>Minecraft-ish MMO</span>
-          </a>
-        </div>
-      </li>
-      <li data-date="2/11/2023">
-        Mini Golf Online
-        <div class="suggest-gameL">
-          <a href="games/mini-golf-online.html">
-            <img
-              style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
-              id="suggest-imgL40"
+            >
+              <span>Minecraft-ish MMO</span>
+            </a>
+          </div>
+        </li>
+        <li data-date="30/06/2023">
+          Mini Golf Online
+          <div class="suggest-gameL">
+            <a href="games/mini-golf-online.html">
+              <img
+                style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
+                id="suggest-imgL40"
+                onmouseover="highlightImageL('suggest-imgL40', 'suggest-textL40')"
+                onmouseout="removeHighlightL('suggest-imgL40', 'suggest-textL40')"
+                src="images/games/list/mini-golf-online.png"
+                alt="Mini Golf Online"
+              />
+            </a>
+            <a
+              href="games/mini-golf-online.html"
+              class="suggest-text suggest-textL40"
               onmouseover="highlightImageL('suggest-imgL40', 'suggest-textL40')"
               onmouseout="removeHighlightL('suggest-imgL40', 'suggest-textL40')"
-              src="images/games/list/mini-golf-online.png"
-              alt="Mini Golf Online"
-            />
-          </a>
-          <a
-            href="games/mini-golf-online.html"
-            class="suggest-text suggest-textL40"
-            onmouseover="highlightImageL('suggest-imgL40', 'suggest-textL40')"
-            onmouseout="removeHighlightL('suggest-imgL40', 'suggest-textL40')"
-          >
-            <span>Mini Golf Online</span>
-          </a>
-        </div>
-      </li>
-      <li data-date="2/11/2023">
-        Moto X3M
-        <div class="suggest-gameL">
-          <a href="games/moto-x3m.html">
-            <img
-              style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
-              id="suggest-imgL41"
+            >
+              <span>Mini Golf Online</span>
+            </a>
+          </div>
+        </li>
+        <li data-date="24/09/2023">
+          Moto X3M
+          <div class="suggest-gameL">
+            <a href="games/moto-x3m.html">
+              <img
+                style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
+                id="suggest-imgL41"
+                onmouseover="highlightImageL('suggest-imgL41', 'suggest-textL41')"
+                onmouseout="removeHighlightL('suggest-imgL41', 'suggest-textL41')"
+                src="images/games/list/moto-x3m.png"
+                alt="Moto X3m"
+              />
+            </a>
+            <a
+              href="games/moto-x3m.html"
+              class="suggest-text suggest-textL41"
               onmouseover="highlightImageL('suggest-imgL41', 'suggest-textL41')"
               onmouseout="removeHighlightL('suggest-imgL41', 'suggest-textL41')"
-              src="images/games/list/moto-x3m.png"
-              alt="Moto X3m"
-            />
-          </a>
-          <a
-            href="games/moto-x3m.html"
-            class="suggest-text suggest-textL41"
-            onmouseover="highlightImageL('suggest-imgL41', 'suggest-textL41')"
-            onmouseout="removeHighlightL('suggest-imgL41', 'suggest-textL41')"
-          >
-            <span>Moto X3M</span>
-          </a>
-        </div>
-      </li>
-      <li data-date="2/11/2023">
-        Moto X3M 2
-        <div class="suggest-gameL">
-          <a href="games/moto-x3m-2.html">
-            <img
-              style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
-              id="suggest-imgL42"
+            >
+              <span>Moto X3M</span>
+            </a>
+          </div>
+        </li>
+        <li data-date="30/06/2023">
+          Moto X3M 2
+          <div class="suggest-gameL">
+            <a href="games/moto-x3m-2.html">
+              <img
+                style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
+                id="suggest-imgL42"
+                onmouseover="highlightImageL('suggest-imgL42', 'suggest-textL42')"
+                onmouseout="removeHighlightL('suggest-imgL42', 'suggest-textL42')"
+                src="images/games/list/moto-x3m-2.png"
+                alt="Moto X3M"
+              />
+            </a>
+            <a
+              href="games/moto-x3m-2.html"
+              class="suggest-text suggest-textL42"
               onmouseover="highlightImageL('suggest-imgL42', 'suggest-textL42')"
               onmouseout="removeHighlightL('suggest-imgL42', 'suggest-textL42')"
-              src="images/games/list/moto-x3m-2.png"
-              alt="Moto X3M"
-            />
-          </a>
-          <a
-            href="games/moto-x3m-2.html"
-            class="suggest-text suggest-textL42"
-            onmouseover="highlightImageL('suggest-imgL42', 'suggest-textL42')"
-            onmouseout="removeHighlightL('suggest-imgL42', 'suggest-textL42')"
-          >
-            <span>Moto X3M 2</span>
-          </a>
-        </div>
-      </li>
-      <li data-date="2/11/2023">
-        Moto X3M 3
-        <div class="suggest-gameL">
-          <a href="games/moto-x3m-3.html">
-            <img
-              style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
-              id="suggest-imgL43"
+            >
+              <span>Moto X3M 2</span>
+            </a>
+          </div>
+        </li>
+        <li data-date="24/09/2023">
+          Moto X3M 3
+          <div class="suggest-gameL">
+            <a href="games/moto-x3m-3.html">
+              <img
+                style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
+                id="suggest-imgL43"
+                onmouseover="highlightImageL('suggest-imgL43', 'suggest-textL43')"
+                onmouseout="removeHighlightL('suggest-imgL43', 'suggest-textL43')"
+                src="images/games/list/moto-x3m-3.png"
+                alt="Moto X3M 3"
+              />
+            </a>
+            <a
+              href="games/moto-x3m-3.html"
+              class="suggest-text suggest-textL43"
               onmouseover="highlightImageL('suggest-imgL43', 'suggest-textL43')"
               onmouseout="removeHighlightL('suggest-imgL43', 'suggest-textL43')"
-              src="images/games/list/moto-x3m-3.png"
-              alt="Moto X3M 3"
-            />
-          </a>
-          <a
-            href="games/moto-x3m-3.html"
-            class="suggest-text suggest-textL43"
-            onmouseover="highlightImageL('suggest-imgL43', 'suggest-textL43')"
-            onmouseout="removeHighlightL('suggest-imgL43', 'suggest-textL43')"
-          >
-            <span>Moto X3M 3</span>
-          </a>
-        </div>
-      </li>
-      <li data-date="2/11/2023">
-        Moto X3M Pool Party
-        <div class="suggest-gameL">
-          <a href="games/moto-x3m-pool-party.html">
-            <img
-              style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
-              id="suggest-imgL44"
+            >
+              <span>Moto X3M 3</span>
+            </a>
+          </div>
+        </li>
+        <li data-date="30/06/2023">
+          Moto X3M Pool Party
+          <div class="suggest-gameL">
+            <a href="games/moto-x3m-pool-party.html">
+              <img
+                style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
+                id="suggest-imgL44"
+                onmouseover="highlightImageL('suggest-imgL44', 'suggest-textL44')"
+                onmouseout="removeHighlightL('suggest-imgL40', 'suggest-textL40')"
+                src="images/games/list/moto-x3m-pool-party.png"
+                alt="Moto X3M Pool Party"
+              />
+            </a>
+            <a
+              href="games/moto-x3m-pool-party.html"
+              class="suggest-text suggest-textL44"
               onmouseover="highlightImageL('suggest-imgL44', 'suggest-textL44')"
-              onmouseout="removeHighlightL('suggest-imgL40', 'suggest-textL40')"
-              src="images/games/list/moto-x3m-pool-party.png"
-              alt="Moto X3M Pool Party"
-            />
-          </a>
-          <a
-            href="games/moto-x3m-pool-party.html"
-            class="suggest-text suggest-textL44"
-            onmouseover="highlightImageL('suggest-imgL44', 'suggest-textL44')"
-            onmouseout="removeHighlightL('suggest-imgL44', 'suggest-textL44')"
-          >
-            <span>Moto X3M Pool Party</span>
-          </a>
-        </div>
-      </li>
-      <li data-date="2/11/2023">
-        Moto X3M Winter
-        <div class="suggest-gameL">
-          <a href="games/moto-x3m-winter.html">
-            <img
-              style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
-              id="suggest-imgL45"
+              onmouseout="removeHighlightL('suggest-imgL44', 'suggest-textL44')"
+            >
+              <span>Moto X3M Pool Party</span>
+            </a>
+          </div>
+        </li>
+        <li data-date="30/06/2023">
+          Moto X3M Winter
+          <div class="suggest-gameL">
+            <a href="games/moto-x3m-winter.html">
+              <img
+                style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
+                id="suggest-imgL45"
+                onmouseover="highlightImageL('suggest-imgL45', 'suggest-textL45')"
+                onmouseout="removeHighlightL('suggest-imgL45', 'suggest-textL45')"
+                src="images/games/list/moto-x3m-winter.png"
+                alt="Moto X3M Winter"
+              />
+            </a>
+            <a
+              href="games/moto-x3m-winter.html"
+              class="suggest-text suggest-textL45"
               onmouseover="highlightImageL('suggest-imgL45', 'suggest-textL45')"
               onmouseout="removeHighlightL('suggest-imgL45', 'suggest-textL45')"
-              src="images/games/list/moto-x3m-winter.png"
-              alt="Moto X3M Winter"
-            />
-          </a>
-          <a
-            href="games/moto-x3m-winter.html"
-            class="suggest-text suggest-textL45"
-            onmouseover="highlightImageL('suggest-imgL45', 'suggest-textL45')"
-            onmouseout="removeHighlightL('suggest-imgL45', 'suggest-textL45')"
-          >
-            <span>Moto X3M Winter</span>
-          </a>
-        </div>
-      </li>
-      <li data-date="2/11/2023">
-        Papa's Freezeria
-        <div class="suggest-gameL">
-          <a href="games/papas-freezeria.html">
-            <img
-              style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
-              id="suggest-imgL46"
+            >
+              <span>Moto X3M Winter</span>
+            </a>
+          </div>
+        </li>
+        <li data-date="30/06/2023">
+          Papa's Freezeria
+          <div class="suggest-gameL">
+            <a href="games/papas-freezeria.html">
+              <img
+                style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
+                id="suggest-imgL46"
+                onmouseover="highlightImageL('suggest-imgL46', 'suggest-textL46')"
+                onmouseout="removeHighlightL('suggest-imgL46', 'suggest-textL46')"
+                src="images/games/list/papas-freezeria.png"
+                alt="Papa's Freezeria"
+              />
+            </a>
+            <a
+              href="games/papas-freezeria.html"
+              class="suggest-text suggest-textL46"
               onmouseover="highlightImageL('suggest-imgL46', 'suggest-textL46')"
               onmouseout="removeHighlightL('suggest-imgL46', 'suggest-textL46')"
-              src="images/games/list/papas-freezeria.png"
-              alt="Papa's Freezeria"
-            />
-          </a>
-          <a
-            href="games/papas-freezeria.html"
-            class="suggest-text suggest-textL46"
-            onmouseover="highlightImageL('suggest-imgL46', 'suggest-textL46')"
-            onmouseout="removeHighlightL('suggest-imgL46', 'suggest-textL46')"
-          >
-            <span>Papa's Freezeria</span>
-          </a>
-        </div>
-      </li>
-      <li data-date="2/11/2023">
-        Plants VS. Zombies
-        <div class="suggest-gameL">
-          <a href="games/plants-vs-zombies.html">
-            <img
-              style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
-              id="suggest-imgL47"
+            >
+              <span>Papa's Freezeria</span>
+            </a>
+          </div>
+        </li>
+        <li data-date="30/06/2023">
+          Plants VS. Zombies
+          <div class="suggest-gameL">
+            <a href="games/plants-vs-zombies.html">
+              <img
+                style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
+                id="suggest-imgL47"
+                onmouseover="highlightImageL('suggest-imgL47', 'suggest-textL47')"
+                onmouseout="removeHighlightL('suggest-imgL47', 'suggest-textL47')"
+                src="images/games/list/plants-vs-zombies.png"
+                alt="Plants VS. Zombies"
+              />
+            </a>
+            <a
+              href="games/plants-vs-zombies.html"
+              class="suggest-text suggest-textL47"
               onmouseover="highlightImageL('suggest-imgL47', 'suggest-textL47')"
               onmouseout="removeHighlightL('suggest-imgL47', 'suggest-textL47')"
-              src="images/games/list/plants-vs-zombies.png"
-              alt="Plants VS. Zombies"
-            />
-          </a>
-          <a
-            href="games/plants-vs-zombies.html"
-            class="suggest-text suggest-textL47"
-            onmouseover="highlightImageL('suggest-imgL47', 'suggest-textL47')"
-            onmouseout="removeHighlightL('suggest-imgL47', 'suggest-textL47')"
-          >
-            <span>Plants VS. Zombies</span>
-          </a>
-        </div>
-      </li>
-      <li data-date="2/11/2023">
-        Pong.
-        <div class="suggest-gameL">
-          <a href="games/pong.html">
-            <img
-              style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
-              id="suggest-imgL48"
+            >
+              <span>Plants VS. Zombies</span>
+            </a>
+          </div>
+        </li>
+        <li data-date="30/06/2023">
+          Pong.
+          <div class="suggest-gameL">
+            <a href="games/pong.html">
+              <img
+                style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
+                id="suggest-imgL48"
+                onmouseover="highlightImageL('suggest-imgL48', 'suggest-textL48')"
+                onmouseout="removeHighlightL('suggest-imgL48', 'suggest-textL48')"
+                src="images/games/list/pong.png"
+                alt="Pong"
+              />
+            </a>
+            <a
+              href="games/pong.html"
+              class="suggest-text suggest-textL48"
               onmouseover="highlightImageL('suggest-imgL48', 'suggest-textL48')"
               onmouseout="removeHighlightL('suggest-imgL48', 'suggest-textL48')"
-              src="images/games/list/pong.png"
-              alt="Pong"
-            />
-          </a>
-          <a
-            href="games/pong.html"
-            class="suggest-text suggest-textL48"
-            onmouseover="highlightImageL('suggest-imgL48', 'suggest-textL48')"
-            onmouseout="removeHighlightL('suggest-imgL48', 'suggest-textL48')"
-          >
-            <span>Pong.</span>
-          </a>
-        </div>
-      </li>
-      <li data-date="2/11/2023">
-        Raft Wars
-        <div class="suggest-gameL">
-          <a href="games/raft-wars.html">
-            <img
-              style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
-              id="suggest-imgL49"
+            >
+              <span>Pong.</span>
+            </a>
+          </div>
+        </li>
+        <li data-date="30/06/2023">
+          Raft Wars
+          <div class="suggest-gameL">
+            <a href="games/raft-wars.html">
+              <img
+                style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
+                id="suggest-imgL49"
+                onmouseover="highlightImageL('suggest-imgL49', 'suggest-textL49')"
+                onmouseout="removeHighlightL('suggest-imgL49', 'suggest-textL49')"
+                src="images/games/list/raft-wars.png"
+                alt="Raft Wars"
+              />
+            </a>
+            <a
+              href="games/raft-wars.html"
+              class="suggest-text suggest-textL49"
               onmouseover="highlightImageL('suggest-imgL49', 'suggest-textL49')"
               onmouseout="removeHighlightL('suggest-imgL49', 'suggest-textL49')"
-              src="images/games/list/raft-wars.png"
-              alt="Raft Wars"
-            />
-          </a>
-          <a
-            href="games/raft-wars.html"
-            class="suggest-text suggest-textL49"
-            onmouseover="highlightImageL('suggest-imgL49', 'suggest-textL49')"
-            onmouseout="removeHighlightL('suggest-imgL49', 'suggest-textL49')"
-          >
-            <span>Raft Wars</span>
-          </a>
-        </div>
-      </li>
-      <li data-date="2/11/2023">
-        Retro Bowl
-        <div class="suggest-gameL">
-          <a href="games/retro-bowl.html">
-            <img
-              style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
-              id="suggest-imgL50"
+            >
+              <span>Raft Wars</span>
+            </a>
+          </div>
+        </li>
+        <li data-date="30/06/2023">
+          Retro Bowl
+          <div class="suggest-gameL">
+            <a href="games/retro-bowl.html">
+              <img
+                style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
+                id="suggest-imgL50"
+                onmouseover="highlightImageL('suggest-imgL50', 'suggest-textL50')"
+                onmouseout="removeHighlightL('suggest-imgL50', 'suggest-textL50')"
+                src="images/games/list/retro-bowl.png"
+                alt="Retro Bowl"
+              />
+            </a>
+            <a
+              href="games/retro-bowl.html"
+              class="suggest-text suggest-textL50"
               onmouseover="highlightImageL('suggest-imgL50', 'suggest-textL50')"
               onmouseout="removeHighlightL('suggest-imgL50', 'suggest-textL50')"
-              src="images/games/list/retro-bowl.png"
-              alt="Retro Bowl"
-            />
-          </a>
-          <a
-            href="games/retro-bowl.html"
-            class="suggest-text suggest-textL50"
-            onmouseover="highlightImageL('suggest-imgL50', 'suggest-textL50')"
-            onmouseout="removeHighlightL('suggest-imgL50', 'suggest-textL50')"
-          >
-            <span>Retro Bowl</span>
-          </a>
-        </div>
-      </li>
-      <li data-date="2/11/2023">
-        Rooftop Snipers
-        <div class="suggest-gameL">
-          <a href="games/rooftop-snipers.html">
-            <img
-              style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
-              id="suggest-imgL51"
+            >
+              <span>Retro Bowl</span>
+            </a>
+          </div>
+        </li>
+        <li data-date="30/06/2023">
+          Rooftop Snipers
+          <div class="suggest-gameL">
+            <a href="games/rooftop-snipers.html">
+              <img
+                style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
+                id="suggest-imgL51"
+                onmouseover="highlightImageL('suggest-imgL51', 'suggest-textL51')"
+                onmouseout="removeHighlightL('suggest-imgL51', 'suggest-textL51')"
+                src="images/games/list/rooftop-snipers.png"
+                alt="Rooftop Snipers"
+              />
+            </a>
+            <a
+              href="games/rooftop-snipers.html"
+              class="suggest-text suggest-textL51"
               onmouseover="highlightImageL('suggest-imgL51', 'suggest-textL51')"
               onmouseout="removeHighlightL('suggest-imgL51', 'suggest-textL51')"
-              src="images/games/list/rooftop-snipers.png"
-              alt="Rooftop Snipers"
-            />
-          </a>
-          <a
-            href="games/rooftop-snipers.html"
-            class="suggest-text suggest-textL51"
-            onmouseover="highlightImageL('suggest-imgL51', 'suggest-textL51')"
-            onmouseout="removeHighlightL('suggest-imgL51', 'suggest-textL51')"
-          >
-            <span>Rooftop Snipers</span>
-          </a>
-        </div>
-      </li>
-      <li data-date="2/11/2023">
-        Slither.io Online
-        <div class="suggest-gameL">
-          <a href="games/slither.io-online.html">
-            <img
-              style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
-              id="suggest-imgL52"
+            >
+              <span>Rooftop Snipers</span>
+            </a>
+          </div>
+        </li>
+        <li data-date="30/06/2023">
+          Slither.io Online
+          <div class="suggest-gameL">
+            <a href="games/slither.io-online.html">
+              <img
+                style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
+                id="suggest-imgL52"
+                onmouseover="highlightImageL('suggest-imgL52', 'suggest-textL52')"
+                onmouseout="removeHighlightL('suggest-imgL52', 'suggest-textL52')"
+                src="images/games/list/slither.io-online.png"
+                alt="Slither.io Online"
+              />
+            </a>
+            <a
+              href="games/game.html"
+              class="suggest-text suggest-textL52"
               onmouseover="highlightImageL('suggest-imgL52', 'suggest-textL52')"
               onmouseout="removeHighlightL('suggest-imgL52', 'suggest-textL52')"
-              src="images/games/list/slither.io-online.png"
-              alt="Slither.io Online"
-            />
-          </a>
-          <a
-            href="games/game.html"
-            class="suggest-text suggest-textL52"
-            onmouseover="highlightImageL('suggest-imgL52', 'suggest-textL52')"
-            onmouseout="removeHighlightL('suggest-imgL52', 'suggest-textL52')"
-          >
-            <span>Slither.io Online</span>
-          </a>
-        </div>
-      </li>
-      <li data-date="2/11/2023">
-        Slither.io Online
-        <div class="suggest-gameL">
-          <a href="games/slither.io-online.html">
-            <img
-              style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
-              id="suggest-imgL53"
+            >
+              <span>Slither.io Online</span>
+            </a>
+          </div>
+        </li>
+        <li data-date="14/12/2023">
+          Neverball
+          <div class="suggest-gameL">
+            <a href="games/neverball.html">
+              <img
+                style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
+                id="suggest-imgL53"
+                onmouseover="highlightImageL('suggest-imgL53', 'suggest-textL53')"
+                onmouseout="removeHighlightL('suggest-imgL53', 'suggest-textL53')"
+                src="images/games/list/neverball.png"
+                alt="Neverball"
+              />
+            </a>
+            <a
+              href="games/neverball.html"
+              class="suggest-text suggest-textL53"
               onmouseover="highlightImageL('suggest-imgL53', 'suggest-textL53')"
               onmouseout="removeHighlightL('suggest-imgL53', 'suggest-textL53')"
-              src="images/games/list/slither.io-online.png"
-              alt="Slither.io Online"
-            />
-          </a>
-          <a
-            href="games/slither.io-online.html"
-            class="suggest-text suggest-textL53"
-            onmouseover="highlightImageL('suggest-imgL53', 'suggest-textL53')"
-            onmouseout="removeHighlightL('suggest-imgL53', 'suggest-textL53')"
-          >
-            <span>Slither.io Online</span>
-          </a>
-        </div>
-      </li>
-      <li data-date="2/11/2023">
-        Stack
-        <div class="suggest-gameL">
-          <a href="games/stack.html">
-            <img
-              style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
-              id="suggest-imgL54"
+            >
+              <span>Neverball</span>
+            </a>
+          </div>
+        </li>
+        <li data-date="30/06/2023">
+          Stack
+          <div class="suggest-gameL">
+            <a href="games/stack.html">
+              <img
+                style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
+                id="suggest-imgL54"
+                onmouseover="highlightImageL('suggest-imgL54', 'suggest-textL54')"
+                onmouseout="removeHighlightL('suggest-imgL54', 'suggest-textL54')"
+                src="images/games/list/stack.png"
+                alt="Stack"
+              />
+            </a>
+            <a
+              href="games/stack.html"
+              class="suggest-text suggest-textL54"
               onmouseover="highlightImageL('suggest-imgL54', 'suggest-textL54')"
               onmouseout="removeHighlightL('suggest-imgL54', 'suggest-textL54')"
-              src="images/games/list/stack.png"
-              alt="Stack"
-            />
-          </a>
-          <a
-            href="games/stack.html"
-            class="suggest-text suggest-textL54"
-            onmouseover="highlightImageL('suggest-imgL54', 'suggest-textL54')"
-            onmouseout="removeHighlightL('suggest-imgL54', 'suggest-textL54')"
-          >
-            <span>Stack</span>
-          </a>
-        </div>
-      </li>
-      <li data-date="2/11/2023">
-        Stealing the Diamond
-        <div class="suggest-gameL">
-          <a href="games/stealing-the-diamond.html">
-            <img
-              style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
-              id="suggest-imgL55"
+            >
+              <span>Stack</span>
+            </a>
+          </div>
+        </li>
+        <li data-date="30/06/2023">
+          Stealing the Diamond
+          <div class="suggest-gameL">
+            <a href="games/stealing-the-diamond.html">
+              <img
+                style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
+                id="suggest-imgL55"
+                onmouseover="highlightImageL('suggest-imgL55', 'suggest-textL55')"
+                onmouseout="removeHighlightL('suggest-imgL55', 'suggest-textL55')"
+                src="images/games/list/stealing-the-diamond.png"
+                alt="Stealing the Diamond"
+              />
+            </a>
+            <a
+              href="games/stealing-the-diamond.html"
+              class="suggest-text suggest-textL55"
               onmouseover="highlightImageL('suggest-imgL55', 'suggest-textL55')"
               onmouseout="removeHighlightL('suggest-imgL55', 'suggest-textL55')"
-              src="images/games/list/stealing-the-diamond.png"
-              alt="Stealing the Diamond"
-            />
-          </a>
-          <a
-            href="games/stealing-the-diamond.html"
-            class="suggest-text suggest-textL55"
-            onmouseover="highlightImageL('suggest-imgL55', 'suggest-textL55')"
-            onmouseout="removeHighlightL('suggest-imgL55', 'suggest-textL55')"
-          >
-            <span>Stealing the Diamond</span>
-          </a>
-        </div>
-      </li>
-      <li data-date="2/11/2023">
-        The Fancy Pants 1
-        <div class="suggest-gameL">
-          <a href="games/game.html">
-            <img
-              style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
-              id="suggest-imgL56"
+            >
+              <span>Stealing the Diamond</span>
+            </a>
+          </div>
+        </li>
+        <li data-date="25/09/2023">
+          The Fancy Pants 1
+          <div class="suggest-gameL">
+            <a href="games/game.html">
+              <img
+                style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
+                id="suggest-imgL56"
+                onmouseover="highlightImageL('suggest-imgL56', 'suggest-textL56')"
+                onmouseout="removeHighlightL('suggest-imgL56', 'suggest-textL56')"
+                src="images/games/list/the-fancy-pants-adventures-world-1.png"
+                alt="The Fancy Pants Adventures"
+              />
+            </a>
+            <a
+              href="games/the-fancy-pants-adventures.html"
+              class="suggest-text suggest-textL56"
               onmouseover="highlightImageL('suggest-imgL56', 'suggest-textL56')"
               onmouseout="removeHighlightL('suggest-imgL56', 'suggest-textL56')"
-              src="images/games/list/the-fancy-pants-adventures-world-1.png"
-              alt="The Fancy Pants Adventures"
-            />
-          </a>
-          <a
-            href="games/the-fancy-pants-adventures.html"
-            class="suggest-text suggest-textL56"
-            onmouseover="highlightImageL('suggest-imgL56', 'suggest-textL56')"
-            onmouseout="removeHighlightL('suggest-imgL56', 'suggest-textL56')"
-          >
-            <span>Fancy Pants World 1</span>
-          </a>
-        </div>
-      </li>
-      <li data-date="2/11/2023">
-        The Fancy Pants 2
-        <div class="suggest-gameL">
-          <a href="games/the-fancy-pants-adventures-world-2.html">
-            <img
-              style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
-              id="suggest-imgL57"
+            >
+              <span>Fancy Pants World 1</span>
+            </a>
+          </div>
+        </li>
+        <li data-date="30/06/2023">
+          The Fancy Pants 2
+          <div class="suggest-gameL">
+            <a href="games/the-fancy-pants-adventures-world-2.html">
+              <img
+                style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
+                id="suggest-imgL57"
+                onmouseover="highlightImageL('suggest-imgL57', 'suggest-textL57')"
+                onmouseout="removeHighlightL('suggest-imgL57', 'suggest-textL57')"
+                src="images/games/list/the-fancy-pants-adventures-world-2.png"
+                alt="The Fancy Pants Adventures World 2"
+              />
+            </a>
+            <a
+              href="games/the-fancy-pants-adventures-world-2.html"
+              class="suggest-text suggest-textL57"
               onmouseover="highlightImageL('suggest-imgL57', 'suggest-textL57')"
               onmouseout="removeHighlightL('suggest-imgL57', 'suggest-textL57')"
-              src="images/games/list/the-fancy-pants-adventures-world-2.png"
-              alt="The Fancy Pants Adventures World 2"
-            />
-          </a>
-          <a
-            href="games/the-fancy-pants-adventures-world-2.html"
-            class="suggest-text suggest-textL57"
-            onmouseover="highlightImageL('suggest-imgL57', 'suggest-textL57')"
-            onmouseout="removeHighlightL('suggest-imgL57', 'suggest-textL57')"
-          >
-            <span>Fancy Pants World 2</span>
-          </a>
-        </div>
-      </li>
-      <li data-date="2/11/2023">
-        The Fancy Pants 3
-        <div class="suggest-gameL">
-          <a href="games/the-fancy-pants-adventures-world-3.html">
-            <img
-              style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
-              id="suggest-imgL58"
+            >
+              <span>Fancy Pants World 2</span>
+            </a>
+          </div>
+        </li>
+        <li data-date="30/06/2023">
+          The Fancy Pants 3
+          <div class="suggest-gameL">
+            <a href="games/the-fancy-pants-adventures-world-3.html">
+              <img
+                style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
+                id="suggest-imgL58"
+                onmouseover="highlightImageL('suggest-imgL58', 'suggest-textL58')"
+                onmouseout="removeHighlightL('suggest-imgL58', 'suggest-textL58')"
+                src="images/games/list/the-fancy-pants-adventures-world-3.png"
+                alt="The Fancy Pants Adventures World 3"
+              />
+            </a>
+            <a
+              href="games/the-fancy-pants-adventures-world-3.html"
+              class="suggest-text suggest-textL58"
               onmouseover="highlightImageL('suggest-imgL58', 'suggest-textL58')"
               onmouseout="removeHighlightL('suggest-imgL58', 'suggest-textL58')"
-              src="images/games/list/the-fancy-pants-adventures-world-3.png"
-              alt="The Fancy Pants Adventures World 3"
-            />
-          </a>
-          <a
-            href="games/the-fancy-pants-adventures-world-3.html"
-            class="suggest-text suggest-textL58"
-            onmouseover="highlightImageL('suggest-imgL58', 'suggest-textL58')"
-            onmouseout="removeHighlightL('suggest-imgL58', 'suggest-textL58')"
-          >
-            <span>Fancy Pants World 3</span>
-          </a>
-        </div>
-      </li>
-      <li data-date="2/11/2023">
-        The Fancy Pants 1 Remix
-        <div class="suggest-gameL">
-          <a href="games/the-fancy-pants-adventures-remix.html">
-            <img
-              style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
-              id="suggest-imgL59"
+            >
+              <span>Fancy Pants World 3</span>
+            </a>
+          </div>
+        </li>
+        <li data-date="9/11/2023">
+          The Fancy Pants 1 Remix
+          <div class="suggest-gameL">
+            <a href="games/the-fancy-pants-adventures-remix.html">
+              <img
+                style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
+                id="suggest-imgL59"
+                onmouseover="highlightImageL('suggest-imgL59', 'suggest-textL59')"
+                onmouseout="removeHighlightL('suggest-imgL59', 'suggest-textL59')"
+                src="images/games/list/the-fancy-pants-adventures-remix.png"
+                alt="The Fancy Pants Adventures World 1 Remix"
+              />
+            </a>
+            <a
+              href="games/the-fancy-pants-adventures-remix.html"
+              class="suggest-text suggest-textL59"
               onmouseover="highlightImageL('suggest-imgL59', 'suggest-textL59')"
               onmouseout="removeHighlightL('suggest-imgL59', 'suggest-textL59')"
-              src="images/games/list/the-fancy-pants-adventures-remix.png"
-              alt="The Fancy Pants Adventures World 1 Remix"
-            />
-          </a>
-          <a
-            href="games/the-fancy-pants-adventures-remix.html"
-            class="suggest-text suggest-textL59"
-            onmouseover="highlightImageL('suggest-imgL59', 'suggest-textL59')"
-            onmouseout="removeHighlightL('suggest-imgL59', 'suggest-textL59')"
-          >
-            <span>Fancy Pants Remix</span>
-          </a>
-        </div>
-      </li>
-      <li data-date="2/11/2023">
-        The Fancy Pants Snow
-        <div class="suggest-gameL">
-          <a href="games/the-fancy-pants-snowboarding.html">
-            <img
-              style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
-              id="suggest-imgL60"
+            >
+              <span>Fancy Pants Remix</span>
+            </a>
+          </div>
+        </li>
+        <li data-date="30/06/2023">
+          The Fancy Pants Snow
+          <div class="suggest-gameL">
+            <a href="games/the-fancy-pants-snowboarding.html">
+              <img
+                style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
+                id="suggest-imgL60"
+                onmouseover="highlightImageL('suggest-imgL60', 'suggest-textL60')"
+                onmouseout="removeHighlightL('suggest-imgL60', 'suggest-textL60')"
+                src="images/games/list/the-fancy-pants-snowboarding.png"
+                alt="The Fancy Pants Snowboarding"
+              />
+            </a>
+            <a
+              href="games/the-fancy-pants-snowboarding.html"
+              class="suggest-text suggest-textL60"
               onmouseover="highlightImageL('suggest-imgL60', 'suggest-textL60')"
               onmouseout="removeHighlightL('suggest-imgL60', 'suggest-textL60')"
-              src="images/games/list/the-fancy-pants-snowboarding.png"
-              alt="The Fancy Pants Snowboarding"
-            />
-          </a>
-          <a
-            href="games/the-fancy-pants-snowboarding.html"
-            class="suggest-text suggest-textL60"
-            onmouseover="highlightImageL('suggest-imgL60', 'suggest-textL60')"
-            onmouseout="removeHighlightL('suggest-imgL60', 'suggest-textL60')"
-          >
-            <span>Fancy Snowboarding</span>
-          </a>
-        </div>
-      </li>
-      <li data-date="2/11/2023">
-        The World's Hardest Game
-        <div class="suggest-gameL">
-          <a href="games/the-worlds-hardest-game.html">
-            <img
-              style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
-              id="suggest-imgL61"
+            >
+              <span>Fancy Snowboarding</span>
+            </a>
+          </div>
+        </li>
+        <li data-date="30/06/2023">
+          The World's Hardest Game
+          <div class="suggest-gameL">
+            <a href="games/the-worlds-hardest-game.html">
+              <img
+                style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
+                id="suggest-imgL61"
+                onmouseover="highlightImageL('suggest-imgL61', 'suggest-textL61')"
+                onmouseout="removeHighlightL('suggest-imgL61', 'suggest-textL61')"
+                src="images/games/list/worlds-hardest-game.png"
+                alt="The World's Hardest Game"
+              />
+            </a>
+            <a
+              href="games/the-worlds-hardest-game.html"
+              class="suggest-text suggest-textL61"
               onmouseover="highlightImageL('suggest-imgL61', 'suggest-textL61')"
               onmouseout="removeHighlightL('suggest-imgL61', 'suggest-textL61')"
-              src="images/games/list/worlds-hardest-game.png"
-              alt="The World's Hardest Game"
-            />
-          </a>
-          <a
-            href="games/the-worlds-hardest-game.html"
-            class="suggest-text suggest-textL61"
-            onmouseover="highlightImageL('suggest-imgL61', 'suggest-textL61')"
-            onmouseout="removeHighlightL('suggest-imgL61', 'suggest-textL61')"
-          >
-            <span>World's Hardest Game</span>
-          </a>
-        </div>
-      </li>
-      <li data-date="2/11/2023">
-        The World's Hardest Game
-        <div class="suggest-gameL">
-          <a href="games/the-worlds-hardest-game-2.html">
-            <img
-              style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
-              id="suggest-imgL62"
+            >
+              <span>World's Hardest Game</span>
+            </a>
+          </div>
+        </li>
+        <li data-date="30/06/2023">
+          The World's Hardest Game 2
+          <div class="suggest-gameL">
+            <a href="games/the-worlds-hardest-game-2.html">
+              <img
+                style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
+                id="suggest-imgL62"
+                onmouseover="highlightImageL('suggest-imgL62', 'suggest-textL62')"
+                onmouseout="removeHighlightL('suggest-imgL62', 'suggest-textL62')"
+                src="images/games/list/worlds-hardest-game-2.png"
+                alt="The World's Hardest Game 2"
+              />
+            </a>
+            <a
+              href="games/the-worlds-hardest-game-2.html"
+              class="suggest-text suggest-textL62"
               onmouseover="highlightImageL('suggest-imgL62', 'suggest-textL62')"
               onmouseout="removeHighlightL('suggest-imgL62', 'suggest-textL62')"
-              src="images/games/list/worlds-hardest-game-2.png"
-              alt="The World's Hardest Game 2"
-            />
-          </a>
-          <a
-            href="games/the-worlds-hardest-game-2.html"
-            class="suggest-text suggest-textL62"
-            onmouseover="highlightImageL('suggest-imgL62', 'suggest-textL62')"
-            onmouseout="removeHighlightL('suggest-imgL62', 'suggest-textL62')"
-          >
-            <span>World's Hardest Game 2</span>
-          </a>
-        </div>
-      </li>
-      <li data-date="5/12/2023">
-        Bad Piggies
-        <div class="suggest-gameL">
-          <a href="games/bad-piggies.html">
-            <img
-              style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
-              id="suggest-imgL63"
+            >
+              <span>World's Hardest Game 2</span>
+            </a>
+          </div>
+        </li>
+        <li data-date="5/12/2023">
+          Bad Piggies
+          <div class="suggest-gameL">
+            <a href="games/bad-piggies.html">
+              <img
+                style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
+                id="suggest-imgL63"
+                onmouseover="highlightImageL('suggest-imgL63', 'suggest-textL63')"
+                onmouseout="removeHighlightL('suggest-imgL63', 'suggest-textL63')"
+                src="images/games/list/bad-piggies.png"
+                alt="Bad Piggies"
+              />
+            </a>
+            <a
+              href="games/bad-piggies.html"
+              class="suggest-text suggest-textL62"
               onmouseover="highlightImageL('suggest-imgL63', 'suggest-textL63')"
               onmouseout="removeHighlightL('suggest-imgL63', 'suggest-textL63')"
-              src="images/games/list/bad-piggies.png"
-              alt="Bad Piggies"
-            />
-          </a>
-          <a
-            href="games/bad-piggies.html"
-            class="suggest-text suggest-textL62"
-            onmouseover="highlightImageL('suggest-imgL63', 'suggest-textL63')"
-            onmouseout="removeHighlightL('suggest-imgL63', 'suggest-textL63')"
-          >
-            <span>Bad Piggies</span>
-          </a>
-        </div>
-      </li>
-      <li data-date="2/12/2023">
-        Earn to Die 2012
-        <div class="suggest-gameL">
-          <a href="games/earn-to-die-2012.html">
-            <img
-              style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
-              id="suggest-imgL64"
+            >
+              <span>Bad Piggies</span>
+            </a>
+          </div>
+        </li>
+        <li data-date="4/12/2023">
+          Earn to Die 2012
+          <div class="suggest-gameL">
+            <a href="games/earn-to-die-2012.html">
+              <img
+                style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
+                id="suggest-imgL64"
+                onmouseover="highlightImageL('suggest-imgL64', 'suggest-textL64')"
+                onmouseout="removeHighlightL('suggest-imgL64', 'suggest-textL64')"
+                src="images/games/list/earn-to-die-2012.png"
+                alt="Earn to Die 2012"
+              />
+            </a>
+            <a
+              href="games/earn-to-die-2012.html"
+              class="suggest-text suggest-textL64"
               onmouseover="highlightImageL('suggest-imgL64', 'suggest-textL64')"
               onmouseout="removeHighlightL('suggest-imgL64', 'suggest-textL64')"
-              src="images/games/list/earn-to-die-2012.png"
-              alt="Earn to Die 2012"
-            />
-          </a>
-          <a
-            href="games/earn-to-die-2012.html"
-            class="suggest-text suggest-textL64"
-            onmouseover="highlightImageL('suggest-imgL64', 'suggest-textL64')"
-            onmouseout="removeHighlightL('suggest-imgL64', 'suggest-textL64')"
-          >
-            <span>Earn to Die 2012</span>
-          </a>
-        </div>
-      </li>
-      <li data-date="7/12/2023">
-        1v1.lol
-        <div class="suggest-gameL">
-          <a href="games/1v1.lol.html">
-            <img
-              style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
-              id="suggest-imgL65"
+            >
+              <span>Earn to Die 2012</span>
+            </a>
+          </div>
+        </li>
+        <li data-date="7/12/2023">
+          1v1.lol
+          <div class="suggest-gameL">
+            <a href="games/1v1.lol.html">
+              <img
+                style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
+                id="suggest-imgL65"
+                onmouseover="highlightImageL('suggest-imgL65', 'suggest-textL65')"
+                onmouseout="removeHighlightL('suggest-imgL65', 'suggest-textL65')"
+                src="images/games/list/1v1.lol.png"
+                alt="1v1.lol"
+              />
+            </a>
+            <a
+              href="games/1v1.lol.html"
+              class="suggest-text suggest-textL65"
               onmouseover="highlightImageL('suggest-imgL65', 'suggest-textL65')"
               onmouseout="removeHighlightL('suggest-imgL65', 'suggest-textL65')"
-              src="images/games/list/1v1.lol.png"
-              alt="1v1.lol"
-            />
-          </a>
-          <a
-            href="games/1v1.lol.html"
-            class="suggest-text suggest-textL65"
-            onmouseover="highlightImageL('suggest-imgL65', 'suggest-textL65')"
-            onmouseout="removeHighlightL('suggest-imgL65', 'suggest-textL65')"
-          >
-            <span>1v1.lol</span>
-          </a>
-        </div>
-      </li>
-    </ul>
-  </div>
-  <script>
-// Enumeration for sorting states
-const SortState = {
-  ASCENDING: "ascending",
-  DESCENDING: "descending",
-  DATE_ASCENDING: "date-ascending",
-  DATE_DESCENDING: "date-descending",
-  ORIGINAL: "original",
-};
-
-// Variable to keep track of the current sorting state (default to ASCENDING)
-let currentSortState = SortState.ASCENDING;
-
-// Variable to store the original order of list items
-let originalOrder = [];
-
-function parseDate(dateString) {
-  const [day, month, year] = dateString.split('/');
-  return new Date(`${month}/${day}/${year}`);
-}
-
-function sortList() {
-  var list, i, switching, b, shouldSwitch;
-  list = document.getElementById("id01");
-
-  // Save the original order if not done yet
-  if (originalOrder.length === 0) {
-    originalOrder = Array.from(list.getElementsByTagName("LI"));
-  }
-
-  switching = true;
-
-  while (switching) {
-    switching = false;
-    b = list.getElementsByTagName("LI");
-
-    for (i = 0; i < b.length - 1; i++) {
-      shouldSwitch = false;
-
-      // Check the current sorting state and determine the switch condition
-      switch (currentSortState) {
-        case SortState.ASCENDING:
-          shouldSwitch =
-            b[i].innerHTML.toLowerCase() >
-            b[i + 1].innerHTML.toLowerCase();
-          break;
-        case SortState.DESCENDING:
-          shouldSwitch =
-            b[i].innerHTML.toLowerCase() <
-            b[i + 1].innerHTML.toLowerCase();
-          break;
-        case SortState.DATE_ASCENDING:
-          shouldSwitch =
-            parseDate(b[i].getAttribute('data-date')) <
-            parseDate(b[i + 1].getAttribute('data-date'));
-          break;
-        case SortState.DATE_DESCENDING:
-          shouldSwitch =
-            parseDate(b[i].getAttribute('data-date')) >
-            parseDate(b[i + 1].getAttribute('data-date'));
-          break;
-        case SortState.ORIGINAL:
-          shouldSwitch =
-            originalOrder.indexOf(b[i]) > originalOrder.indexOf(b[i + 1]);
-          break;
+            >
+              <span>1v1.lol</span>
+            </a>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <script>
+      // Enumeration for sorting states
+      const SortState = {
+        ASCENDING: "ascending",
+        DESCENDING: "descending",
+        DATE_ASCENDING: "date-ascending",
+        DATE_DESCENDING: "date-descending",
+        ORIGINAL: "original",
+      };
+  
+      // Variable to keep track of the current sorting state (default to ASCENDING)
+      let currentSortState = SortState.ASCENDING;
+  
+      // Variable to store the original order of list items
+      let originalOrder = [];
+  
+      function parseDate(dateString) {
+        const [day, month, year] = dateString.split('/');
+        return new Date(`${month}/${day}/${year}`);
       }
-
-      if (shouldSwitch) {
-        b[i].parentNode.insertBefore(b[i + 1], b[i]);
+  
+      function sortList() {
+        var list, i, switching, b, shouldSwitch;
+        list = document.getElementById("id01");
+  
+        // Save the original order if not done yet
+        if (originalOrder.length === 0) {
+          originalOrder = Array.from(list.getElementsByTagName("LI"));
+        }
+  
         switching = true;
+  
+        while (switching) {
+          switching = false;
+          b = list.getElementsByTagName("LI");
+  
+          for (i = 0; i < b.length - 1; i++) {
+            shouldSwitch = false;
+  
+            // Check the current sorting state and determine the switch condition
+            switch (currentSortState) {
+              case SortState.ASCENDING:
+                shouldSwitch =
+                  b[i].innerHTML.toLowerCase() >
+                  b[i + 1].innerHTML.toLowerCase();
+                break;
+              case SortState.DESCENDING:
+                shouldSwitch =
+                  b[i].innerHTML.toLowerCase() <
+                  b[i + 1].innerHTML.toLowerCase();
+                break;
+              case SortState.DATE_ASCENDING:
+                shouldSwitch =
+                  parseDate(b[i].getAttribute('data-date')) <
+                  parseDate(b[i + 1].getAttribute('data-date'));
+                break;
+              case SortState.DATE_DESCENDING:
+                shouldSwitch =
+                  parseDate(b[i].getAttribute('data-date')) >
+                  parseDate(b[i + 1].getAttribute('data-date'));
+                break;
+              case SortState.ORIGINAL:
+                shouldSwitch =
+                  originalOrder.indexOf(b[i]) > originalOrder.indexOf(b[i + 1]);
+                break;
+            }
+  
+            if (shouldSwitch) {
+              b[i].parentNode.insertBefore(b[i + 1], b[i]);
+              switching = true;
+            }
+          }
+        }
+  
+        // Toggle the sorting state
+        toggleSortState();
       }
-    }
-  }
+  
+      // Function to toggle the sorting state
+      function toggleSortState() {
+        var button = document.getElementById("sortButton");
+        switch (currentSortState) {
+          case SortState.ASCENDING:
+            currentSortState = SortState.DESCENDING;
+            button.innerHTML = "A-Z";
+            break;
+          case SortState.DESCENDING:
+            currentSortState = SortState.DATE_ASCENDING;
+            button.innerHTML = "Z-A";
+            break;
+          case SortState.DATE_ASCENDING:
+            currentSortState = SortState.DATE_DESCENDING;
+            button.innerHTML = "New-Old";
+            break;
+          case SortState.DATE_DESCENDING:
+            currentSortState = SortState.ORIGINAL;
+            button.innerHTML = "Old-New";
+            break;
+          case SortState.ORIGINAL:
+            currentSortState = SortState.ASCENDING;
+            button.innerHTML = "Original";
+            break;
+        }
+      }
+  
+      function sortAZ() {
+        currentSortState = SortState.ASCENDING;
+        sortList();
+      }
+  
+      function sortZA() {
+        currentSortState = SortState.DESCENDING;
+        sortList();
+      }
+  
+      function sortNewOld() {
+        currentSortState = SortState.DATE_ASCENDING;
+        sortList();
+      }
+  
+      function sortOldNew() {
+        currentSortState = SortState.DATE_DESCENDING;
+        sortList();
+      }
+  
+      // Automatically sort the list when the page is loaded
+      window.onload = function () {
+        sortList();
+      };
+    </script>
 
-  // Toggle the sorting state
-  toggleSortState();
-}
-
-
-// Function to toggle the sorting state
-function toggleSortState() {
-  var button = document.getElementById("sortButton");
-  switch (currentSortState) {
-    case SortState.ASCENDING:
-      currentSortState = SortState.DESCENDING;
-      button.innerHTML = "A-Z";
-      break;
-    case SortState.DESCENDING:
-      currentSortState = SortState.DATE_ASCENDING;
-      button.innerHTML = "Z-A";
-      break;
-    case SortState.DATE_ASCENDING:
-      currentSortState = SortState.DATE_DESCENDING;
-      button.innerHTML = "New-Old";
-      break;
-    case SortState.DATE_DESCENDING:
-      currentSortState = SortState.ORIGINAL;
-      button.innerHTML = "Old-New";
-      break;
-    case SortState.ORIGINAL:
-      currentSortState = SortState.ASCENDING;
-      button.innerHTML = "Original";
-      break;
-  }
-}
-
-
-
-function toggleVisibility() {
-  var AllGamesDiv = document.getElementById("AllGamesDiv");
-  var toggleButton = document.querySelector("button");
-
-  if (AllGamesDiv.style.display === "inline" || AllGamesDiv.style.display === "") {
-    AllGamesDiv.style.display = "none";
-    toggleButton.innerText = "Show Games";
-  } else {
-    AllGamesDiv.style.display = "inline";
-    toggleButton.innerText = "Hide Games";
-  }
-}
-
-  </script>
     <br /><br />
     <div style="background-color: #141414">
       <br />
@@ -3482,4 +3648,3 @@ function toggleVisibility() {
     </div>
   </body>
 </html>
-
