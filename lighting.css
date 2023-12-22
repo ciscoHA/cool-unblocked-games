@@ -71,10 +71,16 @@
   #suggest-img100 {
     box-shadow: 2px 1px 11px #d058fc;
   }
-  
+  #suggest-img186 {
+    box-shadow: 2px 1px 11px #d058fc;
+  }
+  #suggest-img196 {
+    box-shadow: 2px 1px 11px #d058fc;
+  }
+
   #sortButton {
-    box-shadow: 0px 0px 4px #58aafc
+    box-shadow: 0px 0px 6px #58aafc
   }
   #toggleButton {
-    box-shadow: 0px 0px 4px #58aafc
+    box-shadow: 0px 0px 6px #58aafc
   }
