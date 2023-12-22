@@ -66,6 +66,7 @@
     <meta name="robots" content="index, follow" />
     <meta name="author" content="CiscoHA on github" />
     <link rel="canonical" href="https://coolubg.github.io/" />
+    <link rel="stylesheet" href="lighting.css">
     <style>
       @import url("https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;800;900&display=swap");
       @font-face {
@@ -84,87 +85,6 @@
       a {
         text-decoration: none !important;
       }
-
-[id^="suggest-img"] {
-  box-shadow: 2px 1px 11px #58aafc;
-}
-
-#list-type {
-  box-shadow: 2px 1px 11px #fc5858;
-  text-shadow: 0px 0px 2px #fc5858;
-}
-
-#suggest-img1 {
-  box-shadow: 2px 1px 11px #fc5858;
-}
-#suggest-img2 {
-  box-shadow: 2px 1px 11px #fc5858;
-}
-#suggest-img3 {
-  box-shadow: 2px 1px 11px #fc5858;
-}
-#suggest-img4 {
-  box-shadow: 2px 1px 11px #fc5858;
-}
-
-#popular-games {
-  box-shadow: 2px 1px 11px #58aafc;
-  text-shadow: 0px 0px 2px #58aafc;
-}
-
-#multiplayer-games {
-  box-shadow: 2px 1px 11px #d058fc;
-  text-shadow: 0px 0px 2px #d058fc;
-}
-
-#online-games {
-  box-shadow: 2px 1px 11px #d058fc;
-  text-shadow: 0px 0px 2px #d058fc;
-}
-
-#suggest-img112 {
-  box-shadow: 2px 1px 11px #d058fc;
-}
-#suggest-img111 {
-  box-shadow: 2px 1px 11px #d058fc;
-}
-#suggest-img110 {
-  box-shadow: 2px 1px 11px #d058fc;
-}
-#suggest-img109 {
-  box-shadow: 2px 1px 11px #d058fc;
-}
-#suggest-img107 {
-  box-shadow: 2px 1px 11px #d058fc;
-}
-#suggest-img106 {
-  box-shadow: 2px 1px 11px #d058fc;
-}
-#suggest-img105 {
-  box-shadow: 2px 1px 11px #d058fc;
-}
-#suggest-img104 {
-  box-shadow: 2px 1px 11px #d058fc;
-}
-#suggest-img103 {
-  box-shadow: 2px 1px 11px #d058fc;
-}
-#suggest-img102 {
-  box-shadow: 2px 1px 11px #d058fc;
-}
-#suggest-img101 {
-  box-shadow: 2px 1px 11px #d058fc;
-}
-#suggest-img100 {
-  box-shadow: 2px 1px 11px #d058fc;
-}
-
-#sortButton {
-  box-shadow: 0px 0px 4px #58aafc
-}
-#toggleButton {
-  box-shadow: 0px 0px 4px #58aafc
-}
 
       body {
         margin: 0;
@@ -598,7 +518,7 @@
       //}
 
       // Set a timeout to call the showImage function after 3000 milliseconds (3 seconds)
-      setTimeout(showImage, 3500);
+      //setTimeout(showImage, 3500);
     </script>
   </head>
 
@@ -798,23 +718,23 @@
       "
     >
       <div class="suggest-game">
-        <a href="games/earn-to-die-2012.html">
+        <a href="games/subway-surfers.html">
           <img
             style="outline: 3px solid #fc5858; border: 1px solid #fc5858"
             id="suggest-img1"
             onmouseover="highlightImage2('suggest-img1', 'suggest-text1')"
             onmouseout="removeHighlight2('suggest-img1', 'suggest-text1')"
-            src="images/games/list/earn-to-die-2012.png"
-            alt="Earn to Die 2012"
+            src="images/games/list/subway-surfers.png"
+            alt="Subway Surfers"
           />
         </a>
         <a
-          href="games/earn-to-die-2012.html"
+          href="games/subway-surfers.html"
           class="suggest-text suggest-text1"
           onmouseover="highlightImage2('suggest-img1', 'suggest-text1')"
           onmouseout="removeHighlight2('suggest-img1', 'suggest-text1')"
         >
-          <span>Earn to Die 2012</span>
+          <span>Subway Surfers</span>
         </a>
       </div>
       <div class="suggest-game">
@@ -1674,6 +1594,86 @@
           />
         </a>
       </div>
+      <div class="suggest-game">
+        <a href="games/gun-mayhem-2.html">
+          <img
+            style="outline: 3px solid #d058fc; border: 1px solid #d058fc"
+            id="suggest-img106"
+            onmouseover="highlightImage3('suggest-img106', 'suggest-text106')"
+            onmouseout="removeHighlight3('suggest-img106', 'suggest-text106')"
+            src="images/games/list/gun-mayhem-2.png"
+            alt="Gun Mayhem 2"
+          />
+        </a>
+        <a
+          href="games/gun-mayhem-2.html"
+          class="suggest-text suggest-text106"
+          onmouseover="highlightImage3('suggest-img106', 'suggest-text106')"
+          onmouseout="removeHighlight3('suggest-img106', 'suggest-text106')"
+        >
+          <span>Gun Mayhem 2</span
+          ><img
+            style="
+              border: 0px;
+              height: 1.5rem;
+              width: auto;
+              vertical-align: middle;
+              position: relative;
+              top: -2.5px;
+              left: 5px;
+              margin-right: -7px;
+            "
+            src="images/icons/multiplayer.png"
+            alt="Multiplayer"
+          />
+        </a>
+      </div>
+    </div>
+    <div
+      class="game-list"
+      style="
+        font-family: 'M Plus Rounded 1c', sans-serif;
+        font-weight: bold;
+        text-align: center;
+        align-items: center;
+        align-content: center;
+        border-radius: 10px;
+      "
+    >
+      <div class="suggest-game">
+        <a href="games/tennis-physics.html">
+          <img
+            style="outline: 3px solid #d058fc; border: 1px solid #d058fc"
+            id="suggest-img196"
+            onmouseover="highlightImage3('suggest-img196', 'suggest-text196')"
+            onmouseout="removeHighlight3('suggest-img196', 'suggest-text196')"
+            src="images/games/list/tennis-physics.png"
+            alt="Tennis Physics"
+          />
+        </a>
+        <a
+          href="games/tennis-physics.html"
+          class="suggest-text suggest-text196"
+          onmouseover="highlightImage3('suggest-img196', 'suggest-text196')"
+          onmouseout="removeHighlight3('suggest-img196', 'suggest-text196')"
+        >
+          <span>Tennis Physics</span
+          ><img
+            style="
+              border: 0px;
+              height: 1.5rem;
+              width: auto;
+              vertical-align: middle;
+              position: relative;
+              top: -2.5px;
+              left: 5px;
+              margin-right: -7px;
+            "
+            src="images/icons/multiplayer.png"
+            alt="Multiplayer"
+          />
+        </a>
+      </div>
     </div>
     <p
       id="online-games"
@@ -2022,7 +2022,7 @@
             </a>
           </div>
         </li>
-        <li data-date="26/11/2023">
+        <li data-date="26/06/2023">
           Tomb of the Mask
           <div class="suggest-gameL">
             <a href="games/tomb-of-the-mask.html">
@@ -2207,7 +2207,7 @@
             </a>
           </div>
         </li>
-        <li data-date="4/10/2023">
+        <li data-date="3/10/2023">
           Cut the Rope
           <div class="suggest-gameL">
             <a href="games/cut-the-rope.html">
@@ -2713,7 +2713,7 @@
             </a>
           </div>
         </li>
-        <li data-date="16/09/2023">
+        <li data-date="19/09/2023">
           Fleeing the Complex
           <div class="suggest-gameL">
             <a href="games/fleeing-the-complex.html">
@@ -2782,7 +2782,7 @@
             </a>
           </div>
         </li>
-        <li data-date="30/06/2023">
+        <li data-date="19/09/2023">
           Infiltrating the Airship
           <div class="suggest-gameL">
             <a href="games/infiltrating-the-airship.html">
@@ -3492,6 +3492,121 @@
               onmouseout="removeHighlightL('suggest-imgL65', 'suggest-textL65')"
             >
               <span>1v1.lol</span>
+            </a>
+          </div>
+        </li>
+        <li data-date="17/12/2023">
+          Subway Surfers
+          <div class="suggest-gameL">
+            <a href="games/subway-surfers.html">
+              <img
+                style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
+                id="suggest-imgL66"
+                onmouseover="highlightImageL('suggest-imgL66', 'suggest-textL66')"
+                onmouseout="removeHighlightL('suggest-imgL66', 'suggest-textL66')"
+                src="images/games/list/subway-surfers.png"
+                alt="Subway Surfers"
+              />
+            </a>
+            <a
+              href="games/subway-surfers.html"
+              class="suggest-text suggest-textL66"
+              onmouseover="highlightImageL('suggest-imgL66', 'suggest-textL66')"
+              onmouseout="removeHighlightL('suggest-imgL66', 'suggest-textL66')"
+            >
+              <span>Subway Surfers</span>
+            </a>
+          </div>
+        </li>
+        <li data-date="17/12/2023">
+          Tennis Physics
+          <div class="suggest-gameL">
+            <a href="games/tennis-physcs.html">
+              <img
+                style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
+                id="suggest-imgL67"
+                onmouseover="highlightImageL('suggest-imgL67', 'suggest-textL67')"
+                onmouseout="removeHighlightL('suggest-imgL67', 'suggest-textL67')"
+                src="images/games/list/tennis-physics.png"
+                alt="Tennis Physics"
+              />
+            </a>
+            <a
+              href="games/tennis-physics.html"
+              class="suggest-text suggest-textL67"
+              onmouseover="highlightImageL('suggest-imgL67', 'suggest-textL67')"
+              onmouseout="removeHighlightL('suggest-imgL67', 'suggest-textL67')"
+            >
+              <span>Tennis Physics</span>
+            </a>
+          </div>
+        </li>
+        <li data-date="17/12/2023">
+          Gun Mayhem 2
+          <div class="suggest-gameL">
+            <a href="games/gun-mayhem-2.html">
+              <img
+                style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
+                id="suggest-imgL68"
+                onmouseover="highlightImageL('suggest-imgL68', 'suggest-textL68')"
+                onmouseout="removeHighlightL('suggest-imgL68', 'suggest-textL68')"
+                src="images/games/list/gun-mayhem-2.png"
+                alt="Gun Mayhem 2"
+              />
+            </a>
+            <a
+              href="games/gun-mayhem-2.html"
+              class="suggest-text suggest-textL68"
+              onmouseover="highlightImageL('suggest-imgL68', 'suggest-textL68')"
+              onmouseout="removeHighlightL('suggest-imgL68', 'suggest-textL68')"
+            >
+              <span>Gun Mayhem 2</span>
+            </a>
+          </div>
+        </li>
+        <li data-date="17/12/2023">
+          Friday Night Funkin
+          <div class="suggest-gameL">
+            <a href="games/friday-night-funkin.html">
+              <img
+                style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
+                id="suggest-imgL69"
+                onmouseover="highlightImageL('suggest-imgL69', 'suggest-textL69')"
+                onmouseout="removeHighlightL('suggest-imgL69', 'suggest-textL69')"
+                src="images/games/list/friday-night-funkin.png"
+                alt="Friday Night Funkin"
+              />
+            </a>
+            <a
+              href="games/friday-night-funkin.html"
+              class="suggest-text suggest-textL69"
+              onmouseover="highlightImageL('suggest-imgL69', 'suggest-textL69')"
+              onmouseout="removeHighlightL('suggest-imgL69', 'suggest-textL69')"
+            >
+              <span>Friday Night Funkin</span>
+            </a>
+          </div>
+        </li>
+        <li data-date="17/12/2023">
+          Bloxorz
+          <div class="suggest-gameL">
+            <a href="games/bloxorz.html">
+              <img
+                style="outline: 3px solid #58aafc; border: 1px solid #58aafc"
+                id="suggest-imgL70"
+                onmouseover="highlightImageL('suggest-imgL70', 'suggest-textL70')"
+                onmouseout="removeHighlightL('suggest-imgL70', 'suggest-textL70')"
+                src="images/games/list/bloxorz.png"
+                alt="Bloxorz"
+              />
+            </a>
+            <a
+              href="games/bloxorz.html"
+              class="suggest-text suggest-textL70"
+              onmouseover="highlightImageL('suggest-imgL70', 'suggest-textL70')"
+              onmouseout="removeHighlightL('suggest-imgL70', 'suggest-textL69')"
+            >
+              <span>Bloxorz</span>
             </a>
           </div>
         </li>
