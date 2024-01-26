@@ -8,15 +8,15 @@
       @import url("https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;800;900&display=swap");
       @font-face {
         font-family: Satisfactory Base;
-        src: url(/fonts/SatisfactoryBase-jEoZ9.otf);
+        src: url(/fonts/LeagueGothic.ttf);
       }
       @font-face {
         font-family: Satisfactory Baseline;
-        src: url(/fonts/SatisfactoryBaseline-z8BdX.otf);
+        src: url(/fonts/LeagueGothic.ttf);
       }
       @font-face {
         font-family: Satisfactory Topline;
-        src: url(/fonts/SatisfactoryTopline-1GAPZ.otf);
+        src: url(/fonts/LeagueGothic.ttf);
       }
       .left {
         margin-right: 0px;
@@ -127,31 +127,6 @@
       }
     </style>
     <script>
-      function goToRandomPage() {
-        var pages = [
-          "games/circloo.html",
-          "games/drive-mad.html",
-          "games/duck-life-3.html",
-          "games/getaway-shootout.html",
-          "games/jacksmith.html",
-          "games/jelly-truck.html",
-          "games/moto-x3m-pool-party.html",
-          "games/moto-x3m-winter.html",
-          "games/moto-x3m.html",
-          "games/raft-wars.html",
-          "games/rooftop-snipers.html",
-          "games/run-3.html",
-          "games/slope.html",
-          "games/stack.html",
-          "games/tomb-of-the-mask.html",
-        ];
-
-        var randomIndex = Math.floor(Math.random() * pages.length);
-
-        var randomPage = pages[randomIndex];
-
-        window.location.href = randomPage;
-      }
 
       function highlightImage(elementId, textClass) {
         var img = document.getElementById(elementId);
@@ -217,63 +192,126 @@
     <div class="navbar">
       <div class="logo">
         <a style="text-decoration: none !important" href="/#">
-          <span
-            style="
-              text-align: left;
-              text-decoration: none;
-              font-size: 310%;
-              color: #3c3c3c;
-              font-family: 'Satisfactory Baseline';
-              font-weight: normal;
-            "
-            >Cool</span
-          >
-          <span
-            style="
-              text-align: left;
-              text-decoration: none;
-              font-size: 310%;
-              color: #3c3c3c;
-              font-family: 'Satisfactory Topline';
-              font-weight: normal;
-            "
-            >Un<span
-              style="
-                text-align: left;
-                text-decoration: none;
-                font-size: 100%;
-                color: #3c3c3c;
-                font-family: 'Satisfactory Baseline';
-                font-weight: normal;
-                margin-right: -17px;
-              "
-              >b</span
-            >
-            LockeD</span
-          >
-          <span
-            style="
-              text-align: left;
-              text-decoration: none;
-              font-size: 310%;
-              color: #3c3c3c;
-              font-family: 'Satisfactory Baseline';
-              font-weight: normal;
-            "
-            >GamE</span
-          ><span
-            style="
-              text-align: left;
-              text-decoration: none;
-              font-size: 310%;
-              color: #3c3c3c;
-              font-family: 'Satisfactory Topline';
-              font-weight: normal;
-            "
-            >s</span
-          >
+        <img src="/title.png" width="480vw">
         </a>
       </div>
+      <script>      
+      function goToRandomPage() {
+        var pages = [
+          "games/1v1.lol.html",
+          "games/2048.html",
+          "games/a-dark-room.html",
+          "games/age-of-war-2.html",
+          "games/age-of-war.html",
+          "games/alien-hominid.html",
+          "games/among-us-online-2.html",
+          "games/among-us-online.html",
+          "games/appel-multiplayer.html",
+          "games/appel.html",
+          "games/asteroids.html",
+          "games/awesome-tanks-2.html",
+          "games/awesome-tanks.html",
+          "games/bad-piggies.html",
+          "games/bloons-td-2.html",
+          "games/bloons-td-3.html",
+          "games/bloons-td-4-exp.html",
+          "games/bloons-td-4.html",
+          "games/bloons-td-5.html",
+          "games/bloons-td.html",
+          "games/bloons.html",
+          "games/bloxorz.html",
+          "games/bob-the-robber.html",
+          "games/breaking-the-bank.html",
+          "games/circloo.html",
+          "games/cloud-platformer-fun.html",
+          "games/cookie-clicker.html",
+          "games/crossy-road.html",
+          "games/cut-the-rope.html",
+          "games/doom.html",
+          "games/drift-boss.html",
+          "games/drive-mad.html",
+          "games/duck-life-2.html",
+          "games/duck-life-3.html",
+          "games/duck-life-4.html",
+          "games/duck-life.html",
+          "games/earn-to-die-2012.html",
+          "games/escaping-the-prison.html",
+          "games/fireboy&watergirl-2.html",
+          "games/fireboy&watergirl-3.html",
+          "games/fireboy&watergirl-4.html",
+          "games/fireboy&watergirl.html",
+          "games/fishy!.html",
+          "games/fleeing-the-complex.html",
+          "games/fnaf-2.html",
+          "games/fnaf.html",
+          "games/friday-night-funkin.html",
+          "games/getaway-shootout.html",
+          "games/gravitee-2.html",
+          "games/gravitee.html",
+          "games/gun-mayhem-2.html",
+          "games/gun-mayhem.html",
+          "games/infiltrating-the-airship.html",
+          "games/jacksmith.html",
+          "games/jelly-truck.html",
+          "games/learn-to-fly-2.html",
+          "games/learn-to-fly.html",
+          "games/lightbot.html",
+          "games/line-rider.html",
+          "games/minecraftish-mmo.html",
+          "games/mini-golf-online.html",
+          "games/moto-x3m-2.html",
+          "games/moto-x3m-3.html",
+          "games/moto-x3m-pool-party.html",
+          "games/moto-x3m-spooky-land.html",
+          "games/moto-x3m-winter.html",
+          "games/moto-x3m.html",
+          "games/n.html",
+          "games/neverball.html",
+          "games/ovo.html",
+          "games/pacman.html",
+          "games/papas-freezeria.html",
+          "games/papas-pizzeria.html",
+          "games/plants-vs-zombies.html",
+          "games/polytrack.html",
+          "games/pong.html",
+          "games/raft-wars.html",
+          "games/retro-bowl.html",
+          "games/rooftop-snipers.html",
+          "games/run-2.html",
+          "games/run-3.html",
+          "games/slither.io-online.html",
+          "games/slope.html",
+          "games/snow-rider-3d.html",
+          "games/stack.html",
+          "games/stealing-the-diamond.html",
+          "games/stickman-hook.html",
+          "games/subway-surfers.html",
+          "games/super-mario-63.html",
+          "games/super-smash-flash.html",
+          "games/tanuki-sunset.html",
+          "games/temple-run-2.html",
+          "games/tennis-physics.html",
+          "games/the-fancy-pants-adventures-remix.html",
+          "games/the-fancy-pants-adventures-world-2.html",
+          "games/the-fancy-pants-adventures-world-3.html",
+          "games/the-fancy-pants-adventures.html",
+          "games/the-fancy-pants-snowboarding.html",
+          "games/the-final-earth-2.html",
+          "games/the-worlds-hardest-game-2.html",
+          "games/the-worlds-hardest-game.html",
+          "games/tiny-fishing.html",
+          "games/tomb-of-the-mask.html",
+          "games/unfair-mario.html",
+          "games/watermelon-game.html"
+        ];
+
+        var randomIndex = Math.floor(Math.random() * pages.length);
+
+        var randomPage = pages[randomIndex];
+
+        window.location.href = randomPage;
+      }
+      </script>
       <div class="navbar-menu">
         <a href="/index.html#popular-games">Popular</a>
         <a href="/index.html#multiplayer-games">Multiplayer</a>
@@ -325,25 +363,17 @@
           "
           href="https://forms.gle/gvpTfVKfNj2YwRzG6"
           >Suggest a Game</a
-        ><br /><br /><a
+        ><br /><br />
+        Emails: <br>
+        <img src="/images/extras/contact.png" width="200vw"><br><br><a>Find out More in the </a><a
           style="text-decoration: underline !important; color: #3c3c3c"
-          href="https://coolubg.github.io"
-          >coolubg.github.io</a
-        >
-        <br />
-        <a
-          style="text-decoration: underline !important; color: #3c3c3c"
-          href="https://coolunblockedgames.github.io"
-          >coolunblockedgames.github.io</a
-        >
-        <br />
-        <a
-          style="text-decoration: underline !important; color: #3c3c3c"
-          href="https://ciscoha.github.io/turbo-octo-memory"
-          >.github.io/turbo-octo-memory</a
+          href="/privacy.html"
+          >Privacy Policy</a
         >
       </p>
     </div>
+    <br />
+    <br />
     <br />
     <br />
     <br />
