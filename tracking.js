@@ -68,7 +68,7 @@ function displayVisitedPages() {
     var imgFileName =
       editedName === "missing"
         ? "missing"
-        : editedName.replace(/ /g, "-").replace(/-(&)-/g, "&");
+        : editedName.replace(/ /g, "-").replace(/-(&)-/g, "&").toLowerCase(); // Changed here
 
     // Generate dynamic IDs for suggest-img and suggest-text based on their position in the list
     var imgId = "suggest-img" + (index + 1);
