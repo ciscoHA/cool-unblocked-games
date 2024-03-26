@@ -14,6 +14,7 @@ function goToRandomPage() {
       "../games/awesome-tanks-2.html",
       "../games/awesome-tanks.html",
       "../games/bad-piggies.html",
+      "../games/bitlife.html",
       "../games/bloons-td-2.html",
       "../games/bloons-td-3.html",
       "../games/bloons-td-4-exp.html",

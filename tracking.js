@@ -31,20 +31,19 @@ function trackPage() {
   displayVisitedPages();
 }
 
+// Function to capitalize the first letter of each word in a string
 function capitalizeFirstLetter(str) {
-  return str
-    .replace(/(?:^|\.)\s*(\w)/g, function (match) {
-      return match.toLowerCase();
-    })
-    .replace(/\b\w/g, function (match) {
-      return match.toUpperCase();
-    })
-    .replace(/\.(\w)/g, function (match) {
-      return "." + match[1].toLowerCase();
-    })
-    .replace(/&/g, " & "); // Add this line to add spaces around ampersands
+  return str.toLowerCase().replace(/(?:^|\s)\S/g, function (char) {
+    return char.toUpperCase();
+  });
 }
 
+// Function to generate a random game image filename
+function getRandomGameImage() {
+  return pages[Math.floor(Math.random() * pages.length)];
+}
+
+// Function to display the recently visited pages
 function displayVisitedPages() {
   var displayElement = document.getElementById("recently-played");
   var visitedPages = JSON.parse(localStorage.getItem("visitedPages")) || [];
@@ -57,48 +56,40 @@ function displayVisitedPages() {
   // Create the HTML for each visited page
   var html = "";
   visitedPages.forEach(function (page, index) {
-    // Extract the edited name from the URL (excluding the fragment)
-    var editedName = page.match(/\/games\/([^\/]+)\.html/);
-    editedName = editedName ? editedName[1].replace(/-/g, " ") : "missing";
+    var editedName = page.match(/\/games\/([^\/]+)\.html/); // Extract game name from URL
+    editedName = editedName ? editedName[1].replace(/-/g, " ") : "missing"; // Replace hyphens with spaces
 
-    // Capitalize the first letter of the first word, excluding the first letter after a dot
-    editedName = capitalizeFirstLetter(editedName);
+    // If the game is missing, set edited name to "Featured"
+    if (editedName === "missing") {
+      editedName = "Featured";
+      var imgFileName = getRandomGameImage(); // Get a random game image
+    } else {
+      editedName = capitalizeFirstLetter(editedName); // Capitalize first letter of each word
+      var imgFileName = editedName.replace(/ /g, "-").toLowerCase(); // Convert name to lowercase and replace spaces with hyphens
+    }
 
-    // Keep the dashes in the image file name
-    var imgFileName =
-      editedName === "missing"
-        ? "missing"
-        : editedName.replace(/ /g, "-").replace(/-(&)-/g, "&").toLowerCase(); // Changed here
+    // Determine href value
+    var hrefValue = page.toLowerCase().endsWith(".html")
+      ? page.match(/\/games\/([^\/]+)\.html/)[1] // Get the game name from the URL
+      : page + ".html"; // Add .html extension if not already present
 
-    // Generate dynamic IDs for suggest-img and suggest-text based on their position in the list
-    var imgId = "suggest-img" + (index + 1);
-    var textId = "suggest-text" + (index + 1);
-
-    // Determine the href value (excluding the fragment)
-    var hrefValue =
-      editedName.toLowerCase() === "missing" ? "#" : page.split("#")[0];
-
-    // Adjust font size if the edited name is 19 characters or more
-    var fontSizeStyle =
-      editedName.length >= 19 ? 'style="font-size: 80%;"' : "";
-
-    // Create the HTML for each list item
+    // Create HTML for each list item
     html += "<li>";
     html += '<div class="suggest-game">';
-    html += '<a href="' + hrefValue + '">';
+    html += '<a href="/games/' + imgFileName + '.html">';
     html +=
-      '<div style="position: absolute; background-color: rgba(0, 0, 0, 0); z-index: 3; margin-left: 0.4rem; margin-top: -0.4rem; width: 15.45rem; height: 12rem;" onmouseover="highlightImage2(\'' +
-      imgId +
-      "', '" +
-      textId +
-      "')\" onmouseout=\"removeHighlight2('" +
-      imgId +
-      "', '" +
-      textId +
+      '<div style="position: absolute; background-color: rgba(0, 0, 0, 0); z-index: 3; margin-left: 0.4rem; margin-top: -0.4rem; width: 15.45rem; height: 12rem;" onmouseover="highlightImage2(\'suggest-img' +
+      (index + 1) +
+      '\', \'suggest-text' +
+      (index + 1) +
+      '\')" onmouseout="removeHighlight2(\'suggest-img' +
+      (index + 1) +
+      '\', \'suggest-text' +
+      (index + 1) +
       "')\"></div>";
     html +=
-      '<img style="outline: 3px solid #fc5858; border: 1px solid #fc5858" id="' +
-      imgId +
+      '<img style="outline: 3px solid #fc5858; border: 1px solid #fc5858" id="suggest-img' +
+      (index + 1) +
       '" src="images/games/list/' +
       imgFileName +
       '.png" alt="Recently Played" />';
@@ -107,8 +98,8 @@ function displayVisitedPages() {
     html += '<div class="box-shadow"></div>';
     html += "</div>";
     html += "</a>";
-    html += '<a href="' + hrefValue + '" ' + fontSizeStyle + ">";
-    html += '<span id="' + textId + '">' + editedName + "</span>";
+    html += '<a href="/games/' + hrefValue + '">';
+    html += '<span id="suggest-text' + (index + 1) + '">' + editedName + "</span>";
     html += "</a>";
     html += "</div>";
     html += "</li>";
@@ -130,9 +121,10 @@ function clearRecentlyVisited() {
 // Call the trackPage function when the page loads
 window.onload = function () {
   trackPage();
+  generatePageList();
+  
   sortList();
+  
   // Add event listener to the clear button
-  document
-    .getElementById("clear-button")
-    .addEventListener("click", clearRecentlyVisited);
+  document.getElementById("clear-button").addEventListener("click", clearRecentlyVisited);
 };

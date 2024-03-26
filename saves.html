@@ -260,95 +260,95 @@
     <br><br>
     <center style="margin-bottom: 5vh; margin-top: 4vh; display: none;"><embed src="https://coolubg.github.io/coolubg-list/blank.swf"></embed></center>
     <script>
-      const fileInput = document.getElementById("fileInput");
-      const fileList = document.getElementById("fileList");
-      const selectedFiles = new Set();
+  const fileInput = document.getElementById("fileInput");
+  const fileList = document.getElementById("fileList");
+  const selectedFiles = new Set();
 
-      // Function to create list item with a checkbox and view data button
-      function createListItem(key, value) {
-        const listItem = document.createElement("li");
-        const checkbox = document.createElement("input");
-        checkbox.type = "checkbox";
-        checkbox.addEventListener("change", () => {
-          if (checkbox.checked) {
-            selectedFiles.add(key);
-          } else {
-            selectedFiles.delete(key);
-          }
-        });
-        listItem.appendChild(checkbox);
-        listItem.appendChild(document.createTextNode(`${key}`));
-
-        // Create a view data button
-        const viewDataButton = document.createElement("button");
-        viewDataButton.textContent = "View Data";
-        viewDataButton.addEventListener("click", () => {
-          const win = window.open("", "_blank");
-          win.document.write("<pre>" + value + "</pre>");
-          win.document.close();
-        });
-        listItem.appendChild(viewDataButton);
-
-        return listItem;
+  // Function to create list item with a checkbox and view data button
+  function createListItem(key, value) {
+    const listItem = document.createElement("li");
+    const checkbox = document.createElement("input");
+    checkbox.type = "checkbox";
+    checkbox.addEventListener("change", () => {
+      if (checkbox.checked) {
+        selectedFiles.add(key);
+      } else {
+        selectedFiles.delete(key);
       }
+    });
+    listItem.appendChild(checkbox);
+    listItem.appendChild(document.createTextNode(`${key}`));
 
-      // Display all keys and values in local storage
-      Object.entries(localStorage).forEach(([key, value]) => {
-        fileList.appendChild(createListItem(key, value));
+    // Create a view data button
+    const viewDataButton = document.createElement("button");
+    viewDataButton.textContent = "View Data";
+    viewDataButton.addEventListener("click", () => {
+      const win = window.open("", "_blank");
+      win.document.write("<pre>" + value + "</pre>");
+      win.document.close();
+    });
+    listItem.appendChild(viewDataButton);
+
+    return listItem;
+  }
+
+  // Display all keys and values in local storage
+  Object.entries(localStorage).forEach(([key, value]) => {
+    fileList.appendChild(createListItem(key, value));
+  });
+
+  // Handle file upload
+  document
+    .getElementById("uploadForm")
+    .addEventListener("submit", function (event) {
+      event.preventDefault();
+      const file = fileInput.files[0];
+      const fileName = file.name;
+      const reader = new FileReader();
+      reader.onload = function (event) {
+        const fileData = event.target.result;
+        const listItem = createListItem(fileName, fileData);
+        fileList.appendChild(listItem);
+        localStorage.setItem(fileName, fileData);
+      };
+      reader.readAsText(file);
+    });
+
+  // Handle file download
+  document
+    .getElementById("downloadSelected")
+    .addEventListener("click", function () {
+      selectedFiles.forEach((key) => {
+        const blob = new Blob([localStorage.getItem(key)], {
+          type: "application/octet-stream",
+        });
+        const link = document.createElement("a");
+        link.href = URL.createObjectURL(blob);
+        link.download = key;
+        link.click();
       });
+    });
 
-      // Handle file upload
-      document
-        .getElementById("uploadForm")
-        .addEventListener("submit", function (event) {
-          event.preventDefault();
-          const file = fileInput.files[0];
-          const fileName = file.name;
-          const reader = new FileReader();
-          reader.onload = function (event) {
-            const fileData = event.target.result;
-            const listItem = createListItem(fileName, fileData);
-            fileList.appendChild(listItem);
-            localStorage.setItem(fileName, fileData);
-          };
-          reader.readAsText(file);
-        });
-
-      // Handle file download
-      document
-        .getElementById("downloadSelected")
-        .addEventListener("click", function () {
-          selectedFiles.forEach((key) => {
-            const blob = new Blob([localStorage.getItem(key)], {
-              type: "application/octet-stream",
-            });
-            const link = document.createElement("a");
-            link.href = URL.createObjectURL(blob);
-            link.download = key;
-            link.click();
-          });
-        });
-
-      // Handle file deletion
-      document
-        .getElementById("deleteSelected")
-        .addEventListener("click", function () {
-          if (
-            confirm(
-              `Are you sure you want to delete ${selectedFiles.size} selected file(s)?`
+  // Handle file deletion
+  document
+    .getElementById("deleteSelected")
+    .addEventListener("click", function () {
+      if (
+        confirm(
+          `Are you sure you want to delete ${selectedFiles.size} selected file(s)?`
+        )
+      ) {
+        selectedFiles.forEach((key) => {
+          localStorage.removeItem(key);
+          fileList.removeChild(
+            [...fileList.children].find((child) =>
+              child.textContent.includes(key)
             )
-          ) {
-            selectedFiles.forEach((key) => {
-              localStorage.removeItem(key);
-              fileList.removeChild(
-                [...fileList.children].find((child) =>
-                  child.textContent.includes(key)
-                )
-              );
-            });
-            selectedFiles.clear();
-          }
+          );
         });
-    </script>
+        selectedFiles.clear();
+      }
+    });
+</script>
   </body>
 </html>

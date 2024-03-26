@@ -1,20 +1,23 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Among Us Online Server 2</title>
+    <title>Paper.io 2</title>
     <script src="/tracking.js"></script>
     <meta name="google-adsense-account" content="ca-pub-4293684626558852">
     <meta
     name="description"
-    content="Among Us Online is a game where you have to find the imposter among us. Play for free at Cool UBG"
+    content="Paper.io 2 is a game where you are paper but not really at all. Play for free at Cool UBG"
   />
-    <meta property="og:title" content="Among Us Online">
-    <meta property="og:description" content="Among Us Online is a game where you have to find the imposter among us. Play for free at Cool UBG">
+    <meta property="og:title" content="Paper.io 2">
+    <meta property="og:description" content="Paper.io 2 is a game where you are paper but not really at all. Play for free at Cool UBG">
     <meta property="og:image" content="https://coolubg.github.io/coolubg-list/favicon.ico"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     
-
+    <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico" sizes="64x64"/>
+    <link rel="shortcut icon" type="image/x-icon" href="../favicon-48.png" sizes="48x48"/>
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon-48.png" sizes="48x48"/>
+    <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
     <style>
       @import url("https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;800;900&display=swap");
        @font-face {
@@ -66,6 +69,7 @@
         background-image: url("../blank.png");
         background-color: #141414;
       }
+
       .navbar {
         font-family: "M Plus Rounded 1c", sans-serif;
         font-weight: bold;
@@ -84,6 +88,7 @@
         margin-bottom: 0px;
       }
 
+
       @media (max-width: 320px),
         (min-width: 321px) and (max-width: 480px),
         (min-width: 481px) and (max-width: 768px) {
@@ -91,17 +96,22 @@
           font-size: 120%;
         }
         #game-iframe {
-        width: 90vw; /* 80% of viewport width */
-        max-width: 800px; /* Set a maximum width */
-        height: calc(90vw * 0.75); /* Maintain the 4:3 aspect ratio */
-    }
-    .game-title {
-        width: calc(90vw - 20px) !important; /* Adjusted width based on game iframe width */
-    }
-    .game-desc {
-        width: calc(90vw - 60px) !important; /* Adjusted width based on game title width */
-    }
-}
+          width: 90vw; /* 80% of viewport width */
+          max-width: 800px; /* Set a maximum width */
+          height: calc(90vw * 0.75); /* Maintain the 4:3 aspect ratio */
+        }
+        .game-title {
+          width: calc(
+            90vw - 20px
+          ) !important; /* Adjusted width based on game iframe width */
+        }
+        .game-desc {
+          width: calc(
+            90vw - 60px
+          ) !important; /* Adjusted width based on game title width */
+        }
+      }
+
 
       .navbar-menu {
         display: flex;
@@ -120,25 +130,6 @@
         border: 2px solid transparent;
         border-radius: 10px;
       }
-
-      .important span {
-        white-space: nowrap;
-        font-family: "M Plus Rounded 1c", sans-serif;
-        font-weight: bold;
-        background: #58aafc;
-        padding: .4rem;
-        font-size: large;
-        display: block;
-        color: #3c3c3c;
-        text-align: center;
-        text-decoration: none;
-        border-radius: 4px;
-      }
-
-      .important a:hover {
-        text-decoration: underline !important;
-      }
-
 
       .navbar-menu a:hover {
         outline: 5px solid #3c3c3c;
@@ -164,6 +155,7 @@
         height: 140px;
         border: #141414 solid 4px;
       }
+
       span {
         font-size: large;
       }
@@ -212,9 +204,17 @@
         font-size: xx-large;
         display: flex;
         justify-content: space-between;
-        align-items: center; /* Align vertically at the center */
-      }
+        align-items: center;
+        display: flex; /* Use flexbox to horizontally align popup and fullscreen button */
+        align-items: center; /* Vertically align items within .game-title */
+        justify-content: flex-start; /* Align items from the start (left) of .game-title */
+        position: relative; /* Create a positioning context for the absolute-positioned .popup */
 
+        display: flex; /* Use flexbox to horizontally align the title and button */
+        justify-content: space-between; /* Put space between the title and button */
+        align-items: center; /* Vertically center items within .game-title */
+        position: relative; /* Create a positioning context for the absolute-positioned .popup */
+      }
       .game-title button {
         background: none;
         border: none;
@@ -224,8 +224,8 @@
       }
 
       .game-title button img {
-        width: 32px;
-        height: 32px;
+        width: 40px;
+        height: 40px;
         vertical-align: middle; /* Vertically align the image */
       }
 
@@ -249,47 +249,88 @@
         padding-left: 0; /* Remove the left padding */
         white-space: nowrap; /* Prevent subtext from wrapping */
       }
+      .game-title button {
+        margin-left: 15px; /* Add a 15px margin to the left of the "Fullscreen" button */
+      }
+      .popup {
+        position: absolute;
+        right: 80px; /* Position the .popup 40px from the right edge of .game-title */
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 2;
+      }
+
+      .popup-icon {
+        width: 40px;
+        height: 40px;
+        vertical-align: middle;
+        margin-right: 5px;
+      }
+
+      .popuptext {
+        text-rendering: optimizeLegibility;
+        visibility: hidden;
+        width: 160px;
+        background-color: #3c3c3c;
+        font-size: medium;
+        font-family: "M Plus Rounded 1c";
+        color: #fff;
+        text-align: center;
+        border-radius: 6px;
+        padding: 8px;
+        position: absolute;
+        bottom: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        opacity: 0;
+        transition: opacity 0.3s;
+      }
+
+      .popup:hover .popuptext {
+        visibility: visible;
+        opacity: 1;
+      }
     </style>
-        <script>
-          function toggleFullscreen() {
-            var iframe = document.getElementById("game-iframe");
-    
-            if (!document.fullscreenElement) {
-              iframe.requestFullscreen().catch((err) => {
-                console.log(
-                  `Error attempting to enable full-screen mode: ${err.message} (${err.name})`
-                );
-              });
-            } else {
-              if (document.exitFullscreen) {
-                document.exitFullscreen();
+          <script>
+            function toggleFullscreen() {
+              var iframe = document.getElementById("game-iframe");
+      
+              if (!document.fullscreenElement) {
+                iframe.requestFullscreen().catch((err) => {
+                  console.log(
+                    `Error attempting to enable full-screen mode: ${err.message} (${err.name})`
+                  );
+                });
+              } else {
+                if (document.exitFullscreen) {
+                  document.exitFullscreen();
+                }
               }
             }
-          }
-        </script>
-      </head>
-      <body>
-        <a id="home-button" href="../index.html">
-          <img
-            style="
-              position: fixed;
-              width: 55px;
-              margin: -2px;
-              margin-left: -8px;
-              padding: 15px;
-              border-radius: 0px;
-              background-color: rgba(88, 170, 252, 0);
-            "
-            src="/logo-s.png"
-          />
-        </a>
-        <div class="navbar">
-          <div class="logo">
-            <a style="text-decoration: none !important" href="../index.html">
-              <img src="/title.png" width="480vw">
-            </a>
-          </div>
-          <script src="random.js"></script>
+          </script>
+        </head>
+        <body>
+          <a id="home-button" href="../index.html">
+            <img
+              style="
+                position: fixed;
+                width: 55px;
+                margin: -2px;
+                margin-left: -8px;
+                padding: 15px;
+                border-radius: 0px;
+                background-color: rgba(88, 170, 252, 0);
+              "
+              src="/logo-s.png"
+            />
+          </a>
+          <div class="navbar">
+            <div class="logo">
+              <a style="text-decoration: none !important" href="../index.html">
+                <img src="/title.png" width="480vw">
+              </a>
+            </div>
+            <script src="random.js"></script>
       <div class="navbar-menu">
       <a href="../index.html#popular-games">Popular</a>
         <a href="../index.html#multiplayer-games">Multiplayer</a>
@@ -323,11 +364,12 @@
     >
       <iframe
         id="game-iframe"
-        src="https://coolubg.github.io/coolubg-list/among-us-online-2/"
+        src="https://coolubg.github.io/coolubg-list/paper.io-2/"
         width="800px"
         height="600px"
         frameborder="0"
         style="
+          z-index: 1;
           display: block;
           border: 0px solid #58aafc;
           background-image: url('../loading.png');
@@ -335,18 +377,15 @@
           background-position: 50%;
         "
       ></iframe>
-      <div class="important" style="position: absolute; margin-left: 1240px; margin-right: 5%;">
-        <a style="color: #3c3c3c !important" href="among-us-online.html">        <img src="/images/games/list/among-us-online.png" style="width: 15rem"><br><span>SERVER 1</span></a>
-      </div>
       <div class="game-title">
         <div>
-          <span class="game-title-text">Among Us Online Server 2</span>
+          <span class="game-title-text">Paper.io 2</span>
           <span class="game-title-subtext">
             By
             <a
-              href="https://scratch.mit.edu/users/TimMcCool"
+              href="https://www.voodoo.io/"
               style="color: #3c3c3c !important"
-              >TimMcCool, Innersloth</a
+              >Voodoo (maybe)</a
             >
           </span>
         </div>
@@ -354,8 +393,8 @@
           <img
             src="../images/icons/zoom.png"
             alt="Fullscreen"
-            width="32"
-            height="32"
+            width="64"
+            height="64"
           />
         </button>
       </div>
@@ -364,7 +403,7 @@
         <b><font size="6">Instructions and Overview</font></b>
         <br />
         <br />
-        Disc us, Among us
+rob
       </p>
     </div>
   </body>
