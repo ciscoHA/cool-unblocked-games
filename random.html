@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Redirecting to a Random Page</title>
+</head>
+<body>
+<script>
+function goToRandomPage() {
+    var pages = [
+      "/games/2048.html",
+      "/games/run-3.html"
+    ];
+
+    var randomIndex = Math.floor(Math.random() * pages.length);
+
+    var randomPage = pages[randomIndex];
+
+    window.location.href = randomPage;
+}
+
+goToRandomPage(); // Call the function immediately to redirect to a random page
+</script>
+</body>
+</html>

@@ -1,354 +1,282 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Save File Manager</title>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Save File & Cookie Manager</title>
     <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
+    <script src="main.js" defer></script>
+    <link rel="stylesheet" type="text/css" href="/fonts/fonts.css">
+
     <style>
-
-    @import url("https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;800;900&display=swap");
-      @font-face {
-        font-family: Satisfactory Base;
-        src: url(/fonts/LeagueGothic.ttf);
-      }
-      @font-face {
-        font-family: Satisfactory Baseline;
-        src: url(/fonts/LeagueGothic.ttf);
-      }
-      @font-face {
-        font-family: Satisfactory Topline;
-        src: url(/fonts/LeagueGothic.ttf);
-      }
-
-      body {
-        margin: 0;
-        padding: 0;
-        font-family: Arial, sans-serif;
-        background-image: url("blank.png");
-        background-color: #141414;
-      }
-
-      .navbar {
-        font-family: "M Plus Rounded 1c", sans-serif;
-        font-weight: bold;
-        font-size: large;
-        background-color: #58aafc;
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding-top: 10px;
-        padding-bottom: 10px;
-      }
-
-      .logo {
-        font-size: 120%;
-        margin-top: -5px;
-        margin-bottom: 0px;
-      }
-
-
-      .navbar-menu {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-
-      .navbar-menu a {
-        display: block;
-        color: #3c3c3c;
-        text-align: center;
-        padding: 5px 10px;
-        margin-right: 5px;
-        margin-left: 5px;
-        text-decoration: none;
-        border: 2px solid transparent;
-        border-radius: 10px;
-      }
-
-      .navbar-menu a:hover {
-        outline: 5px solid #3c3c3c;
-      }
-
-
-      #fileList {
-        list-style-type: none;
-        padding: 0.5vw;
-      }
-
-      #fileList li {
-        color: white;
-        margin-bottom: 10px;
-        padding: 5px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-      }
-
-      button {
-        font-family: "M Plus Rounded 1c", sans-serif;
-        margin-left: 10px;
-        padding: 5px 10px;
-        background-color: #58aafc;
-        color: #3c3c3c;
-        font-size: 110%;
-        font-weight: bold;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-      }
-
-      #uploadForm {
-        margin-bottom: 20px;
-      }
-    </style>
-  </head>
-  <body>
-    <a id="home-button" href="/index.html">
-        <img
-          style="
-            position: fixed;
-            width: 55px;
-            margin: -2px;
-            margin-left: -8px;
-            padding: 15px;
-            border-radius: 0px;
-            background-color: rgba(88, 170, 252, 0);
-          "
-          src="/logo-s.png"
-        />
-      </a>
-      <div class="navbar">
-        <div class="logo">
-          <a style="text-decoration: none !important" href="/#">
-          <img src="/title.png" width="480vw">
-          </a>
-        </div>
-        <script>      
-        function goToRandomPage() {
-          var pages = [
-            "games/1v1.lol.html",
-            "games/2048.html",
-            "games/a-dark-room.html",
-            "games/age-of-war-2.html",
-            "games/age-of-war.html",
-            "games/alien-hominid.html",
-            "games/among-us-online-2.html",
-            "games/among-us-online.html",
-            "games/appel-multiplayer.html",
-            "games/appel.html",
-            "games/asteroids.html",
-            "games/awesome-tanks-2.html",
-            "games/awesome-tanks.html",
-            "games/bad-piggies.html",
-            "games/bloons-td-2.html",
-            "games/bloons-td-3.html",
-            "games/bloons-td-4-exp.html",
-            "games/bloons-td-4.html",
-            "games/bloons-td-5.html",
-            "games/bloons-td.html",
-            "games/bloons.html",
-            "games/bloxorz.html",
-            "games/bob-the-robber.html",
-            "games/breaking-the-bank.html",
-            "games/circloo.html",
-            "games/cloud-platformer-fun.html",
-            "games/cookie-clicker.html",
-            "games/crossy-road.html",
-            "games/cut-the-rope.html",
-            "games/doom.html",
-            "games/drift-boss.html",
-            "games/drive-mad.html",
-            "games/duck-life-2.html",
-            "games/duck-life-3.html",
-            "games/duck-life-4.html",
-            "games/duck-life.html",
-            "games/earn-to-die-2012.html",
-            "games/escaping-the-prison.html",
-            "games/fireboy&watergirl-2.html",
-            "games/fireboy&watergirl-3.html",
-            "games/fireboy&watergirl-4.html",
-            "games/fireboy&watergirl.html",
-            "games/fishy!.html",
-            "games/fleeing-the-complex.html",
-            "games/fnaf-2.html",
-            "games/fnaf.html",
-            "games/friday-night-funkin.html",
-            "games/getaway-shootout.html",
-            "games/gravitee-2.html",
-            "games/gravitee.html",
-            "games/gun-mayhem-2.html",
-            "games/gun-mayhem.html",
-            "games/infiltrating-the-airship.html",
-            "games/jacksmith.html",
-            "games/jelly-truck.html",
-            "games/learn-to-fly-2.html",
-            "games/learn-to-fly.html",
-            "games/lightbot.html",
-            "games/line-rider.html",
-            "games/minecraftish-mmo.html",
-            "games/mini-golf-online.html",
-            "games/moto-x3m-2.html",
-            "games/moto-x3m-3.html",
-            "games/moto-x3m-pool-party.html",
-            "games/moto-x3m-spooky-land.html",
-            "games/moto-x3m-winter.html",
-            "games/moto-x3m.html",
-            "games/n.html",
-            "games/neverball.html",
-            "games/ovo.html",
-            "games/pacman.html",
-            "games/papas-freezeria.html",
-            "games/papas-pizzeria.html",
-            "games/plants-vs-zombies.html",
-            "games/polytrack.html",
-            "games/pong.html",
-            "games/raft-wars.html",
-            "games/retro-bowl.html",
-            "games/rooftop-snipers.html",
-            "games/run-2.html",
-            "games/run-3.html",
-            "games/slither.io-online.html",
-            "games/slope.html",
-            "games/snow-rider-3d.html",
-            "games/stack.html",
-            "games/stealing-the-diamond.html",
-            "games/stickman-hook.html",
-            "games/subway-surfers.html",
-            "games/super-mario-63.html",
-            "games/super-smash-flash.html",
-            "games/tanuki-sunset.html",
-            "games/temple-run-2.html",
-            "games/tennis-physics.html",
-            "games/the-fancy-pants-adventures-remix.html",
-            "games/the-fancy-pants-adventures-world-2.html",
-            "games/the-fancy-pants-adventures-world-3.html",
-            "games/the-fancy-pants-adventures.html",
-            "games/the-fancy-pants-snowboarding.html",
-            "games/the-final-earth-2.html",
-            "games/the-worlds-hardest-game-2.html",
-            "games/the-worlds-hardest-game.html",
-            "games/tiny-fishing.html",
-            "games/tomb-of-the-mask.html",
-            "games/unfair-mario.html",
-            "games/watermelon-game.html"
-          ];
-  
-          var randomIndex = Math.floor(Math.random() * pages.length);
-  
-          var randomPage = pages[randomIndex];
-  
-          window.location.href = randomPage;
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-image: url("/background.png");
+            background-color: #141414;
         }
-        </script>
-        <div class="navbar-menu">
-          <a href="/index.html#popular-games">Popular</a>
-          <a href="/index.html#multiplayer-games">Multiplayer</a>
-          <a href="#" onclick="goToRandomPage()">Random</a>
-          <a href="/index.html#AllGamesDiv">All Games</a>
-          <a href="#">Contact</a>
-        </div>
-      </div>
- <br>
+
+        .selected {
+            background-color: var(--secondary-color) !important;
+            color: var(--primary-color) !important;
+            text-decoration: underline !important;
+        }
+
+        button:hover {
+            background-color: var(--secondary-color) !important;
+            color: var(--primary-color) !important;
+        }
+
+        #fileList,
+        #cookieList {
+            margin: 10px;
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            /* Allow items to wrap to the next line */
+            justify-content: space-between;
+            /* Distribute items evenly along the main axis */
+        }
+
+        #fileList li,
+        #cookieList li {
+            color: white;
+            text-shadow: 0px 0px 4px black, 0px 0px 4px black;
+            width: calc(33.33% - 20px);
+            /* Adjust width for three items per row */
+            margin-bottom: 20px;
+            /* Adjust spacing between rows */
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            /* Ensure padding and border are included in the width */
+            position: relative;
+        }
+
+        #fileList li span,
+        #cookieList li span {
+            display: block;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            /* Add ellipsis for long text */
+            white-space: nowrap;
+            /* Prevent text from wrapping */
+            max-width: calc(100% - 120px);
+            /* Adjust max-width to accommodate the button */
+            font-size: 14px;
+            /* Adjust font size */
+        }
+
+        #fileList li button,
+        #cookieList li button {
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+            border: none;
+            border-radius: 5px;
+            padding: 5px 10px;
+            cursor: pointer;
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+        }
+
+        h2 {
+            margin: 10px;
+            color: white;
+            text-shadow: 0px 0px 4px black, 0px 0px 5px black;
+            font-size: 20px;
+            margin-top: 30px;
+            margin-bottom: 10px;
+        }
+
+        button {
+            font-family: "M Plus Rounded 1c", sans-serif;
+            margin-left: 10px;
+            padding: 5px 10px;
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+            font-size: 110%;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #uploadForm {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="navbar-container"></div>
+    <br><br><br><br><br>
     <form id="uploadForm" style="color: white; padding: 0.5vw;">
-      <input type="file" id="fileInput"/>
-      <button type="submit">Upload</button>
+        <input type="file" id="fileInput" style="text-shadow: 0px 0px 4px black, 0px 0px 4px black;" />
+        <button type="submit">Upload</button>
     </form>
+    <button id="selectAll">Select All</button> <!-- Changed to Select All button -->
+    <h2>Local Storage</h2> <!-- Added heading for local storage -->
     <ul id="fileList"></ul>
+    <h2>Cookies</h2> <!-- Added heading for cookies -->
+    <ul id="cookieList"></ul> <!-- Added Cookie List -->
     <button id="downloadSelected">Download Selected</button>
     <button id="deleteSelected">Delete Selected</button>
     <br><br>
-    <center style="margin-bottom: 5vh; margin-top: 4vh; display: none;"><embed src="https://coolubg.github.io/coolubg-list/blank.swf"></embed></center>
+    <center style="margin-bottom: 5vh; margin-top: 4vh; display: none;"><embed
+            src="https://coolubg.github.io/coolubg-list/blank.swf"></embed></center>
     <script>
-  const fileInput = document.getElementById("fileInput");
-  const fileList = document.getElementById("fileList");
-  const selectedFiles = new Set();
+        const fileInput = document.getElementById("fileInput");
+        const fileList = document.getElementById("fileList");
+        const cookieList = document.getElementById("cookieList"); // Added cookieList
+        const selectedFiles = new Set();
 
-  // Function to create list item with a checkbox and view data button
-  function createListItem(key, value) {
-    const listItem = document.createElement("li");
-    const checkbox = document.createElement("input");
-    checkbox.type = "checkbox";
-    checkbox.addEventListener("change", () => {
-      if (checkbox.checked) {
-        selectedFiles.add(key);
-      } else {
-        selectedFiles.delete(key);
-      }
-    });
-    listItem.appendChild(checkbox);
-    listItem.appendChild(document.createTextNode(`${key}`));
+        // Function to create list item with a checkbox and view data button for files
+        function createFileListItem(key, value) {
+            const listItem = document.createElement("li");
+            const checkbox = document.createElement("input");
+            checkbox.type = "checkbox";
+            checkbox.addEventListener("change", () => {
+                if (checkbox.checked) {
+                    selectedFiles.add(key);
+                } else {
+                    selectedFiles.delete(key);
+                }
+            });
+            listItem.appendChild(checkbox);
+            listItem.appendChild(document.createTextNode(`${key}`));
 
-    // Create a view data button
-    const viewDataButton = document.createElement("button");
-    viewDataButton.textContent = "View Data";
-    viewDataButton.addEventListener("click", () => {
-      const win = window.open("", "_blank");
-      win.document.write("<pre>" + value + "</pre>");
-      win.document.close();
-    });
-    listItem.appendChild(viewDataButton);
+            // Create a view data button
+            const viewDataButton = document.createElement("button");
+            viewDataButton.textContent = "View Data";
+            viewDataButton.addEventListener("click", () => {
+                const win = window.open("", "_blank");
+                win.document.write("<pre>" + value + "</pre>");
+                win.document.close();
+            });
+            listItem.appendChild(viewDataButton);
 
-    return listItem;
-  }
+            return listItem;
+        }
 
-  // Display all keys and values in local storage
-  Object.entries(localStorage).forEach(([key, value]) => {
-    fileList.appendChild(createListItem(key, value));
-  });
+        // Function to create list item with a checkbox and view data button for cookies
+        function createCookieListItem(name) {
+            const listItem = document.createElement("li");
+            const checkbox = document.createElement("input");
+            checkbox.type = "checkbox";
+            checkbox.addEventListener("change", () => {
+                if (checkbox.checked) {
+                    selectedFiles.add(name);
+                } else {
+                    selectedFiles.delete(name);
+                }
+            });
+            listItem.appendChild(checkbox);
+            listItem.appendChild(document.createTextNode(`${name}`));
 
-  // Handle file upload
-  document
-    .getElementById("uploadForm")
-    .addEventListener("submit", function (event) {
-      event.preventDefault();
-      const file = fileInput.files[0];
-      const fileName = file.name;
-      const reader = new FileReader();
-      reader.onload = function (event) {
-        const fileData = event.target.result;
-        const listItem = createListItem(fileName, fileData);
-        fileList.appendChild(listItem);
-        localStorage.setItem(fileName, fileData);
-      };
-      reader.readAsText(file);
-    });
+            // Create a view data button
+            const viewDataButton = document.createElement("button");
+            viewDataButton.textContent = "View Data";
+            viewDataButton.addEventListener("click", () => {
+                const win = window.open("", "_blank");
+                win.document.write("<pre> " + getCookie(name) + "</pre>");
+                win.document.close();
+            });
+            listItem.appendChild(viewDataButton);
 
-  // Handle file download
-  document
-    .getElementById("downloadSelected")
-    .addEventListener("click", function () {
-      selectedFiles.forEach((key) => {
-        const blob = new Blob([localStorage.getItem(key)], {
-          type: "application/octet-stream",
+            return listItem;
+        }
+
+        // Display all keys and values in local storage
+        for (let i = 0; i < localStorage.length; i++) {
+            const key = localStorage.key(i);
+            const value = localStorage.getItem(key);
+            fileList.appendChild(createFileListItem(key, value));
+        }
+
+        // Display all cookies with their name
+        const cookies = document.cookie.split("; ");
+        cookies.forEach(cookie => {
+            const [name] = cookie.split("=");
+            cookieList.appendChild(createCookieListItem(name));
         });
-        const link = document.createElement("a");
-        link.href = URL.createObjectURL(blob);
-        link.download = key;
-        link.click();
-      });
-    });
 
-  // Handle file deletion
-  document
-    .getElementById("deleteSelected")
-    .addEventListener("click", function () {
-      if (
-        confirm(
-          `Are you sure you want to delete ${selectedFiles.size} selected file(s)?`
-        )
-      ) {
-        selectedFiles.forEach((key) => {
-          localStorage.removeItem(key);
-          fileList.removeChild(
-            [...fileList.children].find((child) =>
-              child.textContent.includes(key)
-            )
-          );
+        // Function to get cookie value by name
+        function getCookie(name) {
+            const cookies = document.cookie.split("; ");
+            for (let cookie of cookies) {
+                const [cookieName, cookieValue] = cookie.split("=");
+                if (cookieName === name) return cookieValue;
+            }
+            return "";
+        }
+
+        // Handle file upload
+        document
+            .getElementById("uploadForm")
+            .addEventListener("submit", function (event) {
+                event.preventDefault();
+                const file = fileInput.files[0];
+                const fileName = file.name;
+                const reader = new FileReader();
+                reader.onload = function (event) {
+                    const fileData = event.target.result;
+                    const listItem = createFileListItem(fileName, fileData);
+                    fileList.appendChild(listItem);
+                    localStorage.setItem(fileName, fileData);
+                };
+                reader.readAsText(file);
+            });
+
+        // Handle file download
+        document
+            .getElementById("downloadSelected")
+            .addEventListener("click", function () {
+                selectedFiles.forEach((key) => {
+                    const blob = new Blob([localStorage.getItem(key)], {
+                        type: "application/octet-stream",
+                    });
+                    const link = document.createElement("a");
+                    link.href = URL.createObjectURL(blob);
+                    link.download = key;
+                    link.click();
+                });
+            });
+
+        // Handle file deletion
+        document
+            .getElementById("deleteSelected")
+            .addEventListener("click", function () {
+                if (
+                    confirm(
+                        `Are you sure you want to delete ${selectedFiles.size} selected file(s)?`
+                    )
+                ) {
+                    selectedFiles.forEach((key) => {
+                        localStorage.removeItem(key);
+                        fileList.removeChild(
+                            [...fileList.children].find((child) =>
+                                child.textContent.includes(key)
+                            )
+                        );
+                    });
+                    selectedFiles.clear();
+                }
+            });
+
+        // Handle select all button
+        document.getElementById("selectAll").addEventListener("click", function () {
+            const checkboxes = document.querySelectorAll('#fileList input[type="checkbox"], #cookieList input[type="checkbox"]');
+            checkboxes.forEach((checkbox) => {
+                checkbox.checked = true;
+                selectedFiles.add(checkbox.nextSibling.textContent);
+            });
         });
-        selectedFiles.clear();
-      }
-    });
-</script>
-  </body>
+    </script>
+</body>
+
 </html>

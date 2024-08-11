@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dynamic Image Source Example</title>
+</head>
+<body>
+
+<!-- Image tag with an empty src attribute -->
+<img id="title-image" src="" alt="Title Image">
+
+<!-- Your script to define the titleImageSrc variable and set the src -->
+<script>
+    // Check local storage for mode
+    var mode = localStorage.getItem('mode');
+
+    // Define the variable based on mode
+    var titleImageSrc;
+    if (mode === 'dark') {
+        titleImageSrc = '/title.png'; // Dark mode source
+    } else {
+        titleImageSrc = '/title-l.png'; // Light mode source (default)
+    }
+
+    // Set the src attribute of the img tag
+    document.getElementById('title-image').src = titleImageSrc;
+</script>
+
+</body>
+</html>

@@ -1,0 +1,81 @@
+<div class="title-bar" id="dynamic-title-bar">
+  <div class="title-content">
+    <h2 id="title-text"></h2>
+    <p>By <span id="author-text"></span></p>
+  </div>
+  <!-- Fullscreen buttons -->
+  <div class="fullscreen-buttons">
+    <img class="flash-icon" src="/images/icons/flash.png" alt="Flash support, emulated by ruffle" style="display: none;">
+    <button class="fullscreen-button-2" onclick="fullscreenFunction2()">
+      <img src="/images/icons/fullscreen-2.png" alt="Fullscreen">
+    </button> 
+    <button class="fullscreen-button-1" onclick="fullscreenFunction1()">
+      <img src="/images/icons/fullscreen-1.png" alt="About Blank Fullscreen">
+    </button>   
+  </div>
+</div>
+<br><br>
+<style>
+  .title-bar {
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+  font-weight: bold;
+  text-align: left;
+  padding: 10px 20px;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  position: relative;
+  margin-top: 0px;
+  width: auto; /* Set width to auto */
+}
+
+.title-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.title-bar h2 {
+  margin: 0;
+  font-size: xx-large;
+}
+
+.title-bar p {
+  margin: 0;
+  font-size: large;
+}
+
+.title-bar a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+.title-bar a:hover {
+  text-decoration: underline;
+}
+
+/* Fullscreen buttons */
+.fullscreen-buttons {
+  position: absolute;
+  padding-right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 0; /* Align to the right edge */
+}
+
+.fullscreen-buttons img {
+  padding-right: 6px;
+  width: 48px; /* Adjust size as needed */
+  height: 48px ; /* Adjust size as needed */
+}
+
+.fullscreen-button-1, 
+.fullscreen-button-2 {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  width: 48px; /* Adjust size as needed */
+  height: 48px ; /* Adjust size as needed */
+}
+</style>

@@ -1,432 +1,300 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Cool Unblocked Games</title>
-    <meta name="google-adsense-account" content="ca-pub-4293684626558852">
-    <meta name="robots" content="nosnippet" />
-    <style>
-      @import url("https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;800;900&display=swap");
-      @font-face {
-        font-family: Satisfactory Base;
-        src: url(/fonts/LeagueGothic.ttf);
-      }
-      @font-face {
-        font-family: Satisfactory Baseline;
-        src: url(/fonts/LeagueGothic.ttf);
-      }
-      @font-face {
-        font-family: Satisfactory Topline;
-        src: url(/fonts/LeagueGothic.ttf);
-      }
-      .left {
-        margin-right: 0px;
-      }
 
-      .right {
-        margin-left: 15px;
-      }
+<head>
+  <title>Cool Unblocked Games</title>
+  <meta name="google-adsense-account" content="ca-pub-4293684626558852" />
+  <link rel="icon" type="image/x-icon" sizes="48x48" href="/favicon.ico" />
+  <link rel="icon" type="shortcut icon" sizes="48x48" href="/favicon.ico" />
+  <link rel="icon" type="apple-touch-icon" sizes="48x48" href="/favicon.ico" />
+  <meta property="og:image" content="/logo.png" />
+  <meta property="og:url" content="https://coolubg.github.io/" />
+  <meta property="og:site_name" content="Cool Unblocked Games" />
+  <meta name="theme-color" content="#58aafc" />
+  <meta name="google-site-verification" content="Q-GasTm6p0RsCSA7j-x1U7mX_Cz6ItjUz8q3bzM6YYo" />
+  <link rel="stylesheet" type="text/css" href="/games.css">
+  <link rel="stylesheet" type="text/css" href="/effects.css">
+  <meta property="og:description"
+    content="Explore Cool, Free, Unblocked Games. Run 3, Learn to Fly 2, Slope, Jacksmith, Tanuki Sunset, Moto X3M, Jelly Truck" />
+  <meta name="description"
+    content="Explore Cool, Free, Unblocked Games at Cool Unblocked Games / CoolUBG. Play games at school, work, home, on any internet connection" />
+  <meta name="author" content="CiscoHA on github" />
 
-      a {
-        text-decoration: none !important;
-      }
+  <script src="/analytics.js"></script>
+  <script src="/tracking.js"></script>
+  <script src="/main.js" defer></script>
+  <script>
+    function highlightImage2(elementId, textId) {
+      var img = document.getElementById(elementId);
+      var fadeWrapper = img.parentNode.querySelector("#fade-wrapper");
+      fadeWrapper.style.opacity = 1;
+      fadeWrapper.style.transition = "opacity 0.4s";
 
-      body {
-        margin: 0;
-        padding: 0;
-        font-family: Arial, sans-serif;
-        background-image: url("blank.png");
-        background-color: #141414;
-      }
+      // Directly apply underline style to the span element
+      var litext = img.parentNode.parentNode.querySelector(`#${textId}`);
+      litext.style.textDecoration = "underline";
+    }
 
-      .navbar {
-        font-family: "M Plus Rounded 1c", sans-serif;
-        font-weight: bold;
-        font-size: large;
-        background-color: #58aafc;
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding-top: 10px;
-        padding-bottom: 10px;
-      }
+    function removeHighlight2(elementId, textId) {
+      var img = document.getElementById(elementId);
+      var fadeWrapper = img.parentNode.querySelector("#fade-wrapper");
+      fadeWrapper.style.opacity = 0;
+      fadeWrapper.style.transition = "opacity 0.4s";
 
-      .logo {
-        font-size: 120%;
-        margin-top: -5px;
-        margin-bottom: 0px;
-      }
+      // Directly remove underline style from the span element
+      var litext = img.parentNode.parentNode.querySelector(`#${textId}`);
+      litext.style.textDecoration = "none";
+    }
 
-      @media (max-width: 320px),
-        (min-width: 321px) and (max-width: 480px),
-        (min-width: 481px) and (max-width: 768px) {
-        logo {
-          font-size: 120%;
-        }
-        body  {
-          font-size: 140%;
-        }
-      }
+    function highlightImageM(elementId, textClass) {
+      var img = document.getElementById(elementId);
+      var litext = document.getElementsByClassName(textClass)[0];
+      var fadeWrapper = img.parentNode.querySelector("#fade-wrapper-red");
+      fadeWrapper.style.opacity = 1;
+      fadeWrapper.style.transition = "opacity 0.4s";
+      img.style.transition = "outline-width 0s";
+      img.style.outline = "3px solid #fc5858";
+      litext.classList.add("underline");
+    }
 
-      .navbar-menu {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
+    function removeHighlightM(elementId, textClass) {
+      var img = document.getElementById(elementId);
+      var litext = document.getElementsByClassName(textClass)[0];
+      var fadeWrapper = img.parentNode.querySelector("#fade-wrapper-red");
+      fadeWrapper.style.opacity = 0;
+      fadeWrapper.style.transition = "opacity 0.4s";
+      img.style.outline = "3px solid #fc5858";
+      img.style.transition = "outline-width 0s";
+      litext.classList.remove("underline");
+    }
 
-      .navbar-menu a {
-        display: block;
-        color: #3c3c3c;
-        text-align: center;
-        padding: 5px 10px;
-        margin-right: 5px;
-        margin-left: 5px;
-        text-decoration: none;
-        border: 2px solid transparent;
-        border-radius: 10px;
-      }
+    function highlightImageL(elementId, textClass) {
+      var img = document.getElementById(elementId);
+      var litext = document.getElementsByClassName(textClass)[0];
+      var fadeWrapper = img.parentNode.querySelector("#fade-wrapper-blue");
+      fadeWrapper.style.opacity = 1;
+      fadeWrapper.style.transition = "opacity 0.4s";
+      img.style.transition = "outline-width 0s";
+      img.style.outline = "3px solid #58aafc";
+      litext.classList.add("underline");
+    }
 
-      .navbar-menu a:hover {
-        outline: 5px solid #3c3c3c;
-      }
+    function removeHighlightL(elementId, textClass) {
+      var img = document.getElementById(elementId);
+      var litext = document.getElementsByClassName(textClass)[0];
+      var fadeWrapper = img.parentNode.querySelector("#fade-wrapper-blue");
+      fadeWrapper.style.opacity = 0;
+      fadeWrapper.style.transition = "opacity 0.4s";
+      img.style.outline = "3px solid #58aafc";
+      img.style.transition = "outline-width 0s";
+      litext.classList.remove("underline");
+    }
 
-      .suggest-game {
-        padding: 10px;
-        margin-top: 10px;
-      }
 
-      .suggest-game a {
-        display: block;
-        text-decoration: none;
-        color: white;
-        font-size: large;
-        margin-top: 5px;
-      }
+  </script>
+  <style>
+    
+    .suggest-game {
+      padding: 0.5%;
+      padding: 0.6%;
+    }
 
-      .suggest-game img {
-        margin-bottom: -5px;
-        border-radius: 5px;
-        width: 249px;
-        height: 140px;
-        border: #141414 solid 4px;
-      }
+    .suggest-game a {
+      display: block;
+      white-space: nowrap;
+      text-decoration: none;
+      color: white;
+      text-shadow: #141414 0px 0px 5px;
+      font-size: 120%;
+      overflow-x: hidden !important;
+      overflow: hidden !important;
+      margin-top: -0.6rem;
+    }
 
-      span {
-        font-size: large;
-      }
+    .suggest-game img {
+      margin: 0.6rem;
+      border-radius: 0.4rem;
+      position: relative;
+      width: 15.6vw;
+      /* 30% of the viewport width */
+      height: auto;
+      /* 16.89% of the viewport width to maintain a 16:9 aspect ratio */
+      border: #141414 solid 4rem;
+    }
 
-      .suggest-text.underline {
-        text-decoration: underline !important;
-      }
+    ul.game-list {
+      list-style-type: none;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      /* Allow the items to wrap to the next line */
+    }
 
-      .game-list {
-        margin-top: -15px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-    </style>
-    <script>
+    ul.game-list li {
+      display: inline-block;
+      margin-right: 5px;
+      margin-bottom: -10px;
+      /* Add some space between list items and allow wrapping */
+    }
 
-      function highlightImage(elementId, textClass) {
-        var img = document.getElementById(elementId);
-        var litext = document.getElementsByClassName(textClass)[0];
-        img.style.outline = "5px solid #58aafc";
-        litext.classList.add("underline");
-      }
+    .game-list {
+      font-family: "M Plus Rounded 1c", sans-serif;
+      font-weight: bold;
+      text-align: center;
+      justify-content: center;
+      align-items: center;
+    }
 
-      function removeHighlight(elementId, textClass) {
-        var img = document.getElementById(elementId);
-        var litext = document.getElementsByClassName(textClass)[0];
-        img.style.outline = "3px solid #58aafc";
-        litext.classList.remove("underline");
-      }
+    #fade-wrapper-blue {
+      z-index: -1;
+      position: absolute;
+      width: 16vw;
+      height: 4vh;
+      /* Adjust the height as needed */
+      margin-left: 0.47rem;
+      margin-top: -1.35rem;
+      display: flex;
+      /* Use flexbox */
+      justify-content: center;
+      /* Center horizontally */
+      overflow: hidden;
+      opacity: 0;
+      background: linear-gradient(to bottom, #58aafc, transparent);
+    }
 
-      function highlightImage2(elementId, textClass) {
-        var img = document.getElementById(elementId);
-        var litext = document.getElementsByClassName(textClass)[0];
-        img.style.outline = "6px solid #dc7070";
-        img.style.transition = "outline-width 0.2s";
-        litext.classList.add("underline");
-      }
+    #fade-wrapper-red {
+      z-index: -1;
+      position: absolute;
+      width: 16vw;
+      height: 4vh;
+      /* Adjust the height as needed */
+      margin-left: 0.47rem;
+      margin-top: -1.35rem;
+      display: flex;
+      /* Use flexbox */
+      justify-content: center;
+      /* Center horizontally */
+      overflow: hidden;
+      opacity: 0;
+      background: linear-gradient(to bottom, #fc5858, transparent);
+    }
 
-      function removeHighlight2(elementId, textClass) {
-        var img = document.getElementById(elementId);
-        var litext = document.getElementsByClassName(textClass)[0];
-        img.style.outline = "3px solid #dc7070";
-        img.style.transition = "outline-width 0.2s";
-        litext.classList.remove("underline");
-      }
+    .sortButtonDiv Button {
+      white-space: nowrap;
+      margin: 1%;
+      font-family: "M Plus Rounded 1c", sans-serif;
+      cursor: pointer;
+      background-color: var(--secondary-color);
+      font-weight: bold;
+      color: var(--primary-color);
+      border-radius: 5px;
+      border-color: transparent;
+    }
 
-      function highlightImage3(elementId, textClass) {
-        var img = document.getElementById(elementId);
-        var litext = document.getElementsByClassName(textClass)[0];
-        img.style.outline = "6px solid #c370dc";
-        litext.classList.add("underline");
-      }
+    .suggest-gameL, .suggest-gameM {
+      padding: 0.5%;
+      padding-top: 1.5%;
+      margin-top: 0;
+      overflow: hidden !important;
+    }
 
-      function removeHighlight3(elementId, textClass) {
-        var img = document.getElementById(elementId);
-        var litext = document.getElementsByClassName(textClass)[0];
-        img.style.outline = "3px solid #c370dc";
-        litext.classList.remove("underline");
-      }
-    </script>
-  </head>
+    .suggest-gameL a, .suggest-gameM a{
+      white-space: nowrap;
+      display: block;
+      text-decoration: none;
+      color: white;
+      text-shadow: #141414 0px 0px 5px;
+      font-size: 115%;
+      overflow-x: hidden !important;
+      overflow: hidden !important;
+      margin-top: -0.4rem;
+      visibility: visible;
+    }
 
-  <body>
-    <a id="home-button" href="/index.html">
-      <img
-        style="
-          position: fixed;
-          width: 55px;
-          margin: -2px;
-          margin-left: -8px;
-          padding: 15px;
-          border-radius: 0px;
-          background-color: rgba(88, 170, 252, 0);
-        "
-        src="/logo-s.png"
-      />
-    </a>
-    <div class="navbar">
-      <div class="logo">
-        <a style="text-decoration: none !important" href="/#">
-        <img src="/title.png" width="480vw">
-        </a>
-      </div>
-      <script>      
-      function goToRandomPage() {
-        var pages = [
-          "games/1v1.lol.html",
-          "games/2048.html",
-          "games/a-dark-room.html",
-          "games/age-of-war-2.html",
-          "games/age-of-war.html",
-          "games/alien-hominid.html",
-          "games/among-us-online-2.html",
-          "games/among-us-online.html",
-          "games/appel-multiplayer.html",
-          "games/appel.html",
-          "games/asteroids.html",
-          "games/awesome-tanks-2.html",
-          "games/awesome-tanks.html",
-          "games/bad-piggies.html",
-          "games/bloons-td-2.html",
-          "games/bloons-td-3.html",
-          "games/bloons-td-4-exp.html",
-          "games/bloons-td-4.html",
-          "games/bloons-td-5.html",
-          "games/bloons-td.html",
-          "games/bloons.html",
-          "games/bloxorz.html",
-          "games/bob-the-robber.html",
-          "games/breaking-the-bank.html",
-          "games/circloo.html",
-          "games/cloud-platformer-fun.html",
-          "games/cookie-clicker.html",
-          "games/crossy-road.html",
-          "games/cut-the-rope.html",
-          "games/doom.html",
-          "games/drift-boss.html",
-          "games/drive-mad.html",
-          "games/duck-life-2.html",
-          "games/duck-life-3.html",
-          "games/duck-life-4.html",
-          "games/duck-life.html",
-          "games/earn-to-die-2012.html",
-          "games/escaping-the-prison.html",
-          "games/fireboy&watergirl-2.html",
-          "games/fireboy&watergirl-3.html",
-          "games/fireboy&watergirl-4.html",
-          "games/fireboy&watergirl.html",
-          "games/fishy!.html",
-          "games/fleeing-the-complex.html",
-          "games/fnaf-2.html",
-          "games/fnaf.html",
-          "games/friday-night-funkin.html",
-          "games/getaway-shootout.html",
-          "games/gravitee-2.html",
-          "games/gravitee.html",
-          "games/gun-mayhem-2.html",
-          "games/gun-mayhem.html",
-          "games/infiltrating-the-airship.html",
-          "games/jacksmith.html",
-          "games/jelly-truck.html",
-          "games/learn-to-fly-2.html",
-          "games/learn-to-fly.html",
-          "games/lightbot.html",
-          "games/line-rider.html",
-          "games/minecraftish-mmo.html",
-          "games/mini-golf-online.html",
-          "games/moto-x3m-2.html",
-          "games/moto-x3m-3.html",
-          "games/moto-x3m-pool-party.html",
-          "games/moto-x3m-spooky-land.html",
-          "games/moto-x3m-winter.html",
-          "games/moto-x3m.html",
-          "games/n.html",
-          "games/neverball.html",
-          "games/ovo.html",
-          "games/pacman.html",
-          "games/papas-freezeria.html",
-          "games/papas-pizzeria.html",
-          "games/plants-vs-zombies.html",
-          "games/polytrack.html",
-          "games/pong.html",
-          "games/raft-wars.html",
-          "games/retro-bowl.html",
-          "games/rooftop-snipers.html",
-          "games/run-2.html",
-          "games/run-3.html",
-          "games/slither.io-online.html",
-          "games/slope.html",
-          "games/snow-rider-3d.html",
-          "games/stack.html",
-          "games/stealing-the-diamond.html",
-          "games/stickman-hook.html",
-          "games/subway-surfers.html",
-          "games/super-mario-63.html",
-          "games/super-smash-flash.html",
-          "games/tanuki-sunset.html",
-          "games/temple-run-2.html",
-          "games/tennis-physics.html",
-          "games/the-fancy-pants-adventures-remix.html",
-          "games/the-fancy-pants-adventures-world-2.html",
-          "games/the-fancy-pants-adventures-world-3.html",
-          "games/the-fancy-pants-adventures.html",
-          "games/the-fancy-pants-snowboarding.html",
-          "games/the-final-earth-2.html",
-          "games/the-worlds-hardest-game-2.html",
-          "games/the-worlds-hardest-game.html",
-          "games/tiny-fishing.html",
-          "games/tomb-of-the-mask.html",
-          "games/unfair-mario.html",
-          "games/watermelon-game.html"
-        ];
+    .suggest-gameL img, .suggest-gameM img {
+      visibility: visible;
+      margin: 0.4rem;
+      border-radius: 0.4rem;
+      position: relative;
+      width: 14.3vw;
+      /* 30% of the viewport width */
+      height: auto;
+      /* 16.89% of the viewport width to maintain a 16:9 aspect ratio */
+      border: #141414 solid 4rem;
+    }
 
-        var randomIndex = Math.floor(Math.random() * pages.length);
+    .game-list {
+      font-family: "M Plus Rounded 1c", sans-serif;
+      font-weight: bold;
+      text-align: center;
+      justify-content: center;
+      align-items: center;
+      color: transparent !important;
+    }
 
-        var randomPage = pages[randomIndex];
+    .underline {
+      text-decoration: underline !important;
+    }
+  </style>
+</head>
 
-        window.location.href = randomPage;
-      }
-      </script>
-      <div class="navbar-menu">
-        <a href="/index.html#popular-games">Popular</a>
-        <a href="/index.html#multiplayer-games">Multiplayer</a>
-        <a href="#" onclick="goToRandomPage()">Random</a>
-        <a href="/index.html#AllGamesDiv">All Games</a>
-        <a href="#">Contact</a>
-      </div>
-    </div>
-    <div
-      class="news"
+<body>
+  <div id="navbar-container"></div>
+  <div class="navbar-spacer" style="margin-top: 100px !important;"></div>
+  <div
+  class="news"
+  style="
+    background-color: #58aafc;
+    text-align: center;
+    color: #3c3c3c;
+    border-radius: 0px;
+    padding-top: 0%;
+    width: 80%;
+    border-radius: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 30px;
+    padding-bottom: 15px;
+    margin-bottom: 30px;
+    font-weight: bold;
+  "
+>
+  <p
+    style="
+      font-family: 'League Gothic';
+      font-weight: bold;
+      font-size: 225%;
+      margin-top: 0px;
+    "
+  >
+    Contact
+  </p>
+  <p
+    style="
+      color: #3c3c3c !important;
+      font-family: 'M Plus Rounded 1c', sans-serif;
+      font-weight: bold;
+      font-size: large;
+      margin-top: -15px;
+      margin-bottom: -5px;
+    "
+  >
+    <a
       style="
-        background-color: #58aafc;
-        text-align: center;
-        color: #3c3c3c;
-        border-radius: 0px;
-        padding-top: 0%;
-        width: 80%;
-        border-radius: 5px;
-        margin-left: auto;
-        margin-right: auto;
-        padding-bottom: 15px;
-        margin-top: -20px;
-        margin-bottom: 30px;
+        color: #3c3c3c !important;
+        text-decoration: underline !important;
       "
+      href="https://forms.gle/gvpTfVKfNj2YwRzG6"
+      >Suggest a Game</a
+    ><br /><br />
+    Emails: <br>
+    <img src="/images/more/contact.png" width="200vw"><br><br><a>Find out More in the </a><a
+      style="text-decoration: underline !important; color: #3c3c3c"
+      href="/privacy.html"
+      >Privacy Policy</a
     >
-      <p
-        style="
-          font-family: 'Satisfactory Topline';
-          font-weight: bold;
-          font-size: 225%;
-        "
-      >
-        Contact
-      </p>
-      <p
-        style="
-          color: #3c3c3c !important;
-          font-family: 'M Plus Rounded 1c', sans-serif;
-          font-weight: bold;
-          font-size: large;
-          margin-top: -15px;
-          margin-bottom: -5px;
-        "
-      >
-        <a
-          style="
-            color: #3c3c3c !important;
-            text-decoration: underline !important;
-          "
-          href="https://forms.gle/gvpTfVKfNj2YwRzG6"
-          >Suggest a Game</a
-        ><br /><br />
-        Emails: <br>
-        <img src="/images/extras/contact.png" width="200vw"><br><br><a>Find out More in the </a><a
-          style="text-decoration: underline !important; color: #3c3c3c"
-          href="/privacy.html"
-          >Privacy Policy</a
-        >
-      </p>
-    </div>
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <div style="background-color: #141414">
-      <br />
-      <p
-        style="
-          font-size: large;
-          align-items: center;
-          padding-left: 6%;
-          font-weight: bold;
-          font-family: 'M Plus Rounded 1c';
-          text-decoration: none !important;
-          color: #58aafc !important;
-        "
-      >
-        <a
-          style="
-            text-decoration: underline !important;
-            color: #58aafc !important;
-            padding-right: 1%;
-          "
-          href="/about.html"
-          >Home</a
-        >
-        <a
-          style="
-            text-decoration: underline !important;
-            color: #58aafc !important;
-            padding-right: 1%;
-          "
-          href="/about.html"
-          >Contact</a
-        >
-      </p>
-      <br />
-    </div>
-  </body>
+  </p>
+</div>
+</body>
+
 </html>

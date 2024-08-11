@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Theme Customisation</title>
+    <link rel="stylesheet" type="text/css" href="/games.css">
+    <link rel="stylesheet" type="text/css" href="/effects.css">
+    <style>
+        body {
+            font-family: "M Plus Rounded 1c", sans-serif;
+            background-position: center;
+            color: white;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow-y: auto;
+            position: relative;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: var(--secondary-color);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            color: var(--primary-color);
+            position: relative;
+            z-index: 1;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        label {
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        input[type="text"],
+        input[type="color"],
+        button[type="submit"],
+        button[type="button"] {
+            text-shadow: 1px 1px 8px black !important;
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            border: 1px solid var(--primary-color);
+            box-sizing: border-box;
+            background-color: white;
+            color: var(--secondary-color);
+        }
+
+        input[type="color"]::-webkit-color-swatch-wrapper {
+            padding: 0;
+        }
+
+        input[type="color"]::-webkit-color-swatch {
+            border: none;
+        }
+
+        button[type="submit"],
+        button[type="button"] {
+            text-shadow: 1px 1px 2px black;
+            font-size: large;
+            padding: 10px 20px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button[type="submit"]:hover,
+        button[type="button"]:hover {
+            background-color: darken(var(--primary-color), 10%);
+        }
+
+        .selected {
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+            text-decoration: underline;
+        }
+
+        .image-container {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .image-container img {
+            margin: 5px;
+            width: 200px;
+            height: 200px;
+            border: 5px solid white;
+            border-radius: 5px;
+            object-fit: cover;
+        }
+
+        button[type="submit"],
+        button[type="button"],
+        #mode-switch,
+        #default-button {
+            display: block;
+            margin: 10px auto;
+            /* Center the buttons horizontally */
+            width: 600px;
+            /* Set a fixed width for all buttons */
+            text-align: center;
+            /* Center text within buttons */
+        }
+    </style>
+</head>
+
+<body>
+    <div id="navbar-container"></div>
+    <div class="navbar-spacer" style="margin-top: 40px;"></div>
+    <div class="container" style="margin-bottom: -10px;">
+        <p
+            style="font-family: League Gothic; margin-top: -10px; margin-bottom: 0px; font-size: 400%; text-align: center;">
+            Customisation</p>
+        <form id="settings-form">
+            <div>
+                <label for="background-image">Background Image URL:</label><br>
+                <input type="text" id="background-image" name="background-image">
+            </div>
+            <div>
+                <label for="primary-color">Text Colour:</label><br>
+                <input type="color" id="primary-color" name="primary-color" value="#000000">
+            </div>
+            <div>
+                <label for="background-color">Secondary Colour:</label><br>
+                <input type="color" id="background-color" name="background-color" value="#ffffff">
+            </div>
+            <div>
+                <label for="background-res">Background Resolution (in px):</label><br>
+                <input type="text" id="background-res" name="background-res" placeholder="e.g. 1280">
+            </div>
+            <button type="button" id="mode-switch">Switch to Light/Dark Icons Mode</button>
+            <button type="submit">Save Settings</button>
+            <button type="button" id="default-button">Reset to Defaults</button>
+        </form>
+    </div>
+    <div class="image-container">
+        <img src="/background.png" alt="Image 1">
+        <img src="/background-old.png" alt="Image 2">
+        <img src="/background-red.png" alt="Image 3">
+        <img src="/background-red-old.png" alt="Image 4">
+    </div>
+    <div class="image-container">
+        <img src="/background-green.png" alt="Image 5">
+        <img src="/background-green-old.png" alt="Image 6">
+        <img src="/background-purple.png" alt="Image 7">
+        <img src="/background-purple-old.png" alt="Image 8">
+    </div>
+    <div class="image-container">
+        <img src="/white-and-black.png" alt="Image 5">
+        <img src="/topo.png" alt="Image 6">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Rotating_earth_%28large%29.gif/200px-Rotating_earth_%28large%29.gif" alt="Image 7">
+    </div>
+    <script src="/main.js" defer></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            applyStoredSettings();
+            applyStoredMode();
+            updateModeSwitchButton(); // Update button text on page load
+
+            // Ensure background-size is set initially on page load
+            const backgroundRes = localStorage.getItem('background-res');
+            if (backgroundRes) {
+                document.body.style.backgroundSize = '${backgroundRes}px auto';
+            }
+        });
+
+        document.getElementById('settings-form').addEventListener('submit', function (event) {
+            event.preventDefault(); // Prevent form submission
+
+            const backgroundImageValue = document.getElementById('background-image').value;
+            const primaryColorValue = document.getElementById('primary-color').value;
+            const secondaryColorValue = document.getElementById('background-color').value;
+            const backgroundResValue = document.getElementById('background-res').value;
+
+            if (backgroundImageValue && !isValidUrl(backgroundImageValue)) {
+                alert('Please enter a valid URL.');
+                return;
+            }
+
+            if (backgroundResValue && !isValidPixelValue(backgroundResValue)) {
+                alert('Please enter a valid pixel value.');
+                return;
+            }
+
+            localStorage.setItem('background-image', backgroundImageValue);
+            localStorage.setItem('primary-color', primaryColorValue);
+            localStorage.setItem('secondary-color', secondaryColorValue);
+            localStorage.setItem('background-res', backgroundResValue); // Store without 'px' suffix
+
+            applyStoredSettings();
+        });
+
+        document.getElementById('default-button').addEventListener('click', function () {
+            localStorage.setItem('background-image', '/background.png');
+            localStorage.setItem('primary-color', '#3c3c3c');
+            localStorage.setItem('secondary-color', '#58AAFC');
+            localStorage.setItem('background-res', '1280');
+            location.reload();
+        });
+
+        document.getElementById('mode-switch').addEventListener('click', toggleMode);
+
+        function toggleMode() {
+            const currentMode = localStorage.getItem('mode');
+            const newMode = currentMode === 'light' ? 'dark' : 'light';
+            localStorage.setItem('mode', newMode);
+
+            applyStoredMode();
+            updateModeSwitchButton(); // Update button text after toggling mode
+        }
+
+        function applyStoredMode() {
+            const mode = localStorage.getItem('mode');
+
+            if (mode === 'dark') {
+                document.documentElement.style.setProperty('--primary-color', '#ffffff');
+                document.documentElement.style.setProperty('--secondary-color', '#000000');
+                document.querySelector('.container').style.backgroundColor = '#000000';
+            } else {
+                document.documentElement.style.setProperty('--primary-color', '#000000');
+                document.documentElement.style.setProperty('--secondary-color', '#ffffff');
+                document.querySelector('.container').style.backgroundColor = '#ffffff';
+            }
+
+            applyStoredSettings(); // Update settings after mode change
+        }
+
+        function applyStoredSettings() {
+            const backgroundImage = localStorage.getItem('background-image');
+            const primaryColor = localStorage.getItem('primary-color');
+            const secondaryColor = localStorage.getItem('secondary-color');
+            const backgroundRes = localStorage.getItem('background-res'); // Already includes 'px'
+
+            if (backgroundImage) {
+                document.body.style.backgroundImage = url('${backgroundImage}');
+            }
+            if (primaryColor) {
+                document.documentElement.style.setProperty('--primary-color', primaryColor);
+            }
+            if (secondaryColor) {
+                document.documentElement.style.setProperty('--secondary-color', secondaryColor);
+                document.querySelector('.container').style.backgroundColor = secondaryColor;
+            }
+            if (backgroundRes) {
+                document.body.style.backgroundSize = '${backgroundRes}px auto'; // Apply directly with ' auto'
+            }
+        }
+
+        function updateModeSwitchButton() {
+            const mode = localStorage.getItem('mode');
+            const modeSwitchButton = document.getElementById('mode-switch');
+
+            if (mode === 'dark') {
+                modeSwitchButton.textContent = 'Switch to Light Icons Mode';
+            } else {
+                modeSwitchButton.textContent = 'Switch to Dark Icons Mode';
+            }
+        }
+
+        function isValidUrl(url) {
+            try {
+                new URL(url);
+                return true;
+            } catch (e) {
+                return false;
+            }
+        }
+
+        function isValidPixelValue(value) {
+            const px = parseInt(value, 10);
+            return !isNaN(px) && px > 0;
+        }
+    </script>
+</body>
+
+</html>

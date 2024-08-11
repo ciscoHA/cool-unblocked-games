@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navbar</title>
+    <style>
+        .selected {
+            background-color: var(--secondary-color) !important;
+            color: var(--primary-color) !important;
+            font-weight: bold !important;
+        }
+
+        body, html {
+            font-family: "M Plus Rounded 1c", sans-serif;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+        }
+
+        a {
+            text-decoration: none !important;
+        }
+
+        a:hover {
+            text-decoration: underline !important;
+        }
+
+        .logo {
+            margin-bottom: 2px;
+        }
+
+        .navbar {
+            font-weight: bold;
+            font-size: large;
+            background-color: var(--secondary-color);
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center; /* Center horizontally */
+            padding-top: 0.3%;
+            padding-bottom: 0.6%;
+            position: relative; /* Necessary for absolute positioning */
+            margin-bottom: -90px;
+        }
+
+        .navbar-menu {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            white-space: nowrap;
+            margin-left: auto; /* Center horizontally */
+            margin-right: auto; /* Center horizontally */
+        }
+
+        .navbar-menu a {
+            text-align: center;
+            padding: 10px; 
+            margin: 2px;
+            border-radius: 10px;
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+            font-size: large;
+        }
+
+        .navbar-menu a:hover {
+            z-index: 9999;
+            text-decoration: none !important;
+            outline: 4px solid var(--primary-color);
+        }
+
+        #searchInput {
+            white-space: nowrap;
+            margin: 2%;
+            width: 240px !important;
+            padding: 10px 5px !important;
+            font-family: "M Plus Rounded 1c", sans-serif;
+            cursor: pointer;
+            background-color: var(--secondary-color);
+            font-size: 130%;
+            font-weight: bold;
+            color: var(--primary-color);
+            border-radius: 5px;
+            border-color: transparent;
+        }
+
+        #searchInput::placeholder {
+            font-family: "M Plus Rounded 1c", sans-serif;
+            background-color: var(--secondary-color);
+            font-size: 100%;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .info-icon {
+    color: var(--primary-color);
+    background-color: var(--secondary-color);
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    cursor: pointer;
+    margin-left: 10px; /* Spacing between the buttons and the info icon */
+    outline: 2px solid var(--primary-color); /* Added outline */
+}
+
+
+.info-container {
+    position: absolute;
+    top: 50%;
+    right: 110px; /* Adjust as needed */
+    transform: translateY(-50%);
+    z-index: 999; /* Ensure it's above other content */
+}
+
+
+.popup {
+    font-size: 90%;
+    border-radius: 4px;
+    color: var(--secondary-color);
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.5s linear;
+    width: 200px;
+    background-color: var(--primary-color);
+    padding: 10px;
+    position: absolute;
+    top: 21px;
+    right: -110px; /* Align to the right of the icon */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 10000; /* Ensure the popup has a higher z-index */
+}
+
+
+        .info-container:hover .popup {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%);
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo">
+            <a href="/index.html">
+                <img id="title-image" src="" width="480" alt="Title Image">
+            </a>
+        </div>
+        <div class="navbar-menu">
+            <a href="/index.html#featured-games">Featured</a>
+            <a href="/random.html">Random</a>
+            <a href="/index.html#AllGamesDiv">All Games</a>
+            <a href="/themes.html">Customise</a>
+            <a href="/about.html">Contact</a>
+            <div class="container" style="min-width: 240px; margin: 0 auto; padding: 0; margin-left: 5px; border-radius: 6px; box-shadow: 0 0px 0px rgba(0, 0, 0, 0.1); position: relative;">
+                <input type="text" id="searchInput" placeholder="Search..." autocomplete="off" style="width: calc(100% - 10px); padding: 6px; font-size: large; border: 0px solid #3c3c3c; border-radius: 12px; box-sizing: border-box; margin-bottom: 5px; outline: 4px solid var(--primary-color); text-shadow: none !important;">
+                <div id="searchResults" style="position: absolute; top: calc(100% + 5px); left: 0; width: 100%; background-color: var(--secondary-color); border-radius: 6px; box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.2); overflow-y: auto; max-height: 300px; z-index: 999; padding: 5px; overflow-x: hidden; display: none;">
+                    <!-- Search results will be inserted here -->
+                </div>
+            </div>
+        </div>
+        <div class="button-container">
+            <div class="info-container">
+                <div class="info-icon">i</div>
+                <div class="popup">Trying to play a game but getting an error?<br><br>Press Primary and Secondary to switch between the servers (primary = coolubg secondary = coolubg2)</div>
+            </div>
+            <button id="primary-button" style="margin: 5px 0; padding: 5px; width: 100px; height: 50px; border: 3px solid var(--primary-color); border-radius: 5px; background-color: var(--primary-color); color: var(--secondary-color); cursor: pointer; font-size: medium; transition: background-color 0.3s, color 0.3s; font-family: Arial, Helvetica, sans-serif !important;">Primary</button>
+            <button id="backup-button" style="margin: 5px 0; padding: 5px; width: 100px; height: 50px; border: 3px solid var(--primary-color); border-radius: 5px; background-color: var(--primary-color); color: var(--secondary-color); cursor: pointer; font-size: medium; transition: background-color 0.3s, color 0.3s; font-family: Arial, Helvetica, sans-serif !important;">Backup</button>
+           
+        </div>
+    </div>
+</body>
+</html>
