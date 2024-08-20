@@ -5,77 +5,115 @@
   </div>
   <!-- Fullscreen buttons -->
   <div class="fullscreen-buttons">
-    <img class="flash-icon" src="/images/icons/flash.png" alt="Flash support, emulated by ruffle" style="display: none;">
+    <img class="flash-icon" src="/images/icons/flash.png" alt="Flash support, emulated by ruffle"
+      style="display: none;">
     <button class="fullscreen-button-2" onclick="fullscreenFunction2()">
-      <img src="/images/icons/fullscreen-2.png" alt="Fullscreen">
-    </button> 
+      <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="m3.5 3.5h22v8c-2.3568-0.1633-4.6902 0.0034-7 0.5l8 8c-1.8501 2.0176-3.8501 3.8509-6 5.5-2.9843-2.4836-5.8176-5.1503-8.5-8-0.4974 2.646-0.6641 5.3127-0.5 8h-8v-22z"
+          fill="var(--primary-color)" />
+        <path
+          d="m37.5 3.5h22v22h-8c0.1641-2.6873-0.0026-5.354-0.5-8-2.7193 3.4222-5.8859 5.9222-9.5 7.5l-5-5 8-8c-2.3098-0.4966-4.6432-0.6633-7-0.5v-8z"
+          fill="var(--primary-color)" />
+        <path
+          d="m19.5 36.5c2.7254 1.213 5.0588 3.0464 7 5.5l-9 9c2.646 0.4974 5.3127 0.6641 8 0.5v8h-22v-22h8c-0.1633 2.3568 0.0034 4.6902 0.5 7 2.705-2.5362 5.205-5.2029 7.5-8z"
+          fill="var(--primary-color)" />
+        <path
+          d="m41.5 36.5c3.567 2.0566 6.7337 4.7232 9.5 8 0.4966-2.3098 0.6633-4.6432 0.5-7h8v22h-22v-8c2.3568 0.1633 4.6902-0.0034 7-0.5-2.8497-2.6824-5.5164-5.5157-8-8.5 1.6897-2.0193 3.3564-4.0193 5-6z"
+          fill="var(--primary-color)" />
+      </svg>
+    </button>
     <button class="fullscreen-button-1" onclick="fullscreenFunction1()">
-      <img src="/images/icons/fullscreen-1.png" alt="About Blank Fullscreen">
-    </button>   
+      <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+        <path d="m3.5 3.5h22v8h-14v14h-8v-22z" fill="var(--primary-color)" />
+        <path d="m37.5 3.5h22v22h-8v-14h-14v-8z" fill="var(--primary-color)" />
+        <path d="m3.5 37.5h8v14h14v8h-22v-22z" fill="var(--primary-color)" />
+        <path d="m51.5 37.5h8v22h-22v-8h14v-14z" fill="var(--primary-color)" />
+      </svg>
+
+    </button>
   </div>
 </div>
+
 <br><br>
+
 <style>
   .title-bar {
-  background-color: var(--secondary-color);
-  color: var(--primary-color);
-  font-weight: bold;
-  text-align: left;
-  padding: 10px 20px;
-  border-bottom-left-radius: 15px;
-  border-bottom-right-radius: 15px;
-  position: relative;
-  margin-top: 0px;
-  width: auto; /* Set width to auto */
-}
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    font-weight: bold;
+    text-align: left;
+    padding: 10px 20px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    position: relative;
+    margin-top: 0px;
+    width: auto;
+    /* Set width to auto */
+  }
 
-.title-content {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
+  .title-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
 
-.title-bar h2 {
-  margin: 0;
-  font-size: xx-large;
-}
+  .title-bar h2 {
+    margin: 0;
+    font-size: xx-large;
+  }
 
-.title-bar p {
-  margin: 0;
-  font-size: large;
-}
+  .title-bar p {
+    margin: 0;
+    font-size: large;
+  }
 
-.title-bar a {
-  color: var(--primary-color);
-  text-decoration: none;
-}
+  .title-bar a {
+    color: var(--primary-color);
+    text-decoration: none;
+  }
 
-.title-bar a:hover {
-  text-decoration: underline;
-}
+  .title-bar a:hover {
+    text-decoration: underline;
+  }
 
-/* Fullscreen buttons */
-.fullscreen-buttons {
-  position: absolute;
-  padding-right: 12px;
-  top: 50%;
-  transform: translateY(-50%);
-  right: 0; /* Align to the right edge */
-}
+  /* Fullscreen buttons */
+  .fullscreen-buttons {
+    position: absolute;
+    padding-right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 0;
+    /* Align to the right edge */
+    display: flex;
+    align-items: center;
+    /* Center vertically */
+  }
 
-.fullscreen-buttons img {
-  padding-right: 6px;
-  width: 48px; /* Adjust size as needed */
-  height: 48px ; /* Adjust size as needed */
-}
+  .fullscreen-button-1,
+  .fullscreen-button-2 {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    width: 48px;
+    /* Adjust size as needed */
+    height: 48px;
+    /* Adjust size as needed */
+    display: flex;
+    align-items: center;
+    /* Center vertically */
+    justify-content: center;
+    /* Center horizontally */
+    overflow: hidden;
+    /* Hide any overflow */
+  }
 
-.fullscreen-button-1, 
-.fullscreen-button-2 {
-  background: none;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-  width: 48px; /* Adjust size as needed */
-  height: 48px ; /* Adjust size as needed */
-}
+  .fullscreen-button-1 svg,
+  .fullscreen-button-2 svg {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    /* Hide any overflow within SVG */
+  }
 </style>

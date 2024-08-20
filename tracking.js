@@ -80,20 +80,15 @@ function displayVisitedPages() {
         }
 
         // Remove file extension from imgFileName
-        imgFileName = imgFileName.split('.html')[0];
+        imgFileName = imgFileName.replace('.html', '');
 
-        // Remove extra "/games/" if present
-        imgFileName = imgFileName.replace(/\/games\//, '/');
-
-        // Determine href value
-        var hrefValue = page.toLowerCase().endsWith(".html")
-            ? page.match(/\/games\/([^\/]+)\.html/)[1] // Get the game name from the URL
-            : page + ".html"; // Add .html extension if not already present
+        // Generate anchor href based on imgFileName
+        var hrefValue = `/games/${imgFileName}.html`;
 
         // Create HTML for each list item
         html += "<li>";
         html += '<div class="suggest-game">';
-        html += '<a href="/games/' + imgFileName + '.html">';
+        html += `<a href="${hrefValue}">`;
         html +=
             '<div style="position: absolute; background-color: rgba(0, 0, 0, 0); z-index: 3; margin-left: 0.4rem; margin-top: -0.4rem; width: 15.45rem; height: 12rem;" onmouseover="highlightImage2(\'suggest-imgC' +
             (index + 1) +
@@ -107,41 +102,39 @@ function displayVisitedPages() {
         html +=
             '<img style="outline: 3px solid #fc5858; border: 1px solid #fc5858" id="suggest-imgC' +
             (index + 1) +
-            '" src="images/games/' +
-            imgFileName +
-            '.png" alt="Recently Played" />';
+            `" src="/images/games/${imgFileName}.png" alt="Recently Played" />`;
         html +=
             '<div id="fade-wrapper" style="z-index: -1; position: absolute; width: 16vw; height: 7vh; margin-top: -1.4rem; margin-left: 0.45rem; overflow: hidden; opacity: 0;">';
-            html += '<div class="box-shadow"></div>';
-            html += "</div>";
-            html += "</a>";
-            html += '<a href="/games/' + hrefValue + '">';
-            html += '<span id="suggest-text' + (index + 1) + '">' + editedName + "</span>";
-            html += "</a>";
-            html += "</div>";
-            html += "</li>";
-        });
-    
-        // Update the content of the 'recently-played' list
-        displayElement.innerHTML =
-            '<ul id="recently-played" class="game-list" style="color: transparent; list-style-type: none; padding: 0">' +
-            html +
-            "</ul>";
-    }
-    
-    // Function to clear recently visited pages
-    function clearRecentlyVisited() {
-        localStorage.removeItem("visitedPages");
-        displayVisitedPages(); // Display the updated list (empty after clearing)
-    }
-    
-    // Call the trackPage function when the page loads
-    window.onload = function () {
-        trackPage();
-        generatePageList();
-    
-        sortList();
-    
-        // Add event listener to the clear button
-        document.getElementById("clear-button").addEventListener("click", clearRecentlyVisited);
-    };
+        html += '<div class="box-shadow"></div>';
+        html += "</div>";
+        html += "</a>";
+        html += `<a href="${hrefValue}">`;
+        html += '<span id="suggest-text' + (index + 1) + '">' + editedName + "</span>";
+        html += "</a>";
+        html += "</div>";
+        html += "</li>";
+    });
+
+    // Update the content of the 'recently-played' list
+    displayElement.innerHTML =
+        '<ul id="recently-played" class="game-list" style="color: transparent; list-style-type: none; padding: 0">' +
+        html +
+        "</ul>";
+}
+
+// Function to clear recently visited pages
+function clearRecentlyVisited() {
+    localStorage.removeItem("visitedPages");
+    displayVisitedPages(); // Display the updated list (empty after clearing)
+}
+
+// Call the trackPage function when the page loads
+window.onload = function () {
+    trackPage();
+    generatePageList();
+
+    sortList();
+
+    // Add event listener to the clear button
+    document.getElementById("clear-button").addEventListener("click", clearRecentlyVisited);
+};

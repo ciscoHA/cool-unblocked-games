@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game List</title>
+    <script src="pages.js"></script>
+</head>
+<body>
+    <h1>Game List</h1>
+    <ul id="game-list"></ul>
+
+    <script>
+        // Get the game list element
+        const gameList = document.getElementById('game-list');
+
+        // Iterate over the pages array and create an anchor for each game
+        pages.forEach(page => {
+            const listItem = document.createElement('li');
+            const anchor = document.createElement('a');
+            anchor.href = `/games/${page}.html`;
+            anchor.textContent = `${page}.html`;
+            listItem.appendChild(anchor);
+            gameList.appendChild(listItem);
+        });
+    </script>
+</body>
+</html>

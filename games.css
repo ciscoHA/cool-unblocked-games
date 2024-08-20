@@ -214,3 +214,14 @@ button:hover {
   text-decoration: underline !important;
 }
 
+.fixed-background {
+  position: fixed; /* Fixes the position relative to the viewport */
+  top: 0;
+  left: 0;
+  width: 100vw; /* Full viewport width */
+  height: 100vh; /* Full viewport height */
+  z-index: -999; /* Ensures it's behind other content */
+  background-size: cover; /* Scale the image to cover the entire div */
+  background-repeat: repeat; /* Repeat the image */
+  background-position: center; /* Center the image */
+}

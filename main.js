@@ -1,18 +1,55 @@
+function insertIntoHead(content) {
+    const head = document.head || document.getElementsByTagName('head')[0];
+
+    // Create a range to parse the HTML content
+    const range = document.createRange();
+    range.selectNode(head);
+
+    // Create a fragment to hold the parsed content
+    const fragment = range.createContextualFragment(content);
+
+    // Append the fragment to the head
+    head.appendChild(fragment);
+}
+
+insertIntoHead('  <script src="/pages.js"></script>');
+
+
+// Function to load an external script dynamically
+function loadScript(url) {
+    var script = document.createElement('script');
+    script.src = url;
+    script.async = true;
+    document.head.appendChild(script);
+}
+
+// Load pages.js
+loadScript('pages.js');
+
+function insertHTMLIntoBody() {
+    // Create a new div element
+    const div = document.createElement('div');
+    div.className = 'fixed-background'; // Set the class directly
+    
+    // Append the new div to the body
+    document.body.appendChild(div);
+}
+
+// Example usage:
+insertHTMLIntoBody();
+
 function setDefaultLocalStorageValues() {
     if (!localStorage.getItem('background-image')) {
         localStorage.setItem('background-image', '/background.png');
     }
     if (!localStorage.getItem('primary-color')) {
-        localStorage.setItem('primary-color', '#3c3c3c');
+        localStorage.setItem('primary-color', '#11E2C');
     }
     if (!localStorage.getItem('secondary-color')) {
         localStorage.setItem('secondary-color', '#58AAFC');
     }
     if (!localStorage.getItem('background-res')) {
         localStorage.setItem('background-res', '1280');
-    }
-    if (!localStorage.getItem('mode')) {
-        localStorage.setItem('mode', 'dark'); // Set default mode to dark
     }
     if (!localStorage.getItem('selectedButton')) {
         localStorage.setItem('selectedButton', 'primary'); // Set default button to primary
@@ -31,15 +68,13 @@ document.addEventListener('DOMContentLoaded', function() {
             var tempContainer = document.createElement('div');
             tempContainer.innerHTML = data;
 
-            var titleImageElement = tempContainer.querySelector('#title-image');
-            var mode = localStorage.getItem('mode');
-            var titleImageSrc = mode === 'dark' ? '/title.png' : '/title-l.png';
+            var navbarContainer = document.getElementById('navbar-container');
+            navbarContainer.innerHTML = tempContainer.innerHTML;
 
-            if (titleImageElement) {
-                titleImageElement.src = titleImageSrc;
-            }
+            // Set a high z-index directly
+            navbarContainer.style.position = 'relative'; // Or 'absolute' / 'fixed' based on your layout
+            navbarContainer.style.zIndex = '9999'; // Or a high enough value to ensure it's on top
 
-            document.getElementById('navbar-container').innerHTML = tempContainer.innerHTML;
             attachNavbarListeners();
             updateButtonState(localStorage.getItem('selectedButton'));
         })
@@ -50,21 +85,6 @@ document.addEventListener('DOMContentLoaded', function() {
         .then(data => {
             var tempContainer = document.createElement('div');
             tempContainer.innerHTML = data;
-
-            var mode = localStorage.getItem('mode');
-            var fullscreen1Src = mode === 'dark' ? '/images/icons/fullscreen-1.png' : '/images/icons/fullscreen-1-l.png';
-            var fullscreen2Src = mode === 'dark' ? '/images/icons/fullscreen-2.png' : '/images/icons/fullscreen-2-l.png';
-
-            var fullscreenButton1 = tempContainer.querySelector('.fullscreen-button-1 img');
-            var fullscreenButton2 = tempContainer.querySelector('.fullscreen-button-2 img');
-
-            if (fullscreenButton1) {
-                fullscreenButton1.src = fullscreen1Src;
-            }
-
-            if (fullscreenButton2) {
-                fullscreenButton2.src = fullscreen2Src;
-            }
 
             var titlebarContainer = document.getElementById('titlebar-container');
             titlebarContainer.innerHTML = ''; // Clear existing content
@@ -86,180 +106,58 @@ document.addEventListener('DOMContentLoaded', function() {
 
     loadIframe();
 });
+// Function to load an external script dynamically with a Promise
+function loadScript(url) {
+    return new Promise((resolve, reject) => {
+        const script = document.createElement('script');
+        script.src = url;
+        script.async = true;
+        script.onload = () => resolve();
+        script.onerror = () => reject(new Error(`Failed to load script: ${url}`));
+        document.head.appendChild(script);
+    });
+}
+
+// Load pages.js and then initialize search functionality
+loadScript('pages.js')
+    .then(() => {
+        // Ensure the pages array is defined before attaching the search functionality
+        if (typeof pages !== 'undefined' && Array.isArray(pages)) {
+            attachNavbarListeners();
+        } else {
+            console.error('pages array is not defined or not an array.');
+        }
+    })
+    .catch(error => console.error(error));
 
 function attachNavbarListeners() {
     const searchInput = document.getElementById('searchInput');
     const searchResults = document.getElementById('searchResults');
 
-    var pages = [
-        "1v1-lol",
-        "2048",
-        "a-dark-room",
-        "among-us-online",
-        "among-us-online-2",
-        "appel-multiplayer",
-        "appel",
-        "awesome-tanks",
-        "awesome-tanks-2",
-        "bitlife",
-        "bob-the-robber-2",
-        "circloo",
-        "cloud-platformer-fun",
-        "cookie-clicker",
-        "crossy-road",
-        "cut-the-rope",
-        "doom",
-        "drift-boss",
-        "drive-mad",
-        "earn-to-die-2",
-        "eggy-car",
-        "fireboy&watergirl-2",
-        "fireboy&watergirl-3",
-        "fireboy&watergirl-4",
-        "fnaf-2",
-        "fnaf",
-        "friday-night-funkin",
-        "getaway-shootout",
-        "jelly-truck",
-        "johnny-upgrade",
-        "merge-melon",
-        "minecraftish-mmo",
-        "mini-golf-online",
-        "mini-golf-online-2",
-        "moto-x3m-2",
-        "moto-x3m-3",
-        "moto-x3m-pool-party",
-        "moto-x3m-spooky-land",
-        "moto-x3m-winter",
-        "moto-x3m",
-        "neverball",
-        "ovo",
-        "paper-io-2",
-        "plants-vs.-zombies-web-demo",
-        "polytrack",
-        "pong",
-        "retro-bowl",
-        "rooftop-snipers",
-        "run-3",
-        "slither.io-online",
-        "slope",
-        "snow-rider-3d",
-        "stack",
-        "stickman-hook",
-        "subway-surfers",
-        "tanuki-sunset",
-        "temple-run-2",
-        "tennis-physics",
-        "the-final-earth-2",
-        "tiny-fishing",
-        "tomb-of-the-mask",
-        "age-of-war-2",
-        "age-of-war",
-        "alien-hominid",
-        "asteroids",
-        "bad-piggies",
-        // "bejeweled",
-        // "blank",
-        "bloons-td-2",
-        "bloons-td-3",
-        "bloons-td-4",
-        "bloons-td",
-        "bloons-tower-defense-5",
-        "bloons",
-        "bloxorz",
-        "bob-the-robber",
-        "breaking-the-bank",
-        "btd4-exp",
-        "duck-life-2",
-        "duck-life-3",
-        "duck-life-4",
-        "duck-life",
-        "escaping-the-prison",
-        "fancy-snowboarding",
-        "fireboy&watergirl",
-        "fishy!",
-        "fleeing-the-complex",
-       // "gluey2",
-        "gravitee-2",
-        "gravitee",
-        "gun-mayhem-2",
-        "gun-mayhem",
-        "infiltrating-the-airship",
-        "jacksmith",
-        "learn-to-fly-2",
-       // "learn-to-fly-idle",
-        "learn-to-fly",
-        "light-bot",
-        "line-rider",
-        "n",
-        "pacman",
-        "papas-freezeria",
-        "papas-pizzeria",
-       // "qwop",
-        "raft-wars",
-        "run-2",
-        "stealing-the-diamond",
-        "super-mario-63",
-        "super-smash-flash",
-        "the-fancy-pants-adventures-remix",
-        "the-fancy-pants-adventures-world-2",
-        "the-fancy-pants-adventures-world-3",
-        "the-fancy-pants-adventures",
-        "the-worlds-hardest-game-2",
-        "the-worlds-hardest-game",
-        "unfair-mario",
-        "vex-3",
-        "n-gon",
-        "basket-random",
-        "hextris",
-        "jstetris",
-        "quake-3-arena-demo",
-       // "raft-wars-remake",
-        "there-is-no-game",
-        "time-shooter-2",
-        "time-shooter-3-swat",
-        "abobos-big-adventure",
-        "cactus-mccoy",
-        "cactus-mccoy-2",
-        "douchebag-life",
-        "douchebag-workout-2",
-        "floodrunner-4",
-        "learn-to-fly-3",
-        "papa-louie-2",
-        "papa-louie-3",
-        "papa-louie-when-pizzas-attack",
-        "papas-cheeseria",
-        "papas-scooperia",
-        "portal-the-flash-version",
-        "raft-wars-2",
-        "the-impossible-quiz",
-        "8-ball-pool"
-        ];
+    function searchPages(query) {
+        searchResults.innerHTML = '';
+        if (query === "") {
+            searchResults.style.display = 'none';
+            return;
+        }
 
-        function searchPages(query) {
-            searchResults.innerHTML = '';
-            if (query === "") {
-              searchResults.style.display = 'none';
-              return;
-            }
-          
-            const filteredPages = pages.filter(page =>
-              page.replace(/-/g, ' ').replace(/&/g, ' and ').toLowerCase().includes(query.replace(/&/g, ' and ').toLowerCase())
-            );
-          
-            const displayCount = Math.min(filteredPages.length, 5);
-          
-            if (displayCount === 0) {
-              searchResults.innerHTML = '<p style="margin: 0; font-size: 14px; color: var(--primary-color);">No results found</p>';
-              searchResults.style.display = 'block';
-            } else {
-              for (let i = 0; i < displayCount; i++) {
+        const filteredPages = pages.filter(page =>
+            page.replace(/-/g, ' ').replace(/&/g, ' and ').toLowerCase().includes(query.replace(/&/g, ' and ').toLowerCase())
+        );
+
+        const displayCount = Math.min(filteredPages.length, 5);
+
+        if (displayCount === 0) {
+            searchResults.innerHTML = '<p style="margin: 0; font-size: 14px; color: var(--primary-color);">No results found</p>';
+            searchResults.style.display = 'block';
+        } else {
+            for (let i = 0; i < displayCount; i++) {
                 const page = filteredPages[i];
                 const item = document.createElement('div');
                 item.classList.add('searchItem');
                 if (i > 0) {
-                  item.style.borderTop = '1px solid var(--primary-color)';
-                  item.style.marginTop = '5px';
+                    item.style.borderTop = '1px solid var(--primary-color)';
+                    item.style.marginTop = '5px';
                 }
                 const anchor = document.createElement('a');
                 anchor.href = `/games/${page}.html`;
@@ -271,10 +169,10 @@ function attachNavbarListeners() {
                 anchor.style.display = 'flex';
                 anchor.style.alignItems = 'center';
                 anchor.addEventListener('mouseover', function () {
-                  anchor.style.textDecoration = 'underline';
+                    anchor.style.textDecoration = 'underline';
                 });
                 anchor.addEventListener('mouseout', function () {
-                  anchor.style.textDecoration = 'none';
+                    anchor.style.textDecoration = 'none';
                 });
                 const image = document.createElement('img');
                 image.src = `/images/games/${page}.png`;
@@ -289,18 +187,18 @@ function attachNavbarListeners() {
                 let line2 = '';
                 const words = formattedPageName.split(' ');
                 for (const word of words) {
-                  if (line1.length === 0) {
-                    if (word.length > 18) {
-                      line1 += word.substr(0, 15) + '... ';
-                      line2 += word.substr(15) + ' ';
+                    if (line1.length === 0) {
+                        if (word.length > 18) {
+                            line1 += word.substr(0, 15) + '... ';
+                            line2 += word.substr(15) + ' ';
+                        } else {
+                            line1 += word + ' ';
+                        }
+                    } else if ((line1 + word).length < 18) {
+                        line1 += word + ' ';
                     } else {
-                      line1 += word + ' ';
+                        line2 += word + ' ';
                     }
-                  } else if ((line1 + word).length < 18) {
-                    line1 += word + ' ';
-                  } else {
-                    line2 += word + ' ';
-                  }
                 }
                 text.style.margin = '0';
                 text.style.maxWidth = 'calc(100% - 80px)';
@@ -311,16 +209,15 @@ function attachNavbarListeners() {
                 text.style.color = 'var(--primary-color)';
                 text.style.fontSize = '14px';
                 text.style.textAlign = 'left';
-                text.innerHTML = `${line1}
-          ${line2}`;
+                text.innerHTML = `${line1} ${line2}`;
                 anchor.appendChild(image);
                 anchor.appendChild(text);
                 item.appendChild(anchor);
                 searchResults.appendChild(item);
                 searchResults.style.display = 'block';
-              }
             }
-          }
+        }
+    }
 
     function capitalizeFirstLetter(string) {
         return string.replace(/\b\w/g, letter => letter.toUpperCase());
@@ -337,6 +234,7 @@ function attachNavbarListeners() {
             searchResults.style.display = 'none';
         }
     });
+
 
     const primaryButton = document.getElementById('primary-button');
     const backupButton = document.getElementById('backup-button');
@@ -421,9 +319,10 @@ function updateButtonState(selectedButton) {
 
 document.addEventListener('DOMContentLoaded', function() {
     const backgroundRes = localStorage.getItem('background-res');
+    const fixedBackgroundImg = document.querySelector('.fixed-background');
 
     if (backgroundRes && !isNaN(parseInt(backgroundRes))) {
-        document.body.style.backgroundSize = `${backgroundRes}px auto`;
+        fixedBackgroundImg.style.backgroundSize = `${backgroundRes}px auto`;
     }
 });
 
@@ -479,9 +378,10 @@ function applyStoredSettings() {
     const backgroundImage = localStorage.getItem('background-image');
     const primaryColor = localStorage.getItem('primary-color');
     const secondaryColor = localStorage.getItem('secondary-color');
+    const fixedBackgroundImg = document.querySelector('.fixed-background');
 
-    if (backgroundImage) {
-        document.body.style.backgroundImage = `url('${backgroundImage}')`;
+    if (fixedBackgroundImg && backgroundImage) {
+        fixedBackgroundImg.style.backgroundImage = `url('${backgroundImage}')`;
     }
     if (primaryColor) {
         document.documentElement.style.setProperty('--primary-color', primaryColor);
@@ -507,3 +407,5 @@ document.getElementById('settings-form').addEventListener('submit', function (ev
 
     location.reload();
 });
+
+

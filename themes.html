@@ -108,7 +108,6 @@
 
         button[type="submit"],
         button[type="button"],
-        #mode-switch,
         #default-button {
             display: block;
             margin: 10px auto;
@@ -145,7 +144,6 @@
                 <label for="background-res">Background Resolution (in px):</label><br>
                 <input type="text" id="background-res" name="background-res" placeholder="e.g. 1280">
             </div>
-            <button type="button" id="mode-switch">Switch to Light/Dark Icons Mode</button>
             <button type="submit">Save Settings</button>
             <button type="button" id="default-button">Reset to Defaults</button>
         </form>
@@ -171,8 +169,6 @@
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             applyStoredSettings();
-            applyStoredMode();
-            updateModeSwitchButton(); // Update button text on page load
 
             // Ensure background-size is set initially on page load
             const backgroundRes = localStorage.getItem('background-res');
@@ -209,38 +205,12 @@
 
         document.getElementById('default-button').addEventListener('click', function () {
             localStorage.setItem('background-image', '/background.png');
-            localStorage.setItem('primary-color', '#3c3c3c');
+            localStorage.setItem('primary-color', '#111E2C');
             localStorage.setItem('secondary-color', '#58AAFC');
             localStorage.setItem('background-res', '1280');
             location.reload();
         });
 
-        document.getElementById('mode-switch').addEventListener('click', toggleMode);
-
-        function toggleMode() {
-            const currentMode = localStorage.getItem('mode');
-            const newMode = currentMode === 'light' ? 'dark' : 'light';
-            localStorage.setItem('mode', newMode);
-
-            applyStoredMode();
-            updateModeSwitchButton(); // Update button text after toggling mode
-        }
-
-        function applyStoredMode() {
-            const mode = localStorage.getItem('mode');
-
-            if (mode === 'dark') {
-                document.documentElement.style.setProperty('--primary-color', '#ffffff');
-                document.documentElement.style.setProperty('--secondary-color', '#000000');
-                document.querySelector('.container').style.backgroundColor = '#000000';
-            } else {
-                document.documentElement.style.setProperty('--primary-color', '#000000');
-                document.documentElement.style.setProperty('--secondary-color', '#ffffff');
-                document.querySelector('.container').style.backgroundColor = '#ffffff';
-            }
-
-            applyStoredSettings(); // Update settings after mode change
-        }
 
         function applyStoredSettings() {
             const backgroundImage = localStorage.getItem('background-image');
@@ -260,17 +230,6 @@
             }
             if (backgroundRes) {
                 document.body.style.backgroundSize = '${backgroundRes}px auto'; // Apply directly with ' auto'
-            }
-        }
-
-        function updateModeSwitchButton() {
-            const mode = localStorage.getItem('mode');
-            const modeSwitchButton = document.getElementById('mode-switch');
-
-            if (mode === 'dark') {
-                modeSwitchButton.textContent = 'Switch to Light Icons Mode';
-            } else {
-                modeSwitchButton.textContent = 'Switch to Dark Icons Mode';
             }
         }
 

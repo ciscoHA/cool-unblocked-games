@@ -1,61 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<style>
-  body {
-    display: flex;
-    justify-content: flex-end;
-    padding: 20px;
-  }
-  .info-container {
-    position: relative;
-    display: inline-block;
-  }
-  .info-icon {
-    background-color: #ddd;
-    border-radius: 50%;
-    width: 20px;
-    height: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: Arial, sans-serif;
-    font-weight: bold;
-    cursor: pointer;
-  }
-  .popup {
-    visibility: hidden;
-    opacity: 0;
-    transition: visibility 0s, opacity 0.5s linear;
-    width: 200px;
-    background-color: #fff;
-    border: 1px solid #ddd;
-    padding: 10px;
-    position: absolute;
-    top: 0;
-    right: 25px; /* Align to the right of the icon */
-    transform: translateY(0);
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    z-index: 1;
-  }
-  .info-container:hover .popup {
-    visibility: visible;
-    opacity: 1;
-  }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colorize Image</title>
+    <style>
+        body {
+          margin: 0; /* Remove default margins */
+          background: #f0f0f0; /* Light background for contrast */
+        }
+        
+        #title-image {
+          width: 500px;
+          height: auto; /* Adjust if necessary */
+          box-shadow: 0 0 0 10px cadetblue; /* Shadow properties (no blur or offset) */
+          opacity: 0; /* Makes the image fully transparent */
+          display: block; /* Ensures the image is part of the layout */
+        }
+    </style>
 </head>
 <body>
-
-<div class="info-container">
-  <div class="info-icon">
-    i
-  </div>
-  <div class="popup">
-    Trying to play game but getting an error?<br> The url may be overloaded or blocked. <br><br>press primary and secondary to switch between the servers (coolubg to coolubg2)
-  </div>
-</div>
-
+    <img src="/title.png" id="title-image" alt="Colorized Image">
 </body>
 </html>
