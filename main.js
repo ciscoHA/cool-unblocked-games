@@ -35,29 +35,42 @@ function insertHTMLIntoBody() {
     document.body.appendChild(div);
 }
 
-// Example usage:
 insertHTMLIntoBody();
 
-function setDefaultLocalStorageValues() {
-    if (!localStorage.getItem('background-image')) {
+//function setDefaultLocalStorageValues() {
+  //  if (!localStorage.getItem('background-image')) {
+   //     localStorage.setItem('background-image', '/background.png');
+   // }
+   // if (!localStorage.getItem('primary-color')) {
+    //    localStorage.setItem('primary-color', '#11E2C');
+   // }
+   // if (!localStorage.getItem('secondary-color')) {
+   //     localStorage.setItem('secondary-color', '#58AAFC');
+   // }
+   // if (!localStorage.getItem('background-res')) {
+     //   localStorage.setItem('background-res', '1280');
+    //}
+    //if (!localStorage.getItem('selectedButton')) {
+      //  localStorage.setItem('selectedButton', 'primary'); // Set default button to primary
+    //}
+//}
+
+function setDefaultValuesIfPrimaryColorMissing() {
+    const primaryColor = localStorage.getItem('primary-color');
+
+    if (!primaryColor || primaryColor === '') {
         localStorage.setItem('background-image', '/background.png');
-    }
-    if (!localStorage.getItem('primary-color')) {
-        localStorage.setItem('primary-color', '#11E2C');
-    }
-    if (!localStorage.getItem('secondary-color')) {
+        localStorage.setItem('primary-color', '#111E2C');
         localStorage.setItem('secondary-color', '#58AAFC');
-    }
-    if (!localStorage.getItem('background-res')) {
         localStorage.setItem('background-res', '1280');
-    }
-    if (!localStorage.getItem('selectedButton')) {
-        localStorage.setItem('selectedButton', 'primary'); // Set default button to primary
     }
 }
 
+// Call the function to set default values if primary-color is missing
+setDefaultValuesIfPrimaryColorMissing();
+
 document.addEventListener('DOMContentLoaded', function() {
-    setDefaultLocalStorageValues();
+  //  setDefaultLocalStorageValues();
 });
 
 document.addEventListener('DOMContentLoaded', function() {
