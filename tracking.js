@@ -42,15 +42,14 @@ loadScript('pages.js');
         displayVisitedPages();
     }
 
-    // Function to format and capitalize the first letter of each word in a string
-    function formatAndCapitalize(str) {
-        return str
-            .toLowerCase()
-            .replace(/&/g, ' & ') // Replace '&' with ' & '
-            .replace(/\b\w/g, function (char) {
-                return char.toUpperCase(); // Capitalize first letter of each word
-            });
-    }
+// Function to format and capitalize the first letter of each word in a string
+function formatAndCapitalize(str) {
+    return str
+        .toLowerCase()
+        .replace(/\b\w/g, function (char) {
+            return char.toUpperCase(); // Capitalize first letter of each word
+        });
+}
 
     // Function to generate a random game image filename based on pagesData
     function getRandomGameImage() {
@@ -70,28 +69,40 @@ loadScript('pages.js');
         }
 
         // Create the HTML for each visited page
-        var html = "";
-        visitedPages.forEach(function (page, index) {
-            var editedName = page.match(/\/games\/([^\/]+)\.html/); // Extract game name from URL
-            editedName = editedName ? editedName[1].replace(/-/g, " ") : "missing"; // Replace hyphens with spaces
+        // Function to display the recently visited pages
 
-            // Generate the display name with spaces around '&'
-            var displayName = formatAndCapitalize(editedName);
+    // Create the HTML for each visited page
+    var html = "";
+    visitedPages.forEach(function (page, index) {
+        var editedName = page.match(/\/games\/([^\/]+)\.html/); // Extract game name from URL
+        editedName = editedName ? editedName[1].replace(/-/g, " ") : "missing"; // Replace hyphens with spaces
 
-            // If the game is missing, set display name to "Featured" and get a random game image
-            if (displayName === "Missing") {
-                displayName = "Featured";
-                var imgFileName = getRandomGameImage(); // Get a random game image
-            } else {
-                // Convert display name to lowercase and replace spaces with hyphens for image filename
-                var imgFileName = displayName.replace(/ /g, "-").toLowerCase();
-            }
+        // Generate the display name with spaces around '&'
+        var displayName = editedName.replace(/&/g, ' & ');
+        displayName = formatAndCapitalize(displayName);
 
-            // Remove file extension from imgFileName
-            imgFileName = imgFileName.replace('.html', '');
+        // If the game is missing, set display name to "Featured" and get a random game image
+        if (displayName === "Missing") {
+            displayName = "Featured";
+            var imgFileName = getRandomGameImage(); // Get a random game image
+        } else {
+            // Convert display name to lowercase and replace spaces with hyphens for image filename
+            var imgFileName = displayName.replace(/ /g, "-").toLowerCase();
+        }
 
-            // Generate href value based on imgFileName
-            var hrefValue = `/games/${imgFileName}.html`;
+        // Check if the file is an image or HTML file
+        var isImageOrHtmlFile = imgFileName.endsWith(".png") || imgFileName.endsWith(".html");
+
+// Generate the edited name with '-&-' for non-image/HTML files
+if (!isImageOrHtmlFile) {
+    imgFileName = imgFileName.replace(/-&-/g, '&');
+}
+        // Remove file extension from imgFileName
+        imgFileName = imgFileName.replace('.html', '');
+
+        // Generate href value based on imgFileName
+        var hrefValue = `/games/${imgFileName}.html`;
+
 
             // Create a temporary span to measure text width
             var tempSpan = document.createElement('span');

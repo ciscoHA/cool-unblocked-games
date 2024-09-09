@@ -1,26 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Redirecting to a Random Page</title>
-<script src="/pages.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirecting to a Random Page</title>
+    <script src="/pages.js"></script>
 </head>
 <body>
 <script>
 function goToRandomPage() {
+    // Ensure the pagesData array is available
+    if (typeof pagesData !== 'undefined' && Array.isArray(pagesData)) {
+        // Generate a random index
+        var randomIndex = Math.floor(Math.random() * pagesData.length);
 
-    var randomIndex = Math.floor(Math.random() * pages.length);
+        // Extract the 'name' property of the random page
+        var randomPage = pagesData[randomIndex].name;
 
-    var randomPage = pages[randomIndex];
+        // Format the page URL
+        var formattedPage = "/games/" + randomPage + ".html";
 
-    // Add /games/ to the start and .html to the end
-    var formattedPage = "/games/" + randomPage + ".html";
-
-    window.location.href = formattedPage;
+        // Redirect to the random page
+        window.location.href = formattedPage;
+    } else {
+        console.error("pagesData is not defined or not an array.");
+    }
 }
 
-goToRandomPage(); // Call the function immediately to redirect to a random page
+// Call the function immediately to redirect to a random page
+goToRandomPage();
 </script>
 </body>
 </html>
