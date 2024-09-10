@@ -146,9 +146,15 @@ const pagesData = [
   { name: "vex-4", date: "16-08-2024" },
   { name: "yongjin-brick-breaker", date: "16-08-2024" },
   { name: "js-dos", date: "04-09-2024" },
-  { name: "doom-js-dos", date: "04-09-2024" },
+  { name: "doom-marines-best-friend", date: "04-09-2024" },
   { name: "heretic", date: "04-09-2024" },
   { name: "wolfenstein-3d", date: "04-09-2024" },
   { name: "tunnel-rush", date: "04-09-2024" },
   { name: "connect-4", date: "04-09-2024" },
+  { name: "sigil-1&2", date: "09-09-2024" },
+  { name: "army-of-ages", date: "09-09-2024" },
+  { name: "papas-pancakeria", date: "09-09-2024" },
+  { name: "the-binding-of-isaac", date: "09-09-2024" },
+  { name: "the-impossible-quiz-2", date: "09-09-2024" },
+
 ];
