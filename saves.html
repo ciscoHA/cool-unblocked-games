@@ -14,7 +14,7 @@
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
-            background-image: url("/background.png");
+            background-image: url("");
             background-color: #141414;
         }
 
@@ -109,6 +109,21 @@
         #uploadForm {
             margin-bottom: 20px;
         }
+
+        .fixed-background {
+  position: fixed; /* Fixes the position relative to the viewport */
+  top: 0;
+  left: 0;
+  width: 100vw; /* Full viewport width */
+  height: 100vh; /* Full viewport height */
+  z-index: -999 !important; /* Ensures it's behind other content */
+  visibility: visible !important;
+  background-size: cover; /* Scale the image to cover the entire div */
+  background-repeat: repeat !important; /* Repeat the image */
+  background-position: center; /* Center the image */
+}
+
+
     </style>
 </head>
 
@@ -119,11 +134,11 @@
         <input type="file" id="fileInput" style="text-shadow: 0px 0px 4px black, 0px 0px 4px black;" />
         <button type="submit">Upload</button>
     </form>
-    <button id="selectAll">Select All</button> <!-- Changed to Select All button -->
-    <h2>Local Storage</h2> <!-- Added heading for local storage -->
+    <button id="selectAll">Select All</button> 
+    <h2>Local Storage</h2> 
     <ul id="fileList"></ul>
-    <h2>Cookies</h2> <!-- Added heading for cookies -->
-    <ul id="cookieList"></ul> <!-- Added Cookie List -->
+    <h2>Cookies</h2>
+    <ul id="cookieList"></ul> 
     <button id="downloadSelected">Download Selected</button>
     <button id="deleteSelected">Delete Selected</button>
     <br><br>

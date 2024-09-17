@@ -229,8 +229,9 @@ button {
   left: 0;
   width: 100vw; /* Full viewport width */
   height: 100vh; /* Full viewport height */
-  z-index: -999; /* Ensures it's behind other content */
+  z-index: -999 !important; /* Ensures it's behind other content */
+  visibility: visible !important;
   background-size: cover; /* Scale the image to cover the entire div */
-  background-repeat: repeat; /* Repeat the image */
+  background-repeat: repeat !important; /* Repeat the image */
   background-position: center; /* Center the image */
 }

@@ -56,15 +56,22 @@ insertHTMLIntoBody();
 
 // bad method :) - checks whether primary colour has a value, if it doesnt then it resets all customisation values.
 function setDefaultValuesIfPrimaryColorMissing() {
-    const primaryColor = localStorage.getItem('primary-color');
+    const customisationData = localStorage.getItem('customisation');
 
-    if (!primaryColor || primaryColor === '') {
-        localStorage.setItem('background-image', '/background.png');
-        localStorage.setItem('primary-color', '#111E2C');
-        localStorage.setItem('secondary-color', '#58AAFC');
-        localStorage.setItem('background-res', '1280');
+    // Check if the "customisation" data is missing or the primary color is missing/empty
+    if (!customisationData || customisationData.split('\n')[1] === '') {
+        const defaultCustomisation = [
+            '/background.png',  // Default background image
+            '#111E2C',          // Default primary color
+            '#58AAFC',          // Default secondary color
+            '1280'              // Default background resolution
+        ].join('\n');
+
+        // Store the default values in the "customisation" key
+        localStorage.setItem('customisation', defaultCustomisation);
     }
 }
+
 
 // Call the function to set default values if primary-color is missing
 setDefaultValuesIfPrimaryColorMissing();
@@ -99,34 +106,53 @@ document.addEventListener('DOMContentLoaded', function () {
         .catch(error => console.error('Error loading navbar:', error));
 
         fetch('/titlebar.html')
-        .then(response => response.text())
-        .then(data => {
-            var tempContainer = document.createElement('div');
-            tempContainer.innerHTML = data;
-    
-            var titlebarContainer = document.getElementById('titlebar-container');
-            titlebarContainer.innerHTML = ''; // Clear existing content
-            titlebarContainer.innerHTML = tempContainer.innerHTML; // Insert new content
-    
-            // Set title and author if defined
-            if (typeof titleText !== 'undefined') {
-                document.getElementById('title-text').textContent = titleText;
-            }
-            if (typeof author !== 'undefined' && typeof authorLink !== 'undefined') {
-                document.getElementById('author-text').innerHTML = '<a href="' + authorLink + '">' + author + '</a>';
-            }
-    
-            // Adjust title bar width after a short delay to ensure everything is loaded
-            setTimeout(() => {
-                var titleBar = document.getElementById('dynamic-title-bar');
-                var iframe = document.getElementById('game-iframe');
+    .then(response => response.text())
+    .then(data => {
+        var tempContainer = document.createElement('div');
+        tempContainer.innerHTML = data;
+
+        var titlebarContainer = document.getElementById('titlebar-container');
+        titlebarContainer.innerHTML = ''; // Clear existing content
+        titlebarContainer.innerHTML = tempContainer.innerHTML; // Insert new content
+
+        // Set title and author if defined
+        if (typeof titleText !== 'undefined') {
+            document.getElementById('title-text').textContent = titleText;
+        }
+        if (typeof author !== 'undefined' && typeof authorLink !== 'undefined') {
+            document.getElementById('author-text').innerHTML = '<a href="' + authorLink + '">' + author + '</a>';
+        }
+
+        // Polling mechanism to check if title bar is loaded
+        function checkTitleBarWidth() {
+            var titleBar = document.getElementById('dynamic-title-bar');
+            var iframe = document.getElementById('game-iframe');
+            
+            if (titleBar && iframe) {
                 var iframeWidth = iframe.offsetWidth - 40;
                 titleBar.style.width = iframeWidth + 'px';
-            }, 100); // 100ms delay to ensure loading is complete
-        })
-        .catch(error => console.error('Error loading title bar:', error));
-    
-    loadIframe();
+                clearInterval(pollingInterval); // Stop polling
+            }
+        }
+
+        // Set a maximum time for polling
+        var maxPollingTime = 5000; // Maximum polling time in milliseconds (e.g., 5 seconds)
+        var startTime = Date.now();
+
+        // Start polling every 100ms
+        var pollingInterval = setInterval(() => {
+            checkTitleBarWidth();
+            // Check if maximum polling time has been exceeded
+            if (Date.now() - startTime > maxPollingTime) {
+                clearInterval(pollingInterval); // Stop polling after timeout
+                console.warn('Timeout reached: title bar or iframe not found.');
+            }
+        }, 100);
+    })
+    .catch(error => console.error('Error loading title bar:', error));
+
+loadIframe();
+
     
 });
 // Function to load an external script dynamically with a Promise
@@ -436,13 +462,23 @@ function updateButtonState(selectedButton) {
 }
 
 document.addEventListener('DOMContentLoaded', function () {
-    const backgroundRes = localStorage.getItem('background-res');
+    const customisation = localStorage.getItem('customisation');
     const fixedBackgroundImg = document.querySelector('.fixed-background');
 
-    if (backgroundRes && !isNaN(parseInt(backgroundRes))) {
-        fixedBackgroundImg.style.backgroundSize = `${backgroundRes}px auto`;
+    if (customisation) {
+        // Split the string into lines
+        const lines = customisation.split('\n');
+
+        // Ensure there are at least 4 lines
+        if (lines.length >= 4) {
+            const backgroundRes = parseInt(lines[3].trim());
+            if (!isNaN(backgroundRes)) {
+                fixedBackgroundImg.style.backgroundSize = `${backgroundRes}px auto`;
+            }
+        }
     }
 });
+
 
 function fullscreenFunction1() {
     var iframe = document.getElementById('game-iframe');
@@ -466,28 +502,29 @@ function fullscreenFunction2() {
 
     // Create the HTML content as a Blob
     var htmlContent = `
-        <!DOCTYPE html>
-        <html>
-        <head>
-            <title>Fullscreen Game</title>
-            <style>
-                html, body { height: 100%; margin: 0; overflow: hidden; }
-                iframe, embed { width: 100vw; height: 100vh; border: none; }
-            </style>
-            <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
-            <script>
-                document.addEventListener('DOMContentLoaded', () => {
-                    document.documentElement.requestFullscreen();
-                });
-            </script>
-        </head>
-        <body>
-            ${gameElement.tagName === 'IFRAME'
-                ? `<iframe src="${gameSrc}"></iframe>`
-                : `<embed src="${gameSrc}" type="application/x-shockwave-flash">`
-            }
-        </body>
-        </html>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fullscreen Game</title>
+    <style>
+        html, body { height: 100%; margin: 0; overflow: hidden; }
+        #iframe { width: 100vw; height: 100vh; border: none; }
+    </style>
+    <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.documentElement.requestFullscreen();
+        });
+    </script>
+</head>
+<body>
+    ${gameElement.tagName === 'IFRAME'
+        ? `<iframe id="iframe" src="${gameSrc}"></iframe>`
+        : `<embed id="iframe" src="${gameSrc}" type="application/x-shockwave-flash">`
+    }
+</body>
+</html>
+
     `;
 
     // Create a Blob and URL for the HTML content
@@ -508,20 +545,34 @@ function fullscreenFunction2() {
 }
 
 function applyStoredSettings() {
-    const backgroundImage = localStorage.getItem('background-image');
-    const primaryColor = localStorage.getItem('primary-color');
-    const secondaryColor = localStorage.getItem('secondary-color');
-    const fixedBackgroundImg = document.querySelector('.fixed-background');
+    // Get the "customisation" data from localStorage
+    const customisationData = localStorage.getItem('customisation');
 
-    if (fixedBackgroundImg && backgroundImage) {
-        fixedBackgroundImg.style.backgroundImage = `url('${backgroundImage}')`;
-    }
-    if (primaryColor) {
-        document.documentElement.style.setProperty('--primary-color', primaryColor);
-    }
-    if (secondaryColor) {
-        document.documentElement.style.setProperty('--secondary-color', secondaryColor);
-        document.querySelector('.container').style.backgroundColor = secondaryColor;
+    if (customisationData) {
+        // Split the data by newline to get each individual setting
+        const [backgroundImage, primaryColor, secondaryColor, backgroundRes] = customisationData.split('\n');
+        const fixedBackgroundImg = document.querySelector('.fixed-background');
+
+        // Apply the background image if it exists
+        if (fixedBackgroundImg && backgroundImage) {
+            fixedBackgroundImg.style.backgroundImage = `url('${backgroundImage}')`;
+        }
+
+        // Apply the primary color if it exists
+        if (primaryColor) {
+            document.documentElement.style.setProperty('--primary-color', primaryColor);
+        }
+
+        // Apply the secondary color if it exists
+        if (secondaryColor) {
+            document.documentElement.style.setProperty('--secondary-color', secondaryColor);
+            document.querySelector('.container').style.backgroundColor = secondaryColor;
+        }
+
+        // Apply the background resolution if it exists
+        if (backgroundRes) {
+            fixedBackgroundImg.style.backgroundSize = `${backgroundRes}px auto`;
+        }
     }
 }
 
@@ -533,12 +584,14 @@ document.getElementById('settings-form').addEventListener('submit', function (ev
     const backgroundImageValue = document.getElementById('background-image').value;
     const primaryColorValue = document.getElementById('primary-color').value;
     const secondaryColorValue = document.getElementById('background-color').value;
+    const backgroundResValue = document.getElementById('background-res').value;
 
-    localStorage.setItem('background-image', backgroundImageValue);
-    localStorage.setItem('primary-color', primaryColorValue);
-    localStorage.setItem('secondary-color', secondaryColorValue);
+    // Combine the values into a single string, with each value separated by a newline
+    const customisationData = `${backgroundImageValue}\n${primaryColorValue}\n${secondaryColorValue}\n${backgroundResValue}`;
 
+    // Store the combined string in localStorage under the key "customisation"
+    localStorage.setItem('customisation', customisationData);
+
+    // Reload the page to apply changes
     location.reload();
 });
-
-

@@ -156,5 +156,10 @@ const pagesData = [
   { name: "papas-pancakeria", date: "09-09-2024" },
   { name: "the-binding-of-isaac", date: "09-09-2024" },
   { name: "the-impossible-quiz-2", date: "09-09-2024" },
-
+  { name: "circloo-2", date: "17-09-2024" },
+  { name: "doodle-jump", date: "17-09-2024" },
+  { name: "recoil", date: "17-09-2024" },
+  { name: "soccer-random", date: "17-09-2024" },
+  { name: "vex-5", date: "17-09-2024" },
+  { name: "tube-jumpers", date: "17-09-2024" },
 ];

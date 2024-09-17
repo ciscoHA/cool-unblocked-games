@@ -10,7 +10,7 @@
   <meta property="og:image" content="/logo.png" />
   <meta property="og:url" content="https://coolubg.github.io/" />
   <meta property="og:site_name" content="Cool Unblocked Games" />
-  <meta name="theme-color" content="#58aafc" />
+  <meta name="theme-color" content="var(--secondary-color)" />
   <meta name="google-site-verification" content="Q-GasTm6p0RsCSA7j-x1U7mX_Cz6ItjUz8q3bzM6YYo" />
   <link rel="stylesheet" type="text/css" href="/games.css">
   <link rel="stylesheet" type="text/css" href="/effects.css">
@@ -23,217 +23,10 @@
   <script src="/analytics.js"></script>
   <script src="/tracking.js"></script>
   <script src="/main.js" defer></script>
-  <script>
-    function highlightImage2(elementId, textId) {
-      var img = document.getElementById(elementId);
-      var fadeWrapper = img.parentNode.querySelector("#fade-wrapper");
-      fadeWrapper.style.opacity = 1;
-      fadeWrapper.style.transition = "opacity 0.4s";
-
-      // Directly apply underline style to the span element
-      var litext = img.parentNode.parentNode.querySelector(`#${textId}`);
-      litext.style.textDecoration = "underline";
-    }
-
-    function removeHighlight2(elementId, textId) {
-      var img = document.getElementById(elementId);
-      var fadeWrapper = img.parentNode.querySelector("#fade-wrapper");
-      fadeWrapper.style.opacity = 0;
-      fadeWrapper.style.transition = "opacity 0.4s";
-
-      // Directly remove underline style from the span element
-      var litext = img.parentNode.parentNode.querySelector(`#${textId}`);
-      litext.style.textDecoration = "none";
-    }
-
-    function highlightImageM(elementId, textClass) {
-      var img = document.getElementById(elementId);
-      var litext = document.getElementsByClassName(textClass)[0];
-      var fadeWrapper = img.parentNode.querySelector("#fade-wrapper-red");
-      fadeWrapper.style.opacity = 1;
-      fadeWrapper.style.transition = "opacity 0.4s";
-      img.style.transition = "outline-width 0s";
-      img.style.outline = "3px solid #fc5858";
-      litext.classList.add("underline");
-    }
-
-    function removeHighlightM(elementId, textClass) {
-      var img = document.getElementById(elementId);
-      var litext = document.getElementsByClassName(textClass)[0];
-      var fadeWrapper = img.parentNode.querySelector("#fade-wrapper-red");
-      fadeWrapper.style.opacity = 0;
-      fadeWrapper.style.transition = "opacity 0.4s";
-      img.style.outline = "3px solid #fc5858";
-      img.style.transition = "outline-width 0s";
-      litext.classList.remove("underline");
-    }
-
-    function highlightImageL(elementId, textClass) {
-      var img = document.getElementById(elementId);
-      var litext = document.getElementsByClassName(textClass)[0];
-      var fadeWrapper = img.parentNode.querySelector("#fade-wrapper-blue");
-      fadeWrapper.style.opacity = 1;
-      fadeWrapper.style.transition = "opacity 0.4s";
-      img.style.transition = "outline-width 0s";
-      img.style.outline = "3px solid #58aafc";
-      litext.classList.add("underline");
-    }
-
-    function removeHighlightL(elementId, textClass) {
-      var img = document.getElementById(elementId);
-      var litext = document.getElementsByClassName(textClass)[0];
-      var fadeWrapper = img.parentNode.querySelector("#fade-wrapper-blue");
-      fadeWrapper.style.opacity = 0;
-      fadeWrapper.style.transition = "opacity 0.4s";
-      img.style.outline = "3px solid #58aafc";
-      img.style.transition = "outline-width 0s";
-      litext.classList.remove("underline");
-    }
-
-
-  </script>
   <style>
     body {
       font-size: large;
     }
-    .suggest-game {
-      padding: 0.5%;
-      padding: 0.6%;
-    }
-
-    .suggest-game a {
-      display: block;
-      white-space: nowrap;
-      text-decoration: none;
-      color: white;
-      text-shadow: #141414 0px 0px 5px;
-      font-size: 120%;
-      overflow-x: hidden !important;
-      overflow: hidden !important;
-      margin-top: -0.6rem;
-    }
-
-    .suggest-game img {
-      margin: 0.6rem;
-      border-radius: 0.4rem;
-      position: relative;
-      width: 15.6vw;
-      /* 30% of the viewport width */
-      height: auto;
-      /* 16.89% of the viewport width to maintain a 16:9 aspect ratio */
-      border: #141414 solid 4rem;
-    }
-
-    ul.game-list {
-      list-style-type: none;
-      padding: 0;
-      display: flex;
-      flex-wrap: wrap;
-      /* Allow the items to wrap to the next line */
-    }
-
-    ul.game-list li {
-      display: inline-block;
-      margin-right: 5px;
-      margin-bottom: -10px;
-      /* Add some space between list items and allow wrapping */
-    }
-
-    .game-list {
-      font-family: "M Plus Rounded 1c", sans-serif;
-      font-weight: bold;
-      text-align: center;
-      justify-content: center;
-      align-items: center;
-    }
-
-    #fade-wrapper-blue {
-      z-index: -1;
-      position: absolute;
-      width: 16vw;
-      height: 4vh;
-      /* Adjust the height as needed */
-      margin-left: 0.47rem;
-      margin-top: -1.35rem;
-      display: flex;
-      /* Use flexbox */
-      justify-content: center;
-      /* Center horizontally */
-      overflow: hidden;
-      opacity: 0;
-      background: linear-gradient(to bottom, #58aafc, transparent);
-    }
-
-    #fade-wrapper-red {
-      z-index: -1;
-      position: absolute;
-      width: 16vw;
-      height: 4vh;
-      /* Adjust the height as needed */
-      margin-left: 0.47rem;
-      margin-top: -1.35rem;
-      display: flex;
-      /* Use flexbox */
-      justify-content: center;
-      /* Center horizontally */
-      overflow: hidden;
-      opacity: 0;
-      background: linear-gradient(to bottom, #fc5858, transparent);
-    }
-
-    .sortButtonDiv Button {
-      white-space: nowrap;
-      margin: 1%;
-      font-family: "M Plus Rounded 1c", sans-serif;
-      cursor: pointer;
-      background-color: var(--secondary-color);
-      font-weight: bold;
-      color: var(--primary-color);
-      border-radius: 5px;
-      border-color: transparent;
-    }
-
-    .suggest-gameL, .suggest-gameM {
-      padding: 0.5%;
-      padding-top: 1.5%;
-      margin-top: 0;
-      overflow: hidden !important;
-    }
-
-    .suggest-gameL a, .suggest-gameM a{
-      white-space: nowrap;
-      display: block;
-      text-decoration: none;
-      color: white;
-      text-shadow: #141414 0px 0px 5px;
-      font-size: 115%;
-      overflow-x: hidden !important;
-      overflow: hidden !important;
-      margin-top: -0.4rem;
-      visibility: visible;
-    }
-
-    .suggest-gameL img, .suggest-gameM img {
-      visibility: visible;
-      margin: 0.4rem;
-      border-radius: 0.4rem;
-      position: relative;
-      width: 14.3vw;
-      /* 30% of the viewport width */
-      height: auto;
-      /* 16.89% of the viewport width to maintain a 16:9 aspect ratio */
-      border: #141414 solid 4rem;
-    }
-
-    .game-list {
-      font-family: "M Plus Rounded 1c", sans-serif;
-      font-weight: bold;
-      text-align: center;
-      justify-content: center;
-      align-items: center;
-      color: transparent !important;
-    }
-
     .underline {
       text-decoration: underline !important;
     }
@@ -246,9 +39,9 @@
   <div
   class="news"
   style="
-    background-color: #58aafc;
+    background-color: var(--secondary-color);
     text-align: left;
-    color: #3c3c3c;
+    color: var(--primary-color);
     border-radius: 0px;
     padding-top: 0%;
     width: 80%;
@@ -273,7 +66,25 @@
   </p>
   <p
   style="
-    color: #3c3c3c !important;
+    color: var(--primary-color) !important;
+    font-family: 'M Plus Rounded 1c', sans-serif;
+    font-weight: bold;
+    font-size: xx-large;
+    margin-top: -15px;
+    margin-bottom: -5px;
+  "
+>
+  17/09/2024
+</p>
+<p>Game Update!!!!:<br>- CircloO 2<br>- Doodle Jump<br>- Recoil<br>- Soccer Random<br>- Tube Jumpers<br>- Vex 5</p>
+<p>Game Updates:<br>- DOOM: Marine's Best Friend Game | Select Game Screen (looks like steam re-release)<br>- n-gon Update</p>
+<p>Customisation Update again!:<br>- There are now customisation presets that can be easily switched to<br>- The saved customisation now populates the settings page (its easier to make custom themes now)<br>- Customisation and Theming is now all stored in one file!<br>- Meaning you can save your customisation to your computer or transfer it to your friends! (save file manager)<br>- Customisation now affects the changelog (this page right here!)</p>
+<p>Report an Issue Change:<br>- You can now (be directed to) reporting an issue for a game or the website</p>
+<p>General Bug Fixes:<br>- Page titles have been fixed for some games<br>- Plants vs Zombies, and Awesome Tanks 1 & 2 now have independent game files</p>
+<br>
+  <p
+  style="
+    color: var(--primary-color) !important;
     font-family: 'M Plus Rounded 1c', sans-serif;
     font-weight: bold;
     font-size: xx-large;
@@ -284,10 +95,12 @@
   10/09/2024
 </p>
 <p>Game Update!!!:<br>- Army of Ages<br>- DOOM: Marine's Best Friend (replaces DOOM js-dos)<br>- Sigil 1 & Sigil 2<br>- Papa's Pancakeria<br>- The Binding of Isaac<br>- The Impossible Quiz 2</p>
+
+<p>General Bug Fixes:<br>- Highlighting games now doesnt highlight the wrong one</p>
 <br>
   <p
     style="
-      color: #3c3c3c !important;
+      color: var(--primary-color) !important;
       font-family: 'M Plus Rounded 1c', sans-serif;
       font-weight: bold;
       font-size: xx-large;
@@ -306,7 +119,7 @@
   <br><br>
   <p
     style="
-      color: #3c3c3c !important;
+      color: var(--primary-color) !important;
       font-family: 'M Plus Rounded 1c', sans-serif;
       font-weight: bold;
       font-size: xx-large;
@@ -324,7 +137,7 @@
   <br><br>
   <p
     style="
-      color: #3c3c3c !important;
+      color: var(--primary-color) !important;
       font-family: 'M Plus Rounded 1c', sans-serif;
       font-weight: bold;
       font-size: xx-large;
@@ -345,7 +158,7 @@
   <p>Scaling Fix:<br>- The Scaling of elements throughout the pages has been changed because of the full remake</p><br><br>
   <p
     style="
-      color: #3c3c3c !important;
+      color: var(--primary-color) !important;
       font-family: 'M Plus Rounded 1c', sans-serif;
       font-weight: bold;
       font-size: xx-large;

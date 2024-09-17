@@ -8,7 +8,7 @@
     <link rel="stylesheet" type="text/css" href="/games.css">
     <link rel="stylesheet" type="text/css" href="/effects.css">
     <style>
-        body {
+ body {
             font-family: "M Plus Rounded 1c", sans-serif;
             background-position: center;
             color: white;
@@ -90,22 +90,6 @@
             text-decoration: underline;
         }
 
-        .image-container {
-            margin-top: 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .image-container img {
-            margin: 5px;
-            width: 200px;
-            height: 200px;
-            border: 5px solid white;
-            border-radius: 5px;
-            object-fit: cover;
-        }
-
         button[type="submit"],
         button[type="button"],
         #default-button {
@@ -117,6 +101,29 @@
             text-align: center;
             /* Center text within buttons */
         }
+        .image-container {
+            margin-top: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .image-container img {
+            margin: 5px;
+            width: 200px;
+            height: 200px;
+            border: 5px solid white;
+            border-radius: 5px;
+            object-fit: cover;
+            cursor: pointer;
+        }
+
+        #default-button {
+            display: block;
+            margin: 10px auto;
+            width: 600px;
+            text-align: center;
+        }
     </style>
 </head>
 
@@ -124,9 +131,9 @@
     <div id="navbar-container"></div>
     <div class="navbar-spacer" style="margin-top: 40px;"></div>
     <div class="container" style="margin-bottom: -10px;">
-        <p
-            style="font-family: League Gothic; margin-top: -10px; margin-bottom: 0px; font-size: 400%; text-align: center;">
-            Customisation</p>
+        <p style="font-family: League Gothic; margin-top: -10px; margin-bottom: 0px; font-size: 380%; text-align: center;">
+            Customisation
+        </p>
         <form id="settings-form">
             <div>
                 <label for="background-image">Background Image URL:</label><br>
@@ -145,107 +152,153 @@
                 <input type="text" id="background-res" name="background-res" placeholder="e.g. 1280">
             </div>
             <button type="submit">Save Settings</button>
-            <button type="button" id="default-button">Reset to Defaults</button>
+            <button style="display: none;" type="button" id="default-button">Reset to Defaults</button>
         </form>
     </div>
+    <p style="text-shadow: 1px 1px 2px black, 1px 1px 4px black, 1px 1px 4px black, 1px 1px 4px black;">Click on an image below to use a premade theme ↓</p>
+
     <div class="image-container">
-        <img src="/background.png" alt="Image 1">
-        <img src="/background-old.png" alt="Image 2">
-        <img src="/background-red.png" alt="Image 3">
-        <img src="/background-red-old.png" alt="Image 4">
-    </div>
-    <div class="image-container">
-        <img src="/background-green.png" alt="Image 5">
-        <img src="/background-green-old.png" alt="Image 6">
-        <img src="/background-purple.png" alt="Image 7">
-        <img src="/background-purple-old.png" alt="Image 8">
-    </div>
-    <div class="image-container">
-        <img src="/white-and-black.png" alt="Image 5">
-        <img src="/topo.png" alt="Image 6">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Rotating_earth_%28large%29.gif/200px-Rotating_earth_%28large%29.gif" alt="Image 7">
+        <img src="/background.png" alt="Image 1" data-background="/background.png" data-primary-color="#111E2C" data-secondary-color="#58AAFC" data-background-res="1280">
+        <img src="/background-old.png" alt="Image 2" data-background="/background-old.png" data-primary-color="#111E2C" data-secondary-color="#58AAFC" data-background-res="1280">
+        <img src="/background-red.png" alt="Image 3" data-background="/background-red.png" data-primary-color="#2C1111" data-secondary-color="#FC5858" data-background-res="1280">
+        <img src="/background-red-old.png" alt="Image 4" data-background="/background-red-old.png" data-primary-color="#2C1111" data-secondary-color="#FC5858" data-background-res="1280">
+        <img src="/background-green.png" alt="Image 5" data-background="/background-green.png" data-primary-color="#112C15" data-secondary-color="#5dfc58" data-background-res="1280">
+        <img src="/background-green-old.png" alt="Image 6" data-background="/background-green-old.png" data-primary-color="#112C15" data-secondary-color="#5dfc58" data-background-res="1280">
+        <img src="/background-purple.png" alt="Image 7" data-background="/background-purple.png" data-primary-color="#2C112A" data-secondary-color="#e158fc" data-background-res="1280">
+        <img src="/background-purple-old.png" alt="Image 8" data-background="/background-purple-old.png" data-primary-color="#2C112A" data-secondary-color="#e158fc" data-background-res="1280">
+        <img src="/white-and-black.png" alt="Image 9" data-background="/white-and-black.png" data-primary-color="#232323" data-secondary-color="#FDFDFD" data-background-res="720">
+        <img src="/topo.png" alt="Image 10" data-background="/topo.png" data-primary-color="#DD1766" data-secondary-color="#271117" data-background-res="980">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Rotating_earth_%28large%29.gif/200px-Rotating_earth_%28large%29.gif" alt="Image 11" data-background="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Rotating_earth_%28large%29.gif/200px-Rotating_earth_%28large%29.gif" data-primary-color="#ffffff" data-secondary-color="#000000" data-background-res="1280">
+        <img src="https://images4.alphacoders.com/109/thumb-1920-1098025.png" alt="Image 12" data-background="https://images4.alphacoders.com/109/thumb-1920-1098025.png" data-primary-color="#080116" data-secondary-color="#F565C4" data-background-res="1920">
+
     </div>
     <script src="/main.js" defer></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            applyStoredSettings();
+    applyStoredSettings();
 
-            // Ensure background-size is set initially on page load
-            const backgroundRes = localStorage.getItem('background-res');
-            if (backgroundRes) {
-                document.body.style.backgroundSize = '${backgroundRes}px auto';
-            }
-        });
+    const customisationData = localStorage.getItem('customisation');
+    if (customisationData) {
+        const [backgroundImage, primaryColor, secondaryColor, backgroundRes] = customisationData.split('\n');
 
-        document.getElementById('settings-form').addEventListener('submit', function (event) {
-            event.preventDefault(); // Prevent form submission
-
-            const backgroundImageValue = document.getElementById('background-image').value;
-            const primaryColorValue = document.getElementById('primary-color').value;
-            const secondaryColorValue = document.getElementById('background-color').value;
-            const backgroundResValue = document.getElementById('background-res').value;
-
-            if (backgroundImageValue && !isValidUrl(backgroundImageValue)) {
-                alert('Please enter a valid URL.');
-                return;
-            }
-
-            if (backgroundResValue && !isValidPixelValue(backgroundResValue)) {
-                alert('Please enter a valid pixel value.');
-                return;
-            }
-
-            localStorage.setItem('background-image', backgroundImageValue);
-            localStorage.setItem('primary-color', primaryColorValue);
-            localStorage.setItem('secondary-color', secondaryColorValue);
-            localStorage.setItem('background-res', backgroundResValue); // Store without 'px' suffix
-
-            applyStoredSettings();
-        });
-
-        document.getElementById('default-button').addEventListener('click', function () {
-            localStorage.setItem('background-image', '/background.png');
-            localStorage.setItem('primary-color', '#111E2C');
-            localStorage.setItem('secondary-color', '#58AAFC');
-            localStorage.setItem('background-res', '1280');
-            location.reload();
-        });
-
-
-        function applyStoredSettings() {
-            const backgroundImage = localStorage.getItem('background-image');
-            const primaryColor = localStorage.getItem('primary-color');
-            const secondaryColor = localStorage.getItem('secondary-color');
-            const backgroundRes = localStorage.getItem('background-res'); // Already includes 'px'
-
-            if (backgroundImage) {
-                document.body.style.backgroundImage = url('${backgroundImage}');
-            }
-            if (primaryColor) {
-                document.documentElement.style.setProperty('--primary-color', primaryColor);
-            }
-            if (secondaryColor) {
-                document.documentElement.style.setProperty('--secondary-color', secondaryColor);
-                document.querySelector('.container').style.backgroundColor = secondaryColor;
-            }
-            if (backgroundRes) {
-                document.body.style.backgroundSize = '${backgroundRes}px auto'; // Apply directly with ' auto'
-            }
+        if (backgroundImage) {
+            document.getElementById('background-image').value = backgroundImage;
         }
-
-        function isValidUrl(url) {
-            try {
-                new URL(url);
-                return true;
-            } catch (e) {
-                return false;
-            }
+        if (primaryColor) {
+            document.getElementById('primary-color').value = primaryColor;
         }
-
-        function isValidPixelValue(value) {
-            const px = parseInt(value, 10);
-            return !isNaN(px) && px > 0;
+        if (secondaryColor) {
+            document.getElementById('background-color').value = secondaryColor;
         }
+        if (backgroundRes) {
+            document.getElementById('background-res').value = backgroundRes;
+        }
+    }
+});
+
+document.getElementById('settings-form').addEventListener('submit', function (event) {
+    event.preventDefault();
+    saveSettingsAndReload();
+});
+
+document.getElementById('default-button').addEventListener('click', function () {
+    const defaultCustomisation = [
+        '/background.png',
+        '#111E2C',
+        '#58AAFC',
+        '1280'
+    ].join('\n');
+
+    localStorage.setItem('customisation', defaultCustomisation);
+    location.reload();
+});
+
+function applyStoredSettings() {
+    const customisationData = localStorage.getItem('customisation');
+
+    if (customisationData) {
+        const [backgroundImage, primaryColor, secondaryColor, backgroundRes] = customisationData.split('\n');
+
+        if (backgroundImage) {
+            document.body.style.backgroundImage = `url(${backgroundImage})`;
+        }
+        if (primaryColor) {
+            document.documentElement.style.setProperty('--primary-color', primaryColor);
+        }
+        if (secondaryColor) {
+            document.documentElement.style.setProperty('--secondary-color', secondaryColor);
+        }
+        if (backgroundRes) {
+            document.body.style.backgroundSize = `${backgroundRes}px ${backgroundRes}px`;
+        }
+    }
+}
+
+function saveSettingsAndReload() {
+    const backgroundImageValue = document.getElementById('background-image').value;
+    const primaryColorValue = document.getElementById('primary-color').value;
+    const secondaryColorValue = document.getElementById('background-color').value;
+    const backgroundResValue = document.getElementById('background-res').value;
+
+    // Validate URL
+    if (!isValidUrl(backgroundImageValue)) {
+        alert('Invalid URL for background image.');
+        return;
+    }
+    // Validate Background Resolution
+    if (backgroundResValue && !isValidPixelValue(backgroundResValue)) {
+        alert('Background resolution must be a valid pixel value.');
+        return;
+    }
+
+    const customisationData = [
+        backgroundImageValue,
+        primaryColorValue,
+        secondaryColorValue,
+        backgroundResValue
+    ].join('\n');
+
+    localStorage.setItem('customisation', customisationData);
+
+    // Reload page after 10ms to ensure settings are saved
+    setTimeout(() => location.reload(), 10);
+}
+
+function isValidUrl(url) {
+    // Allow relative paths that start with a /
+    if (url.startsWith('/')) {
+        return true;
+    }
+    try {
+        new URL(url);
+        return true;
+    } catch {
+        return false;
+    }
+}
+
+function isValidPixelValue(value) {
+    return /^[0-9]+$/.test(value);
+}
+
+document.querySelectorAll('.image-container img').forEach(img => {
+    img.addEventListener('click', function () {
+        const backgroundUrl = this.getAttribute('data-background');
+        const primaryColor = this.getAttribute('data-primary-color');
+        const secondaryColor = this.getAttribute('data-secondary-color');
+        const backgroundRes = this.getAttribute('data-background-res');
+
+        // Update the form fields
+        document.getElementById('background-image').value = backgroundUrl;
+        document.getElementById('primary-color').value = primaryColor;
+        document.getElementById('background-color').value = secondaryColor;
+        document.getElementById('background-res').value = backgroundRes;
+
+        // Save settings and reload
+        saveSettingsAndReload();
+    });
+});
+
     </script>
 </body>
 
