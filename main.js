@@ -105,56 +105,40 @@ document.addEventListener('DOMContentLoaded', function () {
         })
         .catch(error => console.error('Error loading navbar:', error));
 
-        fetch('/titlebar.html')
-    .then(response => response.text())
-    .then(data => {
-        var tempContainer = document.createElement('div');
-        tempContainer.innerHTML = data;
-
-        var titlebarContainer = document.getElementById('titlebar-container');
-        titlebarContainer.innerHTML = ''; // Clear existing content
-        titlebarContainer.innerHTML = tempContainer.innerHTML; // Insert new content
-
-        // Set title and author if defined
-        if (typeof titleText !== 'undefined') {
-            document.getElementById('title-text').textContent = titleText;
-        }
-        if (typeof author !== 'undefined' && typeof authorLink !== 'undefined') {
-            document.getElementById('author-text').innerHTML = '<a href="' + authorLink + '">' + author + '</a>';
-        }
-
-        // Polling mechanism to check if title bar is loaded
-        function checkTitleBarWidth() {
-            var titleBar = document.getElementById('dynamic-title-bar');
-            var iframe = document.getElementById('game-iframe');
-            
-            if (titleBar && iframe) {
-                var iframeWidth = iframe.offsetWidth - 40;
-                titleBar.style.width = iframeWidth + 'px';
-                clearInterval(pollingInterval); // Stop polling
-            }
-        }
-
-        // Set a maximum time for polling
-        var maxPollingTime = 5000; // Maximum polling time in milliseconds (e.g., 5 seconds)
-        var startTime = Date.now();
-
-        // Start polling every 100ms
-        var pollingInterval = setInterval(() => {
-            checkTitleBarWidth();
-            // Check if maximum polling time has been exceeded
-            if (Date.now() - startTime > maxPollingTime) {
-                clearInterval(pollingInterval); // Stop polling after timeout
-                console.warn('Timeout reached: title bar or iframe not found.');
-            }
-        }, 100);
-    })
-    .catch(error => console.error('Error loading title bar:', error));
-
-loadIframe();
-
-    
-});
+            fetch('/titlebar.html')
+              .then(response => response.text())
+              .then(data => {
+                const titlebarContainer = document.getElementById('titlebar-container');
+                titlebarContainer.innerHTML = ''; // Clear existing content
+                titlebarContainer.innerHTML = data; // Insert new content
+          
+                // Set title and author if defined
+                if (typeof titleText !== 'undefined') {
+                  document.getElementById('title-text').textContent = titleText;
+                }
+                if (typeof author !== 'undefined' && typeof authorLink !== 'undefined') {
+                  document.getElementById('author-text').innerHTML = `<a href="${authorLink}">${author}</a>`;
+                }
+          
+                // Set up polling mechanism with maximum time limit
+                var maxPollingTime = 8000; // Maximum polling time in milliseconds (e.g., 5 seconds)
+                var startTime = Date.now();
+                var pollingInterval = setInterval(() => {
+                  const iframe = document.getElementById('game-iframe');
+                  const titleBar = document.getElementById('dynamic-title-bar');
+                  if (iframe && titleBar) {
+                    titleBar.style.width = `${iframe.offsetWidth - 40}px`;
+                    clearInterval(pollingInterval); // Stop polling once title bar width is set
+                  } else if (Date.now() - startTime > maxPollingTime) {
+                    clearInterval(pollingInterval); // Stop polling after timeout
+                    console.warn('Timeout reached: title bar or iframe not found.');
+                  }
+                }, 100);
+          
+                loadIframe(); // Load iframe after title bar content is loaded
+              })
+              .catch(error => console.error('Error loading title bar:', error));
+          });
 // Function to load an external script dynamically with a Promise
 function loadScript(url) {
     return new Promise((resolve, reject) => {
