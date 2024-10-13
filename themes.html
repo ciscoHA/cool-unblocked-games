@@ -43,6 +43,12 @@
             color: var(--primary-color);
         }
 
+        #export {
+            border: 1px solid var(--primary-color);
+            color: var(--primary-color);
+            background-color: var(--secondary-color);
+        }
+
         input[type="text"],
         input[type="color"],
         button[type="submit"],
@@ -155,8 +161,25 @@
             <button style="display: none;" type="button" id="default-button">Reset to Defaults</button>
         </form>
     </div>
-    <p style="text-shadow: 1px 1px 2px black, 1px 1px 4px black, 1px 1px 4px black, 1px 1px 4px black;">Click on an image below to use a premade theme ↓</p>
+    <button id="export" style="width: 30vw; margin-top: 4vh;" onclick="downloadCustomisation()">View Theme Data</button>
+    <script>
+ function downloadCustomisation() {
+    const customisationData = localStorage.getItem("customisation");
 
+    const newWindow = window.open("about:blank", "_blank");
+
+    if (newWindow) {
+        newWindow.document.write(`<pre>${customisationData}</pre>`);
+        newWindow.document.close(); 
+    } else {
+        console.error("Failed to open a new window.");
+    }
+}
+
+         </script>
+
+        <p style="text-shadow: 1px 1px 2px black, 1px 1px 4px black, 1px 1px 4px black, 1px 1px 4px black;">Click on an image below to use a premade theme ↓</p>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfe-TUAliierJbhdwvuuRaKCjGCi6oYb_ne8_R06tGtSbwGNQ/viewform?usp=sf_link"><button id="export" style="width: 30vw;">Submit your Theme to be Featured!</button></a>
     <div class="image-container">
         <img src="/background.png" alt="Image 1" data-background="/background.png" data-primary-color="#111E2C" data-secondary-color="#58AAFC" data-background-res="1280">
         <img src="/images/backgrounds/background-old.png" alt="Image 2" data-background="/images/backgrounds/background-old.png" data-primary-color="#111E2C" data-secondary-color="#58AAFC" data-background-res="1280">

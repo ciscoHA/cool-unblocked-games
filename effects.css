@@ -4,7 +4,7 @@
 }
 
 [id^="suggest-imgL"] {
-  box-shadow: 2px 1px 11px #58aafc;
+  box-shadow: 0.1vw 0.1vw 1vw #58aafc;
 }
 
 [id^="suggest-imgR"] {

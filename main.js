@@ -105,39 +105,31 @@ document.addEventListener('DOMContentLoaded', function () {
         })
         .catch(error => console.error('Error loading navbar:', error));
 
-            fetch('/titlebar.html')
-              .then(response => response.text())
-              .then(data => {
-                const titlebarContainer = document.getElementById('titlebar-container');
-                titlebarContainer.innerHTML = ''; // Clear existing content
-                titlebarContainer.innerHTML = data; // Insert new content
-          
-                // Set title and author if defined
-                if (typeof titleText !== 'undefined') {
-                  document.getElementById('title-text').textContent = titleText;
-                }
-                if (typeof author !== 'undefined' && typeof authorLink !== 'undefined') {
-                  document.getElementById('author-text').innerHTML = `<a href="${authorLink}">${author}</a>`;
-                }
-          
-                // Set up polling mechanism with maximum time limit
-                var maxPollingTime = 8000; // Maximum polling time in milliseconds (e.g., 5 seconds)
-                var startTime = Date.now();
-                var pollingInterval = setInterval(() => {
-                  const iframe = document.getElementById('game-iframe');
-                  const titleBar = document.getElementById('dynamic-title-bar');
-                  if (iframe && titleBar) {
-                    titleBar.style.width = `${iframe.offsetWidth - 40}px`;
-                    clearInterval(pollingInterval); // Stop polling once title bar width is set
-                  } else if (Date.now() - startTime > maxPollingTime) {
-                    clearInterval(pollingInterval); // Stop polling after timeout
-                    console.warn('Timeout reached: title bar or iframe not found.');
-                  }
-                }, 100);
-          
-                loadIframe(); // Load iframe after title bar content is loaded
-              })
-              .catch(error => console.error('Error loading title bar:', error));
+  // Fetch and update the title bar content
+  fetch('/titlebar.html')
+    .then(response => response.text())
+    .then(data => {
+      const titlebarContainer = document.getElementById('titlebar-container');
+      titlebarContainer.innerHTML = ''; // Clear existing content
+      titlebarContainer.innerHTML = data; // Insert new content
+  
+      // Set title and author if defined
+      if (typeof titleText !== 'undefined') {
+        document.getElementById('title-text').textContent = titleText;
+      }
+      if (typeof author !== 'undefined' && typeof authorLink !== 'undefined') {
+        document.getElementById('author-text').innerHTML = `<a href="${authorLink}">${author}</a>`;
+      }
+  
+      // Start the polling mechanism to update the title bar width for up to 5 seconds
+      const iframe = document.getElementById('game-iframe');
+      const titleBar = document.getElementById('dynamic-title-bar');
+      titleBar.style.width = `${800 - 40}px`; // Adjust width with 40px padding
+
+      loadIframe(); // Load iframe after title bar content is loaded
+    })
+    .catch(error => console.error('Error loading title bar:', error));
+  
           });
 // Function to load an external script dynamically with a Promise
 function loadScript(url) {
@@ -152,20 +144,20 @@ function loadScript(url) {
 }
 
 // Load pages-long.js and then initialize search functionality
-loadScript('pages-long.js')
-    .then(() => {
+//loadScript('pages-long.js')
+   // .then(() => {
         // Ensure the pagesData array is defined before attaching the search functionality
-        if (typeof pagesData !== 'undefined' && Array.isArray(pagesData)) {
-            attachNavbarListeners();
-        } else {
-            console.error('pagesData array is not defined or not an array.');
-        }
-    })
-    .catch(error => console.error(error));
+    //    if (typeof pagesData !== 'undefined' && Array.isArray(pagesData)) {
+    //        attachNavbarListeners();
+     //   } else {
+     //       console.error('pagesData array is not defined or not an array.');
+     //   }
+   // })
+   // .catch(error => console.error(error));
 
-    function attachNavbarListeners() {
-        const searchInput = document.getElementById('searchInput');
-        const searchResults = document.getElementById('searchResults');
+   function attachNavbarListeners() {
+    const searchInput = document.getElementById('searchInput');
+    const searchResults = document.getElementById('searchResults');
 
     function searchPages(query) {
         searchResults.innerHTML = '';
@@ -173,19 +165,78 @@ loadScript('pages-long.js')
             searchResults.style.display = 'none';
             return;
         }
-    
-        const filteredPages = pagesData.filter(pageData =>
-            pageData.name.replace(/-/g, ' ').replace(/&/g, ' and ').toLowerCase().includes(query.replace(/&/g, ' and ').toLowerCase())
-        );
-    
-        const displayCount = Math.min(filteredPages.length, 5);
-    
-        if (displayCount === 0) {
+
+        const normalizedQuery = query
+            .replace(/&/g, ' and ')
+            .toLowerCase()
+            .trim();
+
+        const queryWords = normalizedQuery.split(/\s+/);  // Split the query into words
+
+        // Filter by name and category
+        const filteredPages = pagesData.filter(pageData => {
+            const normalizedPageName = pageData.name
+                .replace(/-/g, ' ')
+                .replace(/&/g, ' and ')
+                .toLowerCase();
+
+            let normalizedCategory = pageData.category
+                ? pageData.category.toLowerCase().trim()
+                : 'none';
+            
+            if (normalizedCategory === "none") {
+                normalizedCategory = ""; // Ignore 'none' categories in search
+            }
+
+            const normalizedCategoryWords = normalizedCategory.split(/\s+/);  // Split category into words
+
+            // Check if all query words match either the name or any of the category words
+            const nameMatches = queryWords.every(word => normalizedPageName.includes(word));
+            const categoryMatches = queryWords.every(word => 
+                normalizedCategoryWords.some(categoryWord => 
+                    categoryWord.startsWith(word) && word.length >= categoryWord.length / 2)
+            );
+
+            return nameMatches || categoryMatches;
+        });
+
+        // Sort the filtered results based on the priorities
+        const sortedPages = filteredPages.sort((a, b) => {
+            const nameA = a.name.toLowerCase();
+            const nameB = b.name.toLowerCase();
+            const queryLower = normalizedQuery.toLowerCase();
+
+            // Priority 1: Sort by whether the name starts with the query
+            const aStartsWith = nameA.startsWith(queryLower);
+            const bStartsWith = nameB.startsWith(queryLower);
+
+            if (aStartsWith && !bStartsWith) return -1;
+            if (!aStartsWith && bStartsWith) return 1;
+
+            // Priority 2: Sort by the number of occurrences of the query in the name
+            const aOccurrences = (nameA.match(new RegExp(queryLower, "g")) || []).length;
+            const bOccurrences = (nameB.match(new RegExp(queryLower, "g")) || []).length;
+
+            if (aOccurrences > bOccurrences) return -1;
+            if (aOccurrences < bOccurrences) return 1;
+
+            // Priority 3: Sort by the earliest occurrence of the query
+            const aFirstOccurrence = nameA.indexOf(queryLower);
+            const bFirstOccurrence = nameB.indexOf(queryLower);
+
+            if (aFirstOccurrence < bFirstOccurrence) return -1;
+            if (aFirstOccurrence > bFirstOccurrence) return 1;
+
+            // Priority 4: Alphabetical order as a final tiebreaker
+            return nameA.localeCompare(nameB);
+        });
+
+        if (sortedPages.length === 0) {
             searchResults.innerHTML = '<p style="margin: 0; font-size: 14px; color: var(--primary-color);">No results found</p>';
             searchResults.style.display = 'block';
         } else {
-            for (let i = 0; i < displayCount; i++) {
-                const pageData = filteredPages[i];
+            for (let i = 0; i < sortedPages.length; i++) {
+                const pageData = sortedPages[i];
                 const item = document.createElement('div');
                 item.classList.add('searchItem');
                 if (i > 0) {
@@ -247,11 +298,18 @@ loadScript('pages-long.js')
                 anchor.appendChild(text);
                 item.appendChild(anchor);
                 searchResults.appendChild(item);
-                searchResults.style.display = 'block';
             }
+
+            // Reset scroll to the top whenever a new search is triggered
+            searchResults.scrollTop = 0;
+
+            // Set the max-height for scrolling, allow more items but with scroll
+            searchResults.style.maxHeight = '300px';  // Set max height for 5 items or so
+            searchResults.style.overflowY = 'auto';   // Enable scrolling for more than 5 results
+            searchResults.style.display = 'block';
         }
     }
-    
+
     function capitalizeFirstLetter(string) {
         return string.replace(/\b\w/g, letter => letter.toUpperCase());
     }
@@ -281,102 +339,7 @@ loadScript('pages-long.js')
         });
     }
 }
-function searchPages(query) {
-    searchResults.innerHTML = '';
-    if (query === "") {
-        searchResults.style.display = 'none';
-        return;
-    }
 
-    // Normalize the query by replacing common synonyms for 'and' and '&'
-    const normalizedQuery = query
-        .replace(/&/g, ' and ')
-        .replace(/\band\b/g, ' and ') // Handle 'and' as well
-        .toLowerCase();
-
-    const filteredPages = pagesData.filter(pageData => {
-        const normalizedPageName = pageData.name
-            .replace(/-/g, ' ')
-            .replace(/&/g, ' and ')
-            .toLowerCase();
-
-        // Check if the normalized query is included in the normalized page name
-        return normalizedPageName.includes(normalizedQuery);
-    });
-
-    const displayCount = Math.min(filteredPages.length, 5);
-
-    if (displayCount === 0) {
-        searchResults.innerHTML = '<p style="margin: 0; font-size: 14px; color: var(--primary-color);">No results found</p>';
-        searchResults.style.display = 'block';
-    } else {
-        for (let i = 0; i < displayCount; i++) {
-            const pageData = filteredPages[i];
-            const item = document.createElement('div');
-            item.classList.add('searchItem');
-            if (i > 0) {
-                item.style.borderTop = '1px solid var(--primary-color)';
-                item.style.marginTop = '5px';
-            }
-            const anchor = document.createElement('a');
-            anchor.href = `/games/${pageData.name}.html`;
-            anchor.style.textDecoration = 'none';
-            anchor.style.fontFamily = "sans-serif";
-            anchor.style.fontWeight = "bold";
-            anchor.style.color = 'var(--primary-color)';
-            anchor.style.fontSize = '16px';
-            anchor.style.display = 'flex';
-            anchor.style.alignItems = 'center';
-            anchor.addEventListener('mouseover', function () {
-                anchor.style.textDecoration = 'underline';
-            });
-            anchor.addEventListener('mouseout', function () {
-                anchor.style.textDecoration = 'none';
-            });
-            const image = document.createElement('img');
-            image.src = `/images/games/${pageData.name}.png`;
-            image.alt = `${pageData.name}`;
-            image.style.width = '70px';
-            image.style.height = '39.38px';
-            image.style.borderRadius = '3px';
-            image.style.marginRight = '10px';
-            const text = document.createElement('p');
-            const formattedPageName = capitalizeFirstLetter(pageData.name.replace(/-/g, ' ').replace(/&/g, ' and '));
-            let line1 = '';
-            let line2 = '';
-            const words = formattedPageName.split(' ');
-            for (const word of words) {
-                if (line1.length === 0) {
-                    if (word.length > 18) {
-                        line1 += word.substr(0, 15) + '... ';
-                        line2 += word.substr(15) + ' ';
-                    } else {
-                        line1 += word + ' ';
-                    }
-                } else if ((line1 + word).length < 18) {
-                    line1 += word + ' ';
-                } else {
-                    line2 += word + ' ';
-                }
-            }
-            text.style.margin = '0';
-            text.style.maxWidth = 'calc(100% - 80px)';
-            text.style.overflow = 'hidden';
-            text.style.textOverflow = 'ellipsis';
-            text.style.whiteSpace = 'nowrap';
-            text.style.fontWeight = 'bold';
-            text.style.color = 'var(--primary-color)';
-            text.style.fontSize = '14px';
-            text.style.textAlign = 'left';
-            text.innerHTML = `${line1} ${line2}`;
-            anchor.appendChild(image);
-            anchor.appendChild(text);
-            item.appendChild(anchor);
-            searchResults.appendChild(item);
-            searchResults.style.display = 'block';
-        }
-    }
-}
 
 function loadIframe() {
     var selectedButton = localStorage.getItem('selectedButton') || 'primary';

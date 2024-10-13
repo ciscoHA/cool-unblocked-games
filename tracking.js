@@ -167,8 +167,12 @@ if (!isImageOrHtmlFile) {
     // Call the trackPage function when the page loads
     window.onload = function () {
         trackPage();
+
         generatePageList();
-    
+        generatePageListMULTI();
+        generatePageListONLINE();
+     // checkIframeAndUpdateTitleBar(iframe, titleBar, 5000); // Run for 5 seconds
+
         sortList();
     
         // Add event listener to the clear button

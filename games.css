@@ -1,5 +1,9 @@
 @import url('/fonts/fonts.css');
 
+a {
+  color: var(--primary-color);
+}
+
 .title-bar {
   background-color: var(--secondary-color);
   color: var(--primary-color);
@@ -220,6 +224,9 @@ button {
 }
 
 .box-16-9 p:hover {
+  text-decoration: underline !important;
+}
+.box-16-9 button:hover {
   text-decoration: underline !important;
 }
 
