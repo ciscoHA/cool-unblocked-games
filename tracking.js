@@ -171,6 +171,7 @@ if (!isImageOrHtmlFile) {
         generatePageList();
         generatePageListMULTI();
         generatePageListONLINE();
+        generatePageListNEW();
      // checkIframeAndUpdateTitleBar(iframe, titleBar, 5000); // Run for 5 seconds
 
         sortList();

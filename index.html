@@ -112,7 +112,7 @@
       flex-wrap: wrap;
     }
 
-    #pageListFEATURED img { 
+    #pageListNEW img { 
       width: 20.3vw !important;
     }
 
@@ -438,211 +438,95 @@
     outline: #58aafc solid 4px;
     border-radius: 5px;
   ">
-    Featured Games
+    New Games
   </p>
-  <ul id="pageListFEATURED" class="game-list" style="margin-left: 5vw; margin-right: 5vw;">
- 
-<li>
-  <div class="suggest-game" style="position: relative; display: flex; flex-direction: column; align-items: center; text-align: center;">
-      <a href="games/n-gon.html"
-          onmouseover="highlightImageL('suggest-imgLF1', 'suggest-textLF1')"
-          onmouseout="removeHighlightL('suggest-imgLF1', 'suggest-textLF1')">
-          <div style="position: absolute;
-                      background-color: rgba(0, 0, 0, 0);
-                      z-index: 3;">
-          </div>
+  <ul id="pageListNEW" class="game-list" style="margin-left: 1vw; margin-right: 1vw;">  
+  <!-- List of pages will be dynamically generated here -->
+  </ul>
+  <script>
+    function generatePageListNEW() {
+    const pageList = document.getElementById('pageListNEW');
+    pageList.innerHTML = "";
 
-                               <img style="outline: 0.25vw solid #58aafc;
-                      border: 1px solid #58aafc;"
-               id="suggest-imgLF1"
-               src="images/games/n-gon.png"
-               alt="n-gon" loading="lazy"/>
+    // Sort pages by new-old (sortOrder 2)
+    sortOrder = 2; // New-Old
+    sortPages(); // Apply sorting
 
-          <div id="fade-wrapper-2">
-              <div class="box-shadow"></div>
-          </div>
-      </a>
-      <a href="games/n-gon.html" class="suggest-text suggest-textLF1">
-          <span>N-gon</span>
-      </a>
-  </div>
-</li>
-<li>
-  <div class="suggest-game" style="position: relative; display: flex; flex-direction: column; align-items: center; text-align: center;">
-      <a href="games/recoil.html"
-          onmouseover="highlightImageL('suggest-imgLF2', 'suggest-textLF2')"
-          onmouseout="removeHighlightL('suggest-imgLF2', 'suggest-textLF2')">
-          <div style="position: absolute;
-                      background-color: rgba(0, 0, 0, 0);
-                      z-index: 3;">
-          </div>
+    // Only display the first 8 sorted items
+    const sortedPages = pagesData.slice(0, 8); // Get the first 8 pages
 
-                               <img style="outline: 0.25vw solid #58aafc;
-                      border: 1px solid #58aafc;"
-               id="suggest-imgLF2"
-               src="images/games/recoil.png"
-               alt="recoil" loading="lazy"/>
+    sortedPages.forEach((page, index) => {
+        const formattedName = page.formatted_Name;
 
-          <div id="fade-wrapper-2">
-              <div class="box-shadow"></div>
-          </div>
-      </a>
-      <a href="games/recoil.html" class="suggest-text suggest-textLF2">
-          <span>Recoil</span>
-      </a>
-  </div>
-</li>
-<li>
-  <div class="suggest-game" style="position: relative; display: flex; flex-direction: column; align-items: center; text-align: center;">
-      <a href="games/super-smash-flash.html"
-          onmouseover="highlightImageL('suggest-imgLF3', 'suggest-textLF3')"
-          onmouseout="removeHighlightL('suggest-imgLF3', 'suggest-textLF3')">
-          <div style="position: absolute;
-                      background-color: rgba(0, 0, 0, 0);
-                      z-index: 3;">
-          </div>
+        // Calculate and adjust letter spacing based on text length
+        let letterSpacing = 'normal';
+        if (formattedName.length > 12) {
+            const maxLetterSpacingReduction = 12;
+            const lengthFactor = Math.min(1, (formattedName.length - 12) / 900);
+            letterSpacing = `${-maxLetterSpacingReduction * lengthFactor}vw`;
+        }
 
-                               <img style="outline: 0.25vw solid #58aafc;
-                      border: 1px solid #58aafc;"
-               id="suggest-imgLF3"
-               src="images/games/super-smash-flash.png"
-               alt="Super Smash Flash" loading="lazy"/>
+        const li = document.createElement('li');
+        li.innerHTML = `
+        <li data-date="${page.date}">
+            <div class="suggest-game" style="position: relative; display: flex; flex-direction: column; align-items: center; text-align: center;">
+                <a href="games/${page.name}.html"
+                    onmouseover="highlightImageL('suggest-imgN${index}', 'suggest-textN${index}')"
+                    onmouseout="removeHighlightL('suggest-imgN${index}', 'suggest-textN${index}')">
+                    <div style="position: absolute; background-color: rgba(0, 0, 0, 0); z-index: 3;"></div>
+                    <img style="outline: 0.25vw solid #58aafc; border: 1px solid #58aafc;"
+                        id="suggest-imgN${index}"
+                        src="images/games/${page.name}.png"
+                        alt="${page.name}" loading="lazy"/>
+                    <div id="fade-wrapper-2">
+                        <div class="box-shadow"></div>
+                    </div>
+                </a>
+                <a href="games/${page.name}.html" class="suggest-text suggest-textN${index}">
+                    <span style="letter-spacing: ${letterSpacing};">${formattedName}</span>
+                </a>
+            </div>
+        </li>`;
+        pageList.appendChild(li);
+    });
+}
 
-          <div id="fade-wrapper-2">
-              <div class="box-shadow"></div>
-          </div>
-      </a>
-      <a href="games/super-smash-flash.html" class="suggest-text suggest-textLF3">
-          <span>Super Smash Flash</span>
-      </a>
-  </div>
-</li>
-<li>
-  <div class="suggest-game" style="position: relative; display: flex; flex-direction: column; align-items: center; text-align: center;">
-      <a href="games/cactus-mccoy.html"
-          onmouseover="highlightImageL('suggest-imgLF4', 'suggest-textLF4')"
-          onmouseout="removeHighlightL('suggest-imgLF4', 'suggest-textLF4')">
-          <div style="position: absolute;
-                      background-color: rgba(0, 0, 0, 0);
-                      z-index: 3;">
-          </div>
+// Ensure the sorting function is in place to sort the pages by the selected order
+function sortPages() {
+    switch (sortOrder) {
+        case 0:
+            pagesData.sort((a, b) => (a.name > b.name) ? 1 : -1);
+            break;
+        case 1:
+            pagesData.sort((a, b) => (a.name < b.name) ? 1 : -1);
+            break;
+        case 2:
+            pagesData.sort((a, b) => {
+                const dateA = new Date(a.date.split('-').reverse().join('-'));
+                const dateB = new Date(b.date.split('-').reverse().join('-'));
+                if (dateA.getTime() === dateB.getTime()) {
+                    return a.name.localeCompare(b.name); // Sort alphabetically if dates are equal
+                }
+                return dateB.getTime() - dateA.getTime(); // Sort by new-old
+            });
+            break;
+        case 3:
+            pagesData.sort((a, b) => {
+                const dateA = new Date(a.date.split('-').reverse().join('-'));
+                const dateB = new Date(b.date.split('-').reverse().join('-'));
+                if (dateA.getTime() === dateB.getTime()) {
+                    return b.name.localeCompare(a.name); // Sort reverse alphabetically if dates are equal
+                }
+                return dateA.getTime() - dateB.getTime(); // Sort by old-new
+            });
+            break;
+    }
+}
 
-                               <img style="outline: 0.25vw solid #58aafc;
-                      border: 1px solid #58aafc;"
-               id="suggest-imgLF4"
-               src="images/games/cactus-mccoy.png"
-               alt="Cactus McCoy" loading="lazy"/>
+// Call the function to generate the list
+generatePageListNEW();
 
-          <div id="fade-wrapper-2">
-              <div class="box-shadow"></div>
-          </div>
-      </a>
-      <a href="games/cactus-mccoy.html" class="suggest-text suggest-textLF4">
-          <span>Cactus McCoy</span>
-      </a>
-  </div>
-</li>
-<li>
-  <div class="suggest-game" style="position: relative; display: flex; flex-direction: column; align-items: center; text-align: center;">
-      <a href="games/duck-life-2.html"
-          onmouseover="highlightImageL('suggest-imgLF5', 'suggest-textLF5')"
-          onmouseout="removeHighlightL('suggest-imgLF5', 'suggest-textLF5')">
-          <div style="position: absolute;
-                      background-color: rgba(0, 0, 0, 0);
-                      z-index: 3;">
-          </div>
-
-                               <img style="outline: 0.25vw solid #58aafc;
-                      border: 1px solid #58aafc;"
-               id="suggest-imgLF5"
-               src="images/games/duck-life-2.png"
-               alt="Duck Life 2" loading="lazy"/>
-
-          <div id="fade-wrapper-2">
-              <div class="box-shadow"></div>
-          </div>
-      </a>
-      <a href="games/duck-life-2.html" class="suggest-text suggest-textLF5">
-          <span>Duck Life 2</span>
-      </a>
-  </div>
-</li>
-<li>
-  <div class="suggest-game" style="position: relative; display: flex; flex-direction: column; align-items: center; text-align: center;">
-      <a href="games/santa-run-2.html"
-          onmouseover="highlightImageL('suggest-imgLF6', 'suggest-textLF6')"
-          onmouseout="removeHighlightL('suggest-imgLF6', 'suggest-textLF6')">
-          <div style="position: absolute;
-                      background-color: rgba(0, 0, 0, 0);
-                      z-index: 3;">
-          </div>
-
-                               <img style="outline: 0.25vw solid #58aafc;
-                      border: 1px solid #58aafc;"
-               id="suggest-imgLF6"
-               src="images/games/santa-run-2.png"
-               alt="Santa Run 2" loading="lazy"/>
-
-          <div id="fade-wrapper-2">
-              <div class="box-shadow"></div>
-          </div>
-      </a>
-      <a href="games/santa-run-2.html" class="suggest-text suggest-textLF6">
-          <span>Santa Run 2</span>
-      </a>
-  </div>
-</li>
-<li>
-  <div class="suggest-game" style="position: relative; display: flex; flex-direction: column; align-items: center; text-align: center;">
-      <a href="games/crossy-road.html"
-          onmouseover="highlightImageL('suggest-imgLF7', 'suggest-textLF7')"
-          onmouseout="removeHighlightL('suggest-imgLF7', 'suggest-textLF7')">
-          <div style="position: absolute;
-                      background-color: rgba(0, 0, 0, 0);
-                      z-index: 3;">
-          </div>
-
-                               <img style="outline: 0.25vw solid #58aafc;
-                      border: 1px solid #58aafc;"
-               id="suggest-imgLF7"
-               src="images/games/crossy-road.png"
-               alt="Crossy Road" loading="lazy"/>
-
-          <div id="fade-wrapper-2">
-              <div class="box-shadow"></div>
-          </div>
-      </a>
-      <a href="games/crossy-road.html" class="suggest-text suggest-textLF7">
-          <span>Crossy Road</span>
-      </a>
-  </div>
-</li>
-<li>
-  <div class="suggest-game" style="position: relative; display: flex; flex-direction: column; align-items: center; text-align: center;">
-      <a href="games/submersible.html"
-          onmouseover="highlightImageL('suggest-imgLF8', 'suggest-textLF8')"
-          onmouseout="removeHighlightL('suggest-imgLF8', 'suggest-textLF8')">
-          <div style="position: absolute;
-                      background-color: rgba(0, 0, 0, 0);
-                      z-index: 3;">
-          </div>
-
-                               <img style="outline: 0.25vw solid #58aafc;
-                      border: 1px solid #58aafc;"
-               id="suggest-imgLF8"
-               src="images/games/submersible.png"
-               alt="Submersible" loading="lazy"/>
-
-          <div id="fade-wrapper-2">
-              <div class="box-shadow"></div>
-          </div>
-      </a>
-      <a href="games/submersible.html" class="suggest-text suggest-textLF8">
-          <span>Submersible</span>
-      </a>
-  </div>
-</li>
-</ul>
+  </script>
   <br>
   <p id="list-type3" style="
     font-size: 220%;
