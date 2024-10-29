@@ -392,7 +392,7 @@
 
       <a href="/changelog.html"
         style="color: var(--primary-color) !important; text-decoration: underline !important; font-size: x-large; text-align: center; display: block; margin: 10px 0;">
-        Changelog 12/10/24
+        Changelog 29/10/24
       </a>
     </div>
     <div class="news" style="width: 50%; padding: 10px;">
@@ -444,87 +444,61 @@
   <!-- List of pages will be dynamically generated here -->
   </ul>
   <script>
-    function generatePageListNEW() {
-    const pageList = document.getElementById('pageListNEW');
-    pageList.innerHTML = "";
+ function generateNewPageList() {
+  const pageList = document.getElementById('pageListNEW');
+  pageList.innerHTML = ""; // Clear previous content
 
-    // Sort pages by new-old (sortOrder 2)
-    sortOrder = 2; // New-Old
-    sortPages(); // Apply sorting
-
-    // Only display the first 8 sorted items
-    const sortedPages = pagesData.slice(0, 8); // Get the first 8 pages
-
-    sortedPages.forEach((page, index) => {
-        const formattedName = page.formatted_Name;
-
-        // Calculate and adjust letter spacing based on text length
-        let letterSpacing = 'normal';
-        if (formattedName.length > 12) {
-            const maxLetterSpacingReduction = 12;
-            const lengthFactor = Math.min(1, (formattedName.length - 12) / 900);
-            letterSpacing = `${-maxLetterSpacingReduction * lengthFactor}vw`;
-        }
-
-        const li = document.createElement('li');
-        li.innerHTML = `
-        <li data-date="${page.date}">
-            <div class="suggest-game" style="position: relative; display: flex; flex-direction: column; align-items: center; text-align: center;">
-                <a href="games/${page.name}.html"
-                    onmouseover="highlightImageL('suggest-imgN${index}', 'suggest-textN${index}')"
-                    onmouseout="removeHighlightL('suggest-imgN${index}', 'suggest-textN${index}')">
-                    <div style="position: absolute; background-color: rgba(0, 0, 0, 0); z-index: 3;"></div>
-                    <img style="outline: 0.25vw solid #58aafc; border: 1px solid #58aafc;"
-                        id="suggest-imgN${index}"
-                        src="images/games/${page.name}.png"
-                        alt="${page.name}" loading="lazy"/>
-                    <div id="fade-wrapper-2">
-                        <div class="box-shadow"></div>
-                    </div>
-                </a>
-                <a href="games/${page.name}.html" class="suggest-text suggest-textN${index}">
-                    <span style="letter-spacing: ${letterSpacing};">${formattedName}</span>
-                </a>
-            </div>
-        </li>`;
-        pageList.appendChild(li);
-    });
-}
-
-// Ensure the sorting function is in place to sort the pages by the selected order
-function sortPages() {
-    switch (sortOrder) {
-        case 0:
-            pagesData.sort((a, b) => (a.name > b.name) ? 1 : -1);
-            break;
-        case 1:
-            pagesData.sort((a, b) => (a.name < b.name) ? 1 : -1);
-            break;
-        case 2:
-            pagesData.sort((a, b) => {
-                const dateA = new Date(a.date.split('-').reverse().join('-'));
-                const dateB = new Date(b.date.split('-').reverse().join('-'));
-                if (dateA.getTime() === dateB.getTime()) {
-                    return a.name.localeCompare(b.name); // Sort alphabetically if dates are equal
-                }
-                return dateB.getTime() - dateA.getTime(); // Sort by new-old
-            });
-            break;
-        case 3:
-            pagesData.sort((a, b) => {
-                const dateA = new Date(a.date.split('-').reverse().join('-'));
-                const dateB = new Date(b.date.split('-').reverse().join('-'));
-                if (dateA.getTime() === dateB.getTime()) {
-                    return b.name.localeCompare(a.name); // Sort reverse alphabetically if dates are equal
-                }
-                return dateA.getTime() - dateB.getTime(); // Sort by old-new
-            });
-            break;
+  // Sort pages by date (newest first)
+  pagesData.sort((a, b) => {
+    const dateA = new Date(a.date.split('-').reverse().join('-'));
+    const dateB = new Date(b.date.split('-').reverse().join('-'));
+    if (dateA.getTime() === dateB.getTime()) {
+      return a.name.localeCompare(b.name);
     }
+    return dateB.getTime() - dateA.getTime();
+  });
+
+  // Limit to the first 15 items after sorting
+  const itemsToShow = pagesData.slice(0, 15);
+
+  itemsToShow.forEach((page, index) => {
+    // Format the full name
+    const formattedName = page.formatted_Name;
+
+    // Calculate and adjust letter spacing based on text length
+    let letterSpacing = 'normal'; // Default letter spacing
+    if (formattedName.length > 12) {
+      const maxLetterSpacingReduction = 12;
+      const lengthFactor = Math.min(1, (formattedName.length - 12) / 900);
+      letterSpacing = `${-maxLetterSpacingReduction * lengthFactor}vw`;
+    }
+
+    const li = document.createElement('li');
+    li.innerHTML = `
+      <div class="suggest-game" style="position: relative; display: flex; flex-direction: column; align-items: center; text-align: center;">
+        <a href="games/${page.name}.html"
+           onmouseover="highlightImageL('suggest-imgN${index}', 'suggest-textN${index}')"
+           onmouseout="removeHighlightL('suggest-imgN${index}', 'suggest-textN${index}')">
+          <div style="position: absolute; background-color: rgba(0, 0, 0, 0); z-index: 3;"></div>
+          <img style="outline: 0.25vw solid #58aafc; border: 1px solid #58aafc;"
+               id="suggest-imgN${index}"
+               src="images/games/${page.name}.png"
+               alt="${page.name}" loading="lazy"/>
+          <div id="fade-wrapper-2">
+            <div class="box-shadow"></div>
+          </div>
+        </a>
+        <a href="games/${page.name}.html" class="suggest-text suggest-textN${index}">
+          <span style="letter-spacing: ${letterSpacing};">${formattedName}</span>
+        </a>
+      </div>
+    `;
+    pageList.appendChild(li);
+  });
 }
 
-// Call the function to generate the list
-generatePageListNEW();
+generateNewPageList();
+
 
   </script>
   <br>
@@ -555,51 +529,56 @@ generatePageListNEW();
     </ul>
   </div>
   <script>
-    function generatePageListMULTI() {
-      const pageList = document.getElementById('pageListMULTI');
-      pageList.innerHTML = "";
+   function generatePageListMULTI() {
+  const pageList = document.getElementById('pageListMULTI');
+  pageList.innerHTML = ""; // Clear previous content
 
-      pagesData.forEach((page, index) => {
-        // Check if the extra property contains the word "multiplayer"
-        if (page.category.includes("multiplayer")) {
-          // Format the full name
-          const formattedName = page.formatted_Name;
+  // Filter to only "multiplayer" items and sort alphabetically by name
+  const multiplayerPages = pagesData
+    .filter(page => page.category.includes("multiplayer"))
+    .sort((a, b) => a.name.localeCompare(b.name));
 
-          // Calculate and adjust letter spacing based on text length
-          let letterSpacing = 'normal'; // Default letter spacing
-          if (formattedName.length > 12) {
-            const maxLetterSpacingReduction = 12;
-            const lengthFactor = Math.min(1, (formattedName.length - 12) / 900);
-            letterSpacing = `${-maxLetterSpacingReduction * lengthFactor}vw`;
-          }
+  // Render each filtered and sorted "multiplayer" item
+  multiplayerPages.forEach((page, index) => {
+    // Format the full name
+    const formattedName = page.formatted_Name;
 
-          const li = document.createElement('li');
-          li.innerHTML = `
-<li data-date="${page.date}">
-                    <div class="suggest-game" style="position: relative; display: flex; flex-direction: column; align-items: center; text-align: center;">
-                        <a href="games/${page.name}.html"
-                            onmouseover="highlightImageL('suggest-imgP${index}', 'suggest-textP${index}')"
-                            onmouseout="removeHighlightL('suggest-imgP${index}', 'suggest-textP${index}')">
-                            <div style="position: absolute; background-color: rgba(0, 0, 0, 0); z-index: 3;"></div>
-                            <img style="outline: 0.25vw solid #D058FC; border: 1px solid #D058FC;"
-                                 id="suggest-imgP${index}"
-                                 src="images/games/${page.name}.png"
-                                 alt="${page.name}" loading="lazy"/>
-                            <div id="fade-wrapper-purple">
-                                <div class="box-shadow"></div>
-                            </div>
-                        </a>
-                        <a href="games/${page.name}.html" class="suggest-text suggest-textP${index}">
-                            <span style="letter-spacing: ${letterSpacing};">${formattedName}</span>
-                        </a>
-                    </div>
-                </li>
-                `;
-          pageList.appendChild(li);
-        }
-      });
+    // Calculate and adjust letter spacing based on text length
+    let letterSpacing = 'normal'; // Default letter spacing
+    if (formattedName.length > 12) {
+      const maxLetterSpacingReduction = 12;
+      const lengthFactor = Math.min(1, (formattedName.length - 12) / 900);
+      letterSpacing = `${-maxLetterSpacingReduction * lengthFactor}vw`;
     }
-    generatePageListMULTI();
+
+    const li = document.createElement('li');
+    li.innerHTML = `
+      <li data-date="${page.date}">
+        <div class="suggest-game" style="position: relative; display: flex; flex-direction: column; align-items: center; text-align: center;">
+          <a href="games/${page.name}.html"
+             onmouseover="highlightImageL('suggest-imgP${index}', 'suggest-textP${index}')"
+             onmouseout="removeHighlightL('suggest-imgP${index}', 'suggest-textP${index}')">
+            <div style="position: absolute; background-color: rgba(0, 0, 0, 0); z-index: 3;"></div>
+            <img style="outline: 0.25vw solid #D058FC; border: 1px solid #D058FC;"
+                 id="suggest-imgP${index}"
+                 src="images/games/${page.name}.png"
+                 alt="${page.name}" loading="lazy"/>
+            <div id="fade-wrapper-purple">
+              <div class="box-shadow"></div>
+            </div>
+          </a>
+          <a href="games/${page.name}.html" class="suggest-text suggest-textP${index}">
+            <span style="letter-spacing: ${letterSpacing};">${formattedName}</span>
+          </a>
+        </div>
+      </li>
+    `;
+    pageList.appendChild(li);
+  });
+}
+
+generatePageListMULTI();
+
   </script>
 
   <p id="list-type3" style="
@@ -628,169 +607,155 @@ generatePageListNEW();
     </ul>
   </div>
   <script>
-    function generatePageListONLINE() {
-      const pageList = document.getElementById('pageListONLINE');
-      pageList.innerHTML = "";
+   function generatePageListONLINE() {
+  const pageList = document.getElementById('pageListONLINE');
+  pageList.innerHTML = ""; // Clear previous content
 
-      pagesData.forEach((page, index) => {
-        // Check if the extra property contains the word "online"
-        if (page.category.includes("online")) {
-          // Format the full name
-          const formattedName = page.formatted_Name;
+  // Filter to only "online" items and sort alphabetically by name
+  const onlinePages = pagesData
+    .filter(page => page.category.includes("online"))
+    .sort((a, b) => a.name.localeCompare(b.name));
 
-          // Calculate and adjust letter spacing based on text length
-          let letterSpacing = 'normal'; // Default letter spacing
-          if (formattedName.length > 12) {
-            const maxLetterSpacingReduction = 12;
-            const lengthFactor = Math.min(1, (formattedName.length - 12) / 900);
-            letterSpacing = `${-maxLetterSpacingReduction * lengthFactor}vw`;
-          }
+  // Render each filtered and sorted "online" item
+  onlinePages.forEach((page, index) => {
+    // Format the full name
+    const formattedName = page.formatted_Name;
 
-          const li = document.createElement('li');
-          li.innerHTML = `
-<li data-date="${page.date}">
-                  <div class="suggest-game" style="position: relative; display: flex; flex-direction: column; align-items: center; text-align: center;">
-                      <a href="games/${page.name}.html"
-                          onmouseover="highlightImageL('suggest-imgPO${index}', 'suggest-textPO${index}')"
-                          onmouseout="removeHighlightL('suggest-imgPO${index}', 'suggest-textPO${index}')">
-                          <div style="position: absolute; background-color: rgba(0, 0, 0, 0); z-index: 3;"></div>
-                          <img style="outline: 0.25vw solid #D058FC; border: 1px solid #D058FC;"
-                               id="suggest-imgPO${index}"
-                               src="images/games/${page.name}.png"
-                               alt="${page.name}" loading="lazy"/>
-                          <div id="fade-wrapper-purple">
-                              <div class="box-shadow"></div>
-                          </div>
-                      </a>
-                      <a href="games/${page.name}.html" class="suggest-text suggest-textPO${index}">
-                          <span style="letter-spacing: ${letterSpacing};">${formattedName}</span>
-                      </a>
-                  </div>
-              </li>
-              `;
-          pageList.appendChild(li);
-        }
-      });
+    // Calculate and adjust letter spacing based on text length
+    let letterSpacing = 'normal'; // Default letter spacing
+    if (formattedName.length > 12) {
+      const maxLetterSpacingReduction = 12;
+      const lengthFactor = Math.min(1, (formattedName.length - 12) / 900);
+      letterSpacing = `${-maxLetterSpacingReduction * lengthFactor}vw`;
     }
-    generatePageListONLINE();
+
+    const li = document.createElement('li');
+    li.innerHTML = `
+      <li data-date="${page.date}">
+        <div class="suggest-game" style="position: relative; display: flex; flex-direction: column; align-items: center; text-align: center;">
+          <a href="games/${page.name}.html"
+             onmouseover="highlightImageL('suggest-imgPO${index}', 'suggest-textPO${index}')"
+             onmouseout="removeHighlightL('suggest-imgPO${index}', 'suggest-textPO${index}')">
+            <div style="position: absolute; background-color: rgba(0, 0, 0, 0); z-index: 3;"></div>
+            <img style="outline: 0.25vw solid #D058FC; border: 1px solid #D058FC;"
+                 id="suggest-imgPO${index}"
+                 src="images/games/${page.name}.png"
+                 alt="${page.name}" loading="lazy"/>
+            <div id="fade-wrapper-purple">
+              <div class="box-shadow"></div>
+            </div>
+          </a>
+          <a href="games/${page.name}.html" class="suggest-text suggest-textPO${index}">
+            <span style="letter-spacing: ${letterSpacing};">${formattedName}</span>
+          </a>
+        </div>
+      </li>
+    `;
+    pageList.appendChild(li);
+  });
+}
+
+generatePageListONLINE();
+
   </script>
   <br>
   <div class="sortButtonDiv" id="AllGamesDiv" style="display: flex; align-items: flex-start; gap: 0;">
-    <button id="sortButton" onclick="changeSortOrder()"
-      style="width: 250px; text-align: center; color: var(--primary-color); font-size: x-large; height: 50px; padding: 10px;">
-      A-Z
-    </button>
-    <div id="filterDropdownContainer" style="display: inline-block; position: relative;">
-      <button id="filterButton" onclick="toggleDropdownMenu()" 
-        style="width: 250px; text-align: center; font-size: x-large; height: 50px; padding: 10px; background-color: var(--secondary-color); color: var(--primary-color); border-radius: 5px; border-color: transparent; border: none;"> 
-        Filter: All
+    <!-- Sort Dropdown -->
+    <div id="sortDropdownContainer" style="display: inline-block; position: relative;">
+      <button id="sortButton" onclick="toggleSortDropdownMenu()" 
+        style="width: 250px; text-align: center; font-size: x-large; height: 50px; padding: 10px; background-color: var(--secondary-color); color: var(--primary-color); border-radius: 5px; border: none; font-family: 'M Plus Rounded 1c', sans-serif; font-weight: bold;">
+        Sort: A-Z
       </button>
-      <div id="filterDropdownMenu" style="display: none;">
-        <div class="dropdown-inner">
-          <ul style="list-style: none; padding: 0; margin: 0;">
-            <li onclick="selectFilter('All')">All</li>
-            <li onclick="selectFilter('multiplayer')">Multiplayer</li>
-            <li onclick="selectFilter('online')">Online</li>
-            <li onclick="selectFilter('shooter')">Shooter</li>
-            <li onclick="selectFilter('puzzle')">Puzzle</li>
-            <li onclick="selectFilter('endless')">Endless</li>
-            <li onclick="selectFilter('platformer')">Platformer</li>
-            <li onclick="selectFilter('driving')">Driving</li>
-          </ul>
-        </div>
+      <div id="sortDropdownMenu" class="dropdown-menu" style="display: none;">
+        <ul class="dropdown-inner">
+          <li onclick="selectSortOrder(0)">A-Z</li>
+          <li onclick="selectSortOrder(1)">Z-A</li>
+          <li onclick="selectSortOrder(2)">New-Old</li>
+          <li onclick="selectSortOrder(3)">Old-New</li>
+        </ul>
       </div>
     </div>
+  
+    <!-- Filter Dropdown -->
+    <div id="filterDropdownContainer" style="display: inline-block; position: relative;">
+      <button id="filterButton" onclick="toggleDropdownMenu()" 
+        style="width: 250px; text-align: center; font-size: x-large; height: 50px; padding: 10px; background-color: var(--secondary-color); color: var(--primary-color); border-radius: 5px; border: none; font-family: 'M Plus Rounded 1c', sans-serif; font-weight: bold;"> 
+        Filter: All
+      </button>
+      <div id="filterDropdownMenu" class="dropdown-menu" style="display: none;">
+        <ul class="dropdown-inner">
+          <li onclick="selectFilter('All')">All</li>
+          <li onclick="selectFilter('multiplayer')">Multiplayer</li>
+          <li onclick="selectFilter('online')">Online</li>
+          <li onclick="selectFilter('shooter')">Shooter</li>
+          <li onclick="selectFilter('puzzle')">Puzzle</li>
+          <li onclick="selectFilter('endless')">Endless</li>
+          <li onclick="selectFilter('platformer')">Platformer</li>
+          <li onclick="selectFilter('driving')">Driving</li>
+        </ul>
+      </div>
+    </div>
+  
     <style>
+      /* Button Container */
       .sortButtonDiv {
         display: flex;
-        align-items: flex-start; /* Align items to the top */
+        align-items: flex-start;
       }
-
-      .sortButtonDiv button {
-        white-space: nowrap;
-        margin: 15px; /* Remove margin for no gaps */
-        font-family: "M Plus Rounded 1c", sans-serif; /* Ensure consistent font */
-        cursor: pointer;
+  
+      /* Dropdown Menu Styling */
+      .dropdown-menu {
+        position: absolute;
+        top: 100%; /* Directly below the button */
+        width: 250px; /* Matches button width */
+  
+        left: 50%; /* put left to centre horizontally */
+        transform: translateX(-50%); /* translate it so centre is not centred*/
+  
         background-color: var(--secondary-color);
-        font-weight: bold;
-        color: var(--primary-color);
         border-radius: 5px;
-        border-color: transparent;
-        height: 50px; /* Set a fixed height for both buttons */
-        padding: 10px; /* Ensure consistent padding */
-      }
-
-      /* Button dimensions */
-      #sortButton,
-      #filterButton {
-        width: 250px; /* Ensure both buttons have the same width of 250px */
-        font-size: x-large; /* Ensure both buttons have the same font size */
-      }
-
-      /* Dropdown styling */
-      #filterDropdownMenu {
-        margin: 15px;
-        border-bottom-left-radius: 5px;
-        border-bottom-right-radius: 5px;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15); /* Light shadow */
+        z-index: 5;
         font-family: "M Plus Rounded 1c", sans-serif;
         font-weight: bold;
-        cursor: pointer;
-        text-align: center;
-        width: 250px; /* Set width equal to the button */
-        position: absolute;
-        top: 100%; /* Position directly below the button */
-        left: 0; /* Align to the left of the container */
-        z-index: 5;
-        background-color: var(--secondary-color); /* Match button color */
-        margin-top: -18px; /* No margin for tight connection */
+        margin-top: -6px; 
       }
-
-      /* Center the contents of the dropdown */
+  
+      /* Dropdown Inner Styling */
       .dropdown-inner {
-        display: flex;
-        justify-content: center; /* Center items inside the dropdown */
-        padding: 0; /* Remove padding to avoid extra height */
-      }
-
-      /* Dropdown menu items */
-      #filterDropdownMenu ul {
         list-style: none;
         padding: 0;
         margin: 0;
-        width: 100%; /* Ensure the list uses the full width of the dropdown */
       }
-
-      #filterDropdownMenu li {
-        border-radius: 5px;
+  
+      .dropdown-inner li {
         padding: 10px;
         cursor: pointer;
         text-align: center;
         color: var(--primary-color);
-        position: relative; 
+        border-top: 1px solid var(--primary-color);
+        border-radius: 5px;
       }
-
-      #filterDropdownMenu li {
-        border-top: 1px solid var(--primary-color); 
+  
+      .dropdown-inner li:first-child {
+        border-top: none; /* Remove border from the first item */
       }
-
-      #filterDropdownMenu li:hover {
+  
+      .dropdown-inner li:hover {
         background-color: var(--primary-color);
-        color: var(--secondary-color); 
+        color: var(--secondary-color);
       }
     </style>
-</div>
-
   </div>
   
-  </div>
   <ul id="pageList" class="game-list">
     <!-- List of pages will be dynamically generated here -->
   </ul>
-  </div>
+  
   <script>
-    let sortOrder = 0; // 0 for A-Z, 1 for Z-A, 2 for New-Old, 3 for Old-New
+    let sortOrder = 0;
     let selectedFilter = 'All';
-
+  
     function sortPages() {
       switch (sortOrder) {
         case 0:
@@ -804,9 +769,9 @@ generatePageListNEW();
             const dateA = new Date(a.date.split('-').reverse().join('-'));
             const dateB = new Date(b.date.split('-').reverse().join('-'));
             if (dateA.getTime() === dateB.getTime()) {
-              return a.name.localeCompare(b.name); // Sort alphabetically if dates are equal
+              return a.name.localeCompare(b.name);
             }
-            return dateB.getTime() - dateA.getTime(); // Sort by new-old
+            return dateB.getTime() - dateA.getTime();
           });
           break;
         case 3:
@@ -814,139 +779,126 @@ generatePageListNEW();
             const dateA = new Date(a.date.split('-').reverse().join('-'));
             const dateB = new Date(b.date.split('-').reverse().join('-'));
             if (dateA.getTime() === dateB.getTime()) {
-              return b.name.localeCompare(a.name); // Sort reverse alphabetically if dates are equal
+              return b.name.localeCompare(a.name);
             }
-            return dateA.getTime() - dateB.getTime(); // Sort by old-new
+            return dateA.getTime() - dateB.getTime();
           });
           break;
       }
     }
-
+  
     function filterPages() {
       if (selectedFilter === 'All') {
         return pagesData;
       }
       return pagesData.filter(page => page.category.includes(selectedFilter));
     }
+  
+   function generatePageList() {
+  const pageList = document.getElementById('pageList');
+  pageList.innerHTML = "";
 
-    function generatePageList() {
-      const pageList = document.getElementById('pageList');
-      pageList.innerHTML = ""; // Clear current list
+  // Sort and filter pages
+  sortPages();
+  const filteredPages = filterPages();
 
-      // Sort and filter the pages
-      sortPages();
-      const filteredPages = filterPages();
+  // Generate list items for all pages without exclusions
+  filteredPages.forEach((page, index) => {
+    // Get the formatted name or use a default if it doesn't exist
+    const formattedName = page.formatted_Name || page.name || `Unnamed ${index}`;
 
-      // Debugging: Log the filtered pages to ensure all pages are being processed
-      console.log('Filtered Pages:', filteredPages);
+    // Calculate letter spacing based on the length but ensure it's created regardless of length
+    let letterSpacing = 'normal';
+    if (formattedName.length > 12) {
+      const maxLetterSpacingReduction = 12;
+      const lengthFactor = Math.min(1, (formattedName.length - 12) / 900);
+      letterSpacing = `${-maxLetterSpacingReduction * lengthFactor}vw`;
+    }
 
-      // Loop through all the pages and log potential issues
-      filteredPages.forEach((page, index) => {
-        try {
-          // Check for missing data in page items
-          if (!page.name || !page.formatted_Name || !page.date) {
-            console.warn(`Missing data in page at index ${index}:`, page);
-            return; // Skip invalid entries
-          }
-
-          const formattedName = page.formatted_Name;
-          let letterSpacing = 'normal'; // Adjust letter spacing for longer names
-          if (formattedName.length > 12) {
-            const maxLetterSpacingReduction = 12;
-            const lengthFactor = Math.min(1, (formattedName.length - 12) / 900);
-            letterSpacing = `${-maxLetterSpacingReduction * lengthFactor}vw`;
-          }
-
-          // Debugging: Log each page being appended to the list
-          console.log('Appending Page:', page.name);
-
-          const li = document.createElement('li');
-          li.innerHTML = `
-            <li data-date="${page.date}">
-              <div class="suggest-gameL" style="position: relative; display: flex; flex-direction: column; align-items: center; text-align: center;">
-                  <a href="games/${page.name}.html"
-                      onmouseover="highlightImageL('suggest-imgL${index}', 'suggest-textL${index}')"
-                      onmouseout="removeHighlightL('suggest-imgL${index}', 'suggest-textL${index}')">
-                      <div style="position: absolute;
-                                  background-color: rgba(0, 0, 0, 0);
-                                  z-index: 3;">
-                      </div>
-
-                                           <img style="outline: 0.25vw solid #58aafc;
-                                  border: 1px solid #58aafc;"
-                           id="suggest-imgL${index}"
-                           src="images/games/${page.name}.png"
-                           alt="${page.name}" loading="lazy"/>
-
-                      <div id="fade-wrapper-blue">
-                          <div class="box-shadow"></div>
-                      </div>
-                  </a>
-                  <a href="games/${page.name}.html" class="suggest-text suggest-textL${index}">
-                      <span style="letter-spacing: ${letterSpacing};">${page.formatted_Name}</span>
-                  </a>
+    // Create list item element without excluding any items
+    const li = document.createElement('li');
+    li.innerHTML = `
+      <li data-date="${page.date || 'unknown'}">
+        <div class="suggest-gameL" style="position: relative; display: flex; flex-direction: column; align-items: center; text-align: center;">
+          <a href="games/${page.name || 'unknown'}.html"
+              onmouseover="highlightImageL('suggest-imgL${index}', 'suggest-textL${index}')"
+              onmouseout="removeHighlightL('suggest-imgL${index}', 'suggest-textL${index}')">
+              <div style="position: absolute; background-color: rgba(0, 0, 0, 0); z-index: 3;"></div>
+              <img style="outline: 0.25vw solid #58aafc; border: 1px solid #58aafc;"
+                   id="suggest-imgL${index}"
+                   src="images/games/${page.name || 'unknown'}.png"
+                   alt="${page.name || 'unknown'}" loading="lazy"/>
+              <div id="fade-wrapper-blue">
+                  <div class="box-shadow"></div>
               </div>
-            </li>
-          `;
-          pageList.appendChild(li);
-        } catch (error) {
-          console.error(`Error appending page at index ${index}:`, error, page);
-        }
-      });
-    }
+          </a>
+          <a href="games/${page.name || 'unknown'}.html" class="suggest-text suggest-textL${index}">
+            <span style="letter-spacing: ${letterSpacing};">${formattedName}</span>
+          </a>
+        </div>
+      </li>
+    `;
+    pageList.appendChild(li);
+  });
+}
 
-    function changeSortOrder() {
-      sortOrder = (sortOrder + 1) % 4;
-      let sortButton = document.getElementById('sortButton');
-      sortButton.className = '';
-      switch (sortOrder) {
-        case 0:
-          sortButton.textContent = 'A-Z';
-          break;
-        case 1:
-          sortButton.textContent = 'Z-A';
-          break;
-        case 2:
-          sortButton.textContent = 'New-Old';
-          break;
-        case 3:
-          sortButton.textContent = 'Old-New';
-          break;
-      }
+  
+    function toggleSortDropdownMenu() {
+      const dropdown = document.getElementById('sortDropdownMenu');
+      dropdown.style.display = dropdown.style.display === 'none' ? 'block' : 'none';
+    }
+  
+    function selectSortOrder(order) {
+      sortOrder = order;
       generatePageList();
+      const sortButton = document.getElementById('sortButton');
+      const sortLabels = ['A-Z', 'Z-A', 'New-Old', 'Old-New'];
+      sortButton.textContent = `Sort: ${sortLabels[sortOrder]}`;
+      closeSortDropdownMenu();
     }
-
+  
+    function closeSortDropdownMenu() {
+      document.getElementById('sortDropdownMenu').style.display = 'none';
+    }
+  
     function toggleDropdownMenu() {
       const dropdown = document.getElementById('filterDropdownMenu');
       dropdown.style.display = dropdown.style.display === 'none' ? 'block' : 'none';
     }
-
+  
     function selectFilter(filterValue) {
-      selectedFilter = filterValue; // Use the lowercase filter for logic
+      selectedFilter = filterValue;
       const filterButton = document.getElementById('filterButton');
-      filterButton.textContent = `Filter: ${capitalizeFirstLetter(selectedFilter)}`; // Display the capitalized version with "Filter: "
+      filterButton.textContent = `Filter: ${capitalizeFirstLetter(selectedFilter)}`;
       generatePageList();
       closeDropdownMenu();
     }
-
+  
     function closeDropdownMenu() {
-      const dropdown = document.getElementById('filterDropdownMenu');
-      dropdown.style.display = 'none';
+      document.getElementById('filterDropdownMenu').style.display = 'none';
     }
-
-    // Capitalizes the first letter of a string
+  
     function capitalizeFirstLetter(string) {
       return string.charAt(0).toUpperCase() + string.slice(1);
     }
-
-    // Close dropdown if clicked outside
-    window.onclick = function (event) {
-      if (!event.target.matches('#filterButton')) {
+  
+    // Close dropdowns when clicking outside of them
+    document.addEventListener('click', function(event) {
+      const sortDropdown = document.getElementById('sortDropdownMenu');
+      const filterDropdown = document.getElementById('filterDropdownMenu');
+      const sortButton = document.getElementById('sortButton');
+      const filterButton = document.getElementById('filterButton');
+      
+      if (!sortDropdown.contains(event.target) && !sortButton.contains(event.target)) {
+        closeSortDropdownMenu();
+      }
+      
+      if (!filterDropdown.contains(event.target) && !filterButton.contains(event.target)) {
         closeDropdownMenu();
       }
-    }
-
+    });
   </script>
+  
 
 
 </body>

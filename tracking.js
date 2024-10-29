@@ -169,12 +169,12 @@ if (!isImageOrHtmlFile) {
         trackPage();
 
         generatePageList();
+        generateNewPageList();
         generatePageListMULTI();
         generatePageListONLINE();
         generatePageListNEW();
      // checkIframeAndUpdateTitleBar(iframe, titleBar, 5000); // Run for 5 seconds
 
-        sortList();
     
         // Add event listener to the clear button
         document.getElementById("clear-button").addEventListener("click", clearRecentlyVisited);

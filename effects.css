@@ -18,17 +18,17 @@
 
 #list-type {
   box-shadow: 2px 1px 11px #fc5858;
-  text-shadow: 0px 0px 2px #fc5858;
+  text-shadow: 0px 0px 2px #fc5858,  0px 0px 2px black;
 }
 
 #list-type2 {
   box-shadow: 2px 1px 11px #58aafc;
-  text-shadow: 0px 0px 2px #58aafc;
+  text-shadow: 0px 0px 2px #58aafc,  0px 0px 2px black;
 }
 
 #list-type3 {
   box-shadow: 2px 1px 11px #D058FC;
-  text-shadow: 0px 0px 2px #D058FC;
+  text-shadow: 0px 0px 2px #D058FC,  0px 0px 2px black;
 }
 
 #fade-wrapper .box-shadow {
@@ -56,6 +56,9 @@
 }
 
 #sortButton {
+  box-shadow: 0px 0px 6px var(--secondary-color);
+}
+#filterButton {
   box-shadow: 0px 0px 6px var(--secondary-color);
 }
 #search-blankButton {

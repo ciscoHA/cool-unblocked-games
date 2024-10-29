@@ -71,10 +71,47 @@ function setDefaultValuesIfPrimaryColorMissing() {
         localStorage.setItem('customisation', defaultCustomisation);
     }
 }
+// IF NEEDED TO REPLACE THEME SUCH AS SEASONAL UPDATE!
+function checkAndUpdateCustomisationValues() {
+    const customisationData = localStorage.getItem('customisation');
 
+    // Define the expected default values
+    const expectedValues = [
+        '/background.png',  // Default background image
+        '#111E2C',          // Default primary color
+        '#58AAFC',          // Default secondary color
+        '1280'              // Default background resolution
+    ];
 
-// Call the function to set default values if primary-color is missing
+    // Check if customisationData exists and split into an array
+    if (customisationData) {
+        const currentValues = customisationData.split('\n');
+
+        // Check if current values match the expected values
+        if (currentValues.length >= 4 &&
+            currentValues[0] === expectedValues[0] &&
+            currentValues[1] === expectedValues[1] &&
+            currentValues[2] === expectedValues[2] &&
+            currentValues[3] === expectedValues[3]) {
+            
+            // Update to new values
+            const newCustomisation = [ // NEW METHOD COMING SOON? THAT STORES THEMES IN GLOBAL JS AND MAKES EVERYTHING WAY EASIER
+                'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Jack_O_Lanterns.jpg/800px-Jack_O_Lanterns.jpg?20121027173654',  // background image
+                '#141414',              // New primary color
+                '#f3670c',              // New secondary color
+                '1920'                  // New background resolution
+            ].join('\n');
+
+            // Store the new values in the "customisation" key
+            localStorage.setItem('customisation', newCustomisation);
+        }
+    }
+}
+
+// Call the functions in order
 setDefaultValuesIfPrimaryColorMissing();
+checkAndUpdateCustomisationValues();
+
 
 //document.addEventListener('DOMContentLoaded', function() {
 //  setDefaultLocalStorageValues();

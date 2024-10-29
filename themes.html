@@ -224,17 +224,17 @@ document.getElementById('settings-form').addEventListener('submit', function (ev
     saveSettingsAndReload();
 });
 
-document.getElementById('default-button').addEventListener('click', function () {
-    const defaultCustomisation = [
-        '/background.png',
-        '#111E2C',
-        '#58AAFC',
-        '1280'
-    ].join('\n');
+//document.getElementById('default-button').addEventListener('click', function () {
+  //  const defaultCustomisation = [
+        //'/background.png',
+        //'',
+      //  '#58AAFC',
+    //    '1280'
+  //  ].join('\n');
 
-    localStorage.setItem('customisation', defaultCustomisation);
-    location.reload();
-});
+    //localStorage.setItem('customisation', defaultCustomisation);
+  //  location.reload();
+//});
 
 function applyStoredSettings() {
     const customisationData = localStorage.getItem('customisation');

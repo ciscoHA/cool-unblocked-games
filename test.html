@@ -1,82 +1,505 @@
-    <button onclick="openEditor()">Open Editor</button>
+<!DOCTYPE html>
+<html>
 
-    <script>
-        // Function to open the text editor in a new window
-        function openEditor() {
-            const newWindow = window.open('about:blank', '_blank');
-            const editorHTML = `
-                <style>
-                    body, html {
-                        margin: 0;
-                        padding: 0;
-                        height: 100%;
-                        display: flex;
-                        flex-direction: column;
-                    }
-                    #editor {
-                        flex: 1;
-                        width: 100%;
-                        resize: none;
-                        border: 1px solid #000;
-                        padding: 10px;
-                        font-family: monospace;
-                        box-sizing: border-box;
-                    }
-                    #controls {
-                        display: flex;
-                        justify-content: space-between;
-                        padding: 10px;
-                        background-color: #f1f1f1;
-                    }
-                    #save-status {
-                        position: fixed;
-                        bottom: 10px;
-                        right: 10px;
-                        background: #4CAF50; /* Saved is green */
-                        color: white;
-                        padding: 5px;
-                        border-radius: 3px;
-                    }
-                </style>
-                <textarea id="editor"></textarea>
-                <div id="controls">
-                    <button onclick="manualSave()">Save</button>
-                    <div id="save-status">Saved</div>
-                </div>
-                <script>
-                    const storageKey = 'coolubg-custom-saves';
+<head>
+  <title>Cool Unblocked Games</title>
+  <meta name="google-adsense-account" content="ca-pub-4293684626558852" />
+  <link rel="icon" type="image/x-icon" sizes="48x48" href="/favicon.ico" />
+  <link rel="icon" type="shortcut icon" sizes="48x48" href="/favicon.ico" />
+  <link rel="icon" type="apple-touch-icon" sizes="48x48" href="/favicon.ico" />
+  <meta property="og:image" content="/logo.png" />
+  <meta property="og:url" content="https://coolubg.github.io/" />
+  <meta property="og:site_name" content="Cool Unblocked Games" />
+  <meta name="theme-color" content="#58aafc" />
+  <meta name="google-site-verification" content="Q-GasTm6p0RsCSA7j-x1U7mX_Cz6ItjUz8q3bzM6YYo" />
+  <link rel="stylesheet" type="text/css" href="/games.css">
+  <link rel="stylesheet" type="text/css" href="/effects.css">
+  <meta property="og:description"
+    content="Explore Cool, Free, Unblocked Games. Run 3, Learn to Fly 2, Slope, Jacksmith, Tanuki Sunset, Moto X3M, Jelly Truck" />
+  <meta name="description"
+    content="Explore Cool, Free, Unblocked Games at Cool Unblocked Games / CoolUBG. Play games at school, work, home, on any internet connection" />
+  <meta name="author" content="CiscoHA on github" />
 
-                    // Load or initialize the storage
-                    let customSaves = localStorage.getItem(storageKey);
-                    if (!customSaves) {
-                        customSaves = '# Welcome to coolubg-custom-saves!\\n# Write anything here and it will save to local storage\\n';
-                        localStorage.setItem(storageKey, customSaves);
-                    }
+  <script src="/analytics.js" async></script>
+  <script src="/tracking.js" async></script>
+  <script src="/main.js" defer></script>
+  <script>
+    function highlightImage2(elementId, textId) {
+      var img = document.getElementById(elementId);
+      var fadeWrapper = img.parentNode.querySelector("#fade-wrapper");
+      fadeWrapper.style.opacity = 1;
+      fadeWrapper.style.transition = "opacity 0.4s";
+      // Directly apply underline style to the span element
+      var litext = img.parentNode.parentNode.querySelector(`#${textId}`);
+      litext.style.textDecoration = "underline";
+    }
 
-                    const editor = document.getElementById('editor');
-                    const saveStatus = document.getElementById('save-status');
-                    editor.value = customSaves;
+    function removeHighlight2(elementId, textId) {
+      var img = document.getElementById(elementId);
+      var fadeWrapper = img.parentNode.querySelector("#fade-wrapper");
+      fadeWrapper.style.opacity = 0;
+      fadeWrapper.style.transition = "opacity 0.4s";
+      // Directly remove underline style from the span element
+      var litext = img.parentNode.parentNode.querySelector(`#${textId}`);
+      litext.style.textDecoration = "none";
+    }
 
-                    // Update save status when content changes
-                    editor.addEventListener('input', function() {
-                        if (editor.value !== customSaves) {
-                            saveStatus.textContent = 'Unsaved';
-                            saveStatus.style.backgroundColor = '#f44336'; // Red
-                        } else {
-                            saveStatus.textContent = 'Saved';
-                            saveStatus.style.backgroundColor = '#4CAF50'; // Green
-                        }
-                    });
+    function highlightImageL(elementId, textClass) {
+      var img = document.getElementById(elementId);
+      var litext = document.getElementsByClassName(textClass)[0];
+      var fadeWrapper = img.parentNode.querySelector("[id*='fade-wrapper']");
+      fadeWrapper.style.opacity = 1;
+      fadeWrapper.style.transition = "opacity 0.4s";
+      litext.classList.add("underline");
+    }
 
-                    // Manual save function
-                    function manualSave() {
-                        customSaves = editor.value;
-                        localStorage.setItem(storageKey, customSaves);
-                        saveStatus.textContent = 'Saved';
-                        saveStatus.style.backgroundColor = '#4CAF50'; // Green
-                    }
-                <\/script>
-            `;
-            newWindow.document.write(editorHTML);
+    function removeHighlightL(elementId, textClass) {
+      var img = document.getElementById(elementId);
+      var litext = document.getElementsByClassName(textClass)[0];
+      var fadeWrapper = img.parentNode.querySelector("[id*='fade-wrapper']");
+      fadeWrapper.style.opacity = 0;
+      fadeWrapper.style.transition = "opacity 0.4s";
+      litext.classList.remove("underline");
+    }
+
+    function highlightImageP(elementId, textClass) {
+      var img = document.getElementById(elementId);
+      var litext = document.getElementsByClassName(textClass)[0];
+      var fadeWrapper = img.parentNode.querySelector("[id*='fade-wrapper']");
+      fadeWrapper.style.opacity = 1;
+      fadeWrapper.style.transition = "opacity 0.4s";
+      litext.classList.add("underline");
+    }
+
+    function removeHighlightP(elementId, textClass) {
+      var img = document.getElementById(elementId);
+      var litext = document.getElementsByClassName(textClass)[0];
+      var fadeWrapper = img.parentNode.querySelector("[id*='fade-wrapper']");
+      fadeWrapper.style.opacity = 0;
+      fadeWrapper.style.transition = "opacity 0.4s";
+      litext.classList.remove("underline");
+    }
+
+  </script>
+  <style>
+    .suggest-game {
+      padding: 0.6%;
+    }
+
+    .suggest-game a {
+      display: block;
+      white-space: nowrap;
+      text-decoration: none;
+      color: white;
+      text-shadow: 0px 0px 4px black, 0px 0px 4px black, 0px 0px 4px black;
+      font-size: 1.4vw;
+      overflow: hidden !important;
+      margin-top: -0.6rem;
+    }
+
+    .suggest-game img {
+      margin: 0.6rem;
+      border-radius: 0.4vw;
+      position: relative;
+      width: 15.6vw;
+      height: auto;
+    }
+
+    ul.game-list {
+      list-style-type: none;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    #pageListNEW img { 
+      width: 20.3vw !important;
+    }
+
+    ul.game-list li {
+      display: inline-block;
+      margin-right: 5px;
+      margin-bottom: 10px;
+    }
+
+    #fade-wrapper-blue {
+      z-index: -1;
+      position: absolute;
+      width: calc(14.3vw + 6px);
+      /* Width of image + width of border (x2) */
+      height: 4vh;
+      margin-top: -1.35rem;
+      display: flex;
+      justify-content: center;
+      overflow: hidden;
+      opacity: 0;
+      background: linear-gradient(to bottom, #58aafc, transparent);
+      left: 50%;
+      /* Move to the center of the parent */
+      transform: translateX(-50%);
+      /* Adjust back by half its width */
+    }
+
+    #fade-wrapper-2 {
+      z-index: -1;
+      position: absolute;
+      width: calc(20.3vw + 6px);
+      /* Width of image + width of border (x2) */
+      height: 4vh;
+      margin-top: -1.35rem;
+      display: flex;
+      justify-content: center;
+      overflow: hidden;
+      opacity: 0;
+      background: linear-gradient(to bottom, #58aafc, transparent);
+      left: 50%;
+      /* Move to the center of the parent */
+      transform: translateX(-50%);
+      /* Adjust back by half its width */
+    }
+
+    #fade-wrapper-purple {
+      z-index: -1;
+      position: absolute;
+      width: calc(15.45vw + 6px);
+      /* Width of image + width of border (x2) */
+      height: 4vh;
+      margin-top: -1.35rem;
+      display: flex;
+      justify-content: center;
+      overflow: hidden;
+      opacity: 0;
+      background: linear-gradient(to bottom, #D058FC, transparent);
+      left: 50%;
+      /* Move to the center of the parent */
+      transform: translateX(-50%);
+      /* Adjust back by half its width */
+    }
+
+
+    .suggest-gameL a {
+      white-space: nowrap;
+      display: block;
+      text-decoration: none;
+      color: white;
+      text-shadow: 0px 0px 4px black, 0px 0px 4px black, 0px 0px 4px black;
+      font-size: 1.4vw;
+      overflow-x: hidden !important;
+      overflow: hidden !important;
+      margin-top: -0.4rem;
+      visibility: visible;
+    }
+
+    .suggest-gameL img {
+      visibility: visible;
+      margin: 0.4rem;
+      border-radius: 0.4vw;
+      position: relative;
+      width: 14.3vw;
+      height: auto;
+    }
+
+    .game-list {
+      font-family: "M Plus Rounded 1c", sans-serif;
+      font-weight: bold;
+      text-align: center;
+      justify-content: center;
+      align-items: center;
+      color: transparent !important;
+    }
+
+    .underline {
+      text-decoration: underline !important;
+    }
+
+    .sortButtonDiv {
+      margin-top: 20px;
+    }
+
+    /* SORTING/FILTERING BUTTONS FOR LIST */
+   
+  </style>
+</head>
+
+<body>
+  <div id="navbar-container"></div>
+  <div class="navbar-spacer" style="margin-top: 70px !important;"></div>
+
+  <br>
+  <div class="sortButtonDiv" id="AllGamesDiv" style="display: flex; align-items: flex-start; gap: 0;">
+    <button id="sortButton" onclick="changeSortOrder()"
+      style="width: 250px; text-align: center; color: var(--primary-color); font-size: x-large; height: 50px; padding: 10px;">
+      A-Z
+    </button>
+    <div id="filterDropdownContainer" style="display: inline-block; position: relative;">
+      <button id="filterButton" onclick="toggleDropdownMenu()" 
+        style="width: 250px; text-align: center; font-size: x-large; height: 50px; padding: 10px; background-color: var(--secondary-color); color: var(--primary-color); border-radius: 5px; border-color: transparent; border: none;"> 
+        Filter: All
+      </button>
+      <div id="filterDropdownMenu" style="display: none;">
+        <div class="dropdown-inner">
+          <ul style="list-style: none; padding: 0; margin: 0;">
+            <li onclick="selectFilter('All')">All</li>
+            <li onclick="selectFilter('multiplayer')">Multiplayer</li>
+            <li onclick="selectFilter('online')">Online</li>
+            <li onclick="selectFilter('shooter')">Shooter</li>
+            <li onclick="selectFilter('puzzle')">Puzzle</li>
+            <li onclick="selectFilter('endless')">Endless</li>
+            <li onclick="selectFilter('platformer')">Platformer</li>
+            <li onclick="selectFilter('driving')">Driving</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <style>
+      .sortButtonDiv {
+        display: flex;
+        align-items: flex-start; /* Align items to the top */
+      }
+
+      .sortButtonDiv button {
+        white-space: nowrap;
+        margin: 15px; /* Remove margin for no gaps */
+        font-family: "M Plus Rounded 1c", sans-serif; /* Ensure consistent font */
+        cursor: pointer;
+        background-color: var(--secondary-color);
+        font-weight: bold;
+        color: var(--primary-color);
+        border-radius: 5px;
+        border-color: transparent;
+        height: 50px; /* Set a fixed height for both buttons */
+        padding: 10px; /* Ensure consistent padding */
+      }
+
+      /* Button dimensions */
+      #sortButton,
+      #filterButton {
+        width: 250px; /* Ensure both buttons have the same width of 250px */
+        font-size: x-large; /* Ensure both buttons have the same font size */
+      }
+
+      /* Dropdown styling */
+      #filterDropdownMenu {
+        margin: 15px;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+        font-family: "M Plus Rounded 1c", sans-serif;
+        font-weight: bold;
+        cursor: pointer;
+        text-align: center;
+        width: 250px; /* Set width equal to the button */
+        position: absolute;
+        top: 100%; /* Position directly below the button */
+        left: 0; /* Align to the left of the container */
+        z-index: 5;
+        background-color: var(--secondary-color); /* Match button color */
+        margin-top: -18px; /* No margin for tight connection */
+      }
+
+      /* Center the contents of the dropdown */
+      .dropdown-inner {
+        display: flex;
+        justify-content: center; /* Center items inside the dropdown */
+        padding: 0; /* Remove padding to avoid extra height */
+      }
+
+      /* Dropdown menu items */
+      #filterDropdownMenu ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        width: 100%; /* Ensure the list uses the full width of the dropdown */
+      }
+
+      #filterDropdownMenu li {
+        border-radius: 5px;
+        padding: 10px;
+        cursor: pointer;
+        text-align: center;
+        color: var(--primary-color);
+        position: relative; 
+      }
+
+      #filterDropdownMenu li {
+        border-top: 1px solid var(--primary-color); 
+      }
+
+      #filterDropdownMenu li:hover {
+        background-color: var(--primary-color);
+        color: var(--secondary-color); 
+      }
+    </style>
+</div>
+
+  </div>
+  
+  </div>
+  <ul id="pageList" class="game-list">
+    <!-- List of pages will be dynamically generated here -->
+  </ul>
+  </div>
+  <script>
+    let sortOrder = 0; // 0 for A-Z, 1 for Z-A, 2 for New-Old, 3 for Old-New
+    let selectedFilter = 'All';
+
+    function sortPages() {
+      switch (sortOrder) {
+        case 0:
+          pagesData.sort((a, b) => (a.name > b.name) ? 1 : -1);
+          break;
+        case 1:
+          pagesData.sort((a, b) => (a.name < b.name) ? 1 : -1);
+          break;
+        case 2:
+          pagesData.sort((a, b) => {
+            const dateA = new Date(a.date.split('-').reverse().join('-'));
+            const dateB = new Date(b.date.split('-').reverse().join('-'));
+            if (dateA.getTime() === dateB.getTime()) {
+              return a.name.localeCompare(b.name); // Sort alphabetically if dates are equal
+            }
+            return dateB.getTime() - dateA.getTime(); // Sort by new-old
+          });
+          break;
+        case 3:
+          pagesData.sort((a, b) => {
+            const dateA = new Date(a.date.split('-').reverse().join('-'));
+            const dateB = new Date(b.date.split('-').reverse().join('-'));
+            if (dateA.getTime() === dateB.getTime()) {
+              return b.name.localeCompare(a.name); // Sort reverse alphabetically if dates are equal
+            }
+            return dateA.getTime() - dateB.getTime(); // Sort by old-new
+          });
+          break;
+      }
+    }
+
+    function filterPages() {
+      if (selectedFilter === 'All') {
+        return pagesData;
+      }
+      return pagesData.filter(page => page.category.includes(selectedFilter));
+    }
+
+    function generatePageList() {
+      const pageList = document.getElementById('pageList');
+      pageList.innerHTML = ""; // Clear current list
+
+      // Sort and filter the pages
+      sortPages();
+      const filteredPages = filterPages();
+
+      // Debugging: Log the filtered pages to ensure all pages are being processed
+      console.log('Filtered Pages:', filteredPages);
+
+      // Loop through all the pages and log potential issues
+      filteredPages.forEach((page, index) => {
+        try {
+          // Check for missing data in page items
+          if (!page.name || !page.formatted_Name || !page.date) {
+            console.warn(`Missing data in page at index ${index}:`, page);
+            return; // Skip invalid entries
+          }
+
+          const formattedName = page.formatted_Name;
+          let letterSpacing = 'normal'; // Adjust letter spacing for longer names
+          if (formattedName.length > 12) {
+            const maxLetterSpacingReduction = 12;
+            const lengthFactor = Math.min(1, (formattedName.length - 12) / 900);
+            letterSpacing = `${-maxLetterSpacingReduction * lengthFactor}vw`;
+          }
+
+          // Debugging: Log each page being appended to the list
+          console.log('Appending Page:', page.name);
+
+          const li = document.createElement('li');
+          li.innerHTML = `
+            <li data-date="${page.date}">
+              <div class="suggest-gameL" style="position: relative; display: flex; flex-direction: column; align-items: center; text-align: center;">
+                  <a href="games/${page.name}.html"
+                      onmouseover="highlightImageL('suggest-imgL${index}', 'suggest-textL${index}')"
+                      onmouseout="removeHighlightL('suggest-imgL${index}', 'suggest-textL${index}')">
+                      <div style="position: absolute;
+                                  background-color: rgba(0, 0, 0, 0);
+                                  z-index: 3;">
+                      </div>
+
+                                           <img style="outline: 0.25vw solid #58aafc;
+                                  border: 1px solid #58aafc;"
+                           id="suggest-imgL${index}"
+                           src="images/games/${page.name}.png"
+                           alt="${page.name}" loading="lazy"/>
+
+                      <div id="fade-wrapper-blue">
+                          <div class="box-shadow"></div>
+                      </div>
+                  </a>
+                  <a href="games/${page.name}.html" class="suggest-text suggest-textL${index}">
+                      <span style="letter-spacing: ${letterSpacing};">${page.formatted_Name}</span>
+                  </a>
+              </div>
+            </li>
+          `;
+          pageList.appendChild(li);
+        } catch (error) {
+          console.error(`Error appending page at index ${index}:`, error, page);
         }
-    </script>
+      });
+    }
+
+    function changeSortOrder() {
+      sortOrder = (sortOrder + 1) % 4;
+      let sortButton = document.getElementById('sortButton');
+      sortButton.className = '';
+      switch (sortOrder) {
+        case 0:
+          sortButton.textContent = 'A-Z';
+          break;
+        case 1:
+          sortButton.textContent = 'Z-A';
+          break;
+        case 2:
+          sortButton.textContent = 'New-Old';
+          break;
+        case 3:
+          sortButton.textContent = 'Old-New';
+          break;
+      }
+      generatePageList();
+    }
+
+    function toggleDropdownMenu() {
+      const dropdown = document.getElementById('filterDropdownMenu');
+      dropdown.style.display = dropdown.style.display === 'none' ? 'block' : 'none';
+    }
+
+    function selectFilter(filterValue) {
+      selectedFilter = filterValue; // Use the lowercase filter for logic
+      const filterButton = document.getElementById('filterButton');
+      filterButton.textContent = `Filter: ${capitalizeFirstLetter(selectedFilter)}`; // Display the capitalized version with "Filter: "
+      generatePageList();
+      closeDropdownMenu();
+    }
+
+    function closeDropdownMenu() {
+      const dropdown = document.getElementById('filterDropdownMenu');
+      dropdown.style.display = 'none';
+    }
+
+    // Capitalizes the first letter of a string
+    function capitalizeFirstLetter(string) {
+      return string.charAt(0).toUpperCase() + string.slice(1);
+    }
+
+    // Close dropdown if clicked outside
+    window.onclick = function (event) {
+      if (!event.target.matches('#filterButton')) {
+        closeDropdownMenu();
+      }
+    }
+
+  </script>
+<script>generatePageList();</script>
+
+</body>
+
+</html>
