@@ -1,19 +1,43 @@
 
 [id^="suggest-imgC"] {
-  box-shadow: 2px 1px 11px #fc5858;
+ /* box-shadow: 2px 1px 11px #fc5858; */
+ outline: 0.25vw solid transparent;
+ box-shadow: 0px 0px 7px #000;
 }
 
 [id^="suggest-imgL"] {
-  box-shadow: 0.1vw 0.1vw 1vw #58aafc;
+  /*box-shadow: 0.1vw 0.1vw 1vw #58aafc;*/
+  outline: 0.25vw solid transparent;
+  box-shadow: 0px 0px 7px #000;
+}
+
+[id^="suggest-imgN"] {
+  /*box-shadow: 0.1vw 0.1vw 1vw #58aafc;*/
+  outline: 0.25vw solid transparent;
+  box-shadow: 0px 0px 7px #000;
+
 }
 
 [id^="suggest-imgR"] {
-  box-shadow: 2px 1px 11px #58aafc;
+  /*box-shadow: 2px 1px 11px #58aafc;*/
+  outline: 0.25vw solid transparent;
+  box-shadow: 0px 0px 7px #000;
+
 }
 
 [id^="suggest-imgP"] {
-  box-shadow: 2px 1px 11px #D058FC;
+  /*box-shadow: 2px 1px 11px #D058FC;*/
+  outline: 0.25vw solid transparent;
+  box-shadow: 0px 0px 7px #000;
 }
+
+[id^="suggest-imgPO"] {
+  /*box-shadow: 2px 1px 11px #D058FC;*/
+  outline: 0.25vw solid transparent;
+  box-shadow: 0px 0px 7px #000;
+
+}
+
 
 
 #list-type {
@@ -54,9 +78,13 @@
   height: 50%;
   background: linear-gradient(to bottom, #D058FC, transparent);
 }
-
+/* THERE IS A 1 PIXEL GAP SO I JUST TURNED IT ALL OFF!
 #sortButton {
-  box-shadow: 0px 0px 6px var(--secondary-color);
+  border: none;
+  box-shadow: 0px 0px 6px transparent;
+}
+#sortButton:hover {
+  box-shadow: 0px 2px 2px var(--secondary-color);
 }
 #filterButton {
   box-shadow: 0px 0px 6px var(--secondary-color);
@@ -69,4 +97,4 @@
 }
 #toggleButton {
   box-shadow: 0px 0px 6px var(--secondary-color);
-}
+}*/

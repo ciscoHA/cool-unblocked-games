@@ -64,7 +64,7 @@ function setDefaultValuesIfPrimaryColorMissing() {
             '/background.png',  // Default background image
             '#111E2C',          // Default primary color
             '#58AAFC',          // Default secondary color
-            '1280'              // Default background resolution
+            '100'              // Default background resolution
         ].join('\n');
 
         // Store the default values in the "customisation" key
@@ -77,10 +77,9 @@ function checkAndUpdateCustomisationValues() {
 
     // Define the expected default values
     const expectedValues = [
-        '/background.png',  // Default background image
-        '#111E2C',          // Default primary color
-        '#58AAFC',          // Default secondary color
-        '1280'              // Default background resolution
+        'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Jack_O_Lanterns.jpg/800px-Jack_O_Lanterns.jpg?20121027173654',  // background image
+        '#141414',              // New primary color
+        '#f3670c',              // New secondary color
     ];
 
     // Check if customisationData exists and split into an array
@@ -91,15 +90,14 @@ function checkAndUpdateCustomisationValues() {
         if (currentValues.length >= 4 &&
             currentValues[0] === expectedValues[0] &&
             currentValues[1] === expectedValues[1] &&
-            currentValues[2] === expectedValues[2] &&
-            currentValues[3] === expectedValues[3]) {
+            currentValues[2] === expectedValues[2]) {
             
             // Update to new values
             const newCustomisation = [ // NEW METHOD COMING SOON? THAT STORES THEMES IN GLOBAL JS AND MAKES EVERYTHING WAY EASIER
-                'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Jack_O_Lanterns.jpg/800px-Jack_O_Lanterns.jpg?20121027173654',  // background image
-                '#141414',              // New primary color
-                '#f3670c',              // New secondary color
-                '1920'                  // New background resolution
+                '/background.png',  // Default background image
+                '#111E2C',          // Default primary color
+                '#58AAFC',          // Default secondary color
+                '100'              // Default background resolution
             ].join('\n');
 
             // Store the new values in the "customisation" key
@@ -116,6 +114,21 @@ checkAndUpdateCustomisationValues();
 //document.addEventListener('DOMContentLoaded', function() {
 //  setDefaultLocalStorageValues();
 //});
+
+function loadIframe() {
+    var iframeSrc = 'https://coolubg.github.io/coolubg-list/'; // VERY IMPORTANT THIS IS WHERE THE URL FOR THE GAMES IS KEPT SO IF YOU WANT TO USE YOUR OWN WEBSITE THEN CHANGE THIS LINK!
+  //  var gameVariable = getGameVariable();
+    iframeSrc += gameName;
+
+    var iframe = document.getElementById('game-iframe');
+
+    // Directly include the Ruffle script URL
+    var ruffleScript = document.createElement('script');
+    ruffleScript.src = "https://unpkg.com/@ruffle-rs/ruffle";
+    document.head.appendChild(ruffleScript);
+
+    iframe.src = iframeSrc; // Set iframe source directly
+}
 
 document.addEventListener('DOMContentLoaded', function () {
     // Set server button if it hasnt been set already
@@ -159,7 +172,7 @@ document.addEventListener('DOMContentLoaded', function () {
       }
   
       // Start the polling mechanism to update the title bar width for up to 5 seconds
-      const iframe = document.getElementById('game-iframe');
+     // const iframe = document.getElementById('game-iframe');
       const titleBar = document.getElementById('dynamic-title-bar');
       titleBar.style.width = `${800 - 40}px`; // Adjust width with 40px padding
 
@@ -362,88 +375,69 @@ function loadScript(url) {
             searchResults.style.display = 'none';
         }
     });
-
-    const primaryButton = document.getElementById('primary-button');
-    const backupButton = document.getElementById('backup-button');
-
-    if (primaryButton && backupButton) {
-        primaryButton.addEventListener('click', function () {
-            setIframeSrc(getPrimarySrc(), 'primary');
-        });
-
-        backupButton.addEventListener('click', function () {
-            setIframeSrc(getBackupSrc(), 'backup');
-        });
-    }
 }
+    // const primaryButton = document.getElementById('primary-button');
+// const backupButton = document.getElementById('backup-button');
+
+// if (primaryButton && backupButton) {
+//     primaryButton.addEventListener('click', function () {
+//         setIframeSrc(getPrimarySrc(), 'primary');
+//     });
+
+//     backupButton.addEventListener('click', function () {
+//         setIframeSrc(getBackupSrc(), 'backup');
+//     });
+// }
 
 
-function loadIframe() {
-    var selectedButton = localStorage.getItem('selectedButton') || 'primary';
-    var iframeSrc = selectedButton === 'primary' ? getPrimarySrc() : getBackupSrc();
-    var gameVariable = getGameVariable();
-    iframeSrc += gameVariable;
 
-    var iframe = document.getElementById('game-iframe');
 
-    // Directly include the Ruffle script URL
-    var ruffleScript = document.createElement('script');
-    ruffleScript.src = "https://unpkg.com/@ruffle-rs/ruffle";
+//function setIframeSrc(url, button) {
+    //var iframe = document.getElementById('game-iframe');
 
-    // Attach the script to the DOM and set the source
-    document.head.appendChild(ruffleScript);
-
-    // Set the source of the iframe
-    iframe.src = iframeSrc;
-    updateButtonState(selectedButton);
-}
-
-function setIframeSrc(url, button) {
-    var iframe = document.getElementById('game-iframe');
-
-    if (iframe) {
-        if (confirm('Are you sure you want to change the game? Any unsaved progress may be lost.')) {
-            localStorage.setItem('selectedButton', button);
+    //if (iframe) {
+        //if (confirm('Are you sure you want to change the game? Any unsaved progress may be lost.')) {
+          //  localStorage.setItem('selectedButton', button);
 
             // Set the source of the iframe
-            iframe.src = url + getGameVariable(); // Uses gameText
-            updateButtonState(button);
-        }
-    } else {
-        localStorage.setItem('selectedButton', button);
-        location.reload();
-    }
-}
+        //    iframe.src = url + getGameVariable(); // Uses gameText
+            // updateButtonState(button); // Commented out as button state is not needed
+      //  }
+    //} else {
+      //  localStorage.setItem('selectedButton', button);
+    //    location.reload();
+  //  }
+//}
 
 
-function getPrimarySrc() {
-    return 'https://coolubg.github.io/coolubg-list/';
-}
+// function getPrimarySrc() {
+//     return 'https://coolubg.github.io/coolubg-list/';
+// }
 
-function getBackupSrc() {
-    return 'https://coolubg2.github.io/coolubg-list/';
-}
+// function getBackupSrc() {
+//     return 'https://coolubg2.github.io/coolubg-list/';
+// }
 
-function getGameVariable() {
-    return typeof gameName !== 'undefined' ? gameName : '';
-}
+// function getGameVariable() {
+//     return typeof gameName !== 'undefined' ? gameName : '';
+// }
 
-function updateButtonState(selectedButton) {
-    var primaryButton = document.getElementById('primary-button');
-    var backupButton = document.getElementById('backup-button');
+// function updateButtonState(selectedButton) {
+//     var primaryButton = document.getElementById('primary-button');
+//     var backupButton = document.getElementById('backup-button');
 
-    primaryButton.classList.remove('selected');
-    backupButton.classList.remove('selected');
+//     primaryButton.classList.remove('selected');
+//     backupButton.classList.remove('selected');
 
-    if (selectedButton === 'primary') {
-        primaryButton.classList.add('selected');
-    } else {
-        backupButton.classList.add('selected');
-    }
+//     if (selectedButton === 'primary') {
+//         primaryButton.classList.add('selected');
+//     } else {
+//         backupButton.classList.add('selected');
+//     }
 
-    primaryButton.textContent = "Primary" + (selectedButton === 'primary' ? "" : "");
-    backupButton.textContent = "Secondary" + (selectedButton === 'backup' ? "" : "");
-}
+//     primaryButton.textContent = "Primary" + (selectedButton === 'primary' ? "" : "");
+//     backupButton.textContent = "Secondary" + (selectedButton === 'backup' ? "" : "");
+// }
 
 document.addEventListener('DOMContentLoaded', function () {
     const customisation = localStorage.getItem('customisation');
@@ -457,7 +451,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (lines.length >= 4) {
             const backgroundRes = parseInt(lines[3].trim());
             if (!isNaN(backgroundRes)) {
-                fixedBackgroundImg.style.backgroundSize = `${backgroundRes}px auto`;
+                fixedBackgroundImg.style.backgroundSize = `${backgroundRes}vw auto`;
             }
         }
     }
@@ -489,7 +483,7 @@ function fullscreenFunction2() {
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Fullscreen Game</title>
+    <title>${titleText} - Fullscreen</title>
     <style>
         html, body { height: 100%; margin: 0; overflow: hidden; }
         #iframe { width: 100vw; height: 100vh; border: none; }
@@ -555,7 +549,7 @@ function applyStoredSettings() {
 
         // Apply the background resolution if it exists
         if (backgroundRes) {
-            fixedBackgroundImg.style.backgroundSize = `${backgroundRes}px auto`;
+            fixedBackgroundImg.style.backgroundSize = `${backgroundRes}vw auto`;
         }
     }
 }

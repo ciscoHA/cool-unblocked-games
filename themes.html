@@ -7,6 +7,10 @@
     <title>Theme Customisation</title>
     <link rel="stylesheet" type="text/css" href="/games.css">
     <link rel="stylesheet" type="text/css" href="/effects.css">
+
+    <script src="/analytics.js"></script>
+    <script src="/themes.js"></script>
+
     <style>
  body {
             font-family: "M Plus Rounded 1c", sans-serif;
@@ -96,6 +100,13 @@
             text-decoration: underline;
         }
 
+        #default-button {
+            display: block;
+            margin: 10px auto;
+            width: 600px;
+            text-align: center;
+        }
+
         button[type="submit"],
         button[type="button"],
         #default-button {
@@ -107,29 +118,52 @@
             text-align: center;
             /* Center text within buttons */
         }
-        .image-container {
-            margin-top: 20px;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
 
-        .image-container img {
-            margin: 5px;
-            width: 200px;
-            height: 200px;
-            border: 5px solid white;
-            border-radius: 5px;
-            object-fit: cover;
-            cursor: pointer;
-        }
 
-        #default-button {
-            display: block;
-            margin: 10px auto;
-            width: 600px;
-            text-align: center;
-        }
+/* IMAGE BUTTON STYLING!!!! */
+/* Image container setup */
+.image-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Center the images horizontally */
+    gap: 1vw; /* Equal gap between items */
+    text-align: center;
+    margin: 4vh; /* Margin around the entire container (top and sides) */
+}
+
+/* Each image item (image + text) */
+.image-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 15vw; /* Fixed width for each item */
+}
+
+/* Image styling (Square instead of 16:9) */
+.image-item img {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 1; /* Ensure the image is square */
+    border: 3px solid white; /* Border size */
+    border-radius: 5px; /* Rounded corners */
+    object-fit: cover; /* Ensure image covers the container */
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3); /* Light box shadow */
+    cursor: pointer;
+}
+
+/* Author text styling */
+.image-item p {
+    color: white;
+    font-size: 1.3vw; 
+    text-shadow: 0 0 3px black;
+    margin-top: 0; /* Reduced space between image and text */
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    line-height: 2.1; /* Prevent cutting off letters */
+}
+
+
     </style>
 </head>
 
@@ -154,8 +188,8 @@
                 <input type="color" id="background-color" name="background-color" value="#ffffff">
             </div>
             <div>
-                <label for="background-res">Background Resolution (in px):</label><br>
-                <input type="text" id="background-res" name="background-res" placeholder="e.g. 1280">
+                <label for="background-res">Background Resolution in Viewport Width 100=100% of screen width:</label><br>
+                <input type="text" id="background-res" name="background-res" placeholder="e.g. 100">
             </div>
             <button type="submit">Save Settings</button>
             <button style="display: none;" type="button" id="default-button">Reset to Defaults</button>
@@ -169,7 +203,7 @@
     const newWindow = window.open("about:blank", "_blank");
 
     if (newWindow) {
-        newWindow.document.write(`<pre>${customisationData}</pre>`);
+        newWindow.document.write(`<head><title>Customisation Data</title></head><pre>${customisationData}</pre>`);
         newWindow.document.close(); 
     } else {
         console.error("Failed to open a new window.");
@@ -181,10 +215,11 @@
         <p style="text-shadow: 1px 1px 2px black, 1px 1px 4px black, 1px 1px 4px black, 1px 1px 4px black;">Click on an image below to use a premade theme ↓</p>
     <a href="https://docs.google.com/forms/d/e/1FAIpQLSfe-TUAliierJbhdwvuuRaKCjGCi6oYb_ne8_R06tGtSbwGNQ/viewform?usp=sf_link"><button id="export" style="width: 30vw;">Submit your Theme to be Featured!</button></a>
     <div class="image-container">
-        <img src="/background.png" alt="Image 1" data-background="/background.png" data-primary-color="#111E2C" data-secondary-color="#58AAFC" data-background-res="1280">
-        <img src="/images/backgrounds/background-old.png" alt="Image 2" data-background="/images/backgrounds/background-old.png" data-primary-color="#111E2C" data-secondary-color="#58AAFC" data-background-res="1280">
-        <img src="/images/backgrounds/background-red.png" alt="Image 3" data-background="/images/backgrounds/background-red.png" data-primary-color="#2C1111" data-secondary-color="#FC5858" data-background-res="1280">
-        <img src="/images/backgrounds/background-red-old.png" alt="Image 4" data-background="/images/backgrounds/background-red-old.png" data-primary-color="#2C1111" data-secondary-color="#FC5858" data-background-res="1280">
+      <!--  <img src="/background.png" alt="Default Blue Swirls" button-id="default-swirls">
+        <img src="/images/backgrounds/background-old.png" alt="Default Blue Lines" button-id="default-lines">
+        <p id="author-name">By Author</p>
+        <img src="/images/backgrounds/background-old.png" alt="Default Blue Lines" button-id="red-swirls">
+        <img src="/images/backgrounds/background-red-old.png" alt="Image 4" button-id="default-swirls">
         <img src="/images/backgrounds/background-green.png" alt="Image 5" data-background="/images/backgrounds/background-green.png" data-primary-color="#112C15" data-secondary-color="#5dfc58" data-background-res="1280">
         <img src="/images/backgrounds/background-green-old.png" alt="Image 6" data-background="/images/backgrounds/background-green-old.png" data-primary-color="#112C15" data-secondary-color="#5dfc58" data-background-res="1280">
         <img src="/images/backgrounds/background-purple.png" alt="Image 7" data-background="/images/backgrounds/background-purple.png" data-primary-color="#2C112A" data-secondary-color="#e158fc" data-background-res="1280">
@@ -193,32 +228,71 @@
         <img src="/images/backgrounds/topor.png" alt="Image 10" data-background="/images/backgrounds/topor.png" data-primary-color="#DD1766" data-secondary-color="#271117" data-background-res="980">
         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Rotating_earth_%28large%29.gif/200px-Rotating_earth_%28large%29.gif" alt="Image 11" data-background="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Rotating_earth_%28large%29.gif/200px-Rotating_earth_%28large%29.gif" data-primary-color="#ffffff" data-secondary-color="#000000" data-background-res="1280">
         <img src="https://images4.alphacoders.com/109/thumb-1920-1098025.png" alt="Image 12" data-background="https://images4.alphacoders.com/109/thumb-1920-1098025.png" data-primary-color="#080116" data-secondary-color="#F565C4" data-background-res="1920">
-
+    -->
+        <div class="image-item">
+            <img src="/background.png" alt="Default Blue Swirls" button-id="default-swirls">
+            <p style="color: transparent; text-shadow: none;">none</p>
+        </div>
+        <div class="image-item">
+            <img src="/images/backgrounds/background-old.png" alt="Default Blue Lines" button-id="default-lines">
+            <p style="color: transparent; text-shadow: none;">none</p>
+        </div>
+        <div class="image-item">
+            <img src="/images/backgrounds/background-red.png" alt="Red Swirls" button-id="red-swirls">
+            <p style="color: transparent; text-shadow: none;">none</p>
+        </div>
+        <div class="image-item">
+            <img src="/images/backgrounds/background-red-old.png" alt="Red Lines" button-id="red-lines">
+            <p style="color: transparent; text-shadow: none;">none</p>
+        </div>
+        <div class="image-item">
+            <img src="/images/backgrounds/background-green.png" alt="Green Swirls" button-id="green-swirls">
+            <p style="color: transparent; text-shadow: none;">none</p>
+        </div>
+        <div class="image-item">
+            <img src="/images/backgrounds/background-green-old.png" alt="Green Lines" button-id="green-lines">
+            <p style="color: transparent; text-shadow: none;">none</p>
+        </div>
+        <div class="image-item">
+            <img src="/images/backgrounds/background-purple.png" alt="Purple Swirl" button-id="purple-swirls">
+            <p style="color: transparent; text-shadow: none;">none</p>
+        </div>
+        <div class="image-item">
+            <img src="/images/backgrounds/background-purple-old.png" alt="Purple Lines" button-id="purple-lines">
+            <p style="color: transparent; text-shadow: none;">none</p>
+        </div>
+        <div class="image-item">
+            <img src="/images/backgrounds/white-and-black.png" alt="Image 9" button-id="white-and-black">
+            <p style="color: transparent; text-shadow: none;">none</p>
+        </div>
+        <div class="image-item">
+            <img src="/images/backgrounds/topor.png" alt="Red Topography" button-id="red-topo">
+            <p style="color: transparent; text-shadow: none;">none</p>
+        </div>
+        <div class="image-item">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Rotating_earth_%28large%29.gif/200px-Rotating_earth_%28large%29.gif" alt="Spinning Globe" button-id="globe">
+            <p style="color: transparent; text-shadow: none;">none</p>
+        </div>
+        <div class="image-item">
+            <img src="https://images4.alphacoders.com/109/thumb-1920-1098025.png" alt="Pink Path" button-id="pink-path">
+            <p id="author-name">By BisBiswas <span style="font-size: xx-small;">(proof needed)</span></p>
+        </div>
+        <div class="image-item">
+            <img src="https://static.vecteezy.com/system/resources/previews/000/359/502/original/vector-purple-landscape-illustration.png" alt="mountains" button-id="mountains">
+            <p id="author-name">By Cozy_Coding08</p>
+        </div>
+        <div class="image-item">
+            <img src="https://fanboysmarketplace.com/wp-content/uploads/2023/01/howls3-1024x576.jpeg" alt="Howls Grass Hill" button-id="howls">
+            <p id="author-name">By Iris</p>
+        </div>
+        <div class="image-item">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Jack_O_Lanterns.jpg/800px-Jack_O_Lanterns.jpg?20121027173654" alt="Halloween 2024 Pumpkins" button-id="halloween-2024">
+            <p id="author-name">Halloween 2024</p>
+        </div>
     </div>
     <script src="/main.js" defer></script>
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-    applyStoredSettings();
-
-    const customisationData = localStorage.getItem('customisation');
-    if (customisationData) {
-        const [backgroundImage, primaryColor, secondaryColor, backgroundRes] = customisationData.split('\n');
-
-        if (backgroundImage) {
-            document.getElementById('background-image').value = backgroundImage;
-        }
-        if (primaryColor) {
-            document.getElementById('primary-color').value = primaryColor;
-        }
-        if (secondaryColor) {
-            document.getElementById('background-color').value = secondaryColor;
-        }
-        if (backgroundRes) {
-            document.getElementById('background-res').value = backgroundRes;
-        }
-    }
-});
-
+    
 document.getElementById('settings-form').addEventListener('submit', function (event) {
     event.preventDefault();
     saveSettingsAndReload();
@@ -236,26 +310,7 @@ document.getElementById('settings-form').addEventListener('submit', function (ev
   //  location.reload();
 //});
 
-function applyStoredSettings() {
-    const customisationData = localStorage.getItem('customisation');
 
-    if (customisationData) {
-        const [backgroundImage, primaryColor, secondaryColor, backgroundRes] = customisationData.split('\n');
-
-        if (backgroundImage) {
-            document.body.style.backgroundImage = `url(${backgroundImage})`;
-        }
-        if (primaryColor) {
-            document.documentElement.style.setProperty('--primary-color', primaryColor);
-        }
-        if (secondaryColor) {
-            document.documentElement.style.setProperty('--secondary-color', secondaryColor);
-        }
-        if (backgroundRes) {
-            document.body.style.backgroundSize = `${backgroundRes}px ${backgroundRes}px`;
-        }
-    }
-}
 
 function saveSettingsAndReload() {
     const backgroundImageValue = document.getElementById('background-image').value;
@@ -304,23 +359,35 @@ function isValidPixelValue(value) {
     return /^[0-9]+$/.test(value);
 }
 
-document.querySelectorAll('.image-container img').forEach(img => {
-    img.addEventListener('click', function () {
-        const backgroundUrl = this.getAttribute('data-background');
-        const primaryColor = this.getAttribute('data-primary-color');
-        const secondaryColor = this.getAttribute('data-secondary-color');
-        const backgroundRes = this.getAttribute('data-background-res');
+// Existing script
+document.querySelectorAll('img').forEach(img => {
+    img.addEventListener('click', function() {
+        // Old background change logic (if any)
+    });
+});
 
+function applyThemeById(themeId) {
+    const theme = customisationStoredData.find(item => item.id === themeId);
+    if (theme) {
         // Update the form fields
-        document.getElementById('background-image').value = backgroundUrl;
-        document.getElementById('primary-color').value = primaryColor;
-        document.getElementById('background-color').value = secondaryColor;
-        document.getElementById('background-res').value = backgroundRes;
+        document.getElementById('background-image').value = theme['data-background'];
+        document.getElementById('primary-color').value = theme['data-primary-color'];
+        document.getElementById('background-color').value = theme['data-secondary-color'];
+        document.getElementById('background-res').value = theme['data-background-res'];
 
         // Save settings and reload
         saveSettingsAndReload();
+    }
+}
+
+document.querySelectorAll('img[button-id]').forEach(img => {
+    img.addEventListener('click', function () {
+        const buttonId = img.getAttribute('button-id');
+        applyThemeById(buttonId);
     });
 });
+
+
 
     </script>
 </body>

@@ -138,7 +138,7 @@ if (!isImageOrHtmlFile) {
                 (index + 1) +
                 "')\"></div>";
             html +=
-                `<img style="outline: 3px solid #fc5858; border: 1px solid #fc5858" id="suggest-imgC${index + 1}" src="/images/games/${imgFileName}.png" alt="Recently Played" />`;
+                `<img id="suggest-imgC${index + 1}" src="/images/games/${imgFileName}.png" alt="Recently Played" />`;
             html +=
                 '<div id="fade-wrapper" style="z-index: -1; position: absolute; width: 16vw; height: 7vh; margin-top: -1.4rem; margin-left: 0.45rem; overflow: hidden; opacity: 0;">';
             html += '<div class="box-shadow"></div>';

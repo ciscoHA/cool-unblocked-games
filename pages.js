@@ -1,5 +1,5 @@
 const pagesData = [
-  { name: "1v1.lol",                            formatted_Name: "1v1.lol",                                           category: "none",             date: "7-12-2023"   },
+  //{ name: "1v1.lol",                            formatted_Name: "1v1.lol",                                           category: "none",             date: "7-12-2023"   },
   { name: "2048",                               formatted_Name: "2048",                                              category: "puzzle",             date: "04-01-2024"  },
   { name: "a-dark-room",                        formatted_Name: "A Dark Room",                                       category: "text",             date: "04-01-2024"  },
   { name: "age-of-war-2",                       formatted_Name: "Age Of War 2",                                      category: "none",             date: "10-01-2024"  },
@@ -144,7 +144,7 @@ const pagesData = [
   { name: "hamu",                               formatted_Name: "Hamu",                                              category: "none",             date: "16-08-2024"  },
   { name: "vex-4",                              formatted_Name: "Vex 4",                                             category: "platformer",             date: "16-08-2024"  },
   { name: "yongjin-brick-breaker",              formatted_Name: "Yongjin Brick Breaker",                             category: "puzzle endless",             date: "16-08-2024"  },
-  { name: "js-dos",                             formatted_Name: "Js-DOS",                                            category: "emulator",             date: "04-09-2024"  },
+  { name: "js-dos",                             formatted_Name: "Js-DOS Emulator",                                            category: "emulator",             date: "04-09-2024"  },
   { name: "doom-marines-best-friend",           formatted_Name: "Doom Marine's Best Friend",                          category: "shooter demo",             date: "04-09-2024" },
   { name: "heretic",                            formatted_Name: "Heretic",                                           category: "online shooter",             date: "04-09-2024"  },
   { name: "wolfenstein-3d",                     formatted_Name: "Wolfenstein 3d",                                    category: "shooter demo",             date: "04-09-2024"  },
@@ -175,7 +175,7 @@ const pagesData = [
   { name: "superhot-prototype",                 formatted_Name: "SUPERHOT Prototype",                                            category: "shooter",             date: "29-10-2024"  },
   { name: "vex-6",                              formatted_Name: "Vex 6",                                            category: "platoformer",             date: "29-10-2024"  },
   { name: "vex-7",                              formatted_Name: "Vex 7",                                            category: "platformer",             date: "29-10-2024"  },
-  { name: "burrito-bison",                      formatted_Name: "Burrito Bison",                                            category: "endless platformer",             date: "29-10-2024"  },
+  { name: "burrito-bison",                      formatted_Name: "Burrito Bison",                                            category: "endless",             date: "29-10-2024"  },
   { name: "floodrunner-2",                      formatted_Name: "Floodrunner 2",                                     category: "platformer endless",             date: "29-10-2024"  },
   { name: "gun-mayhem-redux",                   formatted_Name: "Gun Mayhem Redux",                                        category: "multiplayer shooter",             date: "29-10-2024"  },
   { name: "my-friend-pedro",                    formatted_Name: "My Friend Pedro",                                        category: "platformer shooter",             date: "29-10-2024"  },
@@ -185,6 +185,12 @@ const pagesData = [
   { name: "run",                                formatted_Name: "run.",                                        category: "platformer 1",             date: "29-10-2024"  },
   { name: "the-impossible-quiz-book",           formatted_Name: "The Impossible Quiz Book",                             category: "puzzle",             date: "29-10-2024"  },
 
+  { name: "1v1.lol",           formatted_Name: "1v1.lol",                             category: "shooter online",             date: "15-11-2024"  },
+  { name: "bob-the-robber-4",           formatted_Name: "Bob the Robber 4",                             category: "puzzle",             date: "15-11-2024"  },
+  { name: "boxing-random",           formatted_Name: "Boxing Random",                             category: "multiplayer sport",             date: "15-11-2024"  },
+  { name: "little-alchemy-2",           formatted_Name: "Little Alchemy 2",                             category: "puzzle craft",             date: "15-11-2024"  },
+  { name: "vex-8",           formatted_Name: "Vex 8",                             category: "platformer",             date: "15-11-2024"  },
+  { name: "burrito-bison-revenge",           formatted_Name: "Burrito Bison Revenge",                             category: "endless",             date: "15-11-2024"  },
 
 
 
