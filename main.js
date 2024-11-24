@@ -75,36 +75,26 @@ function setDefaultValuesIfPrimaryColorMissing() {
 function checkAndUpdateCustomisationValues() {
     const customisationData = localStorage.getItem('customisation');
 
-    // Define the expected default values
-    const expectedValues = [
-        'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Jack_O_Lanterns.jpg/800px-Jack_O_Lanterns.jpg?20121027173654',  // background image
-        '#141414',              // New primary color
-        '#f3670c',              // New secondary color
-    ];
-
-    // Check if customisationData exists and split into an array
     if (customisationData) {
-        const currentValues = customisationData.split('\n');
+        const dataParts = customisationData.split('\n'); // Split into lines
+        const backgroundRes = dataParts[3]?.trim(); // Extract and trim the background resolution
 
-        // Check if current values match the expected values
-        if (currentValues.length >= 4 &&
-            currentValues[0] === expectedValues[0] &&
-            currentValues[1] === expectedValues[1] &&
-            currentValues[2] === expectedValues[2]) {
-            
-            // Update to new values
-            const newCustomisation = [ // NEW METHOD COMING SOON? THAT STORES THEMES IN GLOBAL JS AND MAKES EVERYTHING WAY EASIER
+        // Check if "background-res" exists, is numeric, and exceeds 500
+        if (backgroundRes && !isNaN(backgroundRes) && parseInt(backgroundRes, 10) > 500) {
+            // Manually set the default values
+            const defaultCustomisation = [
                 '/background.png',  // Default background image
                 '#111E2C',          // Default primary color
                 '#58AAFC',          // Default secondary color
-                '100'              // Default background resolution
+                '100'               // Default background resolution
             ].join('\n');
 
-            // Store the new values in the "customisation" key
-            localStorage.setItem('customisation', newCustomisation);
+            // Update localStorage with default values
+            localStorage.setItem('customisation', defaultCustomisation);
         }
     }
 }
+
 
 // Call the functions in order
 setDefaultValuesIfPrimaryColorMissing();

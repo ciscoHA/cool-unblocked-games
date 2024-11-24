@@ -78,7 +78,7 @@ const pagesData = [
   { name: "polytrack",                          formatted_Name: "Polytrack",                                         category: "driving racing",             date: "13-01-2024"  },
   { name: "pong",                               formatted_Name: "Pong",                                              category: "none",             date: "25-07-2023"  },
   { name: "raft-wars",                          formatted_Name: "Raft Wars",                                         category: "none",             date: "26-07-2023"  },
-  { name: "retro-bowl",                         formatted_Name: "Retro Bowl",                                        category: "sport football",             date: "15-09-2023"  },
+  { name: "retro-bowl",                         formatted_Name: "Retro Bowl",                                        category: "sport football gridiron",             date: "15-09-2023"  },
   { name: "rooftop-snipers",                    formatted_Name: "Rooftop Snipers",                                   category: "multiplayer shooter",             date: "05-07-2023"  },
   { name: "run-2",                              formatted_Name: "Run 2",                                             category: "platformer endless runner",             date: "02-12-2023"  },
   { name: "run-3",                              formatted_Name: "Run 3",                                             category: "platformer endless runner",             date: "15-06-2023"  },
@@ -185,13 +185,17 @@ const pagesData = [
   { name: "run",                                formatted_Name: "run.",                                        category: "platformer 1",             date: "29-10-2024"  },
   { name: "the-impossible-quiz-book",           formatted_Name: "The Impossible Quiz Book",                             category: "puzzle",             date: "29-10-2024"  },
 
-  { name: "1v1.lol",           formatted_Name: "1v1.lol",                             category: "shooter online",             date: "15-11-2024"  },
-  { name: "bob-the-robber-4",           formatted_Name: "Bob the Robber 4",                             category: "puzzle",             date: "15-11-2024"  },
-  { name: "boxing-random",           formatted_Name: "Boxing Random",                             category: "multiplayer sport",             date: "15-11-2024"  },
-  { name: "little-alchemy-2",           formatted_Name: "Little Alchemy 2",                             category: "puzzle craft",             date: "15-11-2024"  },
-  { name: "vex-8",           formatted_Name: "Vex 8",                             category: "platformer",             date: "15-11-2024"  },
+  { name: "1v1.lol",                         formatted_Name: "1v1.lol",                                   category: "shooter online",             date: "15-11-2024"  },
+  { name: "bob-the-robber-4",                formatted_Name: "Bob the Robber 4",                             category: "puzzle",                      date: "15-11-2024"  },
+  { name: "boxing-random",                   formatted_Name: "Boxing Random",                             category: "multiplayer sport",             date: "15-11-2024"  },
+  { name: "little-alchemy-2",                formatted_Name: "Little Alchemy 2",                             category: "puzzle craft",             date: "15-11-2024"  },
+  { name: "vex-8",                           formatted_Name: "Vex 8",                                           category: "platformer",             date: "15-11-2024"  },
   { name: "burrito-bison-revenge",           formatted_Name: "Burrito Bison Revenge",                             category: "endless",             date: "15-11-2024"  },
 
+  { name: "block-blast",                    formatted_Name: "Block Blast",                          category: "puzzle",                            date: "25-11-2024"  },
+  { name: "madalin-stunt-cars-2",           formatted_Name: "Madalin Stunt Cars 2",                 category: "driving",                           date: "25-11-2024"  },
+  { name: "retro-bowl-college",            formatted_Name: "Retro Bowl College",                             category: "sport football gridiron",             date: "25-11-2024"  },
+  { name: "sandtris",                       formatted_Name: "Sandtris",                             category: "puzzle endless tetris",             date: "25-11-2024"  },
 
 
 

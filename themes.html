@@ -78,12 +78,13 @@
 
         button[type="submit"],
         button[type="button"] {
-            text-shadow: 1px 1px 2px black;
             font-size: large;
             padding: 10px 20px;
             background-color: var(--primary-color);
-            color: white;
-            border: none;
+            text-shadow: none !important;
+            color: var(--secondary-color);
+            outline: solid 0.1vw var(--primary-color);
+            border: solid 0.3vw var(--primary-color);
             border-radius: 5px;
             cursor: pointer;
             transition: background-color 0.3s ease;
@@ -91,7 +92,8 @@
 
         button[type="submit"]:hover,
         button[type="button"]:hover {
-            background-color: darken(var(--primary-color), 10%);
+            color: var(--primary-color);
+            background-color: var(--secondary-color);
         }
 
         .selected {
@@ -275,7 +277,7 @@
         </div>
         <div class="image-item">
             <img src="https://images4.alphacoders.com/109/thumb-1920-1098025.png" alt="Pink Path" button-id="pink-path">
-            <p id="author-name">By BisBiswas <span style="font-size: xx-small;">(proof needed)</span></p>
+            <p id="author-name">By BisBiswas <!--<span style="font-size: xx-small;">(proof needed)</span>--></p>
         </div>
         <div class="image-item">
             <img src="https://static.vecteezy.com/system/resources/previews/000/359/502/original/vector-purple-landscape-illustration.png" alt="mountains" button-id="mountains">
@@ -296,6 +298,22 @@
 document.getElementById('settings-form').addEventListener('submit', function (event) {
     event.preventDefault();
     saveSettingsAndReload();
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+    // Retrieve stored customization data from local storage
+    const customisationData = localStorage.getItem('customisation');
+
+    // Check if data exists
+    if (customisationData) {
+        const [backgroundImage, primaryColor, secondaryColor, backgroundRes] = customisationData.split('\n');
+
+        // Populate the form fields with stored values
+        if (backgroundImage) document.getElementById('background-image').value = backgroundImage;
+        if (primaryColor) document.getElementById('primary-color').value = primaryColor;
+        if (secondaryColor) document.getElementById('background-color').value = secondaryColor;
+        if (backgroundRes) document.getElementById('background-res').value = backgroundRes;
+    }
 });
 
 //document.getElementById('default-button').addEventListener('click', function () {

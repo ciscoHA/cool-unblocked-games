@@ -98,7 +98,7 @@ const customisationStoredData = [
     },
     {
         id: "pink-path",
-        "data-background": "https://c.wallhere.com/photos/cf/64/BisBiswas_digital_art_sunset_clouds_river_rocks_car_rocket-1936801.jpg!d",
+        "data-background": "https://images4.alphacoders.com/109/thumb-1920-1098025.png",
         "data-primary-color": "#080116",
         "data-secondary-color": "#f565c4",
         "data-background-res": "100",

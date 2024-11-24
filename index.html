@@ -60,10 +60,7 @@
       var litext = img.parentNode.parentNode.querySelector(`#${textId}`);
       litext.style.textDecoration = "none";
     }
-
-
-
-
+// L
     function highlightImageL(elementId, textId) {
       var img = document.getElementById(elementId);
       var listItem = img.closest("li"); // Select the parent list item
@@ -82,8 +79,6 @@
       litext.style.textDecoration = "underline";
     }
 
-
-
     function removeHighlightL(elementId, textId) {
       var img = document.getElementById(elementId);
       var listItem = img.closest("li"); // Select the parent list item
@@ -101,7 +96,7 @@
       var litext = img.parentNode.parentNode.querySelector(`#${textId}`);
       litext.style.textDecoration = "none";
     }
-
+// P
     function highlightImageP(elementId, textId) {
       var img = document.getElementById(elementId);
       var listItem = img.closest("li"); // Select the parent list item
@@ -324,7 +319,7 @@
   ">
     Continue Playing
   </p>
-  <ul id="recently-played" class="game-list" style="color: transparent; list-style-type: none; padding: 0">
+  <ul id="recently-played" class="game-list" style="color: transparent; list-style-type: none; padding: 0; margin-bottom: 0px;">
     <li>
       <div class="suggest-game">
         <a href="#">
@@ -424,7 +419,7 @@
   </ul>
   <br>
   <div
-    style="display: flex; background-color: var(--secondary-color); margin: 0 auto; margin-top: -40px; width: 68.5%; padding-bottom: 10px; border-radius: 5px; font-family: M Plus Rounded 1c, sans-serif !important; font-weight: bold !important;">
+    style="display: flex; background-color: var(--secondary-color); margin: 0 auto; margin-top: 0px; width: 68.5%; padding-bottom: 10px; border-radius: 5px; font-family: M Plus Rounded 1c, sans-serif !important; font-weight: bold !important;">
     <div class="news" style="width: 50%; padding: 10px;">
       <p id="news-title"
         style="font-family: 'League Gothic'; font-weight: bold; font-size: 225%; text-align: center; color: var(--primary-color); margin: 0px 0 10px 0; margin-top: -10px;">
@@ -450,7 +445,7 @@
 -->
       <a href="/changelog.html"
         style="color: var(--primary-color) !important; text-decoration: underline !important; font-size: x-large; text-align: center; display: block; margin: 10px 0;">
-        Changelog 18/11/24
+        Changelog 25/11/24
       </a>
     </div>
     <div class="news" style="width: 50%; padding: 10px;">
@@ -517,7 +512,7 @@
       });
 
       // Limit to the first 15 items after sorting
-      const itemsToShow = pagesData.slice(0, 8);
+      const itemsToShow = pagesData.slice(0, 10);
 
       itemsToShow.forEach((page, index) => {
         // Format the full name
@@ -862,24 +857,20 @@
         const li = document.createElement('li');
         li.innerHTML = `
       <li data-date="${page.date || 'unknown'}">
-        <div class="suggest-gameL" style="position: relative; display: flex; flex-direction: column; align-items: center; text-align: center;">
-          <a href="games/${page.name || 'unknown'}.html"
-              onmouseover="highlightImageL('suggest-imgL${index}', 'suggest-textL${index}')"
-              onmouseout="removeHighlightL('suggest-imgL${index}', 'suggest-textL${index}')">
-              <div style="position: absolute; background-color: rgba(0, 0, 0, 0); z-index: 3;"></div>
-              <img style="outline: 0.25vw solid transparent;"
-                   id="suggest-imgL${index}"
-                   src="images/games/${page.name || 'unknown'}.png"
-                   alt="${page.name || 'unknown'}" loading="lazy"/>
-              <div id="fade-wrapper-blue">
-                  <div class="box-shadow"></div>
-              </div>
-          </a>
-          <a href="games/${page.name || 'unknown'}.html" class="suggest-text suggest-textL${index}">
-            <span style="letter-spacing: ${letterSpacing};">${formattedName}</span>
-          </a>
-        </div>
+         <div class="suggest-game">
+    <a href="games/${page.name}.html">
+      <div style="position: absolute; background-color: rgba(0, 0, 0, 0); z-index: 3; margin-left: 0.4rem; margin-top: -0.4rem; width: 15.45rem; height: 12rem;" 
+      onmouseover="highlightImageL('suggest-imgL${index + 1}', 'suggest-textL${index + 1}')" 
+      onmouseout="removeHighlightL('suggest-imgL${index + 1}', 'suggest-textL${index + 1}')"></div>
+      <img id="suggest-imgL${index + 1}" src="/images/games/${page.name}.png" alt="${page.name}" />
+    </a>
+    <a href="games/${page.name}.html">
+      <span id="suggest-textL${index + 1}" style="letter-spacing: ${letterSpacing};">${formattedName}</span>
+    </a>
+  </div>
       </li>
+
+      
     `;
         pageList.appendChild(li);
       });
