@@ -1,0 +1,156 @@
+@charset 'UTF-8';
+/* Slider */
+.slick-loading .slick-list
+{
+    background: #fff url('./ajax-loader.gif') center center no-repeat;
+}
+
+/* Icons */
+@font-face
+{
+    font-family: 'slick';
+    font-weight: normal;
+    font-style: normal;
+
+    src: url('./fonts/slick.eot');
+    src: url('./fonts/slick.eot?#iefix') format('embedded-opentype'), url('./fonts/slick.woff') format('woff'), url('./fonts/slick.ttf') format('truetype'), url('./fonts/slick.svg#slick') format('svg');
+}
+/* Arrows */
+.slick-prev,
+.slick-next {
+    z-index: 2;
+    position: absolute;
+    top: 50%;
+    display: flex;
+    transform: translate(0, -50%);
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    width: 28vw;
+    height: 49vh;
+    border-radius: 0;
+    color: white;
+    
+    font-size: 3.4vw;
+    font-family: "League Gothic";
+    font-weight: bold;
+
+    justify-content: center;
+    align-items: center;
+}
+
+.slick-prev:hover, .slick-next:hover {
+   /* transform: translate(-50%, -50%) scale(1.3); */
+   font-size: 5vw;
+}
+
+.slick-prev:before,
+.slick-next:before
+{
+    opacity: 1;
+    color: black;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.slick-prev {
+    left: -1vw;
+  }
+  
+  .slick-next {
+    right: -1vw;
+  }
+  
+
+/* Dots */
+.slick-dotted.slick-slider
+{
+    margin-bottom: 0;
+}
+
+.slick-dots
+{
+    position: absolute;
+    bottom: -3vh;
+
+    display: block;
+
+    width: 100%;
+    padding: 0;
+    margin: 0;
+
+    list-style: none;
+
+    text-align: center;
+}
+.slick-dots li
+{
+    position: relative;
+
+    display: inline-block;
+
+    width: 2vw;
+    height: 2vw;
+    margin: 0 0.1vw;
+    padding: 0;
+
+    cursor: pointer;
+}
+.slick-dots li button
+{
+    font-size: 0;
+    line-height: 0;
+
+    display: block;
+
+    width: 3vh;
+    height: 3vh;
+    padding: 1vh;
+
+    cursor: pointer;
+
+    color: transparent;
+    border: 0;
+    outline: none;
+    background: transparent;
+
+    text-shadow: 0px 0px 7px #000;
+}
+.slick-dots li button:hover,
+.slick-dots li button:focus
+{
+    outline: none;
+}
+.slick-dots li button:hover:before,
+.slick-dots li button:focus:before
+{
+    opacity: 1;
+}
+.slick-dots li button:before
+{
+    font-family: 'slick';
+    font-size: 1.2vh;
+    line-height: 2vh;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 3vh;
+    height: 3vh;
+
+    content: '•';
+    text-align: center;
+
+    opacity: .25;
+    color: white;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.slick-dots li.slick-active button:before
+{
+    opacity: .75;
+    color: white;
+}

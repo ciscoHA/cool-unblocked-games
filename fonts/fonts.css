@@ -4,3 +4,7 @@
     font-family: League Gothic;
     src: url(LeagueGothic.ttf);
   }
+
+  body {
+    -webkit-font-smoothing: antialiased;
+  }

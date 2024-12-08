@@ -1,14 +1,4 @@
-// Function to load an external script dynamically
-function loadScript(url, callback) {
-    var script = document.createElement('script');
-    script.src = url;
-    script.async = true;
-    script.onload = callback;
-    document.head.appendChild(script);
-}
 
-// Load pages.js
-loadScript('pages.js');
     // Function to track the recently visited page
     function trackPage() {
         var currentPage = window.location.href;
@@ -73,89 +63,94 @@ function formatAndCapitalize(str) {
 
     // Create the HTML for each visited page
     var html = "";
-    visitedPages.forEach(function (page, index) {
-        var editedName = page.match(/\/games\/([^\/]+)\.html/); // Extract game name from URL
-        editedName = editedName ? editedName[1].replace(/-/g, " ") : "missing"; // Replace hyphens with spaces
+    // Assuming `pagesData` is already loaded from pages.js
+visitedPages.forEach(function (page, index) {
+    var editedName = page.match(/\/games\/([^\/]+)\.html/); // Extract game name from URL
+    editedName = editedName ? editedName[1].replace(/-/g, " ") : "missing"; // Replace hyphens with spaces
 
-        // Generate the display name with spaces around '&'
-        var displayName = editedName.replace(/&/g, ' & ');
-        displayName = formatAndCapitalize(displayName);
+    // Generate the display name with spaces around '&'
+    var displayName = editedName.replace(/&/g, ' & ');
+    displayName = formatAndCapitalize(displayName);
 
-        // If the game is missing, set display name to "Featured" and get a random game image
-        if (displayName === "Missing") {
-            displayName = "Featured";
-            var imgFileName = getRandomGameImage(); // Get a random game image
-        } else {
-            // Convert display name to lowercase and replace spaces with hyphens for image filename
-            var imgFileName = displayName.replace(/ /g, "-").toLowerCase();
+    // If the game is missing, set display name to "Featured" and get a random game image
+    if (displayName === "Missing") {
+        displayName = "Featured";
+        var imgFileName = getRandomGameImage(); // Get a random game image
+    } else {
+        // Convert display name to lowercase and replace spaces with hyphens for image filename
+        var imgFileName = displayName.replace(/ /g, "-").toLowerCase();
+    }
+
+    // Match imgFileName with `pagesData.name` and retrieve `formatted_Name`
+    let formattedName = "Unknown"; // Default value in case no match is found
+    pagesData.forEach((data) => {
+        if (data.name === imgFileName) {
+            formattedName = data.formatted_Name;
         }
+    });
 
-        // Check if the file is an image or HTML file
-        var isImageOrHtmlFile = imgFileName.endsWith(".png") || imgFileName.endsWith(".html");
+    // Check if the file is an image or HTML file
+    var isImageOrHtmlFile = imgFileName.endsWith(".png") || imgFileName.endsWith(".html");
 
-// Generate the edited name with '-&-' for non-image/HTML files
-if (!isImageOrHtmlFile) {
-    imgFileName = imgFileName.replace(/-&-/g, '&');
-}
-        // Remove file extension from imgFileName
-        imgFileName = imgFileName.replace('.html', '');
+    // Generate the edited name with '-&-' for non-image/HTML files
+    if (!isImageOrHtmlFile) {
+        imgFileName = imgFileName.replace(/-&-/g, '&');
+    }
 
-        // Generate href value based on imgFileName
-        var hrefValue = `/games/${imgFileName}.html`;
+    // Remove file extension from imgFileName
+    imgFileName = imgFileName.replace('.html', '');
 
+    // Generate href value based on imgFileName
+    var hrefValue = `/games/${imgFileName}.html`;
 
-            // Create a temporary span to measure text width
-            var tempSpan = document.createElement('span');
-            tempSpan.style.visibility = 'hidden';
-            tempSpan.style.position = 'absolute';
-            tempSpan.style.whiteSpace = 'nowrap';
-            tempSpan.style.fontSize = 'inherit'; // Use the same font size as in your HTML
-            tempSpan.textContent = displayName;
-            document.body.appendChild(tempSpan);
-            var textWidth = tempSpan.offsetWidth;
-            document.body.removeChild(tempSpan);
+    // Create a temporary span to measure text width
+    var tempSpan = document.createElement('span');
+    tempSpan.style.visibility = 'hidden';
+    tempSpan.style.position = 'absolute';
+    tempSpan.style.whiteSpace = 'nowrap';
+    tempSpan.style.fontSize = 'inherit'; // Use the same font size as in your HTML
+    tempSpan.textContent = formattedName;
+    document.body.appendChild(tempSpan);
+    var textWidth = tempSpan.offsetWidth;
+    document.body.removeChild(tempSpan);
 
-            // Calculate and adjust letter spacing based on text length
-            var maxLetterSpacingReduction = 10; // Maximum letter spacing reduction
-            var letterSpacing = '0px'; // Default letter spacing
-            if (displayName.length > 17) { // Adjust threshold for starting compression
-                var lengthFactor = Math.min(1, (displayName.length - 17) / 58); // Normalize length factor
-                letterSpacing = `${-maxLetterSpacingReduction * lengthFactor}px`;
-            }
+    // Calculate and adjust letter spacing based on text length
+    var maxLetterSpacingReduction = 5;
+    var letterSpacing = 'normal'; // Default letter spacing
+    if (formattedName.length > 11) { // Adjust threshold for starting compression
+        var lengthFactor = Math.min(1, (formattedName.length - 11) / 400); // Normalize length factor
+        letterSpacing = `${-maxLetterSpacingReduction * lengthFactor}vw`;
+    }
 
-            // Create HTML for each list item with dynamic letter spacing
-            html += "<li>";
-            html += '<div class="suggest-game">';
-            html += `<a href="${hrefValue}">`;
-            html +=
-                '<div style="position: absolute; background-color: rgba(0, 0, 0, 0); z-index: 3; margin-left: 0.4rem; margin-top: -0.4rem; width: 15.45rem; height: 12rem;" onmouseover="highlightImage2(\'suggest-imgC' +
-                (index + 1) +
-                '\', \'suggest-text' +
-                (index + 1) +
-                '\')" onmouseout="removeHighlight2(\'suggest-imgC' +
-                (index + 1) +
-                '\', \'suggest-text' +
-                (index + 1) +
-                "')\"></div>";
-            html +=
-                `<img id="suggest-imgC${index + 1}" src="/images/games/${imgFileName}.png" alt="Recently Played" />`;
-            html +=
-                '<div id="fade-wrapper" style="z-index: -1; position: absolute; width: 16vw; height: 7vh; margin-top: -1.4rem; margin-left: 0.45rem; overflow: hidden; opacity: 0;">';
-            html += '<div class="box-shadow"></div>';
-            html += "</div>";
-            html += "</a>";
-            html += `<a href="${hrefValue}">`;
-            html += `<span id="suggest-text${index + 1}" style="letter-spacing: ${letterSpacing};">${displayName}</span>`;
-            html += "</a>";
-            html += "</div>";
-            html += "</li>";
-        });
+    // Create HTML for each list item with dynamic letter spacing
+    html += "<li>";
+    html +=
+        `<div class="suggest-game" onmouseover="highlightImage2('suggest-imgC${index + 1}', 'suggest-text${index + 1}')" 
+         onmouseout="removeHighlight2('suggest-imgC${index + 1}', 'suggest-text${index + 1}')">`;
+    html += `<a href="${hrefValue}">`;
+    html +=
+        `<div class="suggest-text-back-container" style="position: absolute; margin: 0.6vh; width: 20.3vw; height: calc(20.3vw * 9 / 16); overflow: hidden; z-index: 2;">`;
+    html +=
+        '<div class="suggest-text-back" style="position: absolute; width: 300%; height: 300%; left: -5vw; top: 0vw; background-color: black; opacity: 0;"></div>';
+    html += "</div>";
+    html +=
+        `<img id="suggest-imgC${index + 1}" src="/images/games/${imgFileName}.png" alt="Recently Played" style="margin: 0.6vh; border-radius: 0.4vw; position: relative; height: auto;" />`;
+    html += "</a>";
+    html += `<a href="${hrefValue}">`;
+    html +=
+        `<p id="suggest-text${index + 1}" style="letter-spacing: ${letterSpacing}; position: absolute; z-index: 999; left: 1vw; top: calc(100% - 4.1vw); opacity: 0;">
+          ${formattedName}
+        </p>`;
+    html += "</a>";
+    html += "</div>";
+    html += "</li>";
+});
 
-        // Update the content of the 'recently-played' list
-        displayElement.innerHTML =
-            '<ul id="recently-played" class="game-list" style="color: transparent; list-style-type: none; padding: 0">' +
-            html +
-            "</ul>";
+// Update the content of the 'recently-played' list
+displayElement.innerHTML =
+    '<ul id="recently-played" class="game-list" style="color: transparent; list-style-type: none; padding: 0">' +
+    html +
+    "</ul>";
     }
 
     // Function to clear recently visited pages

@@ -1,0 +1,90 @@
+/* Not current slide */
+.slick-slide {
+    animation-delay: 10ms;
+    filter: brightness(50%);
+    margin-right: -1.1vw;
+    transition: all 0.15s ease-in-out;
+}
+
+/* Current slide */
+.slick-current, .slick-target {
+    filter: none;
+}
+
+.slick-slide p {
+    z-index: 99999 !important;
+    opacity: 0;
+}
+
+
+.slick-slide p {
+    white-space: nowrap;
+    text-decoration: none;
+    color: white;
+    text-shadow: 0px 0px 4px black, 0px 0px 4px black, 0px 0px 4px black;
+    overflow: hidden !important;
+    font-weight: bold;
+  }
+
+.slick-slide img {
+    margin: 2vh;
+    box-shadow: 0px 0px 7px #000;
+    transition: box-shadow 0.15s ease-in-out, outline-color 0.15s ease-in-out;
+    outline: 0.25vw solid transparent;
+    display: block;
+    border-radius: 0.4vw;
+}
+
+
+.slick-prev, .slick-next {
+    outline: 0.25vw solid transparent;
+    text-shadow: 0px 0px 7px #000;
+    transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out, text-shadow 0.15s ease-in-out;
+    opacity: 0;
+}
+
+.slick-prev:hover, .slick-next:hover {
+    outline: 0.25vw solid transparent;
+    text-shadow: 0px 0px 7px #58aafc;
+    opacity: 1;
+    transition: text-shadow 0.15s ease-in-out, outline-color 0.15s ease-in-out, font-size 0.05s ease-in-out;
+}
+
+
+
+.slick-current img:hover,
+.slick-target img:hover {
+    cursor: pointer;
+    outline: 0.25vw solid transparent;
+    outline-color: #58aafc;
+    box-shadow: 0px 0px 12px #58aafc, 0px 0px 10px #58aafc;
+    transition: transform 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+/* Position captions correctly */
+.slick-slide p {
+    margin: 0.2vh;
+    position: absolute;
+    bottom: 0.1vw;
+    left: 1.8vw;
+    color: white;
+    font-size: 2vw;
+    background-color: transparent; /* Optional: Add a semi-transparent background */
+    padding: 0.2vw;
+    border-radius: 0;
+    z-index: 1; /* Ensure the caption appears above the image */
+       opacity: 0; /* Hidden by default */
+    transition: opacity 0.3s ease-in-out;
+}
+
+.slick-current:hover p,
+.slick-target:hover p {
+    opacity: 1;
+}
+.slick-slide {
+    transition: all 0.3 ease-out;
+}
+.slick-slider .slick-track,
+.slick-slider .slick-list {
+  transition-delay: 30ms !important;
+}

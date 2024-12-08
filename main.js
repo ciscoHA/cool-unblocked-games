@@ -14,16 +14,6 @@ function insertIntoHead(content) {
 
 insertIntoHead('  <script src="/pages.js"></script>');
 
-// Function to load an external script dynamically
-function loadScript(url) {
-    var script = document.createElement('script');
-    script.src = url;
-    script.async = true;
-    document.head.appendChild(script);
-}
-
-// Load pages.js
-loadScript('pages.js');
 
 function insertHTMLIntoBody() {
     // Create a new div element
@@ -36,24 +26,6 @@ function insertHTMLIntoBody() {
 
 insertHTMLIntoBody();
 
-//function setDefaultLocalStorageValues() {
-//  if (!localStorage.getItem('background-image')) {
-//     localStorage.setItem('background-image', '/background.png');
-// }
-// if (!localStorage.getItem('primary-color')) {
-//    localStorage.setItem('primary-color', '#11E2C');
-// }
-// if (!localStorage.getItem('secondary-color')) {
-//     localStorage.setItem('secondary-color', '#58AAFC');
-// }
-// if (!localStorage.getItem('background-res')) {
-//   localStorage.setItem('background-res', '1280');
-//}
-//if (!localStorage.getItem('selectedButton')) {
-//  localStorage.setItem('selectedButton', 'primary'); // Set default button to primary
-//}
-//}
-
 // bad method :) - checks whether primary colour has a value, if it doesnt then it resets all customisation values.
 function setDefaultValuesIfPrimaryColorMissing() {
     const customisationData = localStorage.getItem('customisation');
@@ -62,8 +34,8 @@ function setDefaultValuesIfPrimaryColorMissing() {
     if (!customisationData || customisationData.split('\n')[1] === '') {
         const defaultCustomisation = [
             '/background.png',  // Default background image
-            '#111E2C',          // Default primary color
-            '#58AAFC',          // Default secondary color
+            '#111E2C',          // Default "primary" text color
+            '#58AAFC',          // Default secondary/theme/accent color
             '100'              // Default background resolution
         ].join('\n');
 
@@ -71,35 +43,9 @@ function setDefaultValuesIfPrimaryColorMissing() {
         localStorage.setItem('customisation', defaultCustomisation);
     }
 }
-// IF NEEDED TO REPLACE THEME SUCH AS SEASONAL UPDATE!
-function checkAndUpdateCustomisationValues() {
-    const customisationData = localStorage.getItem('customisation');
-
-    if (customisationData) {
-        const dataParts = customisationData.split('\n'); // Split into lines
-        const backgroundRes = dataParts[3]?.trim(); // Extract and trim the background resolution
-
-        // Check if "background-res" exists, is numeric, and exceeds 500
-        if (backgroundRes && !isNaN(backgroundRes) && parseInt(backgroundRes, 10) > 500) {
-            // Manually set the default values
-            const defaultCustomisation = [
-                '/background.png',  // Default background image
-                '#111E2C',          // Default primary color
-                '#58AAFC',          // Default secondary color
-                '100'               // Default background resolution
-            ].join('\n');
-
-            // Update localStorage with default values
-            localStorage.setItem('customisation', defaultCustomisation);
-        }
-    }
-}
-
 
 // Call the functions in order
 setDefaultValuesIfPrimaryColorMissing();
-checkAndUpdateCustomisationValues();
-
 
 //document.addEventListener('DOMContentLoaded', function() {
 //  setDefaultLocalStorageValues();
@@ -183,19 +129,8 @@ function loadScript(url) {
     });
 }
 
-// Load pages-long.js and then initialize search functionality
-//loadScript('pages-long.js')
-   // .then(() => {
-        // Ensure the pagesData array is defined before attaching the search functionality
-    //    if (typeof pagesData !== 'undefined' && Array.isArray(pagesData)) {
-    //        attachNavbarListeners();
-     //   } else {
-     //       console.error('pagesData array is not defined or not an array.');
-     //   }
-   // })
-   // .catch(error => console.error(error));
 
-   function attachNavbarListeners() {
+ function attachNavbarListeners() {
     const searchInput = document.getElementById('searchInput');
     const searchResults = document.getElementById('searchResults');
 
@@ -211,7 +146,7 @@ function loadScript(url) {
             .toLowerCase()
             .trim();
 
-        const queryWords = normalizedQuery.split(/\s+/);  // Split the query into words
+        const queryWords = normalizedQuery.split(/\s+/);
 
         // Filter by name and category
         const filteredPages = pagesData.filter(pageData => {
@@ -223,51 +158,45 @@ function loadScript(url) {
             let normalizedCategory = pageData.category
                 ? pageData.category.toLowerCase().trim()
                 : 'none';
-            
+
             if (normalizedCategory === "none") {
-                normalizedCategory = ""; // Ignore 'none' categories in search
+                normalizedCategory = "";
             }
 
-            const normalizedCategoryWords = normalizedCategory.split(/\s+/);  // Split category into words
+            const normalizedCategoryWords = normalizedCategory.split(/\s+/);
 
-            // Check if all query words match either the name or any of the category words
             const nameMatches = queryWords.every(word => normalizedPageName.includes(word));
-            const categoryMatches = queryWords.every(word => 
-                normalizedCategoryWords.some(categoryWord => 
+            const categoryMatches = queryWords.every(word =>
+                normalizedCategoryWords.some(categoryWord =>
                     categoryWord.startsWith(word) && word.length >= categoryWord.length / 2)
             );
 
             return nameMatches || categoryMatches;
         });
 
-        // Sort the filtered results based on the priorities
         const sortedPages = filteredPages.sort((a, b) => {
             const nameA = a.name.toLowerCase();
             const nameB = b.name.toLowerCase();
             const queryLower = normalizedQuery.toLowerCase();
 
-            // Priority 1: Sort by whether the name starts with the query
             const aStartsWith = nameA.startsWith(queryLower);
             const bStartsWith = nameB.startsWith(queryLower);
 
             if (aStartsWith && !bStartsWith) return -1;
             if (!aStartsWith && bStartsWith) return 1;
 
-            // Priority 2: Sort by the number of occurrences of the query in the name
             const aOccurrences = (nameA.match(new RegExp(queryLower, "g")) || []).length;
             const bOccurrences = (nameB.match(new RegExp(queryLower, "g")) || []).length;
 
             if (aOccurrences > bOccurrences) return -1;
             if (aOccurrences < bOccurrences) return 1;
 
-            // Priority 3: Sort by the earliest occurrence of the query
             const aFirstOccurrence = nameA.indexOf(queryLower);
             const bFirstOccurrence = nameB.indexOf(queryLower);
 
             if (aFirstOccurrence < bFirstOccurrence) return -1;
             if (aFirstOccurrence > bFirstOccurrence) return 1;
 
-            // Priority 4: Alphabetical order as a final tiebreaker
             return nameA.localeCompare(nameB);
         });
 
@@ -286,7 +215,7 @@ function loadScript(url) {
                 const anchor = document.createElement('a');
                 anchor.href = `/games/${pageData.name}.html`;
                 anchor.style.textDecoration = 'none';
-                anchor.style.fontFamily = "sans-serif";
+                anchor.style.fontFamily = '"M Plus Rounded 1c", sans-serif'; // Set font here
                 anchor.style.fontWeight = "bold";
                 anchor.style.color = 'var(--primary-color)';
                 anchor.style.fontSize = '16px';
@@ -300,58 +229,32 @@ function loadScript(url) {
                 });
                 const image = document.createElement('img');
                 image.src = `/images/games/${pageData.name}.png`;
-                image.alt = `${pageData.name}`;
-                image.style.width = '70px';
-                image.style.height = '39.38px';
+                image.alt = pageData.formatted_Name;
+                image.style.width = '6vw';
+                image.style.height = 'auto';
                 image.style.borderRadius = '3px';
-                image.style.marginRight = '10px';
+                image.style.marginRight = '8px';
                 const text = document.createElement('p');
-                const formattedPageName = capitalizeFirstLetter(pageData.name.replace(/-/g, ' ').replace(/&/g, ' and '));
-                let line1 = '';
-                let line2 = '';
-                const words = formattedPageName.split(' ');
-                for (const word of words) {
-                    if (line1.length === 0) {
-                        if (word.length > 18) {
-                            line1 += word.substr(0, 15) + '... ';
-                            line2 += word.substr(15) + ' ';
-                        } else {
-                            line1 += word + ' ';
-                        }
-                    } else if ((line1 + word).length < 18) {
-                        line1 += word + ' ';
-                    } else {
-                        line2 += word + ' ';
-                    }
-                }
                 text.style.margin = '0';
-                text.style.maxWidth = 'calc(100% - 80px)';
+                text.style.maxWidth = 'calc(100% - 80px)'; // Allow more room for text
                 text.style.overflow = 'hidden';
-                text.style.textOverflow = 'ellipsis';
-                text.style.whiteSpace = 'nowrap';
+                text.style.whiteSpace = 'nowrap'; // Ensure text stays on one line
                 text.style.fontWeight = 'bold';
                 text.style.color = 'var(--primary-color)';
                 text.style.fontSize = '14px';
                 text.style.textAlign = 'left';
-                text.innerHTML = `${line1} ${line2}`;
+                text.textContent = pageData.formatted_Name;
                 anchor.appendChild(image);
                 anchor.appendChild(text);
                 item.appendChild(anchor);
                 searchResults.appendChild(item);
             }
 
-            // Reset scroll to the top whenever a new search is triggered
             searchResults.scrollTop = 0;
-
-            // Set the max-height for scrolling, allow more items but with scroll
-            searchResults.style.maxHeight = '300px';  // Set max height for 5 items or so
-            searchResults.style.overflowY = 'auto';   // Enable scrolling for more than 5 results
+            searchResults.style.maxHeight = '300px';
+            searchResults.style.overflowY = 'auto';
             searchResults.style.display = 'block';
         }
-    }
-
-    function capitalizeFirstLetter(string) {
-        return string.replace(/\b\w/g, letter => letter.toUpperCase());
     }
 
     searchInput.addEventListener('input', function () {
@@ -366,6 +269,7 @@ function loadScript(url) {
         }
     });
 }
+
     // const primaryButton = document.getElementById('primary-button');
 // const backupButton = document.getElementById('backup-button');
 

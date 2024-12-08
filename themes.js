@@ -98,11 +98,11 @@ const customisationStoredData = [
     },
     {
         id: "pink-path",
-        "data-background": "https://images4.alphacoders.com/109/thumb-1920-1098025.png",
+        "data-background": "images/backgrounds/bisbiswas.png",
         "data-primary-color": "#080116",
         "data-secondary-color": "#f565c4",
         "data-background-res": "100",
-        author: "coolubg"
+        author: "coolubg, bisbiswas"
     },
     {
         id: "mountains",

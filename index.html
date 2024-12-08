@@ -3,6 +3,7 @@
 
 <head>
   <title>Cool Unblocked Games</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="google-adsense-account" content="ca-pub-4293684626558852" />
   <link rel="icon" type="image/x-icon" sizes="48x48" href="/favicon.ico" />
   <link rel="icon" type="shortcut icon" sizes="48x48" href="/favicon.ico" />
@@ -32,7 +33,6 @@
       // Apply subtle scale to the list item for a smoother effect
       listItem.style.transform = "scale(1.06)";
       listItem.style.transition = "transform 0.15s ease-out"; // Starts slow, then accelerates with an elastic effect
-
       // Apply multiple box-shadow layers to the image with a smooth outline effect
       img.style.boxShadow = "1px 1px 12px #fc5858, 1px 1px 10px #fc5858";
       img.style.outline = "0.25vw solid #fc5858"
@@ -40,27 +40,40 @@
 
       // Underline the associated text
       var litext = img.parentNode.parentNode.querySelector(`#${textId}`);
-      litext.style.textDecoration = "underline";
+      litext.style.textDecoration = "none";
+      litext.style.opacity = "1";
+      litext.style.transition = "opacity 0.2s ease-out";
+
+      var textback = img.parentNode.parentNode.querySelector('.suggest-text-back');
+
+      textback.style.transition = "opacity 0.4s ease-out";
+      textback.style.opacity = "0";
     }
 
     function removeHighlight2(elementId, textId) {
       var img = document.getElementById(elementId);
-      var listItem = img.closest("li");
+      var listItem = img.closest("li"); // Select the parent list item
 
-      // Reset scale with a quick transition
+      // Apply subtle scale to the list item for a smoother effect
       listItem.style.transform = "scale(1.0)";
-      listItem.style.transition = "transform 0.15s ease-out";
+      listItem.style.transition = "transform 0.15s ease-out"; // Starts slow, then accelerates with an elastic effect
 
-      // Smoothly remove box-shadow and outline
+      // Apply multiple box-shadow layers to the image with a smooth outline effect
       img.style.boxShadow = "0px 0px 7px #000";
       img.style.outline = "0.25vw solid transparent"
       img.style.transition = "box-shadow 0.15s ease-out, outline-color 0.15s ease-out";
 
-      // Remove underline from the associated text
+      // Underline the associated text
       var litext = img.parentNode.parentNode.querySelector(`#${textId}`);
       litext.style.textDecoration = "none";
+      litext.style.opacity = "0";
+      litext.style.transition = "opacity 0.2s ease-out";
+
+      var textback = img.parentNode.parentNode.querySelector('.suggest-text-back');
+      textback.style.transition = "opacity 0.1s ease-out";
+      textback.style.opacity = "0"
     }
-// L
+    // L
     function highlightImageL(elementId, textId) {
       var img = document.getElementById(elementId);
       var listItem = img.closest("li"); // Select the parent list item
@@ -68,7 +81,6 @@
       // Apply subtle scale to the list item for a smoother effect
       listItem.style.transform = "scale(1.06)";
       listItem.style.transition = "transform 0.15s ease-out"; // Starts slow, then accelerates with an elastic effect
-
       // Apply multiple box-shadow layers to the image with a smooth outline effect
       img.style.boxShadow = "1px 1px 12px #58aafc, 1px 1px 10px #58aafc";
       img.style.outline = "0.25vw solid #58aafc"
@@ -76,7 +88,14 @@
 
       // Underline the associated text
       var litext = img.parentNode.parentNode.querySelector(`#${textId}`);
-      litext.style.textDecoration = "underline";
+      litext.style.textDecoration = "none";
+      litext.style.opacity = "1";
+      litext.style.transition = "opacity 0.2s ease-out";
+
+      var textback = img.parentNode.parentNode.querySelector('.suggest-text-back');
+
+      textback.style.transition = "opacity 0.4s ease-out";
+      textback.style.opacity = "0";
     }
 
     function removeHighlightL(elementId, textId) {
@@ -95,8 +114,14 @@
       // Underline the associated text
       var litext = img.parentNode.parentNode.querySelector(`#${textId}`);
       litext.style.textDecoration = "none";
+      litext.style.opacity = "0";
+      litext.style.transition = "opacity 0.2s ease-out";
+
+      var textback = img.parentNode.parentNode.querySelector('.suggest-text-back');
+      textback.style.transition = "opacity 0.1s ease-out";
+      textback.style.opacity = "0"
     }
-// P
+    // P
     function highlightImageP(elementId, textId) {
       var img = document.getElementById(elementId);
       var listItem = img.closest("li"); // Select the parent list item
@@ -104,15 +129,21 @@
       // Apply subtle scale to the list item for a smoother effect
       listItem.style.transform = "scale(1.06)";
       listItem.style.transition = "transform 0.15s ease-out"; // Starts slow, then accelerates with an elastic effect
-
       // Apply multiple box-shadow layers to the image with a smooth outline effect
-      img.style.boxShadow = "1px 1px 12px #D058FC, 1px 1px 10px #D058FC";
+      img.style.boxShadow = "1px 1px 12px #D058FC, 1px 1px 10px #58aafc";
       img.style.outline = "0.25vw solid #D058FC"
       img.style.transition = "box-shadow 0.15s ease-out, outline-color 0.15s ease-out";
 
       // Underline the associated text
       var litext = img.parentNode.parentNode.querySelector(`#${textId}`);
-      litext.style.textDecoration = "underline";
+      litext.style.textDecoration = "none";
+      litext.style.opacity = "1";
+      litext.style.transition = "opacity 0.2s ease-out";
+
+      var textback = img.parentNode.parentNode.querySelector('.suggest-text-back');
+
+      textback.style.transition = "opacity 0.4s ease-out";
+      textback.style.opacity = "0";
     }
 
     function removeHighlightP(elementId, textId) {
@@ -131,12 +162,22 @@
       // Underline the associated text
       var litext = img.parentNode.parentNode.querySelector(`#${textId}`);
       litext.style.textDecoration = "none";
+      litext.style.opacity = "0";
+      litext.style.transition = "opacity 0.2s ease-out";
+
+      var textback = img.parentNode.parentNode.querySelector('.suggest-text-back');
+      textback.style.transition = "opacity 0.1s ease-out";
+      textback.style.opacity = "0"
     }
 
   </script>
   <style>
+    body {
+      overflow-x: hidden;
+    }
+
     .suggest-game {
-      padding: 0.6%;
+      padding: 0.6vh;
     }
 
     .suggest-game a {
@@ -147,14 +188,14 @@
       text-shadow: 0px 0px 4px black, 0px 0px 4px black, 0px 0px 4px black;
       font-size: 1.4vw;
       overflow: hidden !important;
-      margin-top: -0.6rem;
+      margin-top: -1.2vh;
     }
 
     .suggest-game img {
-      margin: 0.6rem;
+      margin: 0.6vh;
       border-radius: 0.4vw;
       position: relative;
-      width: 15.6vw;
+      width: 16.8vw;
       height: auto;
     }
 
@@ -167,89 +208,17 @@
 
     #pageListNEW img {
       width: 20.3vw !important;
+      height: calc(20.3vw * 9 / 16) !important;
+    }
+
+    #recently-played img {
+      width: 16.8vw !important;
     }
 
     ul.game-list li {
       display: inline-block;
-      margin-right: 5px;
-      margin-bottom: 10px;
-    }
-
-    #fade-wrapper-blue {
-      z-index: -1;
-      position: absolute;
-      width: calc(14.3vw + 6px);
-      /* Width of image + width of border (x2) */
-      height: 4vh;
-      margin-top: -1.35rem;
-      display: flex;
-      justify-content: center;
-      overflow: hidden;
-      opacity: 0;
-      background: linear-gradient(to bottom, #58aafc, transparent);
-      left: 50%;
-      /* Move to the center of the parent */
-      transform: translateX(-50%);
-      /* Adjust back by half its width */
-    }
-
-    #fade-wrapper-2 {
-      z-index: -1;
-      position: absolute;
-      width: calc(20.3vw + 6px);
-      /* Width of image + width of border (x2) */
-      height: 4vh;
-      margin-top: -1.35rem;
-      display: flex;
-      justify-content: center;
-      overflow: hidden;
-      opacity: 0;
-      background: linear-gradient(to bottom, #58aafc, transparent);
-      left: 50%;
-      /* Move to the center of the parent */
-      transform: translateX(-50%);
-      /* Adjust back by half its width */
-    }
-
-    #fade-wrapper-purple {
-      z-index: -1;
-      position: absolute;
-      width: calc(15.45vw + 6px);
-      /* Width of image + width of border (x2) */
-      height: 4vh;
-      margin-top: -1.35rem;
-      display: flex;
-      justify-content: center;
-      overflow: hidden;
-      opacity: 0;
-      background: linear-gradient(to bottom, #D058FC, transparent);
-      left: 50%;
-      /* Move to the center of the parent */
-      transform: translateX(-50%);
-      /* Adjust back by half its width */
-    }
-
-
-    .suggest-gameL a {
-      white-space: nowrap;
-      display: block;
-      text-decoration: none;
-      color: white;
-      text-shadow: 0px 0px 4px black, 0px 0px 4px black, 0px 0px 4px black;
-      font-size: 1.4vw;
-      overflow-x: hidden !important;
-      overflow: hidden !important;
-      margin-top: -0.4rem;
-      visibility: visible;
-    }
-
-    .suggest-gameL img {
-      visibility: visible;
-      margin: 0.4rem;
-      border-radius: 0.4vw;
-      position: relative;
-      width: 14.3vw;
-      height: auto;
+      margin-right: 0.6vh;
+      margin-bottom: 0.6vh;
     }
 
     .game-list {
@@ -269,61 +238,253 @@
       margin-top: 20px;
     }
 
-    /* SORTING/FILTERING BUTTONS FOR LIST */
+    .container2 {
+      position: absolute;
+      top: 10.4vh;
+      left: 0;
+      height: 96vh;
+      max-height: 96vh;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .image-container {
+      position: relative;
+      display: block;
+      width: 100%;
+    }
   </style>
+  <link rel="stylesheet" type="text/css" href="slide/slick/slick.css" />
+  <link rel="stylesheet" type="text/css" href="slide/slick/slick-theme.css" />
+  <link rel="stylesheet" type="text/css" href="slide/style.css" />
+  <link rel="stylesheet" type="text/css" href="/fonts/fonts.css" />
+
 </head>
 
 <body>
   <div id="navbar-container"></div>
-  <div class="navbar-spacer" style="margin-top: 70px !important;"></div>
+  <!--<div class="3" style="top: 0; height: 11vh; width: 100%; background-color: #58aafc; position: absolute;"></div>-->
+  <div class="carousel-spacer" style="margin-top: 92vh;"></div>
+  <!--<div class="2" style="position: fixed; background-color: blue; z-index: 99999999; height: 1vh; width: 1vw; margin-top: 58.5vh;"></div>
+ <div class="2" style="position: fixed; background-color: red; z-index: 99999999; height: 1vh; width: 1vw; margin-top: 66vh;"></div>
+ div class="2" style="position: aboslute; background-color: blue; z-index: 99999999; height: 100vh; width: 10vw;"></div>-->
+
 
   <div class="important"
-    style="position: absolute; right: 1%; top: 160px; width: 10%; height: 78%; max-width: 140px; max-height: 564px; background-color: transparent;">
-    <!-- Original ad code -->
-    <script defer src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4293684626558852"
-      crossorigin="anonymous"></script>
-    <ins class="adsbygoogle" style="display: inline-block; width: 140px; height: 564px"
-      data-ad-client="ca-pub-4293684626558852" data-ad-slot="6738911587"></ins>
-    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    style="position: absolute; right: 1%; top: 70.2vh; width: 10%; height: 78%; max-width: 140px; max-height: 564px; background-color: white;">
   </div>
 
   <div class="important"
-    style="position: absolute; left: 1%; top: 160px; width: 10%; height: 78%; max-width: 140px; max-height: 564px; background-color: transparent;">
-    <!-- Original ad code -->
-    <script defer src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4293684626558852"
-      crossorigin="anonymous"></script>
-    <ins class="adsbygoogle" style="display: inline-block; width: 140px; height: 564px"
-      data-ad-client="ca-pub-4293684626558852" data-ad-slot="6738911587"></ins>
-    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    style="position: absolute; left: 1%; top: 70.2vh; width: 10%; height: 78%; max-width: 140px; max-height: 564px; background-color: white;">
   </div>
 
+  <div class="container2">
+    <div class="slick-carousel">
+      <div class="carousel-item">
+        <div class="image-container">
+          <a href="/games/burrito-bison-launcha-libre.html">
+            <img src="/images/games/burrito-bison-launcha-libre.png" alt="Papa Louie">
+            <p>Game of the Week: Burrito Bison 3</p>
+          </a>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div class="image-container">
+          <a href="/games/polytrack.html">
+            <img src="/images/games/polytrack.png" alt="Polytrack">
+            <p>Polytrack v0.4.1</p>
+          </a>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div class="image-container">
+          <a href="/games/among-us-online.html">
+            <img src="/images/games/among-us-online.png" alt="Among Us Online">
+            <p>Among Us Online</p>
+          </a>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div class="image-container">
+          <a href="/games/1v1.lol.html">
+            <img src="/images/games/1v1.lol.png" alt="1v1.lol">
+            <p>1v1.lol</p>
+          </a>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div class="image-container">
+          <a href="/games/retro-bowl.html">
+            <img src="/images/games/retro-bowl.png" alt="Retro Bowl">
+            <p>Retro Bowl</p>
+          </a>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div class="image-container">
+          <a href="/games/bitlife.html">
+            <img src="/images/games/bitlife.png" alt="Bitlife">
+            <p>Bitlife</p>
+          </a>
+        </div>
+      </div>
+    </div>
 
-  <p id="list-type" style="
-    font-size: 220%;
+
+    <script type="text/javascript" src="slide/jquery/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="slide/query/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript" src="slide/slick/slick.min.js"></script>
+    <script type="text/javascript" src="slide/start-carousel.js"></script>
+    <script>
+      document.querySelector('.slick-list').addEventListener('mouseenter', () => {
+        document.querySelector('.slick-prev').style.opacity = '1';
+        document.querySelector('.slick-next').style.opacity = '1';
+      });
+
+      document.querySelector('.slick-list').addEventListener('mouseleave', () => {
+        document.querySelector('.slick-prev').style.opacity = '';
+        document.querySelector('.slick-next').style.opacity = '';
+      });
+
+      document.addEventListener('mouseover', (event) => {
+        const allSlickCurrents = document.querySelectorAll('.slick-current');
+        const allSlickTargets = document.querySelectorAll('.slick-target');
+        const allSlickSlides = document.querySelectorAll('.slick-slide');
+
+        const getClosestAnchorHref = (element) => {
+          const anchor = element?.closest('a');
+          return anchor ? anchor.getAttribute('href') : null;
+        };
+
+        const applyStyles = (element, isImage = false) => {
+          if (isImage) {
+            element.style.cursor = 'pointer';
+            element.style.outline = '0.25vw solid transparent';
+            element.style.outlineColor = '#58aafc';
+            element.style.boxShadow = '0px 0px 12px #58aafc, 0px 0px 10px #58aafc';
+            element.style.transition = 'transform 0.15s ease-in-out, box-shadow 0.15s ease-in-out, outline-color 0.15s ease-in-out';
+          } else {
+            element.style.opacity = '1';
+            element.style.transition = 'opacity 0.15s ease-in-out';
+          }
+        };
+
+        const resetStyles = (element, isImage = false) => {
+          if (isImage) {
+            element.style.cursor = 'default';
+            element.style.outline = 'none';
+            element.style.boxShadow = 'none';
+            element.style.transition = 'transform 0.15s ease-in-out, box-shadow 0.15s ease-in-out, outline-color 0.15s ease-in-out';
+          } else {
+            element.style.opacity = '0';
+            element.style.transition = 'opacity 0.15s ease-in-out';
+          }
+        };
+
+        const hoveredSlickCurrent = event.target.closest('.slick-current');
+        const hoveredSlickTarget = event.target.closest('.slick-target');
+
+        // Handle hover for .slick-current
+        if (hoveredSlickCurrent) {
+          const currentHref = getClosestAnchorHref(hoveredSlickCurrent);
+
+          // Apply styles to the hovered .slick-current
+          hoveredSlickCurrent.querySelectorAll('p').forEach(p => applyStyles(p));
+          hoveredSlickCurrent.querySelectorAll('img').forEach(img => applyStyles(img, true));
+
+          // Check and apply styles to matching .slick-targets
+          allSlickTargets.forEach(target => {
+            if (getClosestAnchorHref(target) === currentHref) {
+              target.querySelectorAll('p').forEach(p => applyStyles(p));
+              target.querySelectorAll('img').forEach(img => applyStyles(img, true));
+            } else {
+              // Reset styles for non-matching .slick-targets
+              target.querySelectorAll('p').forEach(p => resetStyles(p));
+              target.querySelectorAll('img').forEach(img => resetStyles(img, true));
+            }
+          });
+        } else {
+          // Reset styles for .slick-current when not hovered
+          allSlickCurrents.forEach(current => {
+            current.querySelectorAll('p').forEach(p => resetStyles(p));
+            current.querySelectorAll('img').forEach(img => resetStyles(img, true));
+          });
+        }
+
+        // Handle hover for .slick-target
+        if (hoveredSlickTarget) {
+          const targetHref = getClosestAnchorHref(hoveredSlickTarget);
+
+          // Apply styles to the hovered .slick-target
+          hoveredSlickTarget.querySelectorAll('p').forEach(p => applyStyles(p));
+          hoveredSlickTarget.querySelectorAll('img').forEach(img => applyStyles(img, true));
+
+          // Check and apply styles to matching .slick-currents
+          allSlickCurrents.forEach(current => {
+            if (getClosestAnchorHref(current) === targetHref) {
+              current.querySelectorAll('p').forEach(p => applyStyles(p));
+              current.querySelectorAll('img').forEach(img => applyStyles(img, true));
+            } else {
+              // Reset styles for non-matching .slick-currents
+              current.querySelectorAll('p').forEach(p => resetStyles(p));
+              current.querySelectorAll('img').forEach(img => resetStyles(img, true));
+            }
+          });
+        } else {
+          // Reset styles for .slick-target when not hovered
+          allSlickTargets.forEach(target => {
+            target.querySelectorAll('p').forEach(p => resetStyles(p));
+            target.querySelectorAll('img').forEach(img => resetStyles(img, true));
+          });
+        }
+
+        // Reset styles for non-matching .slick-slide elements
+        allSlickSlides.forEach(slide => {
+          if (!slide.classList.contains('slick-current') && !slide.classList.contains('slick-target')) {
+            slide.querySelectorAll('p').forEach(p => resetStyles(p));
+            slide.querySelectorAll('img').forEach(img => resetStyles(img, true));
+          }
+        });
+      });
+
+      document.addEventListener('mouseout', (event) => {
+        const isHovering = document.querySelector(':hover'); // Check if the mouse is hovering over any element
+        if (!isHovering || (!event.relatedTarget?.closest('.slick-current') && !event.relatedTarget?.closest('.slick-target'))) {
+          // Reset all styles when neither .slick-current nor .slick-target is hovered
+          document.querySelectorAll('.slick-current p, .slick-target p').forEach(p => resetStyles(p));
+          document.querySelectorAll('.slick-current img, .slick-target img').forEach(img => resetStyles(img, true));
+
+          // Reset styles for all .slick-slide elements (non .slick-current or .slick-target)
+          document.querySelectorAll('.slick-slide p, .slick-slide img').forEach(el => resetStyles(el));
+        }
+      });
+
+
+    </script>
+    <p id="list-type" style="
+    font-size: 4.4vh;
     font-family: 'League Gothic';
     display: flex;
     width: fit-content;
     margin: 0 auto;
-    margin-top: 15px;
-    margin-bottom: 4px;
-    padding: 4px;
-    padding-left: 8px;
-    padding-right: 8px;
-    border-radius: 10px;
+    margin-top: 2vh;
+    margin-bottom: 2.4vh;
+    box-shadow: none !important;
     text-decoration: none;
     color: #fc5858;
     text-align: center;
-    padding: 0.25%;
     outline: #fc5858 solid 4px;
     border-radius: 5px;
+    padding: 0.6vh;
   ">
-    Continue Playing
-  </p>
-  <ul id="recently-played" class="game-list" style="color: transparent; list-style-type: none; padding: 0; margin-bottom: 0px;">
-    <li>
-      <div class="suggest-game">
-        <a href="#">
-          <div style="
+      Continue Playing
+    </p>
+    <ul id="recently-played" class="game-list"
+      style="color: transparent; list-style-type: none; padding: 0; margin: 0px;">
+      <li>
+        <div class="suggest-game">
+          <a href="#">
+            <div style="
             position: absolute;
             background-color: rgba(0, 0, 0, 0);
             z-index: 3;
@@ -332,22 +493,16 @@
             width: 15.45rem;
             height: 12rem;
           " onmouseover="highlightImage2('suggest-imgC1', 'suggest-text1')"
-            onmouseout="removeHighlight2('suggest-imgC1', 'suggest-text1')"></div>
+              onmouseout="removeHighlight2('suggest-imgC1', 'suggest-text1')"></div>
 
-          <img id="suggest-imgC1" src="/images/games/missing.png" alt="Recently Played" />
-          <div id="fade-wrapper">
-        </a>
-        <a href="#">
-          <div class="box-shadow"></div>
-      </div>
-      <span>Loading</span>
-      </a>
-      </div>
-    </li>
-    <li>
-      <div class="suggest-game">
-        <a href="#">
-          <div style="
+            <img id="suggest-imgC1" src="/images/games/missing.png" alt="Recently Played" />
+          </a>
+        </div>
+      </li>
+      <li>
+        <div class="suggest-game">
+          <a href="#">
+            <div style="
             position: absolute;
             background-color: rgba(0, 0, 0, 0);
             z-index: 3;
@@ -356,22 +511,16 @@
             width: 15.45rem;
             height: 12rem;
           " onmouseover="highlightImage2('suggest-imgC1', 'suggest-text1')"
-            onmouseout="removeHighlight2('suggest-imgC1', 'suggest-text1')"></div>
+              onmouseout="removeHighlight2('suggest-imgC1', 'suggest-text1')"></div>
 
-          <img id="suggest-imgC1" src="/images/games/missing.png" alt="Recently Played" />
-          <div id="fade-wrapper">
-        </a>
-        <a href="#">
-          <div class="box-shadow"></div>
-      </div>
-      <span>Loading</span>
-      </a>
-      </div>
-    </li>
-    <li>
-      <div class="suggest-game">
-        <a href="#">
-          <div style="
+            <img id="suggest-imgC1" src="/images/games/missing.png" alt="Recently Played" />
+          </a>
+        </div>
+      </li>
+      <li>
+        <div class="suggest-game">
+          <a href="#">
+            <div style="
             position: absolute;
             background-color: rgba(0, 0, 0, 0);
             z-index: 3;
@@ -380,22 +529,17 @@
             width: 15.45rem;
             height: 12rem;
           " onmouseover="highlightImage2('suggest-imgC1', 'suggest-text1')"
-            onmouseout="removeHighlight2('suggest-imgC1', 'suggest-text1')"></div>
+              onmouseout="removeHighlight2('suggest-imgC1', 'suggest-text1')"></div>
 
-          <img id="suggest-imgC1" src="/images/games/missing.png" alt="Recently Played" />
-          <div id="fade-wrapper">
-        </a>
-        <a href="#">
-          <div class="box-shadow"></div>
-      </div>
-      <span>Loading</span>
-      </a>
-      </div>
-    </li>
-    <li>
-      <div class="suggest-game">
-        <a href="#">
-          <div style="
+            <img id="suggest-imgC1" src="/images/games/missing.png" alt="Recently Played" />
+
+          </a>
+        </div>
+      </li>
+      <li>
+        <div class="suggest-game">
+          <a href="#">
+            <div style="
             position: absolute;
             background-color: rgba(0, 0, 0, 0);
             z-index: 3;
@@ -404,72 +548,167 @@
             width: 15.45rem;
             height: 12rem;
           " onmouseover="highlightImage2('suggest-img1', 'suggest-text1')"
-            onmouseout="removeHighlight2('suggest-img1', 'suggest-text1')"></div>
+              onmouseout="removeHighlight2('suggest-img1', 'suggest-text1')"></div>
 
-          <img id="suggest-imgC1" src="/images/games/missing.png" alt="Recently Played" />
-          <div id="fade-wrapper">
+            <img id="suggest-imgC1" src="/images/games/missing.png" alt="Recently Played" />
+
+          </a>
+        </div>
+      </li>
+    </ul>
+    <br>
+  </div>
+  <div class="news-container">
+    <!-- Left section -->
+    <div class="left-section">
+      <div class="buttons">
+        <a href="https://linktr.ee/coolbugubg">
+          <button class="github-btn">Github & Other Websites</button>
         </a>
-        <a href="#">
-          <div class="box-shadow"></div>
+        <a href="/changelog.html">
+          <button class="github-btn">Changelog</button>
+        </a>
       </div>
-      <span>Loading</span>
-      </a>
+      <p class="section-text">
+      this website is so cool
+      <br><br>
+      Last Update: 9/12/2024
+      <br>
+      Home Page Redesign<br>Polytrack v0.4.1<br>And 5 New Games!
+    </p>
+    </div>
+  
+    <!-- Right section -->
+    <div class="right-section">
+      <div class="buttons">
+        <a href="/saves.html">
+          <button class="github-btn">Save File Manager</button>
+        </a>
+        <a href="/themes.html">
+          <button class="github-btn">Customise</button>
+        </a>
       </div>
-    </li>
-  </ul>
-  <br>
-  <div
-    style="display: flex; background-color: var(--secondary-color); margin: 0 auto; margin-top: 0px; width: 68.5%; padding-bottom: 10px; border-radius: 5px; font-family: M Plus Rounded 1c, sans-serif !important; font-weight: bold !important;">
-    <div class="news" style="width: 50%; padding: 10px;">
-      <p id="news-title"
-        style="font-family: 'League Gothic'; font-weight: bold; font-size: 225%; text-align: center; color: var(--primary-color); margin: 0px 0 10px 0; margin-top: -10px;">
-        News
-      </p>
-      <p
-        style="font-family: 'M Plus Rounded 1c', sans-serif; font-weight: bold; font-size: large; text-align: center; color: var(--primary-color); margin: 10px 0;">
-        this website is so cool
-        <br>if this website is blocked go to:
-        <a href="https://linktr.ee/coolbugubg"
-          style="font-size: 200%; font-family: 'League Gothic'; display: block; width: fit-content; margin: 10px auto; background-color: var(--secondary-color); padding: 4px 8px; border-radius: 8px; text-decoration: none; color: var(--primary-color); text-align: center; font-weight: normal; outline: var(--primary-color) solid 4px;">
-          Github & Other Websites
+      <p class="section-text">
+        Christmas theme coming soon
+        <br><br>
+        <a href="https://forms.gle/gvpTfVKfNj2YwRzG6">Suggest a Game!</a>
+        <br>
+        <a href="/themes.html#export">
+          Submit a theme
+        </a>
+        <br>
+        <a href="/issues.html">
+        Report an Issue
         </a>
       </p>
-      <!--  <a href="#AllGamesDiv"
-        style="font-size: 200%; font-family: 'League Gothic'; display: block; width: fit-content; margin: 10px auto; background-color: var(--secondary-color); padding: 4px 8px; border-radius: 8px; text-decoration: none; color: var(--primary-color); text-align: center; font-weight: normal; outline: var(--primary-color) solid 4px;">
-        View all the Games
-      </a>
-     <a href="https://ciscoha.github.io/turbo-octo-memory"
-        style="color: var(--primary-color) !important; text-decoration: underline !important; font-size: x-large; text-align: center; display: block; margin: 10px 0;">
-        URL BLOCKED? (github)
-      </a>
--->
-      <a href="/changelog.html"
-        style="color: var(--primary-color) !important; text-decoration: underline !important; font-size: x-large; text-align: center; display: block; margin: 10px 0;">
-        Changelog 25/11/24
-      </a>
     </div>
-    <div class="news" style="width: 50%; padding: 10px;">
-      <p id="news-title"
-        style="font-family: 'League Gothic'; font-weight: bold; font-size: 225%; text-align: center; color: var(--primary-color); margin: 0px 0 10px 0; margin-top: -10px;">
-        Data
-      </p>
-      <a href="/themes.html"
-        style="font-size: 200%; font-family: 'League Gothic'; display: block; width: fit-content; margin: 10px auto; background-color: var(--secondary-color); padding: 4px 8px; border-radius: 8px; text-decoration: none; color: var(--primary-color); text-align: center; font-weight: normal; outline: var(--primary-color) solid 4px;">
-        Change the Theme
-      </a>
-      <a href="/saves.html"
-        style="font-size: 200%; font-family: 'League Gothic'; display: block; width: fit-content; margin: 10px auto; background-color: var(--secondary-color); padding: 4px 8px; border-radius: 8px; text-decoration: none; color: var(--primary-color); text-align: center; font-weight: normal; outline: var(--primary-color) solid 4px;">
-        Manage Save Files
-      </a>
-      <!-- <a href="/about.html"
-        style="color: var(--primary-color) !important; text-decoration: underline !important; font-size: large; text-align: center; display: block">
-        Submit Your Game
-      </a>-->
-      <a href="https://forms.gle/gvpTfVKfNj2YwRzG6"
-        style="color: var(--primary-color) !important; text-decoration: underline !important; font-size: x-large; text-align: center; display: block; margin: 10px 0;">
-        Suggest a Game!!!!
-      </a>
-    </div>
+  </div>
+  
+  <style>
+/* Container style */
+.news-container {
+  display: flex;
+  justify-content: center; /* Center the sections horizontally */
+  align-items: stretch; /* Ensure both sections stretch equally */
+  background-color: transparent;
+  color: var(--secondary-color);
+  margin: 0 auto; /* Center the container within its parent */
+  width: 71.6vw; /* Set container width */
+  height: 41vh; /* Set container height */
+  font-family: 'M Plus Rounded 1c', sans-serif;
+  font-weight: bold;
+  box-sizing: border-box; /* Include padding and border in the size */
+  overflow: hidden; /* Prevent overflow */
+}
+
+/* Container style */
+.left-section,
+.right-section {
+  display: flex;
+  flex-direction: column; 
+  justify-content: flex-start;
+  align-items: center;
+  background-color: var(--secondary-color); 
+  border: 0.4vw solid var(--secondary-color-dark); /* Use darkened color */
+  padding: 10px;
+  box-sizing: border-box;
+  flex: 1;
+  overflow: hidden;
+  max-height: 100%;
+}
+
+
+/* Overlapping sections (use negative margins to make them overlap) */
+.left-section {
+  margin-right: -0.2vw; /* Move the left section to the right */
+  border-top-left-radius: 0.5vw; /* Rounded corners */
+  border-bottom-left-radius: 0.5vw;
+}
+
+.right-section {
+  margin-left: -0.2vw; /* Move the right section to the left */
+  border-top-right-radius: 0.5vw; /* Rounded corners */
+  border-bottom-right-radius: 0.5vw;
+}
+
+
+/* Buttons container */
+.buttons {
+  display: flex;
+  justify-content: space-evenly; /* Space buttons evenly */
+  width: 100%; /* Full width for button alignment */
+  margin-bottom: 10px; /* Add space between buttons and text */
+  flex-shrink: 0; /* Prevent buttons from shrinking */
+}
+
+/* GitHub button style */
+.github-btn {
+  font-size: 200%;
+  font-family: 'League Gothic';
+  background-color: var(--secondary-color);
+  padding: 4px 8px;
+  border-radius: 0.5vw; /* Rounded corners for buttons */
+  color: var(--primary-color);
+  font-weight: normal;
+  outline: var(--primary-color) solid 4px;
+  border: none;
+  cursor: pointer;
+  white-space: nowrap; /* Prevent text wrapping */
+  text-align: center;
+}
+
+/* Optional hover effect to improve button interactivity */
+.github-btn:hover {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+}
+
+/* Style for the text below buttons */
+.section-text {
+  margin: 0; /* Remove unnecessary margins */
+  padding: 0; /* Ensure no extra padding */
+  font-size: 1.4vw; /* Standard font size */
+  color: var(--primary-color); /* Text color */
+  text-align: center; /* Center the text */
+  width: 100%; /* Ensure the text spans the width of the section */
+  overflow: hidden; /* Prevent text overflow */
+  text-overflow: ellipsis; /* Add ellipsis if text overflows */
+  flex-grow: 1; /* Allow text to expand and fill remaining space */
+}
+
+.section-text a {
+  text-decoration: underline !important;
+  font-size: 1.4vw; /* Standard font size */
+  color: var(--primary-color); /* Text color */
+  text-align: center; /* Center the text */
+  overflow: hidden; /* Prevent text overflow */
+  text-overflow: ellipsis; /* Add ellipsis if text overflows */
+}
+
+  </style>
+  
+  
+
   </div>
   <br><br id="featured-games">
   <p id="list-type2" style="
@@ -512,7 +751,7 @@
       });
 
       // Limit to the first 15 items after sorting
-      const itemsToShow = pagesData.slice(0, 10);
+      const itemsToShow = pagesData.slice(0, 8);
 
       itemsToShow.forEach((page, index) => {
         // Format the full name
@@ -520,25 +759,30 @@
 
         // Calculate and adjust letter spacing based on text length
         let letterSpacing = 'normal'; // Default letter spacing
-        if (formattedName.length > 12) {
-          const maxLetterSpacingReduction = 12;
-          const lengthFactor = Math.min(1, (formattedName.length - 12) / 900);
+        if (formattedName.length > 18) {
+          const maxLetterSpacingReduction = 5;
+          const lengthFactor = Math.min(1, (formattedName.length - 18) / 500);
           letterSpacing = `${-maxLetterSpacingReduction * lengthFactor}vw`;
         }
 
         const li = document.createElement('li');
         li.innerHTML = `
-  <div class="suggest-game">
-    <a href="games/${page.name}.html">
-      <div style="position: absolute; background-color: rgba(0, 0, 0, 0); z-index: 3; margin-left: 0.4rem; margin-top: -0.4rem; width: 15.45rem; height: 12rem;" 
-      onmouseover="highlightImageL('suggest-imgN${index + 1}', 'suggest-textN${index + 1}')" 
-      onmouseout="removeHighlightL('suggest-imgN${index + 1}', 'suggest-textN${index + 1}')"></div>
-      <img id="suggest-imgN${index + 1}" src="/images/games/${page.name}.png" alt="${page.name}" />
-    </a>
-    <a href="games/${page.name}.html">
-      <span id="suggest-textN${index + 1}" style="letter-spacing: ${letterSpacing};">${formattedName}</span>
-    </a>
-  </div>
+        <div class="suggest-game" onmouseover="highlightImageL('suggest-imgN${index + 1}', 'suggest-textN${index + 1}')" 
+    onmouseout="removeHighlightL('suggest-imgN${index + 1}', 'suggest-textN${index + 1}')">
+  
+  <a href="games/${page.name}.html">
+    <div class="suggest-text-back-container" style="position: absolute; margin: 0.6vh; width: 16.8vw; height: calc(20.3vw * 9 / 16); overflow: hidden; z-index: 2;">
+      <div class="suggest-text-back" style="position: absolute; width: 300%; height: 300%; left: -5vw; top: 0vw; background-color: black; opacity: 0;"></div>
+    </div>
+    <img id="suggest-imgN${index + 1}" src="/images/games/${page.name}.png" alt="${page.name}" style="margin: 0.6vh; border-radius: 0.4vw; position: relative; width: 16.8vw; height: auto;" />
+    <p id="suggest-textN${index + 1}" style="letter-spacing: ${letterSpacing}; position: absolute; z-index: 999; left: 1.25vw; top: calc(100% - 4.75vw); opacity: 0;">
+      ${formattedName}
+    </p>
+  </a>
+</div>
+
+
+
 
     `;
         pageList.appendChild(li);
@@ -593,25 +837,27 @@
 
         // Calculate and adjust letter spacing based on text length
         let letterSpacing = 'normal'; // Default letter spacing
-        if (formattedName.length > 12) {
-          const maxLetterSpacingReduction = 12;
+        if (formattedName.length > 21) {
+          const maxLetterSpacingReduction = 13.4;
           const lengthFactor = Math.min(1, (formattedName.length - 12) / 900);
           letterSpacing = `${-maxLetterSpacingReduction * lengthFactor}vw`;
         }
 
         const li = document.createElement('li');
         li.innerHTML = `
-      <div class="suggest-game">
-    <a href="games/${page.name}.html">
-      <div style="position: absolute; background-color: rgba(0, 0, 0, 0); z-index: 3; margin-left: 0.4rem; margin-top: -0.4rem; width: 15.45rem; height: 12rem;" 
-      onmouseover="highlightImageP('suggest-imgP${index + 1}', 'suggest-textP${index + 1}')" 
-      onmouseout="removeHighlightP('suggest-imgP${index + 1}', 'suggest-textP${index + 1}')"></div>
-      <img id="suggest-imgP${index + 1}" src="/images/games/${page.name}.png" alt="${page.name}" />
-    </a>
-    <a href="games/${page.name}.html">
-      <span id="suggest-textP${index + 1}" style="letter-spacing: ${letterSpacing};">${formattedName}</span>
-    </a>
-  </div>
+  <div class="suggest-game" onmouseover="highlightImageP('suggest-imgP${index + 1}', 'suggest-textP${index + 1}')" 
+    onmouseout="removeHighlightP('suggest-imgP${index + 1}', 'suggest-textP${index + 1}')">
+  
+  <a href="games/${page.name}.html">
+    <div class="suggest-text-back-container" style="position: absolute; margin: 0.6vh; width: 16.8vw; height: calc(20.3vw * 9 / 16); overflow: hidden; z-index: 2;">
+      <div class="suggest-text-back" style="position: absolute; width: 300%; height: 300%; left: -5vw; top: 0vw; background-color: black; opacity: 0;"></div>
+    </div>
+    <img id="suggest-imgP${index + 1}" src="/images/games/${page.name}.png" alt="${page.name}" style="margin: 0.6vh; border-radius: 0.4vw; position: relative; height: auto;" />
+    <p id="suggest-textP${index + 1}" style="letter-spacing: ${letterSpacing}; position: absolute; z-index: 999; left: 1.25vw; top: calc(100% - 4.75vw); opacity: 0;">
+      ${formattedName}
+    </p>
+  </a>
+</div>
     `;
         pageList.appendChild(li);
       });
@@ -663,25 +909,28 @@
 
         // Calculate and adjust letter spacing based on text length
         let letterSpacing = 'normal'; // Default letter spacing
-        if (formattedName.length > 12) {
-          const maxLetterSpacingReduction = 12;
-          const lengthFactor = Math.min(1, (formattedName.length - 12) / 900);
+        if (formattedName.length > 11) {
+          const maxLetterSpacingReduction = 5;
+          const lengthFactor = Math.min(1, (formattedName.length - 11) / 400);
           letterSpacing = `${-maxLetterSpacingReduction * lengthFactor}vw`;
         }
 
         const li = document.createElement('li');
         li.innerHTML = `
-      <div class="suggest-game">
-    <a href="games/${page.name}.html">
-      <div style="position: absolute; background-color: rgba(0, 0, 0, 0); z-index: 3; margin-left: 0.4rem; margin-top: -0.4rem; width: 15.45rem; height: 12rem;" 
-      onmouseover="highlightImageP('suggest-imgPO${index + 1}', 'suggest-textPO${index + 1}')" 
-      onmouseout="removeHighlightP('suggest-imgPO${index + 1}', 'suggest-textPO${index + 1}')"></div>
-      <img id="suggest-imgPO${index + 1}" src="/images/games/${page.name}.png" alt="${page.name}" />
-    </a>
-    <a href="games/${page.name}.html">
-      <span id="suggest-textPO${index + 1}" style="letter-spacing: ${letterSpacing};">${formattedName}</span>
-    </a>
-  </div>
+        <div class="suggest-game" onmouseover="highlightImageP('suggest-imgPO${index + 1}', 'suggest-textPO${index + 1}')" 
+    onmouseout="removeHighlightP('suggest-imgPO${index + 1}', 'suggest-textPO${index + 1}')">
+  
+  <a href="games/${page.name}.html">
+    <div class="suggest-text-back-container" style="position: absolute; margin: 0.6vh; width: 16.8vw; height: calc(20.3vw * 9 / 16); overflow: hidden; z-index: 2;">
+      <div class="suggest-text-back" style="position: absolute; width: 300%; height: 300%; left: -5vw; top: 0vw; background-color: black; opacity: 0;"></div>
+    </div>
+    <img id="suggest-imgPO${index + 1}" src="/images/games/${page.name}.png" alt="${page.name}" style="margin: 0.6vh; border-radius: 0.4vw; position: relative; height: auto;" />
+    <p id="suggest-textPO${index + 1}" style="letter-spacing: ${letterSpacing}; position: absolute; z-index: 999; left: 1.25vw; top: calc(100% - 4.75vw); opacity: 0;">
+      ${formattedName}
+    </p>
+  </a>
+</div>
+
     `;
         pageList.appendChild(li);
       });
@@ -847,9 +1096,9 @@
 
         // Calculate letter spacing based on the length but ensure it's created regardless of length
         let letterSpacing = 'normal';
-        if (formattedName.length > 12) {
-          const maxLetterSpacingReduction = 12;
-          const lengthFactor = Math.min(1, (formattedName.length - 12) / 900);
+        if (formattedName.length > 11) {
+          const maxLetterSpacingReduction = 5;
+          const lengthFactor = Math.min(1, (formattedName.length - 11) / 400);
           letterSpacing = `${-maxLetterSpacingReduction * lengthFactor}vw`;
         }
 
@@ -857,20 +1106,20 @@
         const li = document.createElement('li');
         li.innerHTML = `
       <li data-date="${page.date || 'unknown'}">
-         <div class="suggest-game">
-    <a href="games/${page.name}.html">
-      <div style="position: absolute; background-color: rgba(0, 0, 0, 0); z-index: 3; margin-left: 0.4rem; margin-top: -0.4rem; width: 15.45rem; height: 12rem;" 
-      onmouseover="highlightImageL('suggest-imgL${index + 1}', 'suggest-textL${index + 1}')" 
-      onmouseout="removeHighlightL('suggest-imgL${index + 1}', 'suggest-textL${index + 1}')"></div>
-      <img id="suggest-imgL${index + 1}" src="/images/games/${page.name}.png" alt="${page.name}" />
-    </a>
-    <a href="games/${page.name}.html">
-      <span id="suggest-textL${index + 1}" style="letter-spacing: ${letterSpacing};">${formattedName}</span>
-    </a>
-  </div>
-      </li>
-
-      
+      <div class="suggest-game" onmouseover="highlightImageL('suggest-imgL${index + 1}', 'suggest-textL${index + 1}')" 
+    onmouseout="removeHighlightL('suggest-imgL${index + 1}', 'suggest-textL${index + 1}')">
+  
+  <a href="games/${page.name}.html">
+    <div class="suggest-text-back-container" style="position: absolute; margin: 0.6vh; width: 16.8vw; height: calc(20.3vw * 9 / 16); overflow: hidden; z-index: 2;">
+      <div class="suggest-text-back" style="position: absolute; width: 300%; height: 300%; left: -5vw; top: 0vw; background-color: black; opacity: 0;"></div>
+    </div>
+    <img id="suggest-imgL${index + 1}" src="/images/games/${page.name}.png" alt="${page.name}" style="margin: 0.6vh; border-radius: 0.4vw; position: relative; width: 16.8vw; height: auto;" />
+    <p id="suggest-textL${index + 1}" style="letter-spacing: ${letterSpacing}; position: absolute; z-index: 999; left: 1.25vw; top: calc(100% - 4.75vw); opacity: 0;">
+      ${formattedName}
+    </p>
+  </a>
+</div>
+</li>
     `;
         pageList.appendChild(li);
       });

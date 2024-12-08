@@ -112,6 +112,8 @@ a {
 
 #navbar-container {
   width: 100%;
+  height: 11vh !important;
+  background-color: var(--secondary-color);
 }
 
 body {
@@ -130,13 +132,10 @@ body {
 }
 
 .navbar-spacer {
+  margin-top: 5vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 100px;
-  /* Adjust to account for fixed navbar */
-  padding: 10px;
-  /* Reduce padding to minimize empty space */
 }
 
 .button-container {
