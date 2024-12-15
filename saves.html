@@ -133,34 +133,32 @@
         }
 
         #buttonContainer {
-    position: fixed;
-    bottom: 10px; /* Position the buttons near the bottom of the screen */
-    left: 0px; /* Align container to the left of the screen */
-    display: flex;
-    gap: 10px; /* Space between the buttons */
-    z-index: 10; /* Ensure the buttons are above other elements */
-}
+            position: fixed;
+            bottom: 10px; /* Position the buttons near the bottom of the screen */
+            left: 0px; /* Align container to the left of the screen */
+            display: flex;
+            gap: 10px; /* Space between the buttons */
+            z-index: 10; /* Ensure the buttons are above other elements */
+        }
 
-#deleteSelected, #downloadSelected {
-    box-shadow: 0px 0px 7px #000;
-    font-size: 18px; /* Bigger text size for readability */
-    font-weight: bold;
-    width: 220px; /* Fixed width to make buttons equal size */
-    height: 60px; /* Increase height for a larger button appearance */
-    background-color: var(--secondary-color);
-    color: var(--primary-color);
-    border: none;
-    border-radius: 8px; /* Slightly rounded corners for aesthetics */
-    cursor: pointer;
-    text-align: center;
-}
+        #deleteSelected, #downloadSelected {
+            box-shadow: 0px 0px 7px #000;
+            font-size: 18px; /* Bigger text size for readability */
+            font-weight: bold;
+            width: 220px; /* Fixed width to make buttons equal size */
+            height: 60px; /* Increase height for a larger button appearance */
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+            border: none;
+            border-radius: 8px; /* Slightly rounded corners for aesthetics */
+            cursor: pointer;
+            text-align: center;
+        }
 
-#deleteSelected:hover, #downloadSelected:hover {
-    background-color: var(--primary-color); /* Add hover effect */
-    color: var(--secondary-color); /* Swap colors on hover */
-}
-
-
+        #deleteSelected:hover, #downloadSelected:hover {
+            background-color: var(--primary-color); /* Add hover effect */
+            color: var(--secondary-color); /* Swap colors on hover */
+        }
     </style>
 </head>
 
@@ -176,7 +174,7 @@
         <input type="file" id="fileInput" style="text-shadow: 0px 0px 4px black, 0px 0px 4px black;" />
         <button type="submit">Upload</button>
     </form>
-    <button id="selectAll">Select All</button> 
+    <button id="selectAll">Select All</button>
 
     <h2>Local Storage</h2>
     <!-- Search bar for Local Storage -->
@@ -186,190 +184,189 @@
     <h2 id="cookieSection">Cookies</h2>
     <!-- Search bar for Cookies -->
     <input type="text" id="cookieSearch" class="search-bar" placeholder="Search Cookies...">
-    <ul id="cookieList"></ul> 
+    <ul id="cookieList"></ul>
 
-<!-- Container for the buttons -->
-<div id="buttonContainer">
-    <button id="deleteSelected">Delete Selected</button>
-    <button id="downloadSelected">Download Selected</button>
-</div>
+    <!-- Container for the buttons -->
+    <div id="buttonContainer">
+        <button id="deleteSelected">Delete Selected</button>
+        <button id="downloadSelected">Download Selected</button>
+    </div>
 
-    
     <br><br>
 
     <center style="margin-bottom: 5vh; margin-top: 4vh; display: none;">
         <embed src="https://coolubg.github.io/coolubg-list/blank.swf"></embed>
     </center>
+
     <script>
-// Delete selected files
-document.getElementById("deleteSelected").addEventListener("click", function () {
-    // Get selected files and cookies
-    const fileCheckboxes = document.querySelectorAll('#fileList input[type="checkbox"]:checked');
-    const cookieCheckboxes = document.querySelectorAll('#cookieList input[type="checkbox"]:checked');
-    
-    // Count the selected items
-    const selectedFileCount = fileCheckboxes.length;
-    const selectedCookieCount = cookieCheckboxes.length;
-    const totalSelected = selectedFileCount + selectedCookieCount;
-
-    // If no files or cookies are selected, show an alert
-    if (totalSelected === 0) {
-        alert("No items selected for deletion.");
-        return;
-    }
-
-    // Confirm deletion with user
-    const confirmationMessage = `Are you sure you want to delete ${totalSelected} item(s)?`;
-    if (confirm(confirmationMessage)) {
-        // Delete selected files from localStorage and DOM
-        fileCheckboxes.forEach(checkbox => {
-            const key = checkbox.nextSibling.textContent;
-            selectedFiles.delete(key); // Remove key from selectedFiles set
-
-            // Remove the corresponding entry from localStorage
-            localStorage.removeItem(key);
-
-            // Remove the file item from the DOM
-            checkbox.parentElement.remove();
-        });
-
-        // Delete selected cookies from localStorage and DOM
-        cookieCheckboxes.forEach(checkbox => {
-            const name = checkbox.nextSibling.textContent;
-            selectedFiles.delete(name); // Remove cookie name from selectedFiles set
-
-            // Remove the corresponding cookie from localStorage (if needed)
-            localStorage.removeItem(name);
-
-            // Remove the cookie item from the DOM
-            checkbox.parentElement.remove();
-        });
-    }
-});
-document.getElementById("downloadSelected").addEventListener("click", function () {
-    // Get selected files and cookies
-    const fileCheckboxes = document.querySelectorAll('#fileList input[type="checkbox"]:checked');
-    const cookieCheckboxes = document.querySelectorAll('#cookieList input[type="checkbox"]:checked');
-    
-    // Count the selected items
-    const selectedFileCount = fileCheckboxes.length;
-    const selectedCookieCount = cookieCheckboxes.length;
-    const totalSelected = selectedFileCount + selectedCookieCount;
-
-    // If no files or cookies are selected, show an alert
-    if (totalSelected === 0) {
-        alert("No items selected for download.");
-        return;
-    }
-
-    // Handle downloading selected files from localStorage
-    fileCheckboxes.forEach(checkbox => {
-        const key = checkbox.nextSibling.textContent;
-        const fileContent = localStorage.getItem(key); // Get the actual file content from localStorage
-        
-        if (fileContent) {
-            // Create a Blob object containing the content
-            const blob = new Blob([fileContent], { type: "text/plain" });
-            const url = URL.createObjectURL(blob);
-
-            // Create a temporary anchor link and trigger a download
-            const a = document.createElement("a");
-            a.href = url;
-            a.download = key;  // Set the file name
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);  // Clean up the DOM
+        // Delete selected files
+        document.getElementById("deleteSelected").addEventListener("click", function () {
+            // Get selected files and cookies
+            const fileCheckboxes = document.querySelectorAll('#fileList input[type="checkbox"]:checked');
+            const cookieCheckboxes = document.querySelectorAll('#cookieList input[type="checkbox"]:checked');
             
-            // Revoke the object URL after the download is triggered
-            URL.revokeObjectURL(url);
-        } else {
-            console.warn(`No content found for key: ${key}`);
-        }
-    });
-
-    // Handle downloading selected cookies
-    cookieCheckboxes.forEach(checkbox => {
-        const name = checkbox.nextSibling.textContent;
-        const cookieContent = getCookie(name); // Replace with actual cookie retrieval
-
-        if (cookieContent) {
-            // Create a Blob object containing the cookie content
-            const blob = new Blob([cookieContent], { type: "text/plain" });
-            const url = URL.createObjectURL(blob);
-
-            // Create a temporary anchor link and trigger a download
-            const a = document.createElement("a");
-            a.href = url;
-            a.download = name;  // Set the cookie name as the file name
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);  // Clean up the DOM
+            // Count the selected items
+            const selectedFileCount = fileCheckboxes.length;
+            const selectedCookieCount = cookieCheckboxes.length;
+            const totalSelected = selectedFileCount + selectedCookieCount;
+    
+            // If no files or cookies are selected, show an alert
+            if (totalSelected === 0) {
+                alert("No items selected for deletion.");
+                return;
+            }
+    
+            // Confirm deletion with user
+            const confirmationMessage = `Are you sure you want to delete ${totalSelected} item(s)?`;
+            if (confirm(confirmationMessage)) {
+                // Delete selected files from localStorage and DOM
+                fileCheckboxes.forEach(checkbox => {
+                    const key = checkbox.nextSibling.textContent;
+                    selectedFiles.delete(key); // Remove key from selectedFiles set
+    
+                    // Remove the corresponding entry from localStorage
+                    localStorage.removeItem(key);
+    
+                    // Remove the file item from the DOM
+                    checkbox.parentElement.remove();
+                });
+    
+                // Delete selected cookies from localStorage and DOM
+                cookieCheckboxes.forEach(checkbox => {
+                    const name = checkbox.nextSibling.textContent;
+                    selectedFiles.delete(name); // Remove cookie name from selectedFiles set
+    
+                    // Remove the corresponding cookie from localStorage (if needed)
+                    localStorage.removeItem(name);
+    
+                    // Remove the cookie item from the DOM
+                    checkbox.parentElement.remove();
+                });
+            }
+        });
+    
+        document.getElementById("downloadSelected").addEventListener("click", function () {
+            // Get selected files and cookies
+            const fileCheckboxes = document.querySelectorAll('#fileList input[type="checkbox"]:checked');
+            const cookieCheckboxes = document.querySelectorAll('#cookieList input[type="checkbox"]:checked');
             
-            // Revoke the object URL after the download is triggered
-            URL.revokeObjectURL(url);
-        } else {
-            console.warn(`No content found for cookie: ${name}`);
+            // Count the selected items
+            const selectedFileCount = fileCheckboxes.length;
+            const selectedCookieCount = cookieCheckboxes.length;
+            const totalSelected = selectedFileCount + selectedCookieCount;
+    
+            // If no files or cookies are selected, show an alert
+            if (totalSelected === 0) {
+                alert("No items selected for download.");
+                return;
+            }
+    
+            // Handle downloading selected files from localStorage
+            fileCheckboxes.forEach(checkbox => {
+                const key = checkbox.nextSibling.textContent;
+                const fileContent = localStorage.getItem(key); // Get the actual file content from localStorage
+                
+                if (fileContent) {
+                    // Create a Blob object containing the content
+                    const blob = new Blob([fileContent], { type: "text/plain" });
+                    const url = URL.createObjectURL(blob);
+    
+                    // Create a temporary anchor link and trigger a download
+                    const a = document.createElement("a");
+                    a.href = url;
+                    a.download = key;  // Set the file name
+                    document.body.appendChild(a);
+                    a.click();
+                    document.body.removeChild(a);  // Clean up the DOM
+                    
+                    // Revoke the object URL after the download is triggered
+                    URL.revokeObjectURL(url);
+                } else {
+                    console.warn(`No content found for key: ${key}`);
+                }
+            });
+    
+            // Handle downloading selected cookies
+            cookieCheckboxes.forEach(checkbox => {
+                const name = checkbox.nextSibling.textContent;
+                const cookieContent = getCookie(name); // Replace with actual cookie retrieval
+    
+                if (cookieContent) {
+                    // Create a Blob object containing the cookie content
+                    const blob = new Blob([cookieContent], { type: "text/plain" });
+                    const url = URL.createObjectURL(blob);
+    
+                    // Create a temporary anchor link and trigger a download
+                    const a = document.createElement("a");
+                    a.href = url;
+                    a.download = name;  // Set the cookie name as the file name
+                    document.body.appendChild(a);
+                    a.click();
+                    document.body.removeChild(a);  // Clean up the DOM
+                    
+                    // Revoke the object URL after the download is triggered
+                    URL.revokeObjectURL(url);
+                } else {
+                    console.warn(`No content found for cookie: ${name}`);
+                }
+            });
+        });
+    
+        // Function to retrieve cookie content by name
+        function getCookie(name) {
+            const cookie = document.cookie.split('; ').find(row => row.startsWith(name + '='));
+            return cookie ? cookie.split('=')[1] : null;
         }
-    });
-});
-
-// Function to retrieve cookie content by name
-function getCookie(name) {
-    const cookie = document.cookie.split('; ').find(row => row.startsWith(name + '='));
-    return cookie ? cookie.split('=')[1] : null;
-}
-
-
-document.getElementById("selectAll").addEventListener("click", function () {
-    const fileCheckboxes = document.querySelectorAll('#fileList input[type="checkbox"]');
-    const cookieCheckboxes = document.querySelectorAll('#cookieList input[type="checkbox"]');
     
-    // Check if all items are already selected
-    const allSelected = [...fileCheckboxes, ...cookieCheckboxes].every(checkbox => checkbox.checked);
+        document.getElementById("selectAll").addEventListener("click", function () {
+            const fileCheckboxes = document.querySelectorAll('#fileList input[type="checkbox"]');
+            const cookieCheckboxes = document.querySelectorAll('#cookieList input[type="checkbox"]');
+            
+            // Check if all items are already selected
+            const allSelected = [...fileCheckboxes, ...cookieCheckboxes].every(checkbox => checkbox.checked);
+            
+            if (allSelected) {
+                // Deselect all
+                fileCheckboxes.forEach(checkbox => {
+                    checkbox.checked = false;
+                    const key = checkbox.nextSibling.textContent;
+                    selectedFiles.delete(key); // Remove key from selectedFiles set
+                });
+                
+                cookieCheckboxes.forEach(checkbox => {
+                    checkbox.checked = false;
+                    const name = checkbox.nextSibling.textContent;
+                    selectedFiles.delete(name); // Remove cookie name from selectedFiles set
+                });
+                
+                // Change the button text to "Select All"
+                this.textContent = "Select All";
+            } else {
+                // Select all
+                fileCheckboxes.forEach(checkbox => {
+                    checkbox.checked = true;
+                    const key = checkbox.nextSibling.textContent;
+                    selectedFiles.add(key); // Add key to selectedFiles set
+                });
+                
+                cookieCheckboxes.forEach(checkbox => {
+                    checkbox.checked = true;
+                    const name = checkbox.nextSibling.textContent;
+                    selectedFiles.add(name); // Add cookie name to selectedFiles set
+                });
+                
+                // Change the button text to "Deselect All"
+                this.textContent = "Deselect All";
+            }
+        });
     
-    if (allSelected) {
-        // Deselect all
-        fileCheckboxes.forEach(checkbox => {
-            checkbox.checked = false;
-            const key = checkbox.nextSibling.textContent;
-            selectedFiles.delete(key); // Remove key from selectedFiles set
-        });
-        
-        cookieCheckboxes.forEach(checkbox => {
-            checkbox.checked = false;
-            const name = checkbox.nextSibling.textContent;
-            selectedFiles.delete(name); // Remove cookie name from selectedFiles set
-        });
-        
-        // Change the button text to "Select All"
-        this.textContent = "Select All";
-    } else {
-        // Select all
-        fileCheckboxes.forEach(checkbox => {
-            checkbox.checked = true;
-            const key = checkbox.nextSibling.textContent;
-            selectedFiles.add(key); // Add key to selectedFiles set
-        });
-        
-        cookieCheckboxes.forEach(checkbox => {
-            checkbox.checked = true;
-            const name = checkbox.nextSibling.textContent;
-            selectedFiles.add(name); // Add cookie name to selectedFiles set
-        });
-        
-        // Change the button text to "Deselect All"
-        this.textContent = "Deselect All";
-    }
-});
-
-
         const fileInput = document.getElementById("fileInput");
         const fileList = document.getElementById("fileList");
         const cookieList = document.getElementById("cookieList");
         const localSearch = document.getElementById("localSearch");
         const cookieSearch = document.getElementById("cookieSearch");
         const selectedFiles = new Set();
-
+    
         function createFileListItem(key, value) {
             const listItem = document.createElement("li");
             const checkbox = document.createElement("input");
@@ -383,7 +380,7 @@ document.getElementById("selectAll").addEventListener("click", function () {
             });
             listItem.appendChild(checkbox);
             listItem.appendChild(document.createTextNode(`${key}`));
-
+    
             // Create an "Edit File" button
             const editButton = document.createElement("button");
             editButton.textContent = "Edit File";
@@ -392,10 +389,10 @@ document.getElementById("selectAll").addEventListener("click", function () {
                 openEditor(key, currentValue);
             });
             listItem.appendChild(editButton);
-
+    
             return listItem;
         }
-
+    
         function createCookieListItem(name) {
             const listItem = document.createElement("li");
             const checkbox = document.createElement("input");
@@ -409,7 +406,7 @@ document.getElementById("selectAll").addEventListener("click", function () {
             });
             listItem.appendChild(checkbox);
             listItem.appendChild(document.createTextNode(`${name}`));
-
+    
             // Create an "Edit File" button
             const editButton = document.createElement("button");
             editButton.textContent = "Edit File";
@@ -418,10 +415,10 @@ document.getElementById("selectAll").addEventListener("click", function () {
                 openEditor(name, currentValue);
             });
             listItem.appendChild(editButton);
-
+    
             return listItem;
         }
-
+    
         function displayLocalStorage() {
             fileList.innerHTML = "";
             for (let i = 0; i < localStorage.length; i++) {
@@ -430,51 +427,49 @@ document.getElementById("selectAll").addEventListener("click", function () {
                 fileList.appendChild(createFileListItem(key, value));
             }
         }
-        displayLocalStorage();
-
+    
         function displayCookies() {
             cookieList.innerHTML = "";
-            const cookies = document.cookie.split("; ");
+            const cookies = document.cookie.split('; ');
             cookies.forEach(cookie => {
-                const [name] = cookie.split("=");
+                const name = cookie.split('=')[0];
                 cookieList.appendChild(createCookieListItem(name));
             });
         }
+    
+        displayLocalStorage();
         displayCookies();
-
-        function getCookie(name) {
-            const cookies = document.cookie.split("; ");
-            for (let cookie of cookies) {
-                const [cookieName, cookieValue] = cookie.split("=");
-                if (cookieName === name) return cookieValue;
-            }
-            return "";
-        }
-
-        localSearch.addEventListener("input", function () {
-            const query = localSearch.value.toLowerCase();
-            fileList.innerHTML = "";
-            for (let i = 0; i < localStorage.length; i++) {
-                const key = localStorage.key(i);
-                if (key.toLowerCase().includes(query)) {
-                    const value = localStorage.getItem(key);
-                    fileList.appendChild(createFileListItem(key, value));
-                }
-            }
-        });
-
-        cookieSearch.addEventListener("input", function () {
-            const query = cookieSearch.value.toLowerCase();
-            cookieList.innerHTML = "";
-            const cookies = document.cookie.split("; ");
-            cookies.forEach(cookie => {
-                const [name] = cookie.split("=");
-                if (name.toLowerCase().includes(query)) {
-                    cookieList.appendChild(createCookieListItem(name));
-                }
+    
+        localSearch.addEventListener("input", () => {
+            const searchTerm = localSearch.value.toLowerCase();
+            [...fileList.children].forEach(item => {
+                const text = item.textContent.toLowerCase();
+                item.style.display = text.includes(searchTerm) ? "" : "none";
             });
         });
+    
+        cookieSearch.addEventListener("input", () => {
+            const searchTerm = cookieSearch.value.toLowerCase();
+            [...cookieList.children].forEach(item => {
+                const text = item.textContent.toLowerCase();
+                item.style.display = text.includes(searchTerm) ? "" : "none";
+            });
+        });
+    
+        // Handle file upload
+        fileInput.addEventListener("change", function (event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    localStorage.setItem(file.name, e.target.result);
+                    displayLocalStorage();
+                };
+                reader.readAsText(file);
+            }
+        });
     </script>
+    
 </body>
 
 </html>

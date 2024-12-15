@@ -72,7 +72,7 @@
 .slick-dots
 {
     position: absolute;
-    bottom: -3vh;
+    bottom: -1vh;
 
     display: block;
 
@@ -90,10 +90,9 @@
 
     display: inline-block;
 
-    width: 2vw;
-    height: 2vw;
-    margin: 0 0.1vw;
-    padding: 0;
+    width: 2vh;
+    height: 2vh;
+    margin-right: 2vh;
 
     cursor: pointer;
 }
@@ -106,7 +105,6 @@
 
     width: 3vh;
     height: 3vh;
-    padding: 1vh;
 
     cursor: pointer;
 
@@ -115,7 +113,7 @@
     outline: none;
     background: transparent;
 
-    text-shadow: 0px 0px 7px #000;
+    text-shadow: 0px 0px 7px #000, 0px 0px 3px #000;
 }
 .slick-dots li button:hover,
 .slick-dots li button:focus

@@ -292,9 +292,9 @@
     <div class="slick-carousel">
       <div class="carousel-item">
         <div class="image-container">
-          <a href="/games/burrito-bison-launcha-libre.html">
-            <img src="/images/games/burrito-bison-launcha-libre.png" alt="Papa Louie">
-            <p>Game of the Week: Burrito Bison 3</p>
+          <a href="/games/cactus-mccoy.html">
+            <img src="/images/games/cactus-mccoy.png" alt="Cactus McCoy">
+            <p>Game of the Week: Cactus McCoy</p>
           </a>
         </div>
       </div>
@@ -383,7 +383,7 @@
           if (isImage) {
             element.style.cursor = 'default';
             element.style.outline = 'none';
-            element.style.boxShadow = 'none';
+            element.style.boxShadow = '0px 0px 7px #000';
             element.style.transition = 'transform 0.15s ease-in-out, box-shadow 0.15s ease-in-out, outline-color 0.15s ease-in-out';
           } else {
             element.style.opacity = '0';
@@ -582,9 +582,9 @@
       <p class="section-text">
       this website is so cool
       <br><br>
-      Last Update: 9/12/2024
+      Last Update: 16/12/2024
       <br>
-      Home Page Redesign<br>Polytrack v0.4.1<br>And 5 New Games!
+      Burrito Bison 3 Fix?<br>Run 1 Update<br>2 New Games!
     </p>
     </div>
   
@@ -599,7 +599,7 @@
         </a>
       </div>
       <p class="section-text">
-        Christmas theme coming soon
+          <a href="themes.html#christmas-2024">!!!!!Christmas theme!!!!!</a>
         <br><br>
         <a href="https://forms.gle/gvpTfVKfNj2YwRzG6">Suggest a Game!</a>
         <br>
@@ -624,14 +624,14 @@
   color: var(--secondary-color);
   margin: 0 auto; /* Center the container within its parent */
   width: 71.6vw; /* Set container width */
-  height: 41vh; /* Set container height */
+  height: 22vw; /* Use vw instead of vh for consistent scaling */
   font-family: 'M Plus Rounded 1c', sans-serif;
   font-weight: bold;
   box-sizing: border-box; /* Include padding and border in the size */
   overflow: hidden; /* Prevent overflow */
 }
 
-/* Container style */
+/* Section styles */
 .left-section,
 .right-section {
   display: flex;
@@ -640,15 +640,14 @@
   align-items: center;
   background-color: var(--secondary-color); 
   border: 0.4vw solid var(--secondary-color-dark); /* Use darkened color */
-  padding: 10px;
+  padding: 2vw; /* Use vw for padding */
   box-sizing: border-box;
   flex: 1;
   overflow: hidden;
   max-height: 100%;
 }
 
-
-/* Overlapping sections (use negative margins to make them overlap) */
+/* Overlapping sections */
 .left-section {
   margin-right: -0.2vw; /* Move the left section to the right */
   border-top-left-radius: 0.5vw; /* Rounded corners */
@@ -661,43 +660,42 @@
   border-bottom-right-radius: 0.5vw;
 }
 
-
 /* Buttons container */
 .buttons {
+  margin-top: -1vw;
   display: flex;
   justify-content: space-evenly; /* Space buttons evenly */
   width: 100%; /* Full width for button alignment */
-  margin-bottom: 10px; /* Add space between buttons and text */
+  margin-bottom: 1vw; /* Use vw for spacing */
   flex-shrink: 0; /* Prevent buttons from shrinking */
 }
 
 /* GitHub button style */
 .github-btn {
-  font-size: 200%;
+  font-size: 2vw; /* Smaller font size */
   font-family: 'League Gothic';
   background-color: var(--secondary-color);
-  padding: 4px 8px;
+  padding: 0.3vw 0.8vw; /* Smaller padding */
   border-radius: 0.5vw; /* Rounded corners for buttons */
   color: var(--primary-color);
   font-weight: normal;
-  outline: var(--primary-color) solid 4px;
+  outline: var(--primary-color) solid 0.3vw;
   border: none;
   cursor: pointer;
   white-space: nowrap; /* Prevent text wrapping */
   text-align: center;
+  width: 15vw; /* Button width changes based on vw */
 }
 
 /* Optional hover effect to improve button interactivity */
 .github-btn:hover {
-  background-color: var(--primary-color);
-  color: var(--secondary-color);
+  text-decoration: underline;
 }
 
 /* Style for the text below buttons */
 .section-text {
   margin: 0; /* Remove unnecessary margins */
-  padding: 0; /* Ensure no extra padding */
-  font-size: 3.2vh; /* Standard font size */
+  font-size: 1.7vw; /* Way smaller font size */
   color: var(--primary-color); /* Text color */
   text-align: center; /* Center the text */
   width: 100%; /* Ensure the text spans the width of the section */
@@ -707,13 +705,15 @@
 }
 
 .section-text a {
+  margin: 0; /* Remove unnecessary margins */
   text-decoration: underline !important;
-  font-size: 3.2vh; /* Standard font size */
+  font-size: 1.7vw; /* Way smaller font size */
   color: var(--primary-color); /* Text color */
   text-align: center; /* Center the text */
   overflow: hidden; /* Prevent text overflow */
   text-overflow: ellipsis; /* Add ellipsis if text overflows */
 }
+
 
   </style>
   

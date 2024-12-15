@@ -50,8 +50,8 @@ const pagesData = [
   { name: "getaway-shootout",                   formatted_Name: "Getaway Shootout",                                  category: "multiplayer shooter",             date: "30-06-2023"  },
   { name: "gravitee-2",                         formatted_Name: "Gravitee 2",                                        category: "sport golf space",             date: "14-01-2024"  },
   { name: "gravitee",                           formatted_Name: "Gravitee",                                          category: "sport golf space",             date: "14-01-2024"  },
-  { name: "gun-mayhem-2",                       formatted_Name: "Gun Mayhem 2",                                      category: "multiplayer shooter",             date: "17-12-2023"  },
-  { name: "gun-mayhem",                         formatted_Name: "Gun Mayhem",                                        category: "multiplayer shooter",             date: "30-06-2023"  },
+  { name: "gun-mayhem-2",                       formatted_Name: "Gun Mayhem 2",                                      category: "multiplayer shooter fighting",             date: "17-12-2023"  },
+  { name: "gun-mayhem",                         formatted_Name: "Gun Mayhem",                                        category: "multiplayer shooter fighting",             date: "30-06-2023"  },
   { name: "infiltrating-the-airship",           formatted_Name: "Infiltrating The Airship",                          category: "none",             date: "19-09-2023" },
   { name: "jacksmith",                          formatted_Name: "Jacksmith",                                         category: "none",             date: "29-09-2023"  },
   { name: "jelly-truck",                        formatted_Name: "Jelly Truck",                                       category: "driving",             date: "09-06-2023"  },
@@ -79,7 +79,7 @@ const pagesData = [
   { name: "pong",                               formatted_Name: "Pong",                                              category: "none",             date: "25-07-2023"  },
   { name: "raft-wars",                          formatted_Name: "Raft Wars",                                         category: "none",             date: "26-07-2023"  },
   { name: "retro-bowl",                         formatted_Name: "Retro Bowl",                                        category: "sport football gridiron american",             date: "15-09-2023"  },
-  { name: "rooftop-snipers",                    formatted_Name: "Rooftop Snipers",                                   category: "multiplayer shooter",             date: "05-07-2023"  },
+  { name: "rooftop-snipers",                    formatted_Name: "Rooftop Snipers",                                   category: "multiplayer shooter fighting",             date: "05-07-2023"  },
   { name: "run-2",                              formatted_Name: "Run 2",                                             category: "platformer endless runner",             date: "02-12-2023"  },
   { name: "run-3",                              formatted_Name: "Run 3",                                             category: "platformer endless runner",             date: "15-06-2023"  },
   { name: "slither.io-online",                  formatted_Name: "Slither.io Online",                                 category: "online",             date: "21-10-2023"  },
@@ -177,7 +177,7 @@ const pagesData = [
   { name: "vex-7",                              formatted_Name: "Vex 7",                                            category: "platformer",             date: "29-10-2024"  },
   { name: "burrito-bison",                      formatted_Name: "Burrito Bison",                                            category: "endless",             date: "29-10-2024"  },
   { name: "floodrunner-2",                      formatted_Name: "Floodrunner 2",                                     category: "platformer endless",             date: "29-10-2024"  },
-  { name: "gun-mayhem-redux",                   formatted_Name: "Gun Mayhem Redux",                                        category: "multiplayer shooter",             date: "29-10-2024"  },
+  { name: "gun-mayhem-redux",                   formatted_Name: "Gun Mayhem Redux",                                        category: "multiplayer shooter fighting",             date: "29-10-2024"  },
   { name: "my-friend-pedro",                    formatted_Name: "My Friend Pedro",                                        category: "platformer shooter",             date: "29-10-2024"  },
   { name: "papas-sushiria",                     formatted_Name: "Papa's Sushiria",                                        category: "none",             date: "29-10-2024"  },
   { name: "powerpuff-girls-zom-b-gone",         formatted_Name: "Powerpuff Girls Zom-B-Gone",                                        category: "cartoon endless",             date: "29-10-2024"  },
@@ -202,7 +202,9 @@ const pagesData = [
   { name: "cut-the-rope-time-travel",           formatted_Name: "Cut the Rope Time Travel",                             category: "puzzle mobile phone",             date: "09-12-2024"  },
   { name: "stick-rpg",           formatted_Name: "Stick RPG Complete",                             category: "rpg gambling",             date: "09-12-2024"  },
   { name: "swords-and-souls",           formatted_Name: "Swords and Souls",                             category: "rpg fighting",             date: "09-12-2024"  },
-
+// 16/12/2024
+  { name: "motherload",           formatted_Name: "Motherload",                             category: "mining dig xgen",             date: "16-12-2024"  },
+  { name: "swords-and-sandals",           formatted_Name: "Swords and Sandals",                             category: "rpg fighting turn strategy",             date: "16-12-2024"  },
 
 
 ];

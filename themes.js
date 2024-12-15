@@ -23,7 +23,14 @@ const customisationStoredData = [
         "data-background-res": "140",
         author: "coolubg"
     },
-    
+    {
+        id: "christmas-2024",
+        "data-background": "/images/backgrounds/christmas-2024.png",
+        "data-primary-color": "#301b16",
+        "data-secondary-color": "#d42727",
+        "data-background-res": "100",
+        author: "coolubg"
+    },
     {
         id: "red-swirls",
         "data-background": "/images/backgrounds/background-red.png",
@@ -98,7 +105,7 @@ const customisationStoredData = [
     },
     {
         id: "pink-path",
-        "data-background": "images/backgrounds/bisbiswas.png",
+        "data-background": "/images/backgrounds/bisbiswas.png",
         "data-primary-color": "#080116",
         "data-secondary-color": "#f565c4",
         "data-background-res": "100",
