@@ -60,7 +60,7 @@
             text-shadow: 1px 1px 8px black !important;
             width: 100%;
             padding: 8px;
-            margin-bottom: 20px;
+            margin-bottom: 8px;
             border-radius: 5px;
             border: 1px solid var(--primary-color);
             box-sizing: border-box;
@@ -128,9 +128,10 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center; /* Center the images horizontally */
-    gap: 1vw; /* Equal gap between items */
+    gap: 2vw; /* Equal gap between items */
     text-align: center;
     margin: 4vh; /* Margin around the entire container (top and sides) */
+    
 }
 
 /* Each image item (image + text) */
@@ -139,9 +140,9 @@
     flex-direction: column;
     align-items: center;
     width: 20vw; /* Fixed width for each item */
-    margin-bottom: -1.4vh;
+    margin-bottom: -4vh;
     transform: scale(1);
-    transition: transform 0.1s ease-in-out;
+    transition: transform 0.15s ease-out;
 }
 
 .image-item:hover {
@@ -153,7 +154,7 @@
     height: auto; /* Maintain aspect ratio automatically */
     aspect-ratio: 16 / 9; /* Ensure the image has a 16:9 aspect ratio */
     border: 3px solid white; /* Border size */
-    border-radius: 5px; /* Rounded corners */
+    border-radius: 0.4vw; /* Rounded corners */
     object-fit: cover; /* Ensure the image covers the container */
     box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3); /* Light box shadow */
     cursor: pointer;
@@ -174,7 +175,9 @@
     margin-bottom: 0;
 }
 
-
+input {
+    color: black !important;
+}
     </style>
 </head>
 
@@ -182,7 +185,7 @@
     <div id="navbar-container"></div>
     <div class="navbar-spacer" style="margin-top: -30px;"></div>
     <div class="container" style="margin-bottom: -10px;">
-        <p style="font-family: League Gothic; margin-top: -10px; margin-bottom: 0px; font-size: 380%; text-align: center;">
+        <p style="font-family: League Gothic; margin-top: -10px; margin-bottom: 0px; font-size: 4rem; text-align: center;">
             Customisation
         </p>
         <form id="settings-form">
@@ -203,7 +206,7 @@
                 <input type="text" id="background-res" name="background-res" placeholder="e.g. 100">
             </div>
             <button type="submit">Save Settings</button>
-            <button style="display: none;" type="button" id="default-button">Reset to Defaults</button>
+            <button type="button" id="default-button">Reset to Default</button>
         </form>
     </div>
     <p style="text-shadow: 1px 1px 2px black, 1px 1px 4px black, 1px 1px 4px black, 1px 1px 4px black;">Click on an image below to use a premade theme ↓</p>
@@ -241,11 +244,11 @@
         <img src="https://images4.alphacoders.com/109/thumb-1920-1098025.png" alt="Image 12" data-background="https://images4.alphacoders.com/109/thumb-1920-1098025.png" data-primary-color="#080116" data-secondary-color="#F565C4" data-background-res="1920">
     -->
         <div class="image-item">
-            <img src="/background.png" alt="Default Blue Swirls" button-id="default-swirls">
+            <img src="/images/backgrounds/background-blue.png" alt="Default Blue Swirls" button-id="default-swirls">
             <p style="color: transparent; text-shadow: none;">none</p>
         </div>
         <div class="image-item">
-            <img src="/images/backgrounds/background-old.png" alt="Default Blue Lines" button-id="default-lines">
+            <img src="/images/backgrounds/background-blue-old.png" alt="Default Blue Lines" button-id="default-lines">
             <p style="color: transparent; text-shadow: none;">none</p>
         </div>
         <div class="image-item">
@@ -356,7 +359,7 @@ function saveSettingsAndReload() {
     }
     // Validate Background Resolution
     if (backgroundResValue && !isValidPixelValue(backgroundResValue)) {
-        alert('Background resolution must be a valid pixel value.');
+        alert('Background resolution must be a valid vw value. e.g. "0", "75", "120"');
         return;
     }
 
@@ -418,6 +421,21 @@ document.querySelectorAll('img[button-id]').forEach(img => {
     });
 });
 
+
+// Event listener for the default button
+document.getElementById('default-button').addEventListener('click', function () {
+    // Set the form fields to predetermined default values
+    const defaultCustomisation = [
+        '',
+        '',
+        '',
+        '',
+        'default'
+   ].join('\n');
+   localStorage.setItem('customisation', defaultCustomisation);
+    // Reload so there are no warnings
+    setTimeout(() => location.reload(), 10);
+});
 
 
     </script>

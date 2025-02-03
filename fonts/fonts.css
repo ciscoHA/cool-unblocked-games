@@ -1,8 +1,14 @@
-@import url("https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;800;900&display=swap");
+@font-face {
+  font-family: "M Plus Rounded 1c"; /* ITS ACTUALLY NUNITO https://fonts.google.com/specimen/Nunito | old font sometimes didnt underline on firefox*/
+  font-weight: 800;
+  src: url(/fonts/Nunito-VariableFont_wght.ttf)
+}
+
+
 
 @font-face {
     font-family: League Gothic;
-    src: url(LeagueGothic.ttf);
+    src: url(/fonts/LeagueGothic.ttf);
   }
 
   body {

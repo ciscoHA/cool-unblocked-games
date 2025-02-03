@@ -1,15 +1,15 @@
 const customisationStoredData = [
     {
         id: "default-swirls",
-        "data-background": "/background.png", // Background
-        "data-primary-color": "#111E2C",      // Text Colour
-        "data-secondary-color": "#58AAFC",    // Accent Colour
-        "data-background-res": "100",         // in vw, 10=10% of screen size 
+        "data-background": "/images/backgrounds/background-blue.png", // Background
+        "data-primary-color": "#111E2C",                              // Text Colour
+        "data-secondary-color": "#58AAFC",                            // Accent/Theme Colour
+        "data-background-res": "100",                                 // in vw, 10=10% of screen size 
         author: "coolubg"
     },
     {
         id: "default-lines",
-        "data-background": "/images/backgrounds/background-old.png",
+        "data-background": "/images/backgrounds/background-blue-old.png",
         "data-primary-color": "#111E2C",
         "data-secondary-color": "#58AAFC",
         "data-background-res": "100",

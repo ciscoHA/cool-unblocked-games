@@ -16,6 +16,7 @@
     var titleText = "Moto X3M";
     var author = "MadPuffers";
     var authorLink = "http://madpuffers.com/"
+    var description = "Moto X3M is a fast-paced, thrilling bike racing game. Players must navigate their motorbike through obstacles and perform stunts to beat the clock. Use the arrow keys to accelerate, brake, and flip your bike, kicking up dirt as you race through the challenging levels."
   </script>
 </head>
 
@@ -31,15 +32,18 @@
       data-ad-client="ca-pub-4293684626558852" data-ad-slot="6738911587"></ins>
     <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
   </div>
-  <iframe id="game-iframe" src="" width="800px" height="600px" frameborder="0"></iframe>
-  <div id="titlebar-container"></div>
-  <div class="description" style="width: calc(800px - 40px);">
-    <h1 style="margin-top: 5px;">Instructions and Overview</h1>
-    <p>
-      Moto X3M is a fast-paced, thrilling bike racing game. Players must navigate their motorbike through obstacles and perform stunts to beat the clock. Use the arrow keys to accelerate, brake, and flip your bike, kicking up dirt as you race through the challenging levels.
-    </p>
+  <div id="game-container">
+    <div id="titlebar-container"></div>
+    <embed id="game-iframe" src="" width="800px" height="600px" frameborder="0">
   </div>
-  <br>
+  
+  <div id="description-container" class="description-container"></div>
+
+  <script src="/pages.js"></script>
+  <script src="/js/games-info.js"></script>
+  <script src="/js/related-games.js"></script>
+  <script src="/js/playtime.js"></script>
+
 </body>
 
 </html>

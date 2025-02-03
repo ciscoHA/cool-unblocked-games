@@ -14,8 +14,9 @@
   <script>
     var gameName = "slither.io-online"
     var titleText = "Slither.io Online";
-    var author = "Steve Howse";
+    var author = "Steve Howse, Griffpatch";
     var authorLink = "https://en.wikipedia.org/wiki/Slither.io"
+    var description = "Slither.io is a multiplayer online game where players control a snake and compete to be the longest. You take control of a small snake that slithers endlessly and continuously eating food and the remnants of other snakes, each time you eat you become longer."
   </script>
 </head>
 
@@ -31,15 +32,18 @@
       data-ad-client="ca-pub-4293684626558852" data-ad-slot="6738911587"></ins>
     <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
   </div>
-  <iframe id="game-iframe" src="" width="800px" height="600px" frameborder="0"></iframe>
-  <div id="titlebar-container"></div>
-  <div class="description" style="width: calc(800px - 40px);">
-    <h1 style="margin-top: 5px;">Instructions and Overview</h1>
-    <p>
-      Slither.io is a multiplayer online game where players control a snake and compete to be the longest. You take control of a small snake that slithers endlessly and continuously eating food and the remnants of other snakes, each time you eat you become longer. 
-    </p>
+  <div id="game-container">
+    <div id="titlebar-container"></div>
+    <embed id="game-iframe" src="" width="800px" height="600px" frameborder="0">
   </div>
-  <br>
+  
+  <div id="description-container" class="description-container"></div>
+
+  <script src="/pages.js"></script>
+  <script src="/js/games-info.js"></script>
+  <script src="/js/related-games.js"></script>
+  <script src="/js/playtime.js"></script>
+
 </body>
 
 </html>

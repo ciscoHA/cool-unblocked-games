@@ -16,6 +16,7 @@
     var titleText = "Quake 3 Arena Demo";
     var author = "Id Software, lrusso";
     var authorLink = "https://www.idsoftware.com/en"
+    var description = "ONLINE MULTIPLAYER DOESNT WORK: Quake III Arena is a 1999 multiplayer-focused first-person shooter developed by id Software. The third installment of the Quake series, Arena differs from previous games by excluding a story-based single-player mode and focusing primarily on multiplayer gameplay. "
   </script>
 </head>
 
@@ -31,15 +32,18 @@
       data-ad-client="ca-pub-4293684626558852" data-ad-slot="6738911587"></ins>
     <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
   </div>
-  <iframe id="game-iframe" src="" width="800px" height="600px" frameborder="0"></iframe>
-  <div id="titlebar-container" style="width: 800px"></div>
-  <div class="description" style="width: calc(800px - 40px);">
-    <h1 style="margin-top: 5px;">Instructions and Overview</h1>
-    <p>
-      ONLINE MULTIPLAYER IS UNTESTED AND LIKELY DOESNT WORK: Quake III Arena is a 1999 multiplayer-focused first-person shooter developed by id Software. The third installment of the Quake series, Arena differs from previous games by excluding a story-based single-player mode and focusing primarily on multiplayer gameplay. 			
-    </p>
+  <div id="game-container">
+    <div id="titlebar-container"></div>
+    <embed id="game-iframe" src="" width="800px" height="600px" frameborder="0">
   </div>
-  <br>
+  
+  <div id="description-container" class="description-container"></div>
+
+  <script src="/pages.js"></script>
+  <script src="/js/games-info.js"></script>
+  <script src="/js/related-games.js"></script>
+  <script src="/js/playtime.js"></script>
+
 </body>
 
 </html>

@@ -16,6 +16,7 @@
     var titleText = "Swords and Souls";
     var author = "SoulGame Studio";
     var authorLink = "https://soulgamestudio.com/"
+    var description = "CHECKOUT THE SEQUEL!<br><a href='http://steampowered.com/app/679900'> http://steampowered.com/app/679900</a><br><br>Welcome to Soul Town! Design your Soul, train him and step into the Arena! Unlock new skills, buy new equipment and make your way to the top in this exciting RPG/Training game!<br><br>Features:<br>- 5 fun mini-games to improve your hero's stats <br>- Over 30 Arena levels and Survival mode <br>- 44 enemies and bosses <br>- Tons of equipment, upgrades, skills, items and abilities<br>- A home to build and secrets to find<br>- A museum to invest in and complete<br>"
   </script>
 </head>
 
@@ -31,26 +32,18 @@
       data-ad-client="ca-pub-4293684626558852" data-ad-slot="6738911587"></ins>
     <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
   </div>
-  <embed id="game-iframe" src="" width="800px" height="600px" frameborder="0"></embed>
-  <div id="titlebar-container"></div>
-  <div class="description" style="width: calc(800px - 40px);">
-    <h1 style="margin-top: 5px;">Instructions and Overview</h1>
-    <p>
-      CHECKOUT THE SEQUEL!<br>
-     <a href="http://steampowered.com/app/679900"> http://steampowered.com/app/679900</a>
-      <br><br>
-      Welcome to Soul Town! Design your Soul, train him and step into the Arena! Unlock new skills, buy new equipment and make your way to the top in this exciting RPG/Training game!
-      <br><br>
-      Features:<br>
-      - 5 fun mini-games to improve your hero's stats <br>
-      - Over 30 Arena levels and Survival mode <br>
-      - 44 enemies and bosses <br>
-      - Tons of equipment, upgrades, skills, items and abilities<br>
-      - A home to build and secrets to find<br>
-      - A museum to invest in and complete<br>
-      </p>
-        </div>
-  <br>
+  <div id="game-container">
+    <div id="titlebar-container"></div>
+    <embed id="game-iframe" src="" width="800px" height="600px" frameborder="0">
+  </div>
+
+  <div id="description-container" class="description-container"></div>
+
+  <script src="/pages.js"></script>
+  <script src="/js/games-info.js"></script>
+  <script src="/js/related-games.js"></script>
+  <script src="/js/playtime.js"></script>
+
 </body>
 
 </html>

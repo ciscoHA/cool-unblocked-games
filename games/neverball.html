@@ -16,6 +16,7 @@
     var titleText = "Neverball";
     var author = "Neverball";
     var authorLink = "https://neverball.org/"
+    var description = "Neverball has you guide a rolling ball through dangerous territory. Balance on narrow bridges, navigate mazes, ride moving platforms, dodge pushers and shovers to get to the goal. Race against the clock to collect coins and get better scores.<br><br> Control the ball with the mouse or keyboard."
   </script>
 </head>
 
@@ -31,14 +32,18 @@
       data-ad-client="ca-pub-4293684626558852" data-ad-slot="6738911587"></ins>
     <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
   </div>
-  <iframe id="game-iframe" src="" width="800px" height="600px" frameborder="0"></iframe>
-  <div id="titlebar-container"></div>
-  <div class="description" style="width: calc(800px - 40px);">
-    <h1 style="margin-top: 5px;">Instructions and Overview</h1>
-    <p>
-      Neverball has you guide a rolling ball through dangerous territory. Balance on narrow bridges, navigate mazes, ride moving platforms, dodge pushers and shovers to get to the goal. Race against the clock to collect coins and get better scores. Control the ball with the mouse or keyboard.    </p>
+  <div id="game-container">
+    <div id="titlebar-container"></div>
+    <embed id="game-iframe" src="" width="800px" height="600px" frameborder="0">
   </div>
-  <br>
+  
+  <div id="description-container" class="description-container"></div>
+
+  <script src="/pages.js"></script>
+  <script src="/js/games-info.js"></script>
+  <script src="/js/related-games.js"></script>
+  <script src="/js/playtime.js"></script>
+
 </body>
 
 </html>

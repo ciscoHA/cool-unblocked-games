@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Ruffle SWF Player</title>
+  <meta property="og:description"
+    content="Play SWF flash games in your browser using ruffle. Play for Free at CoolUBG" />
+  <meta name="description"
+    content="Play SWF flash games in your browser using ruffle. Play for Free at CoolUBG" />
+  <link rel="stylesheet" type="text/css" href="/games.css">
+  <script src="/analytics.js"></script>
+  <script src="/main.js" defer></script>
+  <script src="/tracking.js"></script>
+  <script>
+    var gameName = "ruffle-swf-player"
+    var titleText = "Ruffle SWF Player";
+    var author = "Ruffle, Adobe";
+    var authorLink = "https://ruffle.rs"
+    var description = "Games aren't included, please select an SWF file from your computer that you would like to play<br><br>Your playtime will be tracked for each specific game"
+  </script>
+</head>
+
+<body>
+  <div id="navbar-container"></div>
+  <div class="navbar-spacer"></div>
+  <div class="important"
+    style="position: absolute; left: 1%; top: 175px; width: 10%; height: 78%; max-width: 140px; max-height: 564px; background-color: transparent;">
+    <!-- Original ad code -->
+    <script defer src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4293684626558852"
+      crossorigin="anonymous"></script>
+    <ins class="adsbygoogle" style="display: inline-block; width: 140px; height: 564px"
+      data-ad-client="ca-pub-4293684626558852" data-ad-slot="6738911587"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+  <div id="game-container">
+    <div id="titlebar-container"></div>
+    <iframe id="game-iframe" src="" width="800px" height="600px" frameborder="0"></iframe>
+  </div>
+  
+  <div id="description-container" class="description-container"></div>
+
+  <script src="/pages.js"></script>
+  <script src="/js/games-info.js"></script>
+  <script src="/js/related-games.js"></script>
+  <script src="/js/playtime.js"></script>
+  <script src="/js/hash-sync-ruffleplayer.js"></script><!--SCRIPT THAT GIVES THIS PAGE A # ID MATCHING GAME FILE NAME TO TRACK PLAYTIME-->
+
+</body>
+
+</html>

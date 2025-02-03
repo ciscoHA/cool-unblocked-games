@@ -7,7 +7,8 @@
 }
 
 /* Current slide */
-.slick-current, .slick-target {
+.slick-current,
+.slick-target {
     filter: none;
 }
 
@@ -24,7 +25,15 @@
     text-shadow: 0px 0px 4px black, 0px 0px 4px black, 0px 0px 4px black;
     overflow: hidden !important;
     font-weight: bold;
-  }
+    margin: 0;
+    padding: 0;
+}
+
+.slick-slide .info span p {
+    bottom: 0.1vw !important;
+    font-size: 1.4rem;
+    color: #d9d9d9 !important;
+}
 
 .slick-slide img {
     margin: 2vh;
@@ -36,14 +45,16 @@
 }
 
 
-.slick-prev, .slick-next {
+.slick-prev,
+.slick-next {
     outline: 0.25vw solid transparent;
     text-shadow: 0px 0px 7px #000;
     transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out, text-shadow 0.15s ease-in-out;
     opacity: 0;
 }
 
-.slick-prev:hover, .slick-next:hover {
+.slick-prev:hover,
+.slick-next:hover {
     outline: 0.25vw solid transparent;
     text-shadow: 0px 0px 7px #58aafc;
     opacity: 1;
@@ -69,22 +80,31 @@
     left: 1.8vw;
     color: white;
     font-size: 2vw;
-    background-color: transparent; /* Optional: Add a semi-transparent background */
+    background-color: transparent;
+    /* Optional: Add a semi-transparent background */
     padding: 0.2vw;
     border-radius: 0;
-    z-index: 1; /* Ensure the caption appears above the image */
-       opacity: 0; /* Hidden by default */
+    z-index: 1;
+    /* Ensure the caption appears above the image */
+    opacity: 0;
+    /* Hidden by default */
     transition: opacity 0.3s ease-in-out;
+}
+
+.slick-slide .info p {
+    bottom: calc(0.1vw + 1.4rem) !important;
 }
 
 .slick-current:hover p,
 .slick-target:hover p {
     opacity: 1;
 }
+
 .slick-slide {
     transition: all 0.3 ease-out;
 }
+
 .slick-slider .slick-track,
 .slick-slider .slick-list {
-  transition-delay: 30ms !important;
+    transition-delay: 30ms !important;
 }

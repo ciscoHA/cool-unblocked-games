@@ -9,7 +9,7 @@ let slider = $('.slick-carousel').slick({
         centerMode: true,
         centerPadding: '0',
         variableWidth: true,
-        autoplaySpeed: 6000,
+        autoplaySpeed: 10000,
         prevArrow:'<button type="button" class="slick-prev"><</button>',
         nextArrow:'<button type="button" class="slick-next">></button>'
 

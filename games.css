@@ -1,71 +1,326 @@
 @import url('/fonts/fonts.css');
 
+body {
+  overflow-x: hidden !important;
+}
+
+.navbar-menu a {
+text-decoration: none !important;
+}
+
 a {
-  color: var(--primary-color);
-}
-
-.title-bar {
-  background-color: var(--secondary-color);
-  color: var(--primary-color);
-  font-weight: bold;
-  text-align: left;
-  padding: 10px 20px;
-  border-bottom-left-radius: 15px;
-  border-bottom-right-radius: 15px;
-  position: relative;
-  margin-top: 0px;
-  width: auto; /* Set width to auto */
-}
-
-.title-content {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.title-bar h2 {
-  margin: 0;
-  font-size: xx-large;
-}
-
-.title-bar p {
-  margin: 0;
-  font-size: large;
-}
-
-.title-bar a {
-  color: var(--primary-color);
   text-decoration: none;
 }
 
-.title-bar a:hover {
+/* TITLE BARS! */
+.title-bar {
+  position: fixed !important;
+  background-color: var(--secondary-color) !important;
+  color: var(--primary-color) !important;
+  font-weight: bold !important;
+  text-align: left !important;
+  padding: 2.5px 10px !important;
+  width: 100% !important;
+  height: 45px !important;
+  border-top-left-radius: 0.5vw !important;
+  border-top-right-radius: 0.5vw !important;
+  top: 0 !important;
+  border: none;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  box-sizing: border-box !important; 
+  margin: 0 auto !important; 
+
+  box-shadow: inset 0 1px 0 0 var(--background-color-text), /* Top */
+    inset 1px 0 0 0 var(--background-color-text), /* Left */
+    inset -1px 0 0 0 var(--background-color-text); /* Right */}
+
+#titlebar-container {
+  position: absolute !important;
+  left: 0 !important;
+  top: 0 !important;
+  width: 100% !important;
+}
+
+.titlebar-buttons {
+  display: flex !important; /* Ensures buttons are in a row */
+  gap: 10px !important; /* Adds a consistent 10px gap between buttons */
+  align-items: center !important; /* Centers the buttons vertically */
+  justify-content: flex-end !important; /* Align buttons to the right */
+  margin-left: auto !important; /* Ensures it stays at the right side */
+}
+
+.title-bar svg {
+  width: 100% !important;
+  height: 100% !important;
+  display: block !important; 
+  object-fit: contain !important;
+}
+
+.titlebar-buttons button {
+  width: 32px !important;
+  height: 32px !important; 
+  background-color: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important; 
+}
+
+.title-bar button svg {
+  width: 100%;
+  height: 100%; 
+
+}
+.titlebar-buttons button {
+  position: relative;
+  display: inline-block;
+}
+
+ .tooltiptext {
+  visibility: hidden;
+  width: fit-content;
+  background-color: rgb(36, 36, 36);
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px;
+  position: absolute;
+  z-index: 1;
+  bottom: 110%;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: opacity 0.15s;
+  opacity: 0;
+  white-space: nowrap;
+}
+
+.titlebar-buttons button .tooltiptext::after {
+  content: " ";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: black transparent transparent transparent;
+}
+
+.titlebar-buttons button:hover .tooltiptext {
+  opacity: 1;
+  visibility: visible;
+}
+
+
+/* GAME CONTAINER */
+#game-container {
+  display: grid;
+  grid-template-rows: 45px auto; /* Title bar and content area */
+  grid-template-columns: 1fr; /* Single column */
+  gap: 0; /* No gap between title bar and content */
+
+  width: 100%; /* Full width */
+  max-width: 1066.67px; /* Consistent max-width */
+  background-color: rgb(12, 12, 12);
+  border-radius: 0.5vw;
+
+  justify-items: center; /* Center content horizontally */
+  align-items: start; /* Align content to the top */
+
+  box-shadow: inset 0 0 0 1px var(--background-color-text);
+  padding: 1px;
+  margin: auto;
+  transform-origin: center;
+  transform: scale(0.95);
+}
+
+/* GAME IFRAME */
+#game-iframe {
+  grid-row: 2; /* Place iframe in the second row */
+  background-color: #000; /* Optional: Black background for iframe */
+  border: none;
+  box-sizing: border-box;
+}
+
+
+.description-container {
+  display: grid;
+  position: relative;
+  grid-template-columns: 39% 59%;
+  gap: 2%;
+  max-width: 1066.67px; /* Adjust width for scaling */
+  min-width: 1066.67px;
+  margin: 0 auto;
+  padding: 0 20px;
+  transform-origin: top center;
+  transform: scale(0.95); 
+}
+
+.description {
+  font-size: 1.2rem;
+  background-color: #0c0c0c;
+  color: var(--background-color-text);
+  font-weight: bold;
+  text-align: left;
+  border-radius: 0.5vw;
+  position: relative;
+  box-shadow: inset 0 0 0 1px var(--background-color-text);
+  margin: 0;
+  box-sizing: border-box;
+  /* Remove padding to prevent excess space */
+}
+
+.description p, .description a, .description span{
+  color: var(--background-color-text);
+}
+
+.description p {
+  margin-top: 40px; /* Adjusted margin to avoid overlap */
+  padding: 10px; /* Optional: Add padding if you want some spacing inside the paragraph */
+}
+
+.description a {
+  text-decoration-skip-ink: none !important; /* Firefox fix */
+}
+.description-left a:hover {
   text-decoration: underline;
 }
 
-/* Fullscreen buttons */
-.fullscreen-buttons {
+.description-head {
   position: absolute;
-  padding-right: 12px;
-  top: 50%;
-  transform: translateY(-50%);
-  right: 0; /* Align to the right edge */
+  top: 0;
+  left: 0;
+  background-color: var(--secondary-color);
+  color: var(--primary-color) !important;
+  font-weight: bold;
+  text-align: left;
+  padding: 2.5px 10px;
+  width: 100%;
+  height: 40px;
+  overflow: hidden;
+  border-top-left-radius: 0.5vw;
+  border-top-right-radius: 0.5vw;
+  margin: 0;
+  box-sizing: border-box;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center; /* Vertical centering */
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  box-shadow: inset 0 1px 0 0 var(--background-color-text), /* Top */
+  inset 1px 0 0 0 var(--background-color-text), /* Left */
+  inset -1px 0 0 0 var(--background-color-text); /* Right */
 }
 
-.fullscreen-buttons img {
-  padding-right: 6px;
-  width: 48px; /* Adjust size as needed */
-  height: 48px ; /* Adjust size as needed */
+
+
+
+
+.description-left {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
-.fullscreen-button-1, 
-.fullscreen-button-2 {
-  background: none;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-  width: 48px; /* Adjust size as needed */
-  height: 48px ; /* Adjust size as needed */
+.description-right {
+  white-space: normal !important; /* Allow text to wrap normally */
+  word-wrap: break-word; /* Ensure long words break to the next line if necessary */
+  word-break: break-word; /* Breaks words at the end of the line */
 }
+.description-right a { /* THIS IS BROKEN ON FIREFOX! */
+  text-decoration: underline !important;
+}
+
+.description-container {
+  display: grid;
+  position: relative;
+  grid-template-columns: 39% 59%;
+  grid-template-rows: auto auto; /* Add a second row for Related Games */
+  gap: 2%;
+  max-width: 1066.67px; /* Adjust width for scaling */
+  margin: 0 auto;
+  padding: 0 20px;
+  transform-origin: top center;
+  transform: scale(0.95);
+}
+
+.description-bottom {
+  margin-top: 0.6%;
+  grid-column: span 2; /* Make Related Games span both columns */
+  grid-row: 2; /* Place in the second row */
+}
+#relatedGamesContainer {
+  display: flex;
+  gap: 10px; /* Reduced gap between items */
+  justify-content: space-between; /* Ensures equal spacing between images */
+  align-items: center; /* Vertically center the items */
+  flex-wrap: nowrap; /* Prevent items from wrapping vertically */
+  padding: 60px 15px 15px 15px; /* Added 50px top padding (to clear the header) and adjusted others */
+  width: 100%; /* Ensure container takes up full width */
+  box-sizing: border-box; /* Prevent padding from affecting overall width */
+  overflow: hidden; /* Prevent overflow */
+}
+
+#relatedGamesContainer a {
+  display: inline-block; /* Inline-block to respect layout */
+  text-align: center; /* Center text below images */
+  color: var(--background-color-text); /* Match text color */
+  font-weight: bold;
+  text-decoration: none;
+  width: calc(25% - 20px); /* Ensure each item takes up 1/4th of the container width */
+  padding: 0 5px; /* Reduced horizontal padding inside anchor */
+  position: relative; /* Allow absolute positioning of the span */
+  box-sizing: border-box;
+  transform: none;
+}
+
+#relatedGamesContainer img {
+  width: 100%; /* Ensure images scale to fit the container */
+  max-width: 180px; /* Slightly bigger images */
+  height: auto; /* Maintain aspect ratio */
+  aspect-ratio: 16/9;
+  border-radius: 0.4vw; /* Slight rounding for image edges */
+  box-shadow: 0px 0px 7px #000; /* Add shadow */
+  outline: 0.25vw solid transparent;
+  z-index: 0; /* Ensure images stay behind description */
+  transition: 0.15s ease-out;
+}
+
+#relatedGamesContainer a:hover {
+  transform: scale(1.06);
+  color: white;
+}
+
+#relatedGamesContainer a:hover span {
+  color: white;
+  text-shadow: 0px 0px 4px black, 0px 0px 4px black, 0px 0px 4px black;
+  transition: 0.15s ease-out;
+}
+
+#relatedGamesContainer a:hover img {
+  outline: 0.25vw solid #58aafc;
+  box-shadow: 1px 1px 12px #58aafc, 1px 1px 10px #58aafc;
+}
+
+#relatedGamesContainer span.game-name {
+  position: absolute; /* Position the name over the image */
+  bottom: 7px; /* Near the bottom of the image */
+  left: 17px; /* Align text to the left */
+  font-size: 0.85rem; /* Smaller text */
+  color: transparent; /* Match description text color */
+  text-shadow: none; /* Optional: Add a text shadow for readability */
+  white-space: nowrap; /* Keep text on one line */
+}
+
+
+
+
+/* SCROLL BARS! */
 
 /* Total scrollbar width */
 ::-webkit-scrollbar {
@@ -95,19 +350,6 @@ a {
   background: transparent;
 }
 
-.description {
-  font-size: large;
-  margin-top: -15px;
-  background-color: var(--secondary-color);
-  color: var(--primary-color);
-  font-weight: bold;
-  text-align: left;
-  padding: 0px 20px;
-  border-radius: 15px;
-  position: relative;
-  width: auto; /* Set width to auto */
-}
-
 
 
 #navbar-container {
@@ -133,7 +375,7 @@ body {
 }
 
 .navbar-spacer {
-  margin-top: 5vh;
+  margin-top: 3vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -182,6 +424,7 @@ button {
 }
 
 #game-iframe {
+  margin-top: -1px;
   border: 0;
   background-image: url('/loading.png');
   background-size: auto;

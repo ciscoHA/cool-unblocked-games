@@ -16,6 +16,7 @@
     var titleText = "Boxel Rebound";
     var author = "Jacob DeBenedetto";
     var authorLink = "https://www.dopplercreative.com/"
+    var description = "Play over 50 levels of box-jumping madness! Design and share your own levels.<br><br>Boxel Rebound is a fast pace arcade game where you jump over obstacles to score the lowest time.<br><br>Features:<br>- Over 50 levels with 5 unique themes<br>- Unlockable skins<br>- Level Builder<br>- Community level browser"
   </script>
 </head>
 
@@ -31,23 +32,18 @@
       data-ad-client="ca-pub-4293684626558852" data-ad-slot="6738911587"></ins>
     <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
   </div>
-  <iframe id="game-iframe" src="" width="800px" height="600px" frameborder="0"></iframe>
-  <div id="titlebar-container"></div>
-  <div class="description" style="width: calc(800px - 40px);">
-    <h1 style="margin-top: 5px;">Instructions and Overview</h1>
-    <p>
-      Play over 50 levels of box-jumping madness! Design and share your own levels.
-<br><br>
-Boxel Rebound is a fast pace arcade game where you jump over obstacles to score the lowest time.
-<br><br>
-Features:<br>
-- Over 50 levels with 5 unique themes<br>
-- Unlockable skins<br>
-- Level Builder<br>
-- Community level browser            
-    </p>
+  <div id="game-container">
+    <div id="titlebar-container"></div>
+    <iframe id="game-iframe" src="" width="800px" height="600px" frameborder="0"></iframe>
   </div>
-  <br>
+
+  <div id="description-container" class="description-container"></div>
+
+  <script src="/pages.js"></script>
+  <script src="/js/games-info.js"></script>
+  <script src="/js/related-games.js"></script>
+  <script src="/js/playtime.js"></script>
+
 </body>
 
 </html>

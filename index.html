@@ -3,6 +3,7 @@
 
 <head>
   <title>Cool Unblocked Games</title>
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="google-adsense-account" content="ca-pub-4293684626558852" />
   <link rel="icon" type="image/x-icon" sizes="48x48" href="/favicon.ico" />
@@ -24,6 +25,7 @@
   <script src="/analytics.js" async></script>
   <script src="/tracking.js" defer></script>
   <script src="/main.js" defer></script>
+  <script src="/pages.js"></script>
   <script>
 
     function highlightImage2(elementId, textId) {
@@ -36,7 +38,7 @@
       // Apply multiple box-shadow layers to the image with a smooth outline effect
       img.style.boxShadow = "1px 1px 12px #fc5858, 1px 1px 10px #fc5858";
       img.style.outline = "0.25vw solid #fc5858"
-      img.style.transition = "box-shadow 0.15s ease-out, outline-color 0.15s ease-out";
+      img.style.transition = "box-shadow 0.15s ease-out, outline 0.15s ease-out";
 
       // Underline the associated text
       var litext = img.parentNode.parentNode.querySelector(`#${textId}`);
@@ -61,7 +63,7 @@
       // Apply multiple box-shadow layers to the image with a smooth outline effect
       img.style.boxShadow = "0px 0px 7px #000";
       img.style.outline = "0.25vw solid transparent"
-      img.style.transition = "box-shadow 0.15s ease-out, outline-color 0.15s ease-out";
+      img.style.transition = "box-shadow 0.15s ease-out, outline 0.15s ease-out";
 
       // Underline the associated text
       var litext = img.parentNode.parentNode.querySelector(`#${textId}`);
@@ -170,8 +172,28 @@
       textback.style.opacity = "0"
     }
 
+    const DB_NAME = "PlaytimeDB";
+    const STORE_NAME = "playtimeLogs";
+    const DB_VERSION = 1;
+
+
   </script>
+
   <style>
+    a {
+      all: unset;
+      /* Reset all styles applied to <a> */
+      color: inherit;
+      /* Inherit color from parent */
+      text-decoration: none;
+      /* Remove underline */
+      cursor: pointer;
+      background: transparent;
+      /* Ensure no background color */
+      border: none;
+      /* Remove borders if any */
+    }
+
     body {
       overflow-x: hidden;
     }
@@ -282,195 +304,88 @@
   <div class="important"
     style="position: absolute; left: 1%; top: 70.2vh; width: 10%; height: 78%; max-width: 140px; max-height: 564px;">
     <script defer src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4293684626558852"
-    crossorigin="anonymous"></script>
-  <ins class="adsbygoogle" style="display: inline-block; width: 140px; height: 564px"
-    data-ad-client="ca-pub-4293684626558852" data-ad-slot="6738911587"></ins>
-  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+      crossorigin="anonymous"></script>
+    <ins class="adsbygoogle" style="display: inline-block; width: 140px; height: 564px"
+      data-ad-client="ca-pub-4293684626558852" data-ad-slot="6738911587"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
   </div>
 
   <div class="container2">
     <div class="slick-carousel">
       <div class="carousel-item">
         <div class="image-container">
-          <a href="/games/submersible.html">
-            <img src="/images/games/submersible.png" alt="Submersible">
-            <p>Game of the Week: Submersible/p>
+          <a class="info" href="/games/celeste-classic.html"> <!--Class info means small info text-->
+            <img src="/images/games/celeste-classic.png" alt="Celeste Classic">
+            <p>Celeste Classic</p>
+            <span class="info">
+              <p>Recently added</p>
+            </span>
           </a>
         </div>
       </div>
       <div class="carousel-item">
         <div class="image-container">
-          <a href="/games/polytrack.html">
+          <a class="info" href="/games/polytrack.html">
             <img src="/images/games/polytrack.png" alt="Polytrack">
             <p>Polytrack v0.4.1</p>
+            <span class="info">
+              <p>Rank #1 in Popularity</p>
+            </span>
           </a>
         </div>
       </div>
       <div class="carousel-item">
         <div class="image-container">
-          <a href="/games/among-us-online.html">
+          <a class="info" href="/games/among-us-online.html">
             <img src="/images/games/among-us-online.png" alt="Among Us Online">
             <p>Among Us Online</p>
+            <span class="info">
+              <p>Rank #2 in Popularity</p>
+            </span>
           </a>
         </div>
       </div>
       <div class="carousel-item">
         <div class="image-container">
-          <a href="/games/1v1.lol.html">
-            <img src="/images/games/1v1.lol.png" alt="1v1.lol">
-            <p>1v1.lol</p>
-          </a>
-        </div>
-      </div>
-      <div class="carousel-item">
-        <div class="image-container">
-          <a href="/games/retro-bowl.html">
-            <img src="/images/games/retro-bowl.png" alt="Retro Bowl">
-            <p>Retro Bowl</p>
-          </a>
-        </div>
-      </div>
-      <div class="carousel-item">
-        <div class="image-container">
-          <a href="/games/bitlife.html">
+          <a class="info" href="/games/bitlife.html">
             <img src="/images/games/bitlife.png" alt="Bitlife">
             <p>Bitlife</p>
+            <span class="info">
+              <p>Rank #3 in Popularity</p>
+            </span>
+          </a>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div class="image-container">
+          <a class="info" href="/games/slope.html">
+            <img src="/images/games/slope.png" alt="Slope">
+            <p>Slope</p>
+            <span class="info">
+              <p>Rank #4 in Popularity</p>
+            </span>
+          </a>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div class="image-container">
+          <a class="info" href="/games/minicraft.html">
+            <img src="/images/games/minicraft.png" alt="Minicraft">
+            <p>Minicraft</p>
+            <span class="info">
+              <p>Recently added</p>
+            </span>
           </a>
         </div>
       </div>
     </div>
 
-
     <script type="text/javascript" src="slide/jquery/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="slide/query/jquery-migrate-1.2.1.min.js"></script>
     <script type="text/javascript" src="slide/slick/slick.min.js"></script>
     <script type="text/javascript" src="slide/start-carousel.js"></script>
-    <script>
-      document.querySelector('.slick-list').addEventListener('mouseenter', () => {
-        document.querySelector('.slick-prev').style.opacity = '1';
-        document.querySelector('.slick-next').style.opacity = '1';
-      });
+    <script type="text/javascript" src="slide/hover.js"></script>
 
-      document.querySelector('.slick-list').addEventListener('mouseleave', () => {
-        document.querySelector('.slick-prev').style.opacity = '';
-        document.querySelector('.slick-next').style.opacity = '';
-      });
-
-      document.addEventListener('mouseover', (event) => {
-        const allSlickCurrents = document.querySelectorAll('.slick-current');
-        const allSlickTargets = document.querySelectorAll('.slick-target');
-        const allSlickSlides = document.querySelectorAll('.slick-slide');
-
-        const getClosestAnchorHref = (element) => {
-          const anchor = element?.closest('a');
-          return anchor ? anchor.getAttribute('href') : null;
-        };
-
-        const applyStyles = (element, isImage = false) => {
-          if (isImage) {
-            element.style.cursor = 'pointer';
-            element.style.outline = '0.25vw solid transparent';
-            element.style.outlineColor = '#58aafc';
-            element.style.boxShadow = '0px 0px 12px #58aafc, 0px 0px 10px #58aafc';
-            element.style.transition = 'transform 0.15s ease-in-out, box-shadow 0.15s ease-in-out, outline-color 0.15s ease-in-out';
-          } else {
-            element.style.opacity = '1';
-            element.style.transition = 'opacity 0.15s ease-in-out';
-          }
-        };
-
-        const resetStyles = (element, isImage = false) => {
-          if (isImage) {
-            element.style.cursor = 'default';
-            element.style.outline = 'none';
-            element.style.boxShadow = '0px 0px 7px #000';
-            element.style.transition = 'transform 0.15s ease-in-out, box-shadow 0.15s ease-in-out, outline-color 0.15s ease-in-out';
-          } else {
-            element.style.opacity = '0';
-            element.style.transition = 'opacity 0.15s ease-in-out';
-          }
-        };
-
-        const hoveredSlickCurrent = event.target.closest('.slick-current');
-        const hoveredSlickTarget = event.target.closest('.slick-target');
-
-        // Handle hover for .slick-current
-        if (hoveredSlickCurrent) {
-          const currentHref = getClosestAnchorHref(hoveredSlickCurrent);
-
-          // Apply styles to the hovered .slick-current
-          hoveredSlickCurrent.querySelectorAll('p').forEach(p => applyStyles(p));
-          hoveredSlickCurrent.querySelectorAll('img').forEach(img => applyStyles(img, true));
-
-          // Check and apply styles to matching .slick-targets
-          allSlickTargets.forEach(target => {
-            if (getClosestAnchorHref(target) === currentHref) {
-              target.querySelectorAll('p').forEach(p => applyStyles(p));
-              target.querySelectorAll('img').forEach(img => applyStyles(img, true));
-            } else {
-              // Reset styles for non-matching .slick-targets
-              target.querySelectorAll('p').forEach(p => resetStyles(p));
-              target.querySelectorAll('img').forEach(img => resetStyles(img, true));
-            }
-          });
-        } else {
-          // Reset styles for .slick-current when not hovered
-          allSlickCurrents.forEach(current => {
-            current.querySelectorAll('p').forEach(p => resetStyles(p));
-            current.querySelectorAll('img').forEach(img => resetStyles(img, true));
-          });
-        }
-
-        // Handle hover for .slick-target
-        if (hoveredSlickTarget) {
-          const targetHref = getClosestAnchorHref(hoveredSlickTarget);
-
-          // Apply styles to the hovered .slick-target
-          hoveredSlickTarget.querySelectorAll('p').forEach(p => applyStyles(p));
-          hoveredSlickTarget.querySelectorAll('img').forEach(img => applyStyles(img, true));
-
-          // Check and apply styles to matching .slick-currents
-          allSlickCurrents.forEach(current => {
-            if (getClosestAnchorHref(current) === targetHref) {
-              current.querySelectorAll('p').forEach(p => applyStyles(p));
-              current.querySelectorAll('img').forEach(img => applyStyles(img, true));
-            } else {
-              // Reset styles for non-matching .slick-currents
-              current.querySelectorAll('p').forEach(p => resetStyles(p));
-              current.querySelectorAll('img').forEach(img => resetStyles(img, true));
-            }
-          });
-        } else {
-          // Reset styles for .slick-target when not hovered
-          allSlickTargets.forEach(target => {
-            target.querySelectorAll('p').forEach(p => resetStyles(p));
-            target.querySelectorAll('img').forEach(img => resetStyles(img, true));
-          });
-        }
-
-        // Reset styles for non-matching .slick-slide elements
-        allSlickSlides.forEach(slide => {
-          if (!slide.classList.contains('slick-current') && !slide.classList.contains('slick-target')) {
-            slide.querySelectorAll('p').forEach(p => resetStyles(p));
-            slide.querySelectorAll('img').forEach(img => resetStyles(img, true));
-          }
-        });
-      });
-
-      document.addEventListener('mouseout', (event) => {
-        const isHovering = document.querySelector(':hover'); // Check if the mouse is hovering over any element
-        if (!isHovering || (!event.relatedTarget?.closest('.slick-current') && !event.relatedTarget?.closest('.slick-target'))) {
-          // Reset all styles when neither .slick-current nor .slick-target is hovered
-          document.querySelectorAll('.slick-current p, .slick-target p').forEach(p => resetStyles(p));
-          document.querySelectorAll('.slick-current img, .slick-target img').forEach(img => resetStyles(img, true));
-
-          // Reset styles for all .slick-slide elements (non .slick-current or .slick-target)
-          document.querySelectorAll('.slick-slide p, .slick-slide img').forEach(el => resetStyles(el));
-        }
-      });
-
-
-    </script>
     <p id="list-type" style="
     font-size: 4.4vh;
     font-family: 'League Gothic';
@@ -580,14 +495,15 @@
         </a>
       </div>
       <p class="section-text">
-      this website is so cool
-      <br><br>
-      Last Update: 16/12/2024
-      <br>
-      Burrito Bison 3 Fix?<br>Run 1 Update<br>2 New Games!
-    </p>
+        this website is so cool
+        <br><br>
+        Last Update:
+        <a href="/changelog.html">31/01/2025</a>
+        <br>
+        29 New Games!<br>Description and Info Update<br>Playtime Tracking!
+      </p>
     </div>
-  
+
     <!-- Right section -->
     <div class="right-section">
       <div class="buttons">
@@ -599,8 +515,77 @@
         </a>
       </div>
       <p class="section-text">
-          <a href="themes.html#christmas-2024">!!!!!Christmas theme!!!!!</a>
-        <br><br>
+        <label style="display: flex; align-items: center; justify-content: center; font-size: 1.7vw;">
+          <input type="checkbox" id="toggleCheckbox"
+            style="appearance: none; -webkit-appearance: none; -moz-appearance: none; width: 1.7vw; height: 1.7vw; margin-right: 10px; border: 2px solid var(--primary-color); border-radius: 4px; position: relative; cursor: pointer;">
+          Show Playtime
+        </label>
+
+        <style>
+          /* Unchecked state */
+          #toggleCheckbox {
+            background-color: var(--secondary-color);
+          }
+
+          /* Checkmark for the checked state */
+          #toggleCheckbox:checked::before {
+            content: "✓";
+            color: var(--primary-color);
+            font-size: 1.7vw;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+          }
+        </style>
+
+        <script>
+          const checkbox = document.getElementById("toggleCheckbox");
+
+          // Function to update the playtime-log based on the checkbox state
+          function updatePlaytimeLog() {
+            let playtimeLog = localStorage.getItem("playtime-log") || "";
+
+            if (checkbox.checked) {
+              // Remove "playtime-hide" and add "playtime-show" if the checkbox is checked
+              playtimeLog = playtimeLog
+                .split('\n') // Split into lines
+                .filter(line => line.trim() !== "playtime-hide") // Remove "playtime-hide"
+                .join('\n'); // Rejoin into a single string
+              playtimeLog = playtimeLog.trim(); // Ensure no leading/trailing spaces
+
+              if (!playtimeLog.includes("playtime-show")) {
+                playtimeLog = `playtime-show\n${playtimeLog}`.trim(); // Add "playtime-show"
+              }
+              localStorage.setItem("playtime-log", playtimeLog);
+            } else {
+              // Add "playtime-hide" if the checkbox is unchecked
+              if (!playtimeLog.includes("playtime-hide")) {
+                playtimeLog = `playtime-hide\n${playtimeLog}`.trim(); // Add "playtime-hide"
+                localStorage.setItem("playtime-log", playtimeLog);
+              }
+            }
+          }
+
+          // Set the checkbox state based on playtime-log on page load
+          window.addEventListener("DOMContentLoaded", () => {
+            let playtimeLog = localStorage.getItem("playtime-log") || "";
+
+            // If the log is empty, initialize with "playtime-hide" at the top
+            if (playtimeLog === "") {
+              playtimeLog = "playtime-hide"; // Initialize with "playtime-hide"
+              localStorage.setItem("playtime-log", playtimeLog);
+            }
+
+            // Set the checkbox state based on playtime-log
+            checkbox.checked = playtimeLog.includes("playtime-show");
+          });
+
+          // Listen for changes to the checkbox
+          checkbox.addEventListener("change", updatePlaytimeLog);
+
+        </script>
+        <br>
         <a href="https://forms.gle/gvpTfVKfNj2YwRzG6">Suggest a Game!</a>
         <br>
         <a href="/themes.html#export">
@@ -608,116 +593,167 @@
         </a>
         <br>
         <a href="/issues.html">
-        Report an Issue
+          Report an Issue
         </a>
       </p>
     </div>
   </div>
-  
+
   <style>
-/* Container style */
-.news-container {
-  display: flex;
-  justify-content: center; /* Center the sections horizontally */
-  align-items: stretch; /* Ensure both sections stretch equally */
-  background-color: transparent;
-  color: var(--secondary-color);
-  margin: 0 auto; /* Center the container within its parent */
-  width: 71.6vw; /* Set container width */
-  height: 22vw; /* Use vw instead of vh for consistent scaling */
-  font-family: 'M Plus Rounded 1c', sans-serif;
-  font-weight: bold;
-  box-sizing: border-box; /* Include padding and border in the size */
-  overflow: hidden; /* Prevent overflow */
-}
+    /* Container style */
+    .news-container {
+      display: flex;
+      justify-content: center;
+      /* Center the sections horizontally */
+      align-items: stretch;
+      /* Ensure both sections stretch equally */
+      background-color: transparent;
+      color: var(--secondary-color);
+      margin: 0 auto;
+      /* Center the container within its parent */
+      width: 71.6vw;
+      /* Set container width */
+      height: 22vw;
+      /* Use vw instead of vh for consistent scaling */
+      font-family: 'M Plus Rounded 1c', sans-serif;
+      font-weight: bold;
+      box-sizing: border-box;
+      /* Include padding and border in the size */
+      overflow: hidden;
+      /* Prevent overflow */
+    }
 
-/* Section styles */
-.left-section,
-.right-section {
-  display: flex;
-  flex-direction: column; 
-  justify-content: flex-start;
-  align-items: center;
-  background-color: var(--secondary-color); 
-  border: 0.4vw solid var(--secondary-color-dark); /* Use darkened color */
-  padding: 2vw; /* Use vw for padding */
-  box-sizing: border-box;
-  flex: 1;
-  overflow: hidden;
-  max-height: 100%;
-}
+    /* Section styles */
+    .left-section,
+    .right-section {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      background-color: var(--secondary-color);
+      border: 0.4vw solid var(--secondary-color-dark);
+      /* Use darkened color */
+      padding: 2vw;
+      /* Use vw for padding */
+      box-sizing: border-box;
+      flex: 1;
+      overflow: hidden;
+      max-height: 100%;
+    }
 
-/* Overlapping sections */
-.left-section {
-  margin-right: -0.2vw; /* Move the left section to the right */
-  border-top-left-radius: 0.5vw; /* Rounded corners */
-  border-bottom-left-radius: 0.5vw;
-}
+    /* Overlapping sections */
+    .left-section {
+      margin-right: -0.2vw;
+      /* Move the left section to the right */
+      border-top-left-radius: 0.5vw;
+      /* Rounded corners */
+      border-bottom-left-radius: 0.5vw;
+    }
 
-.right-section {
-  margin-left: -0.2vw; /* Move the right section to the left */
-  border-top-right-radius: 0.5vw; /* Rounded corners */
-  border-bottom-right-radius: 0.5vw;
-}
+    .right-section {
+      margin-left: -0.2vw;
+      /* Move the right section to the left */
+      border-top-right-radius: 0.5vw;
+      /* Rounded corners */
+      border-bottom-right-radius: 0.5vw;
+    }
 
-/* Buttons container */
-.buttons {
-  margin-top: -1vw;
-  display: flex;
-  justify-content: space-evenly; /* Space buttons evenly */
-  width: 100%; /* Full width for button alignment */
-  margin-bottom: 1vw; /* Use vw for spacing */
-  flex-shrink: 0; /* Prevent buttons from shrinking */
-}
+    /* Buttons container */
+    .buttons {
+      margin-top: -1vw;
+      display: flex;
+      justify-content: space-evenly;
+      /* Space buttons evenly */
+      width: 100%;
+      /* Full width for button alignment */
+      margin-bottom: 1vw;
+      /* Use vw for spacing */
+      flex-shrink: 0;
+      /* Prevent buttons from shrinking */
+      align-items: center;
+      /* Ensure buttons align vertically */
+    }
 
-/* GitHub button style */
-.github-btn {
-  font-size: 2vw; /* Smaller font size */
-  font-family: 'League Gothic';
-  background-color: var(--secondary-color);
-  padding: 0.3vw 0.8vw; /* Smaller padding */
-  border-radius: 0.5vw; /* Rounded corners for buttons */
-  color: var(--primary-color);
-  font-weight: normal;
-  outline: var(--primary-color) solid 0.3vw;
-  border: none;
-  cursor: pointer;
-  white-space: nowrap; /* Prevent text wrapping */
-  text-align: center;
-  width: 15vw; /* Button width changes based on vw */
-}
+    /* GitHub button style */
+    .github-btn {
+      font-size: 1.8vw;
+      /* Scaled font size */
+      font-family: 'League Gothic', sans-serif;
+      background-color: var(--secondary-color);
+      padding: 0.5vw 1vw;
+      /* Responsive padding */
+      border-radius: 0.5vw;
+      /* Rounded corners */
+      color: var(--primary-color);
+      font-weight: normal;
+      outline: var(--primary-color) solid 0.3vw;
+      /* Consistent outline */
+      border: none;
+      cursor: pointer;
+      white-space: nowrap;
+      /* Prevent text wrapping */
+      text-align: center;
+      flex: 1;
+      /* Allow buttons to grow evenly within the container */
+      max-width: 15vw;
+      /* Prevent buttons from being too wide */
+      min-width: 10vw;
+      /* Ensure buttons don’t shrink too small */
+      aspect-ratio: 4 / 1;
+      /* Keep consistent height-to-width ratio */
+      box-sizing: border-box;
+      /* Include padding and border in size */
+    }
 
-/* Optional hover effect to improve button interactivity */
-.github-btn:hover {
-  text-decoration: underline;
-}
-
-/* Style for the text below buttons */
-.section-text {
-  margin: 0; /* Remove unnecessary margins */
-  font-size: 1.7vw; /* Way smaller font size */
-  color: var(--primary-color); /* Text color */
-  text-align: center; /* Center the text */
-  width: 100%; /* Ensure the text spans the width of the section */
-  overflow: hidden; /* Prevent text overflow */
-  text-overflow: ellipsis; /* Add ellipsis if text overflows */
-  flex-grow: 1; /* Allow text to expand and fill remaining space */
-}
-
-.section-text a {
-  margin: 0; /* Remove unnecessary margins */
-  text-decoration: underline !important;
-  font-size: 1.7vw; /* Way smaller font size */
-  color: var(--primary-color); /* Text color */
-  text-align: center; /* Center the text */
-  overflow: hidden; /* Prevent text overflow */
-  text-overflow: ellipsis; /* Add ellipsis if text overflows */
-}
+    /* Make buttons responsive to surrounding elements and screen size */
+    .github-btn:focus,
+    .github-btn:hover {
+      background-color: var(--primary-color);
+      color: var(--secondary-color);
+      transform: scale(1.05);
+      /* Subtle hover effect */
+      transition: transform 0.2s ease, background-color 0.2s ease;
+    }
 
 
+    /* Style for the text below buttons */
+    .section-text {
+      margin: 0;
+      /* Remove unnecessary margins */
+      font-size: 1.7vw;
+      /* Way smaller font size */
+      color: var(--primary-color);
+      /* Text color */
+      text-align: center;
+      /* Center the text */
+      width: 100%;
+      /* Ensure the text spans the width of the section */
+      overflow: hidden;
+      /* Prevent text overflow */
+      text-overflow: ellipsis;
+      /* Add ellipsis if text overflows */
+      flex-grow: 1;
+      /* Allow text to expand and fill remaining space */
+    }
+
+    .section-text a {
+      margin: 0;
+      /* Remove unnecessary margins */
+      text-decoration: underline !important;
+      font-size: 1.7vw;
+      /* Way smaller font size */
+      color: var(--primary-color);
+      /* Text color */
+      text-align: center;
+      /* Center the text */
+      overflow: hidden;
+      /* Prevent text overflow */
+      text-overflow: ellipsis;
+      /* Add ellipsis if text overflows */
+    }
   </style>
-  
-  
+
+
 
   </div>
   <br><br id="featured-games">
@@ -745,64 +781,7 @@
   <ul id="pageListNEW" class="game-list" style="margin-left: 1vw; margin-right: 1vw;">
     <!-- List of pages will be dynamically generated here -->
   </ul>
-  <script>
-    function generateNewPageList() {
-      const pageList = document.getElementById('pageListNEW');
-      pageList.innerHTML = ""; // Clear previous content
-
-      // Sort pages by date (newest first)
-      pagesData.sort((a, b) => {
-        const dateA = new Date(a.date.split('-').reverse().join('-'));
-        const dateB = new Date(b.date.split('-').reverse().join('-'));
-        if (dateA.getTime() === dateB.getTime()) {
-          return a.name.localeCompare(b.name);
-        }
-        return dateB.getTime() - dateA.getTime();
-      });
-
-      // Limit to the first 15 items after sorting
-      const itemsToShow = pagesData.slice(0, 8);
-
-      itemsToShow.forEach((page, index) => {
-        // Format the full name
-        const formattedName = page.formatted_Name;
-
-        // Calculate and adjust letter spacing based on text length
-        let letterSpacing = 'normal'; // Default letter spacing
-        if (formattedName.length > 18) {
-          const maxLetterSpacingReduction = 5;
-          const lengthFactor = Math.min(1, (formattedName.length - 18) / 500);
-          letterSpacing = `${-maxLetterSpacingReduction * lengthFactor}vw`;
-        }
-
-        const li = document.createElement('li');
-        li.innerHTML = `
-        <div class="suggest-game" onmouseover="highlightImageL('suggest-imgN${index + 1}', 'suggest-textN${index + 1}')" 
-    onmouseout="removeHighlightL('suggest-imgN${index + 1}', 'suggest-textN${index + 1}')">
-  
-  <a href="games/${page.name}.html">
-    <div class="suggest-text-back-container" style="position: absolute; margin: 0.6vh; width: 16.8vw; height: calc(20.3vw * 9 / 16); overflow: hidden; z-index: 2;">
-      <div class="suggest-text-back" style="position: absolute; width: 300%; height: 300%; left: -5vw; top: 0vw; background-color: black; opacity: 0;"></div>
-    </div>
-    <img id="suggest-imgN${index + 1}" src="/images/games/${page.name}.png" alt="${page.name}" style="margin: 0.6vh; border-radius: 0.4vw; position: relative; width: 16.8vw; height: auto;" />
-    <p id="suggest-textN${index + 1}" style="letter-spacing: ${letterSpacing}; position: absolute; z-index: 999; left: 1.25vw; top: calc(100% - 4.75vw); opacity: 0;">
-      ${formattedName}
-    </p>
-  </a>
-</div>
-
-
-
-
-    `;
-        pageList.appendChild(li);
-      });
-    }
-
-    generateNewPageList();
-
-
-  </script>
+  <script src="/js/list/new-list.js">generateNewPageList();</script>
   <br>
   <p id="list-type3" style="
     font-size: 220%;
@@ -830,53 +809,7 @@
       <!-- List of pages will be dynamically generated here -->
     </ul>
   </div>
-  <script>
-    function generatePageListMULTI() {
-      const pageList = document.getElementById('pageListMULTI');
-      pageList.innerHTML = ""; // Clear previous content
-
-      // Filter to only "multiplayer" items and sort alphabetically by name
-      const multiplayerPages = pagesData
-        .filter(page => page.category.includes("multiplayer"))
-        .sort((a, b) => a.name.localeCompare(b.name));
-
-      // Render each filtered and sorted "multiplayer" item
-      multiplayerPages.forEach((page, index) => {
-        // Format the full name
-        const formattedName = page.formatted_Name;
-
-        // Calculate and adjust letter spacing based on text length
-        let letterSpacing = 'normal'; // Default letter spacing
-        if (formattedName.length > 21) {
-          const maxLetterSpacingReduction = 13.4;
-          const lengthFactor = Math.min(1, (formattedName.length - 12) / 900);
-          letterSpacing = `${-maxLetterSpacingReduction * lengthFactor}vw`;
-        }
-
-        const li = document.createElement('li');
-        li.innerHTML = `
-  <div class="suggest-game" onmouseover="highlightImageP('suggest-imgP${index + 1}', 'suggest-textP${index + 1}')" 
-    onmouseout="removeHighlightP('suggest-imgP${index + 1}', 'suggest-textP${index + 1}')">
-  
-  <a href="games/${page.name}.html">
-    <div class="suggest-text-back-container" style="position: absolute; margin: 0.6vh; width: 16.8vw; height: calc(20.3vw * 9 / 16); overflow: hidden; z-index: 2;">
-      <div class="suggest-text-back" style="position: absolute; width: 300%; height: 300%; left: -5vw; top: 0vw; background-color: black; opacity: 0;"></div>
-    </div>
-    <img id="suggest-imgP${index + 1}" src="/images/games/${page.name}.png" alt="${page.name}" style="margin: 0.6vh; border-radius: 0.4vw; position: relative; height: auto;" />
-    <p id="suggest-textP${index + 1}" style="letter-spacing: ${letterSpacing}; position: absolute; z-index: 999; left: 1.25vw; top: calc(100% - 4.75vw); opacity: 0;">
-      ${formattedName}
-    </p>
-  </a>
-</div>
-    `;
-        pageList.appendChild(li);
-      });
-    }
-
-    generatePageListMULTI();
-
-  </script>
-
+  <script src="/js/list/multi-list.js">generatePageListMULTI();</script>
   <p id="list-type3" style="
     font-size: 200%;
     font-family: 'League Gothic';
@@ -902,75 +835,31 @@
       <!-- List of pages will be dynamically generated here -->
     </ul>
   </div>
-  <script>
-    function generatePageListONLINE() {
-      const pageList = document.getElementById('pageListONLINE');
-      pageList.innerHTML = ""; // Clear previous content
-
-      // Filter to only "online" items and sort alphabetically by name
-      const onlinePages = pagesData
-        .filter(page => page.category.includes("online"))
-        .sort((a, b) => a.name.localeCompare(b.name));
-
-      // Render each filtered and sorted "online" item
-      onlinePages.forEach((page, index) => {
-        // Format the full name
-        const formattedName = page.formatted_Name;
-
-        // Calculate and adjust letter spacing based on text length
-        let letterSpacing = 'normal'; // Default letter spacing
-        if (formattedName.length > 11) {
-          const maxLetterSpacingReduction = 5;
-          const lengthFactor = Math.min(1, (formattedName.length - 11) / 400);
-          letterSpacing = `${-maxLetterSpacingReduction * lengthFactor}vw`;
-        }
-
-        const li = document.createElement('li');
-        li.innerHTML = `
-        <div class="suggest-game" onmouseover="highlightImageP('suggest-imgPO${index + 1}', 'suggest-textPO${index + 1}')" 
-    onmouseout="removeHighlightP('suggest-imgPO${index + 1}', 'suggest-textPO${index + 1}')">
-  
-  <a href="games/${page.name}.html">
-    <div class="suggest-text-back-container" style="position: absolute; margin: 0.6vh; width: 16.8vw; height: calc(20.3vw * 9 / 16); overflow: hidden; z-index: 2;">
-      <div class="suggest-text-back" style="position: absolute; width: 300%; height: 300%; left: -5vw; top: 0vw; background-color: black; opacity: 0;"></div>
-    </div>
-    <img id="suggest-imgPO${index + 1}" src="/images/games/${page.name}.png" alt="${page.name}" style="margin: 0.6vh; border-radius: 0.4vw; position: relative; height: auto;" />
-    <p id="suggest-textPO${index + 1}" style="letter-spacing: ${letterSpacing}; position: absolute; z-index: 999; left: 1.25vw; top: calc(100% - 4.75vw); opacity: 0;">
-      ${formattedName}
-    </p>
-  </a>
-</div>
-
-    `;
-        pageList.appendChild(li);
-      });
-    }
-
-    generatePageListONLINE();
-
-  </script>
+  <script src="/js/list/online-list.js">generatePageListONLINE();</script>
   <br>
-  <div class="sortButtonDiv" id="AllGamesDiv" style="display: flex; align-items: flex-start; gap: 0;">
+  <div class="sortButtonDiv" id="AllGamesDiv"
+    style="display: flex; align-items: flex-start; gap: 0; padding-top: 15px;">
     <!-- Sort Dropdown -->
     <div id="sortDropdownContainer" style="display: inline-block; position: relative;">
-      <button id="sortButton" onclick="toggleSortDropdownMenu()"
-        style="width: 250px; text-align: center; font-size: x-large; height: 50px; padding: 10px; background-color: var(--secondary-color); color: var(--primary-color); border-radius: 5px; border: none; font-family: 'M Plus Rounded 1c', sans-serif; font-weight: bold;">
+      <button id="sortButton" onclick="toggleSortDropdownMenu()">
         Sort: A-Z
       </button>
       <div id="sortDropdownMenu" class="dropdown-menu" style="display: none;">
         <ul class="dropdown-inner">
           <li onclick="selectSortOrder(0)">A-Z</li>
           <li onclick="selectSortOrder(1)">Z-A</li>
-          <li onclick="selectSortOrder(2)">New-Old</li>
-          <li onclick="selectSortOrder(3)">Old-New</li>
+          <li onclick="selectSortOrder(2)">Added New-Old</li>
+          <li onclick="selectSortOrder(3)">Added Old-New</li>
+          <li onclick="selectSortOrder(4)">Release New-Old</li>
+          <li onclick="selectSortOrder(5)">Release Old-New</li>
         </ul>
       </div>
+
     </div>
 
     <!-- Filter Dropdown -->
     <div id="filterDropdownContainer" style="display: inline-block; position: relative;">
-      <button id="filterButton" onclick="toggleDropdownMenu()"
-        style="width: 250px; text-align: center; font-size: x-large; height: 50px; padding: 10px; background-color: var(--secondary-color); color: var(--primary-color); border-radius: 5px; border: none; font-family: 'M Plus Rounded 1c', sans-serif; font-weight: bold;">
+      <button id="filterButton" onclick="toggleDropdownMenu()">
         Filter: All
       </button>
       <div id="filterDropdownMenu" class="dropdown-menu" style="display: none;">
@@ -993,6 +882,25 @@
         display: flex;
         align-items: flex-start;
       }
+
+      #sortButton,
+      #filterButton {
+        width: 250px;
+        text-align: center;
+        font-size: large;
+        /* Adjusted text size */
+        height: 40px;
+        /* Adjusted height */
+        padding: 8px;
+        /* Reduced padding */
+        background-color: var(--secondary-color);
+        color: var(--primary-color);
+        border-radius: 5px;
+        border: none;
+        font-family: 'M Plus Rounded 1c', sans-serif;
+        font-weight: bold;
+      }
+
 
       /* Dropdown Menu Styling */
       .dropdown-menu {
@@ -1055,13 +963,13 @@
 
     function sortPages() {
       switch (sortOrder) {
-        case 0:
+        case 0: // A-Z
           pagesData.sort((a, b) => (a.name > b.name) ? 1 : -1);
           break;
-        case 1:
+        case 1: // Z-A
           pagesData.sort((a, b) => (a.name < b.name) ? 1 : -1);
           break;
-        case 2:
+        case 2: // New-Old
           pagesData.sort((a, b) => {
             const dateA = new Date(a.date.split('-').reverse().join('-'));
             const dateB = new Date(b.date.split('-').reverse().join('-'));
@@ -1071,7 +979,7 @@
             return dateB.getTime() - dateA.getTime();
           });
           break;
-        case 3:
+        case 3: // Old-New
           pagesData.sort((a, b) => {
             const dateA = new Date(a.date.split('-').reverse().join('-'));
             const dateB = new Date(b.date.split('-').reverse().join('-'));
@@ -1081,8 +989,66 @@
             return dateA.getTime() - dateB.getTime();
           });
           break;
+        case 4: // Release New-Old
+          pagesData.sort((a, b) => {
+            const parseReleaseDate = (releaseDate) => {
+              if (!releaseDate) return new Date(); // Use the current date if no release date
+              const parts = releaseDate.split('-');
+              if (parts.length === 1) {
+                // Only year is provided, assume January 1st
+                return new Date(parts[0], 0, 1);
+              }
+              if (parts.length === 2) {
+                // Year and month provided, assume the 1st of the month
+                return new Date(parts[1], parts[0] - 1, 1);
+              }
+              if (parts.length === 3) {
+                // Full date (day, month, year)
+                return new Date(parts[2], parts[1] - 1, parts[0]);
+              }
+              return new Date();
+            };
+
+            const releaseDateA = parseReleaseDate(a.release_Date);
+            const releaseDateB = parseReleaseDate(b.release_Date);
+            if (releaseDateA.getTime() === releaseDateB.getTime()) {
+              return a.name.localeCompare(b.name);
+            }
+            return releaseDateB.getTime() - releaseDateA.getTime();
+          });
+          break;
+        case 5: // Release Old-New
+          pagesData.sort((a, b) => {
+            const parseReleaseDate = (releaseDate) => {
+              if (!releaseDate) return new Date(); // Use the current date if no release date
+              const parts = releaseDate.split('-');
+              if (parts.length === 1) {
+                // Only year is provided, assume January 1st
+                return new Date(parts[0], 0, 1);
+              }
+              if (parts.length === 2) {
+                // Year and month provided, assume the 1st of the month
+                return new Date(parts[1], parts[0] - 1, 1);
+              }
+              if (parts.length === 3) {
+                // Full date (day, month, year)
+                return new Date(parts[2], parts[1] - 1, parts[0]);
+              }
+              return new Date();
+            };
+
+            const releaseDateA = parseReleaseDate(a.release_Date);
+            const releaseDateB = parseReleaseDate(b.release_Date);
+            if (releaseDateA.getTime() === releaseDateB.getTime()) {
+              return b.name.localeCompare(a.name);
+            }
+            return releaseDateA.getTime() - releaseDateB.getTime();
+          });
+          break;
       }
     }
+
+
 
     function filterPages() {
       if (selectedFilter === 'All') {
@@ -1091,49 +1057,84 @@
       return pagesData.filter(page => page.category.includes(selectedFilter));
     }
 
-    function generatePageList() {
-      const pageList = document.getElementById('pageList');
-      pageList.innerHTML = "";
+    async function generatePageList() {
+  const pageList = document.getElementById('pageList');
+  pageList.innerHTML = "";
 
-      // Sort and filter pages
-      sortPages();
-      const filteredPages = filterPages();
+  // Generate list items for all pages without exclusions
+  sortPages(); // You can still call sortPages initially if needed, but we'll reapply sorting after async operations
+  const filteredPages = filterPages();
 
-      // Generate list items for all pages without exclusions
-      filteredPages.forEach((page, index) => {
-        // Get the formatted name or use a default if it doesn't exist
-        const formattedName = page.formatted_Name || page.name || `Unnamed ${index}`;
-
-        // Calculate letter spacing based on the length but ensure it's created regardless of length
-        let letterSpacing = 'normal';
-        if (formattedName.length > 11) {
-          const maxLetterSpacingReduction = 5;
-          const lengthFactor = Math.min(1, (formattedName.length - 11) / 400);
-          letterSpacing = `${-maxLetterSpacingReduction * lengthFactor}vw`;
-        }
-
-        // Create list item element without excluding any items
-        const li = document.createElement('li');
-        li.innerHTML = `
-      <li data-date="${page.date || 'unknown'}">
-      <div class="suggest-game" onmouseover="highlightImageL('suggest-imgL${index + 1}', 'suggest-textL${index + 1}')" 
-    onmouseout="removeHighlightL('suggest-imgL${index + 1}', 'suggest-textL${index + 1}')">
-  
-  <a href="games/${page.name}.html">
-    <div class="suggest-text-back-container" style="position: absolute; margin: 0.6vh; width: 16.8vw; height: calc(20.3vw * 9 / 16); overflow: hidden; z-index: 2;">
-      <div class="suggest-text-back" style="position: absolute; width: 300%; height: 300%; left: -5vw; top: 0vw; background-color: black; opacity: 0;"></div>
-    </div>
-    <img id="suggest-imgL${index + 1}" src="/images/games/${page.name}.png" alt="${page.name}" style="margin: 0.6vh; border-radius: 0.4vw; position: relative; width: 16.8vw; height: auto;" />
-    <p id="suggest-textL${index + 1}" style="letter-spacing: ${letterSpacing}; position: absolute; z-index: 999; left: 1.25vw; top: calc(100% - 4.75vw); opacity: 0;">
-      ${formattedName}
-    </p>
-  </a>
-</div>
-</li>
-    `;
-        pageList.appendChild(li);
-      });
+  // Now handle the async part: getting playtime info
+  const updatedPages = await Promise.all(filteredPages.map(async (page, index) => {
+    const formattedName = page.formatted_Name || page.name || `Unnamed ${index}`;
+    
+    // Retrieve playtime for this game
+    let playtimeText = "Loading...";
+    try {
+      playtimeText = await calculatePlaytime(page.name); // This is async
+    } catch (error) {
+      console.error("Error retrieving playtime for", page.name, error);
+      playtimeText = "Error";
     }
+
+    // Update the page object with playtime info (or keep the original one if you don't need to modify the page object)
+    page.playtime = playtimeText;
+    return page;
+  }));
+
+  // Re-sort after the async tasks are complete (and after playtime data is added)
+  updatedPages.sort((a, b) => {
+    // Your sorting logic goes here, for example by name or playtime
+    return a.name.localeCompare(b.name); // Example: sort by name
+  });
+
+  // Now append the sorted list
+  updatedPages.forEach((page, index) => {
+    const formattedName = page.formatted_Name || page.name || `Unnamed ${index}`;
+    const playtimeText = page.playtime;
+
+    let letterSpacing = "normal";
+    if (formattedName.length > 20) {
+      letterSpacing = `-${(formattedName.length - 20) * 0.02}rem`;
+    }
+
+
+ // Create the list item
+        if (!(localStorage.getItem('playtime-log') && localStorage.getItem('playtime-log').includes("playtime-hide"))) {
+          const li = document.createElement('li');
+          li.innerHTML = `
+      <div data-date="${page.date || 'unknown'}">
+        <div class="suggest-game" onmouseover="highlightImageL('suggest-imgL${index + 1}', 'suggest-textL${index + 1}')" 
+          onmouseout="removeHighlightL('suggest-imgL${index + 1}', 'suggest-textL${index + 1}')">
+          <a href="games/${page.name}.html">
+            <div class="suggest-text-back-container" style="position: absolute; margin: 0.6vh; width: 16.8vw; height: calc(20.3vw * 9 / 16); overflow: hidden; z-index: 2;">
+              <div class="suggest-text-back" style="position: absolute; width: 300%; height: 300%; left: -5vw; top: 0vw; background-color: black; opacity: 0;"></div>
+            </div>
+            <img id="suggest-imgL${index + 1}" src="/images/games/${page.name}.png" alt="${page.name}" style="margin: 0.6vh; border-radius: 0.4vw; position: relative; width: 16.8vw; height: auto;" />
+            
+            <!-- Title and Playtime Text in the same p tag -->
+            <p id="suggest-textL${index + 1}" style="letter-spacing: ${letterSpacing}; position: absolute; z-index: 999; left: 1.25vw; top: calc(100% - 4.75vw - 0.9rem); opacity: 0; text-align: left;">
+              <span style="display: block; margin-bottom: -0.5rem;">${formattedName}</span>
+                      <span style="font-size: 0.95rem; margin: 0; padding: 0; color: #d9d9d9 !important; letter-spacing: normal; line-height: 1; display: inline-flex; align-items: center;">
+                          <svg xmlns="http://www.w3.org/2000/svg" 
+                               style="width: 1em !important; height: 1em !important; fill: currentColor !important; vertical-align: middle !important; margin-right: 0.15em !important; filter: drop-shadow(0px 0px 4px #000) drop-shadow(0px 0px 2px #000) drop-shadow(0px 0px 4px #000);" 
+                               viewBox="0 -960 960 960">
+                              <path d="m612-292 56-56-148-148v-184h-80v216l172 172ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-400Zm0 320q133 0 226.5-93.5T800-480q0-133-93.5-226.5T480-800q-133 0-226.5 93.5T160-480q0 133 93.5 226.5T480-160Z"/>
+                          </svg>
+                          ${playtimeText}
+                      </span>
+          </p>
+        </a>
+      </div>
+    </div>
+    `;
+    pageList.appendChild(li);
+  }
+  });
+}
+
+
 
 
     function toggleSortDropdownMenu() {
@@ -1145,10 +1146,11 @@
       sortOrder = order;
       generatePageList();
       const sortButton = document.getElementById('sortButton');
-      const sortLabels = ['A-Z', 'Z-A', 'New-Old', 'Old-New'];
+      const sortLabels = ['A-Z', 'Z-A', 'Added New-Old', 'Added Old-New', 'Release New-Old', 'Release Old-New'];
       sortButton.textContent = `Sort: ${sortLabels[sortOrder]}`;
       closeSortDropdownMenu();
     }
+
 
     function closeSortDropdownMenu() {
       document.getElementById('sortDropdownMenu').style.display = 'none';
@@ -1190,9 +1192,9 @@
         closeDropdownMenu();
       }
     });
+
+
   </script>
-
-
 
 </body>
 

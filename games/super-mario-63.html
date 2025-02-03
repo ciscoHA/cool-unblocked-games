@@ -16,6 +16,7 @@
     var titleText = "Super Mario 63";
     var author = "Runuow";
     var authorLink = "https://runouw.newgrounds.com/"
+    var description = "Super Mario 63 is a 2d platformer fan-game inspired by Nintendo's Super Mario 64. Many levels and features are based upon it and other of Nintendo's games, but a variety of them are completely original."
   </script>
 </head>
 
@@ -31,16 +32,18 @@
       data-ad-client="ca-pub-4293684626558852" data-ad-slot="6738911587"></ins>
     <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
   </div>
-  <embed id="game-iframe" src="" width="800px" height="600px" frameborder="0"></embed>
-  <div id="titlebar-container"></div>
-  <div class="description" style="width: calc(800px - 40px);">
-    <h1 style="margin-top: 5px;">Instructions and Overview</h1>
-    <p>
-      Super Mario 63 is a 2d platformer fan-game inspired by Nintendo's Super Mario 64. Many levels and features are based upon it and other of Nintendo's games, but a variety of them are completely original.			
-
-        </p>
+  <div id="game-container">
+    <div id="titlebar-container"></div>
+    <embed id="game-iframe" src="" width="800px" height="600px" frameborder="0">
   </div>
-  <br>
+
+  <div id="description-container" class="description-container"></div>
+
+  <script src="/pages.js"></script>
+  <script src="/js/games-info.js"></script>
+  <script src="/js/related-games.js"></script>
+  <script src="/js/playtime.js"></script>
+
 </body>
 
 </html>

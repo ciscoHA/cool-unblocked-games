@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playtime Toggle</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 2rem;
+            background-color: #f4f4f4;
+        }
+        label {
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+        input[type="checkbox"] {
+            margin-right: 0.5rem;
+            transform: scale(1.2);
+        }
+    </style>
+</head>
+<body>
+    <label>
+        <input type="checkbox" id="toggleCheckbox" checked>
+        Show Playtime
+    </label>
+
+    <script>
+        const checkbox = document.getElementById("toggleCheckbox");
+
+        // Function to update the playtime-log
+        function updatePlaytimeLog() {
+            let playtimeLog = localStorage.getItem("playtime-log") || "";
+
+            if (checkbox.checked) {
+                // If checked, remove the "playtime-hide" line
+                if (playtimeLog.includes("playtime-hide")) {
+                    playtimeLog = playtimeLog
+                        .split('\n') // Split into lines
+                        .filter(line => line.trim() !== "playtime-hide") // Remove "playtime-hide"
+                        .join('\n'); // Rejoin into a single string
+                    localStorage.setItem("playtime-log", playtimeLog.trim());
+                }
+            } else {
+                // If unchecked, add "playtime-hide" to the top
+                if (!playtimeLog.startsWith("playtime-hide")) {
+                    playtimeLog = `playtime-hide\n${playtimeLog}`.trim();
+                    localStorage.setItem("playtime-log", playtimeLog);
+                }
+            }
+        }
+
+        // Initial state (ensure the checkbox is in sync with playtime-log)
+        window.addEventListener("DOMContentLoaded", () => {
+            const playtimeLog = localStorage.getItem("playtime-log") || "";
+            checkbox.checked = !playtimeLog.includes("playtime-hide");
+        });
+
+        // Listen for checkbox changes
+        checkbox.addEventListener("change", updatePlaytimeLog);
+    </script>
+</body>
+</html>

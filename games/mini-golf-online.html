@@ -15,7 +15,8 @@
     var gameName = "mini-golf-online"
     var titleText = "Mini Golf Online";
     var author = "Stratford James";
-    var authorLink = "https://scratch.mit.edu/users/StratfordJames/"
+    var authorLink = "https://scratch.mit.edu/users/StratfordJames/";
+    var description = "Pick a opponent to play against online where Each swing counts, so make sure to line up your shots perfectly and plan ahead before hitting the ball!"
   </script>
 </head>
 
@@ -31,21 +32,18 @@
       data-ad-client="ca-pub-4293684626558852" data-ad-slot="6738911587"></ins>
     <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
   </div>
-  <iframe id="game-iframe" src="" width="800px" height="600px" frameborder="0"></iframe>
-  <div class="box-16-9">
-    <a href="/games/mini-golf-online-2.html">
-    <img src="/images/games/mini-golf-online-2.png" alt="Missing Image">
-    <p>Server 2</p>
-  </a>
+  <div id="game-container">
+    <div id="titlebar-container"></div>
+    <iframe id="game-iframe" src="" width="800px" height="600px" frameborder="0"></iframe>
   </div>
-  <div id="titlebar-container"></div>
-  <div class="description" style="width: calc(800px - 40px);">
-    <h1 style="margin-top: 5px;">Instructions and Overview</h1>
-    <p>
-      Pick a opponent to play against online where Each swing counts, so make sure to line up your shots perfectly and plan ahead before hitting the ball!
-    </p>
-  </div>
-  <br>
+  
+  <div id="description-container" class="description-container"></div>
+
+  <script src="/pages.js"></script>
+  <script src="/js/games-info.js"></script>
+  <script src="/js/related-games.js"></script>
+  <script src="/js/playtime.js"></script>
+
 </body>
 
 </html>

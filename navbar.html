@@ -1,31 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Navbar</title>
     <style>
 
+        .navbar-menu a {
+            text-decoration: none !important;
+        }
+        .navbar-menu a {
+            font-family: "M Plus Rounded 1c";
+        }
+
+
         .selected {
             background-color: var(--secondary-color) !important;
             color: var(--primary-color) !important;
             font-weight: bold !important;
-        }
-
-        body, html {
-            font-family: "M Plus Rounded 1c", sans-serif;
-            -webkit-font-smoothing: antialiased;
-            margin: 0;
-            padding: 0;
-            width: 100%;
-        }
-
-        a {
-            text-decoration: none !important;
-        }
-
-        a:hover {
-            text-decoration: underline !important;
         }
 
         .navbar {
@@ -36,9 +29,11 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center; /* Center horizontally */
+            justify-content: center;
+            /* Center horizontally */
             height: 11vh;
-            position: relative; /* Necessary for absolute positioning */
+            position: relative;
+            /* Necessary for absolute positioning */
         }
 
         .navbar-menu {
@@ -46,13 +41,15 @@
             justify-content: center;
             align-items: center;
             white-space: nowrap;
-            margin-left: auto; /* Center horizontally */
-            margin-right: auto; /* Center horizontally */
+            margin-left: auto;
+            /* Center horizontally */
+            margin-right: auto;
+            /* Center horizontally */
         }
 
         .navbar-menu a {
             text-align: center;
-            padding: 10px; 
+            padding: 10px;
             margin: 2px;
             border-radius: 0.5vw;
             background-color: var(--secondary-color);
@@ -62,7 +59,6 @@
 
         .navbar-menu a:hover {
             z-index: 9999;
-            text-decoration: none !important;
             outline: 4px solid var(--primary-color);
         }
 
@@ -98,6 +94,7 @@
             right: 10px;
             transform: translateY(-50%);
         }
+
         .logo-container {
             display: flex;
             flex-direction: column;
@@ -106,59 +103,78 @@
             top: 6vh;
             left: 1vw;
             transform: translateY(-50%);
-            filter: drop-shadow(0 0 1px var(--secondary-color));        }
+            filter: drop-shadow(0 0 1px var(--secondary-color));
+        }
 
-        path {
+        .navbar  path {
             fill: var(--primary-color);
         }
 
-        svg {
-            filter: drop-shadow(0.1vh 0.1vh 0px var(--secondary-color));        
+        .navbar svg {
+            filter: drop-shadow(0.1vh 0.1vh 0px var(--secondary-color));
         }
     </style>
 </head>
+
 <body>
     <div class="navbar">
         <div class="logo-container">
-            <a href="/index.html#"><?xml version="1.0" encoding="UTF-8"?>
-                <!DOCTYPE svg  PUBLIC '-//W3C//DTD SVG 20010904//EN'  'http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd'>
+            <a href="/index.html#">
+                <?xml version="1.0" encoding="UTF-8"?>
+                <!DOCTYPE svg
+                    PUBLIC '-//W3C//DTD SVG 20010904//EN' 'http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd'>
                 <svg width="auto" height="10vh" version="1.0" viewBox="0 0 1552 800" xmlns="http://www.w3.org/2000/svg">
-                <g transform="translate(0 800) scale(.1 -.1)">
-                <path d="m13025 7247c-3-6-4-163-3-347l3-335 1008-3 1007-2-2 347-3 348-1003 3c-800 2-1004 0-1007-11z"/>
-                <path d="m8332 6898 3-343 1018-3 1017-2v345 345h-1020-1020l2-342z"/>
-                <path d="m10762 6893 3-348 888-3 887-2v350 350h-890-890l2-347z"/>
-                <path d="m1255 6230c-252-22-452-114-620-284-133-135-217-302-254-510-8-41-11-502-11-1445 0-1519-2-1459 60-1636 104-295 344-508 655-580 153-36 404-36 555-1 174 40 331 127 459 256 114 114 192 250 238 417l27 98 4 413 3 412h-389-390l-4-367-3-368-30-60c-39-78-91-108-176-103-70 5-106 30-145 100l-29 53-3 1335c-2 924 1 1351 8 1387 29 140 149 202 270 141 36-19 51-35 75-82l30-60 3-368 4-368h390 389l-3 413c-4 392-5 416-27 497-45 165-117 293-235 418-149 157-381 270-589 287-147 12-174 12-262 5z"/>
-                <path d="m13847 6219c-230-34-460-164-603-343-95-119-159-262-191-429-17-86-18-185-18-1467 0-1293 1-1381 18-1480 46-257 121-408 274-550 167-154 407-224 682-197 189 18 359 104 416 212 11 19 24 34 29 32 6-2 21-49 34-105l23-102h260 259l-2 1120-3 1120h-545-545l-3-345-2-344 137-3 138-3 3-354c3-387-3-442-54-508-34-44-59-56-122-56-69 0-98 21-137 98l-30 60v1380c0 1487-2 1420 52 1493 35 46 77 65 134 60 65-7 92-27 126-95l28-58 3-407 3-408h410 410l-3 453c-5 522-5 527-102 722-135 270-376 445-690 500-95 16-291 18-389 4z"/>
-                <path d="m10790 3989v-2210l488 3c473 4 489 5 572 27 380 104 629 408 716 876 24 126 27 573 6 695-21 117-60 267-89 339-59 149-168 294-274 362l-48 32 64 49c169 131 264 322 306 618 16 110 16 431 0 540-72 500-346 787-825 865-70 11-189 15-503 15h-413v-2211zm810 1535c215-50 310-222 310-559-1-253-56-409-178-502-52-40-123-62-219-70l-73-6v577 576h48c26 0 76-7 112-16zm-2-1769c35-8 77-22 94-31 148-76 217-273 218-614 0-302-57-501-170-592-49-38-140-69-227-75l-73-6v667 666h48c26 0 75-7 110-15z"/>
-                <path d="m6960 3990v-2200h395 395v2200 2200h-395-395v-2200z"/>
-                <path d="m8333 4363c3-1615 5-1805 20-1868 48-209 126-362 249-486 164-167 366-257 624-278 197-16 372 7 533 69 245 95 460 329 533 580 49 171 48 123 48 2013v1767h-415-415l-2-1782-3-1783-29-58c-37-76-72-99-144-94-65 5-99 28-132 93l-25 48-3 1788-2 1788h-420-421l4-1797z"/>
-                <path d="m3475 5129c-100-15-205-50-300-98-73-37-107-63-180-136-104-104-163-197-205-324-56-167-55-153-55-1126s-1-959 55-1126c41-124 101-220 200-320 159-161 334-233 600-246 469-23 815 214 932 639l23 83v970 970l-23 83c-43 158-113 281-223 392-113 114-252 189-422 226-86 19-318 27-402 13zm246-636c42-25 70-91 81-188 5-48 7-449 5-922-4-924-2-896-67-964-34-36-41-39-89-39-97 0-140 46-161 171-14 90-14 1715 1 1794 14 76 42 131 77 149 37 21 117 20 153-1z"/>
-                <path d="m5570 5130c-74-10-170-35-242-64-203-82-376-266-455-482-53-148-54-163-50-1180 3-930 3-940 25-1019 47-171 156-342 287-448 71-57 216-131 299-152 105-26 228-38 346-32 262 13 439 86 600 247 122 123 192 253 236 441 15 66 18 160 21 909 5 904 0 1028-42 1173-79 274-275 481-535 565-141 46-335 63-490 42zm230-637c40-23 68-78 80-159 17-108 8-1786-9-1839-7-22-30-57-51-77-34-34-43-38-89-38-82 0-117 27-148 115-17 47-18 112-18 950 0 844 1 903 18 952 26 75 73 113 138 113 30 0 63-7 79-17z"/>
-                <path d="m13085 1407c-3-6-4-163-3-347l3-335 1008-3 1007-2-2 347-3 348-1003 3c-800 2-1004 0-1007-11z"/>
-                <path d="m8392 1058 3-343 1018-3 1017-2v345 345h-1020-1020l2-342z"/>
-                <path d="m10822 1053 3-348 888-3 887-2v350 350h-890-890l2-347z"/>
-                </g>
-                </svg></a> 
+                    <g transform="translate(0 800) scale(.1 -.1)">
+                        <path
+                            d="m13025 7247c-3-6-4-163-3-347l3-335 1008-3 1007-2-2 347-3 348-1003 3c-800 2-1004 0-1007-11z" />
+                        <path d="m8332 6898 3-343 1018-3 1017-2v345 345h-1020-1020l2-342z" />
+                        <path d="m10762 6893 3-348 888-3 887-2v350 350h-890-890l2-347z" />
+                        <path
+                            d="m1255 6230c-252-22-452-114-620-284-133-135-217-302-254-510-8-41-11-502-11-1445 0-1519-2-1459 60-1636 104-295 344-508 655-580 153-36 404-36 555-1 174 40 331 127 459 256 114 114 192 250 238 417l27 98 4 413 3 412h-389-390l-4-367-3-368-30-60c-39-78-91-108-176-103-70 5-106 30-145 100l-29 53-3 1335c-2 924 1 1351 8 1387 29 140 149 202 270 141 36-19 51-35 75-82l30-60 3-368 4-368h390 389l-3 413c-4 392-5 416-27 497-45 165-117 293-235 418-149 157-381 270-589 287-147 12-174 12-262 5z" />
+                        <path
+                            d="m13847 6219c-230-34-460-164-603-343-95-119-159-262-191-429-17-86-18-185-18-1467 0-1293 1-1381 18-1480 46-257 121-408 274-550 167-154 407-224 682-197 189 18 359 104 416 212 11 19 24 34 29 32 6-2 21-49 34-105l23-102h260 259l-2 1120-3 1120h-545-545l-3-345-2-344 137-3 138-3 3-354c3-387-3-442-54-508-34-44-59-56-122-56-69 0-98 21-137 98l-30 60v1380c0 1487-2 1420 52 1493 35 46 77 65 134 60 65-7 92-27 126-95l28-58 3-407 3-408h410 410l-3 453c-5 522-5 527-102 722-135 270-376 445-690 500-95 16-291 18-389 4z" />
+                        <path
+                            d="m10790 3989v-2210l488 3c473 4 489 5 572 27 380 104 629 408 716 876 24 126 27 573 6 695-21 117-60 267-89 339-59 149-168 294-274 362l-48 32 64 49c169 131 264 322 306 618 16 110 16 431 0 540-72 500-346 787-825 865-70 11-189 15-503 15h-413v-2211zm810 1535c215-50 310-222 310-559-1-253-56-409-178-502-52-40-123-62-219-70l-73-6v577 576h48c26 0 76-7 112-16zm-2-1769c35-8 77-22 94-31 148-76 217-273 218-614 0-302-57-501-170-592-49-38-140-69-227-75l-73-6v667 666h48c26 0 75-7 110-15z" />
+                        <path d="m6960 3990v-2200h395 395v2200 2200h-395-395v-2200z" />
+                        <path
+                            d="m8333 4363c3-1615 5-1805 20-1868 48-209 126-362 249-486 164-167 366-257 624-278 197-16 372 7 533 69 245 95 460 329 533 580 49 171 48 123 48 2013v1767h-415-415l-2-1782-3-1783-29-58c-37-76-72-99-144-94-65 5-99 28-132 93l-25 48-3 1788-2 1788h-420-421l4-1797z" />
+                        <path
+                            d="m3475 5129c-100-15-205-50-300-98-73-37-107-63-180-136-104-104-163-197-205-324-56-167-55-153-55-1126s-1-959 55-1126c41-124 101-220 200-320 159-161 334-233 600-246 469-23 815 214 932 639l23 83v970 970l-23 83c-43 158-113 281-223 392-113 114-252 189-422 226-86 19-318 27-402 13zm246-636c42-25 70-91 81-188 5-48 7-449 5-922-4-924-2-896-67-964-34-36-41-39-89-39-97 0-140 46-161 171-14 90-14 1715 1 1794 14 76 42 131 77 149 37 21 117 20 153-1z" />
+                        <path
+                            d="m5570 5130c-74-10-170-35-242-64-203-82-376-266-455-482-53-148-54-163-50-1180 3-930 3-940 25-1019 47-171 156-342 287-448 71-57 216-131 299-152 105-26 228-38 346-32 262 13 439 86 600 247 122 123 192 253 236 441 15 66 18 160 21 909 5 904 0 1028-42 1173-79 274-275 481-535 565-141 46-335 63-490 42zm230-637c40-23 68-78 80-159 17-108 8-1786-9-1839-7-22-30-57-51-77-34-34-43-38-89-38-82 0-117 27-148 115-17 47-18 112-18 950 0 844 1 903 18 952 26 75 73 113 138 113 30 0 63-7 79-17z" />
+                        <path
+                            d="m13085 1407c-3-6-4-163-3-347l3-335 1008-3 1007-2-2 347-3 348-1003 3c-800 2-1004 0-1007-11z" />
+                        <path d="m8392 1058 3-343 1018-3 1017-2v345 345h-1020-1020l2-342z" />
+                        <path d="m10822 1053 3-348 888-3 887-2v350 350h-890-890l2-347z" />
+                    </g>
+                </svg>
+            </a>
         </div>
         <div class="navbar-menu">
-          <!--  <a href="/index.html#featured-games">New</a>-->
+            <!--  <a href="/index.html#featured-games">New</a>-->
             <a href="/index.html#AllGamesDiv">All Games</a>
             <a href="/random.html">Random</a>
             <!--<a href="/index.html#AllGamesDiv">All Games</a>-->
             <a href="/saves.html">Save Files</a>
             <a href="/themes.html">Customise</a>
             <a href="/about.html">Contact</a>
-            <div class="container" style="min-width: 17vw; margin: 0 auto; padding: 0; margin-left: 5px; box-shadow: 0 0px 0px rgba(0, 0, 0, 0.1); position: relative;">
-                <input type="text" id="searchInput" placeholder="Search..." autocomplete="off" style="width: calc(100% - 10px); padding: 6px; font-size: large; border: 0px solid #3c3c3c; box-sizing: border-box; margin-bottom: 5px; outline: 4px solid var(--primary-color); text-shadow: none !important;">
-                <div id="searchResults" style="position: absolute; top: calc(100% + 5px); left: 0; width: 100%; background-color: var(--secondary-color); box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.2); overflow-y: auto; max-height: 300px; z-index: 999; padding: 5px; overflow-x: hidden; display: none;">
+            <div class="container"
+                style="min-width: 17vw; margin: 0 auto; padding: 0; margin-left: 5px; box-shadow: 0 0px 0px rgba(0, 0, 0, 0.1); position: relative;">
+                <input type="text" id="searchInput" placeholder="Search..." autocomplete="off"
+                    style="width: calc(100% - 10px); padding: 6px; font-size: large; border: 0px solid #3c3c3c; box-sizing: border-box; margin-bottom: 5px; outline: 4px solid var(--primary-color); text-shadow: none !important;">
+                <div id="searchResults"
+                    style="position: absolute; top: calc(100% + 5px); left: 0; width: 100%; background-color: var(--secondary-color); box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.2); overflow-y: auto; max-height: 300px; z-index: 999; padding: 5px; overflow-x: hidden; display: none;">
                     <!-- Search results will be inserted here -->
                 </div>
             </div>
         </div>
         <div class="button-container">
-            <a href="/issues.html" style="color: var(--primary-color);"><button id="issue-button" style="margin: 5px 0; padding: 5px; width: 100px; height: 50px; border: 3px solid var(--primary-color); border-radius: 0.5vw; background-color: var(--secondary-color); color: var(--primary-color); cursor: pointer; font-size: medium; transition: background-color 0.3s, color 0.3s; font-family: Arial, Helvetica, sans-serif;">Report an Issue</button></a>           
+            <a href="/issues.html" style="color: var(--primary-color);"><button id="issue-button"
+                    style="margin: 5px 0; padding: 5px; width: 100px; height: 50px; border: 3px solid var(--primary-color); border-radius: 0.5vw; background-color: var(--secondary-color); color: var(--primary-color); cursor: pointer; font-size: medium; transition: background-color 0.3s, color 0.3s; font-family: Arial, Helvetica, sans-serif;">Report
+                    an Issue</button></a>
         </div>
-      
+
     </div>
 </body>
+
 </html>

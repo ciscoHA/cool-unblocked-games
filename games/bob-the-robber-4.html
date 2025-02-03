@@ -16,7 +16,8 @@
     var titleText = "Bob the Robber 4";
     var author = "Flazm";
     var authorLink = "https://flazm.com/"
-  </script>
+    var description = "Steal your way to the top in Bob the Robber! Guide Bob through treacherous mazes, avoiding guards and security cameras as you swipe valuable treasures. Master your skills and become the ultimate thief."
+    </script>
 </head>
 
 <body>
@@ -31,15 +32,18 @@
       data-ad-client="ca-pub-4293684626558852" data-ad-slot="6738911587"></ins>
     <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
   </div>
-  <iframe id="game-iframe" src="" width="800px" height="600px" frameborder="0"></iframe>
-  <div id="titlebar-container"></div>
-  <div class="description" style="width: calc(800px - 40px);">
-    <h1 style="margin-top: 5px;">Instructions and Overview</h1>
-    <p>
-      Steal your way to the top in Bob the Robber! Guide Bob through treacherous mazes, avoiding guards and security cameras as you swipe valuable treasures. Master your skills and become the ultimate thief. 
-    </p>
+  <div id="game-container">
+    <div id="titlebar-container"></div>
+    <iframe id="game-iframe" src="" width="800px" height="600px" frameborder="0"></iframe>
   </div>
-  <br>
+  
+  <div id="description-container" class="description-container"></div>
+
+  <script src="/pages.js"></script>
+  <script src="/js/games-info.js"></script>
+  <script src="/js/related-games.js"></script>
+  <script src="/js/playtime.js"></script>
+
 </body>
 
 </html>

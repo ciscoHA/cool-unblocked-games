@@ -16,6 +16,7 @@
     var titleText = "Submersible";
     var author = "awesome-llama";
     var authorLink = "https://scratch.mit.edu/users/awesome-llama/"
+    var description = "Acquire and pilot a fleet of uncrewed submersible vehicles to explore the oceans and underwater terrain. How deep can you go?<br><br>The game requires about 2-3 hours to complete.<br>Save codes are available (go to the main menu).<br><br>[W][A][S][D] - movement<br>[mouse] - aim/use tool<br>[E] - view inventory<br>[L] - toggle light<br>[P] - add waypoint<br>[I] - toggle waypoint visibility<br>[M] - map<br>[X] - delete (for hovered objects)<br><br><br>BASIC GUIDE:<br>Most of this information can be learnt through the in-game tutorial.<br><br>Explore the world and upgrade your submersibles through collected resources (mined in the world) or funds (scanning, achievements, and more). <br><br>You are able to change hulls and swap out every part that makes it function including batteries, thrusters, and tools. Parts can be stacked. 2 thrusters for example will make your sub move faster than 1. Experiment and see what configurations work for you.<br><br>Your 'home' is a ship. All operations begin and end here. Returning to your ship will allow you to recharge, repair, and deposit collected resources. Upgrades can be made at your ship. <br><br>Don't lose your submersible! Make sure you have enough battery to return. Death in this game is losing your sub and all the parts and items carried on it. You may launch a second submersible to recover items from the site it was lost at. If a locator beacon was installed on the sub that was lost, there are higher chances of item recovery.<br><br>Your submersible has a limit on how far it can travel as well, indicated by 'comms range'. This can be doubled with the installation of a communications booster part. Travelling out of range risks it being lost, a result similar to running out of power."
   </script>
 </head>
 
@@ -31,45 +32,21 @@
       data-ad-client="ca-pub-4293684626558852" data-ad-slot="6738911587"></ins>
     <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
   </div>
-  <iframe id="game-iframe" src="" width="800px" height="600px" frameborder="0"></iframe>
-  <div class="box-16-9" style="border-radius: 10px;">
+  
+  <div id="game-container">
     <script src="/edit.js"></script>
-    <button onclick="openEditor()" style="color: var(--primary-color) !important; font-weight: bold;">Save Your Game</button>
-  </a>
+    <button onclick="openEditor()" style="color: var(--primary-color) !important; font-weight: bold; z-index: 99999; border: none;">Click Here to Save</button>
+    <div id="titlebar-container"></div>
+    <iframe id="game-iframe" src="" width="800px" height="600px" frameborder="0"></iframe>
   </div>
-  <div id="titlebar-container"></div>
-  <div class="description" style="width: calc(800px - 40px);">
-    <h1 style="margin-top: 5px;">Instructions and Overview</h1>
-    <p>
-      Acquire and pilot a fleet of uncrewed submersible vehicles to explore the oceans and underwater terrain. How deep can you go?
-<br><br>
-The game requires about 2-3 hours to complete.<br>
-Save codes are available (go to the main menu).<br><br>
-W][A][S][D] - movement<br>
-[mouse] - aim/use tool<br>
-[E] - view inventory<br>
-[L] - toggle light<br>
-[P] - add waypoint<br>
-[I] - toggle waypoint visibility<br>
-[M] - map<br>
-[X] - delete (for hovered objects)<br>
-<br><br>
-BASIC GUIDE:<br>
-Most of this information can be learnt through the in-game tutorial.
-<br><br>
-Explore the world and upgrade your submersibles through collected resources (mined in the world) or funds (scanning, achievements, and more). 
-<br><br>
-You are able to change hulls and swap out every part that makes it function including batteries, thrusters, and tools. Parts can be stacked. 2 thrusters for example will make your sub move faster than 1. Experiment and see what configurations work for you.
-<br><br>
-Your "home" is a ship. All operations begin and end here. Returning to your ship will allow you to recharge, repair, and deposit collected resources. Upgrades can be made at your ship. 
-<br><br>
-Don't lose your submersible! Make sure you have enough battery to return. Death in this game is losing your sub and all the parts and items carried on it. You may launch a second submersible to recover items from the site it was lost at. If a locator beacon was installed on the sub that was lost, there are higher chances of item recovery.
-<br><br>
-Your submersible has a limit on how far it can travel as well, indicated by "comms range". This can be doubled with the installation of a communications booster part. Travelling out of range risks it being lost, a result similar to running out of power.
+  
+  <div id="description-container" class="description-container"></div>
 
-</p>
-  </div>
-  <br>
+  <script src="/pages.js"></script>
+  <script src="/js/games-info.js"></script>
+  <script src="/js/related-games.js"></script>
+  <script src="/js/playtime.js"></script>
+
 </body>
 
 </html>

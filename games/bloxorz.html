@@ -16,6 +16,7 @@
     var titleText = "Bloxorz";
     var author = "Damien Clarke";
     var authorLink = "https://damienclarke.me/"
+    var description = "Bloxorz is a very challenging puzzle game designed for every one who enjoys logic and math games. The goal of the game is to put the magic bloxorz to the destination by rolling it."
   </script>
 </head>
 
@@ -31,15 +32,18 @@
       data-ad-client="ca-pub-4293684626558852" data-ad-slot="6738911587"></ins>
     <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
   </div>
-  <embed id="game-iframe" src="" width="800px" height="600px" frameborder="0"></embed>
-  <div id="titlebar-container"></div>
-  <div class="description" style="width: calc(800px - 40px);">
-    <h1 style="margin-top: 5px;">Instructions and Overview</h1>
-    <p>
-      Bloxorz is a very challenging puzzle game designed for every one who enjoys logic and math games. The goal of the game is to put the magic bloxorz to the destination by rolling it.
-    </p>
+  <div id="game-container">
+    <div id="titlebar-container"></div>
+    <embed id="game-iframe" src="" width="800px" height="600px" frameborder="0">
   </div>
-  <br>
+
+  <div id="description-container" class="description-container"></div>
+
+  <script src="/pages.js"></script>
+  <script src="/js/games-info.js"></script>
+  <script src="/js/related-games.js"></script>
+  <script src="/js/playtime.js"></script>
+
 </body>
 
 </html>

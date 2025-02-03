@@ -16,8 +16,10 @@
     var titleText = "js-dos Emulator";
     var author = "js-dos/caiiiycuk, IBM, Microsoft";
     var authorLink = "https://github.com/caiiiycuk"
+    var description = "hi"
   </script>
 </head>
+
 
 <body>
   <div id="navbar-container"></div>
@@ -31,15 +33,18 @@
       data-ad-client="ca-pub-4293684626558852" data-ad-slot="6738911587"></ins>
     <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
   </div>
-  <iframe id="game-iframe" src="" width="800px" height="600px" frameborder="0"></iframe>
-  <div id="titlebar-container"></div>
-  <div class="description" style="width: calc(800px - 40px);">
-    <h1 style="margin-top: 5px;">Instructions and Overview</h1>
-    <p>
-      <a href="https://youtu.be/YH22lZ1EUjM?si=UEzFlEhAcURhZ1Kj" target="_blank">How to Play Online (with about 2 seconds of ping)</a> <br>1. Select ipx on the death manager screen (down arrow and enter) <br>2. Navigate to the left sidebar menu then choose a room code and turn ipx on <br>3. Press f10 or fn+f10 to start<br><br>
-    </p>
+  <div id="game-container">
+    <div id="titlebar-container"></div>
+    <iframe id="game-iframe" src="" width="800px" height="600px" frameborder="0"></iframe>
   </div>
-  <br>
+  
+  <div id="description-container" class="description-container"></div>
+
+  <script src="/pages.js"></script>
+  <script src="/js/games-info.js"></script>
+  <script src="/js/related-games.js"></script>
+  <script src="/js/playtime.js"></script>
+
 </body>
 
 </html>

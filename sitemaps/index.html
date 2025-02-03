@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Games List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin: 5px 0;
+        }
+        a {
+            text-decoration: none;
+            color: blue;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>Games List</h1>
+    <ul id="games-list"></ul>
+
+    <script>
+        // Dynamically fetch and process the `pagesData` array
+        const script = document.createElement('script');
+        script.src = '/pages.js';
+        script.onload = () => {
+            // Assume `pagesData` is defined in pages.js
+            if (Array.isArray(pagesData)) {
+                // Sort pagesData array by formatted_Name alphabetically (fallback to name if formatted_Name doesn't work)
+                pagesData.sort((a, b) => {
+                    const nameA = (a.formatted_Name || a.name).toLowerCase().trim();
+                    const nameB = (b.formatted_Name || b.name).toLowerCase().trim();
+
+                    if (nameA < nameB) return -1;
+                    if (nameA > nameB) return 1;
+                    return 0;
+                });
+
+                const gamesList = document.getElementById('games-list');
+                pagesData.forEach(page => {
+                    if (page.name) {
+                        const href = `/games/${page.name}.html`;
+
+                        const li = document.createElement('li');
+                        const anchor = document.createElement('a');
+
+                        anchor.href = href;
+                        anchor.textContent = `${page.formatted_Name || page.name}`;
+
+                        li.appendChild(anchor);
+                        gamesList.appendChild(li);
+                    }
+                });
+            } else {
+                console.error('pagesData is not an array.');
+            }
+        };
+        script.onerror = () => {
+            console.error('Failed to load /pages.js');
+        };
+        document.body.appendChild(script);
+    </script>
+</body>
+</html>

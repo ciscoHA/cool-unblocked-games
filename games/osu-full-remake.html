@@ -16,6 +16,7 @@
     var titleText = "Osu! Full Remake";
     var author = "SpiritSK, Dean Herbert";
     var authorLink = "https://scratch.mit.edu/users/SpiritSK/"
+    var description = "Beatmaps (songs) are changed every once in a while. Feel free to give suggestions in the comments!<br><br>Video tutorial on importing beatmaps:<br><a href='https://www.youtube.com/watch?v=AwKky-txrPs'> https://www.youtube.com/watch?v=AwKky-txrPs</a><br><br>Beatmap Browser by @TerrariaMods:<br><a href='https://terrariamods-scratch.github.io/hacks/osu/''> https://terrariamods-scratch.github.io/hacks/osu/</a><br><br>How to play:<br>Click the circles as the outer circle approaches the inner circle! Time your clicks accurately for a higher score.<br><br>• Circles: CLICK the circles as soon as the outer circle touches the inner circle.<br><br>• Sliders: CLICK the slider head, HOLD the mouse button/Z/X down, and FOLLOW the the slider until the end.<br><br>• Spinners: HOLD down the mouse button/Z/X and SPIN the cursor around the center of the screen in one direction.<br><br>Mouse button/Z/X : Click<br><br>P (double-click) : Quit game<br><br>` (hold) : Instant retry<br><br>Scroll : Change volume/Scroll<br><br>-/= : Decrease/increase local beatmap offset <br>(hold SHIFT for precise adjustments)"
   </script>
 </head>
 
@@ -31,33 +32,18 @@
       data-ad-client="ca-pub-4293684626558852" data-ad-slot="6738911587"></ins>
     <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
   </div>
-  <iframe id="game-iframe" src="" width="800px" height="600px" frameborder="0"></iframe>
-  <div id="titlebar-container"></div>
-  <div class="description" style="width: calc(800px - 40px);">
-    <h1 style="margin-top: 5px;">Instructions and Overview</h1>
-    <p>
-      Beatmaps (songs) are changed every once in a while. Feel free to give suggestions in the comments!
-<br><br>
-      Video tutorial on importing beatmaps:<br>
-     <a href="https://www.youtube.com/watch?v=AwKky-txrPs"> https://www.youtube.com/watch?v=AwKky-txrPs</a>
-      <br><br>
-      Beatmap Browser by @TerrariaMods:<br>
-     <a href="https://terrariamods-scratch.github.io/hacks/osu/"> https://terrariamods-scratch.github.io/hacks/osu/</a>
-<br><br><br>
-      How to play:<br>
-      Click the circles as the outer circle approaches the inner circle! Time your clicks accurately for a higher score.<br><br>
-      • Circles: CLICK the circles as soon as the outer circle touches the inner circle.<br><br>
-      • Sliders: CLICK the slider head, HOLD the mouse button/Z/X down, and FOLLOW the the slider until the end.<br><br>
-      • Spinners: HOLD down the mouse button/Z/X and SPIN the cursor around the center of the screen in one direction.<br><br>
-      
-      Mouse button/Z/X : Click<br><br>
-      P (double-click) : Quit game<br><br>
-      ` (hold) : Instant retry<br><br>
-      Scroll : Change volume/Scroll<br><br>
-      -/= : Decrease/increase local beatmap offset <br>(hold SHIFT for precise adjustments)
-          </p>
+  <div id="game-container">
+    <div id="titlebar-container"></div>
+    <embed id="game-iframe" src="" width="800px" height="600px" frameborder="0">
   </div>
-  <br>
+  
+  <div id="description-container" class="description-container"></div>
+
+  <script src="/pages.js"></script>
+  <script src="/js/games-info.js"></script>
+  <script src="/js/related-games.js"></script>
+  <script src="/js/playtime.js"></script>
+
 </body>
 
 </html>

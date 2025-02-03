@@ -16,6 +16,7 @@
     var titleText = "Temple Run 2";
     var author = "Imangi Studios";
     var authorLink = "https://imangistudios.com/"
+    var description = "Play this endless runner where you jump, turn, and slide your way to the highest score. Navigate perilous cliffs, zip lines, dash away from mines, and explore lush forests as you try to escape with the idol."
   </script>
 </head>
 
@@ -31,15 +32,18 @@
       data-ad-client="ca-pub-4293684626558852" data-ad-slot="6738911587"></ins>
     <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
   </div>
-  <iframe id="game-iframe" src="" width="800px" height="600px" frameborder="0"></iframe>
-  <div id="titlebar-container"></div>
-  <div class="description" style="width: calc(800px - 40px);">
-    <h1 style="margin-top: 5px;">Instructions and Overview</h1>
-    <p>
-      Play this endless runner where you jump, turn, and slide your way to the highest score. Navigate perilous cliffs, zip lines, dash away from mines, and explore lush forests as you try to escape with the idol.
-    </p>
+  <div id="game-container">
+    <div id="titlebar-container"></div>
+    <iframe id="game-iframe" src="" width="800px" height="600px" frameborder="0"></iframe>
   </div>
-  <br>
+
+  <div id="description-container" class="description-container"></div>
+
+  <script src="/pages.js"></script>
+  <script src="/js/games-info.js"></script>
+  <script src="/js/related-games.js"></script>
+  <script src="/js/playtime.js"></script>
+
 </body>
 
 </html>
