@@ -547,25 +547,20 @@
             let playtimeLog = localStorage.getItem("playtime-log") || "";
 
             if (checkbox.checked) {
-              // Remove "playtime-hide" and add "playtime-show" if the checkbox is checked
-              playtimeLog = playtimeLog
-                .split('\n') // Split into lines
-                .filter(line => line.trim() !== "playtime-hide") // Remove "playtime-hide"
-                .join('\n'); // Rejoin into a single string
-              playtimeLog = playtimeLog.trim(); // Ensure no leading/trailing spaces
-
+              playtimeLog = playtimeLog.replace(/playtime-hide/, "playtime-show");
               if (!playtimeLog.includes("playtime-show")) {
-                playtimeLog = `playtime-show\n${playtimeLog}`.trim(); // Add "playtime-show"
+                playtimeLog = `playtime-show ${playtimeLog}`.trim();
               }
-              localStorage.setItem("playtime-log", playtimeLog);
             } else {
-              // Add "playtime-hide" if the checkbox is unchecked
+              playtimeLog = playtimeLog.replace(/playtime-show/, "playtime-hide");
               if (!playtimeLog.includes("playtime-hide")) {
-                playtimeLog = `playtime-hide\n${playtimeLog}`.trim(); // Add "playtime-hide"
-                localStorage.setItem("playtime-log", playtimeLog);
+                playtimeLog = `playtime-hide ${playtimeLog}`.trim();
               }
             }
+
+            localStorage.setItem("playtime-log", playtimeLog);
           }
+
 
           // Set the checkbox state based on playtime-log on page load
           window.addEventListener("DOMContentLoaded", () => {
@@ -1058,49 +1053,49 @@
     }
 
     async function generatePageList() {
-  const pageList = document.getElementById('pageList');
-  pageList.innerHTML = "";
+      const pageList = document.getElementById('pageList');
+      pageList.innerHTML = "";
 
-  // Generate list items for all pages without exclusions
-  sortPages(); // You can still call sortPages initially if needed, but we'll reapply sorting after async operations
-  const filteredPages = filterPages();
+      // Generate list items for all pages without exclusions
+      sortPages(); // You can still call sortPages initially if needed, but we'll reapply sorting after async operations
+      const filteredPages = filterPages();
 
-  // Now handle the async part: getting playtime info
-  const updatedPages = await Promise.all(filteredPages.map(async (page, index) => {
-    const formattedName = page.formatted_Name || page.name || `Unnamed ${index}`;
-    
-    // Retrieve playtime for this game
-    let playtimeText = "Loading...";
-    try {
-      playtimeText = await calculatePlaytime(page.name); // This is async
-    } catch (error) {
-      console.error("Error retrieving playtime for", page.name, error);
-      playtimeText = "Error";
-    }
+      // Now handle the async part: getting playtime info
+      const updatedPages = await Promise.all(filteredPages.map(async (page, index) => {
+        const formattedName = page.formatted_Name || page.name || `Unnamed ${index}`;
 
-    // Update the page object with playtime info (or keep the original one if you don't need to modify the page object)
-    page.playtime = playtimeText;
-    return page;
-  }));
+        // Retrieve playtime for this game
+        let playtimeText = "Loading...";
+        try {
+          playtimeText = await calculatePlaytime(page.name); // This is async
+        } catch (error) {
+          console.error("Error retrieving playtime for", page.name, error);
+          playtimeText = "Error";
+        }
 
-  // Re-sort after the async tasks are complete (and after playtime data is added)
-  updatedPages.sort((a, b) => {
-    // Your sorting logic goes here, for example by name or playtime
-    return a.name.localeCompare(b.name); // Example: sort by name
-  });
+        // Update the page object with playtime info (or keep the original one if you don't need to modify the page object)
+        page.playtime = playtimeText;
+        return page;
+      }));
 
-  // Now append the sorted list
-  updatedPages.forEach((page, index) => {
-    const formattedName = page.formatted_Name || page.name || `Unnamed ${index}`;
-    const playtimeText = page.playtime;
+      // Re-sort after the async tasks are complete (and after playtime data is added)
+      updatedPages.sort((a, b) => {
+        // Your sorting logic goes here, for example by name or playtime
+        return a.name.localeCompare(b.name); // Example: sort by name
+      });
 
-    let letterSpacing = "normal";
-    if (formattedName.length > 20) {
-      letterSpacing = `-${(formattedName.length - 20) * 0.02}rem`;
-    }
+      // Now append the sorted list
+      updatedPages.forEach((page, index) => {
+        const formattedName = page.formatted_Name || page.name || `Unnamed ${index}`;
+        const playtimeText = page.playtime;
+
+        let letterSpacing = "normal";
+        if (formattedName.length > 20) {
+          letterSpacing = `-${(formattedName.length - 20) * 0.02}rem`;
+        }
 
 
- // Create the list item
+        // Create the list item
         if (!(localStorage.getItem('playtime-log') && localStorage.getItem('playtime-log').includes("playtime-hide"))) {
           const li = document.createElement('li');
           li.innerHTML = `
@@ -1129,10 +1124,10 @@
       </div>
     </div>
     `;
-    pageList.appendChild(li);
-  }
-  else {
-    const li = document.createElement('li');
+          pageList.appendChild(li);
+        }
+        else {
+          const li = document.createElement('li');
           li.innerHTML = `
       <div data-date="${page.date || 'unknown'}">
         <div class="suggest-game" onmouseover="highlightImageL('suggest-imgL${index + 1}', 'suggest-textL${index + 1}')" 
@@ -1151,10 +1146,10 @@
       </div>
     </div>
     `;
-    pageList.appendChild(li);
-  }
-  });
-}
+          pageList.appendChild(li);
+        }
+      });
+    }
 
 
 
