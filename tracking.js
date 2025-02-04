@@ -33,7 +33,7 @@ function trackPage() {
       return `${gamePlaytime} minutes`;
     } catch (error) {
       console.error("[calculatePlaytimeRECENT] Error calculating playtime:", error);
-      return "Never Played";
+      return "Under 1 Minute";
     }
   }
   
@@ -118,8 +118,9 @@ function trackPage() {
   
       // Build the markup for one list item.
       // There is only one <div class="suggest-game"> per <li>.
-      const li = document.createElement("li");
-      li.innerHTML = `
+      if (!(localStorage.getItem('playtime-log') && localStorage.getItem('playtime-log').includes("playtime-hide"))) {
+        const li = document.createElement('li');
+        li.innerHTML = `
         <div class="suggest-game" 
              onmouseover="highlightImage2('suggest-img${index+1}', 'suggest-text${index+1}')" 
              onmouseout="removeHighlight2('suggest-img${index+1}', 'suggest-text${index+1}')">
@@ -148,14 +149,40 @@ function trackPage() {
           </a>
         </div>
       `;
-  
-      fragment.appendChild(li);
+      pageList.appendChild(li);
     }
-  
+    else {
+      const li = document.createElement('li');
+      li.innerHTML = `
+      <div class="suggest-game" 
+             onmouseover="highlightImage2('suggest-img${index+1}', 'suggest-text${index+1}')" 
+             onmouseout="removeHighlight2('suggest-img${index+1}', 'suggest-text${index+1}')">
+          <a href="games/${pageName}.html">
+            <div class="suggest-text-back-container" 
+                 style="position:absolute; margin:0.6vh; width:16.8vw; height:calc(20.3vw * 9 / 16); overflow:hidden; z-index:2;">
+              <div class="suggest-text-back" 
+                   style="position:absolute; width:300%; height:300%; left:-5vw; top:0vw; background-color:black; opacity:0;"></div>
+            </div>
+            <img id="suggest-img${index+1}" 
+                 src="/images/games/${pageName}.png" 
+                 alt="${pageName}" 
+                 style="margin:0.6vh; border-radius:0.4vw; position:relative; height:auto;" />
+            <p id="suggest-text${index+1}" 
+               style="letter-spacing: ${letterSpacing}; position: absolute; z-index: 999; left: 1.25vw; top: calc(100% - 4.75vw - 1.2rem); opacity: 0; text-align: left;">
+                      <span style="display: block; margin-bottom: -0.5rem;">${formattedName}</span>
+                  </p>
+            </p>
+          </a>
+        </div>
+      `;
+      pageList.appendChild(li);
+    
     // Append exactly 4 list items to the container.
-    pageList.appendChild(fragment);
     console.log("[displayVisitedPages] Finished; list items appended.");
   }
+    }
+}
+
   
 
 
