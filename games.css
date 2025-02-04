@@ -10,6 +10,7 @@ text-decoration: none !important;
 
 a {
   text-decoration: none;
+  text-decoration-thickness: 1px !important;
 }
 
 /* TITLE BARS! */
@@ -159,6 +160,10 @@ a {
   padding: 0 20px;
   transform-origin: top center;
   transform: scale(0.95); 
+}
+
+.game-container a:hover {
+  text-decoration: underline !important;
 }
 
 .description {

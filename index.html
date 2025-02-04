@@ -953,148 +953,127 @@
   </ul>
 
   <script>
-    let sortOrder = 0;
-    let selectedFilter = 'All';
+   let sortOrder = 0;
+let selectedFilter = 'All';
 
-    function sortPages() {
-      switch (sortOrder) {
-        case 0: // A-Z
-          pagesData.sort((a, b) => (a.name > b.name) ? 1 : -1);
-          break;
-        case 1: // Z-A
-          pagesData.sort((a, b) => (a.name < b.name) ? 1 : -1);
-          break;
-        case 2: // New-Old
-          pagesData.sort((a, b) => {
-            const dateA = new Date(a.date.split('-').reverse().join('-'));
-            const dateB = new Date(b.date.split('-').reverse().join('-'));
-            if (dateA.getTime() === dateB.getTime()) {
-              return a.name.localeCompare(b.name);
-            }
-            return dateB.getTime() - dateA.getTime();
-          });
-          break;
-        case 3: // Old-New
-          pagesData.sort((a, b) => {
-            const dateA = new Date(a.date.split('-').reverse().join('-'));
-            const dateB = new Date(b.date.split('-').reverse().join('-'));
-            if (dateA.getTime() === dateB.getTime()) {
-              return b.name.localeCompare(a.name);
-            }
-            return dateA.getTime() - dateB.getTime();
-          });
-          break;
-        case 4: // Release New-Old
-          pagesData.sort((a, b) => {
-            const parseReleaseDate = (releaseDate) => {
-              if (!releaseDate) return new Date(); // Use the current date if no release date
-              const parts = releaseDate.split('-');
-              if (parts.length === 1) {
-                // Only year is provided, assume January 1st
-                return new Date(parts[0], 0, 1);
-              }
-              if (parts.length === 2) {
-                // Year and month provided, assume the 1st of the month
-                return new Date(parts[1], parts[0] - 1, 1);
-              }
-              if (parts.length === 3) {
-                // Full date (day, month, year)
-                return new Date(parts[2], parts[1] - 1, parts[0]);
-              }
-              return new Date();
-            };
-
-            const releaseDateA = parseReleaseDate(a.release_Date);
-            const releaseDateB = parseReleaseDate(b.release_Date);
-            if (releaseDateA.getTime() === releaseDateB.getTime()) {
-              return a.name.localeCompare(b.name);
-            }
-            return releaseDateB.getTime() - releaseDateA.getTime();
-          });
-          break;
-        case 5: // Release Old-New
-          pagesData.sort((a, b) => {
-            const parseReleaseDate = (releaseDate) => {
-              if (!releaseDate) return new Date(); // Use the current date if no release date
-              const parts = releaseDate.split('-');
-              if (parts.length === 1) {
-                // Only year is provided, assume January 1st
-                return new Date(parts[0], 0, 1);
-              }
-              if (parts.length === 2) {
-                // Year and month provided, assume the 1st of the month
-                return new Date(parts[1], parts[0] - 1, 1);
-              }
-              if (parts.length === 3) {
-                // Full date (day, month, year)
-                return new Date(parts[2], parts[1] - 1, parts[0]);
-              }
-              return new Date();
-            };
-
-            const releaseDateA = parseReleaseDate(a.release_Date);
-            const releaseDateB = parseReleaseDate(b.release_Date);
-            if (releaseDateA.getTime() === releaseDateB.getTime()) {
-              return b.name.localeCompare(a.name);
-            }
-            return releaseDateA.getTime() - releaseDateB.getTime();
-          });
-          break;
-      }
-    }
-
-
-
-    function filterPages() {
-      if (selectedFilter === 'All') {
-        return pagesData;
-      }
-      return pagesData.filter(page => page.category.includes(selectedFilter));
-    }
-
-    async function generatePageList() {
-      const pageList = document.getElementById('pageList');
-      pageList.innerHTML = "";
-
-      // Generate list items for all pages without exclusions
-      sortPages(); // You can still call sortPages initially if needed, but we'll reapply sorting after async operations
-      const filteredPages = filterPages();
-
-      // Now handle the async part: getting playtime info
-      const updatedPages = await Promise.all(filteredPages.map(async (page, index) => {
-        const formattedName = page.formatted_Name || page.name || `Unnamed ${index}`;
-
-        // Retrieve playtime for this game
-        let playtimeText = "Loading...";
-        try {
-          playtimeText = await calculatePlaytime(page.name); // This is async
-        } catch (error) {
-          console.error("Error retrieving playtime for", page.name, error);
-          playtimeText = "Error";
+function sortPages() {
+  switch (sortOrder) {
+    case 0: // A-Z
+      pagesData.sort((a, b) => (a.name > b.name) ? 1 : -1);
+      break;
+    case 1: // Z-A
+      pagesData.sort((a, b) => (a.name < b.name) ? 1 : -1);
+      break;
+    case 2: // New-Old
+      pagesData.sort((a, b) => {
+        const dateA = new Date(a.date.split('-').reverse().join('-'));
+        const dateB = new Date(b.date.split('-').reverse().join('-'));
+        if (dateA.getTime() === dateB.getTime()) {
+          return a.name.localeCompare(b.name);
         }
-
-        // Update the page object with playtime info (or keep the original one if you don't need to modify the page object)
-        page.playtime = playtimeText;
-        return page;
-      }));
-
-      // Re-sort after the async tasks are complete (and after playtime data is added)
-      updatedPages.sort((a, b) => {
-        // Your sorting logic goes here, for example by name or playtime
-        return a.name.localeCompare(b.name); // Example: sort by name
+        return dateB.getTime() - dateA.getTime();
       });
-
-      // Now append the sorted list
-      updatedPages.forEach((page, index) => {
-        const formattedName = page.formatted_Name || page.name || `Unnamed ${index}`;
-        const playtimeText = page.playtime;
-
-        let letterSpacing = "normal";
-        if (formattedName.length > 20) {
-          letterSpacing = `-${(formattedName.length - 20) * 0.02}rem`;
+      break;
+    case 3: // Old-New
+      pagesData.sort((a, b) => {
+        const dateA = new Date(a.date.split('-').reverse().join('-'));
+        const dateB = new Date(b.date.split('-').reverse().join('-'));
+        if (dateA.getTime() === dateB.getTime()) {
+          return b.name.localeCompare(a.name);
         }
+        return dateA.getTime() - dateB.getTime();
+      });
+      break;
+    case 4: // Release New-Old
+      pagesData.sort((a, b) => {
+        const parseReleaseDate = (releaseDate) => {
+          if (!releaseDate) return new Date(); // Use the current date if no release date
+          const parts = releaseDate.split('-');
+          if (parts.length === 1) {
+            return new Date(parts[0], 0, 1);
+          }
+          if (parts.length === 2) {
+            return new Date(parts[1], parts[0] - 1, 1);
+          }
+          if (parts.length === 3) {
+            return new Date(parts[2], parts[1] - 1, parts[0]);
+          }
+          return new Date();
+        };
 
+        const releaseDateA = parseReleaseDate(a.release_Date);
+        const releaseDateB = parseReleaseDate(b.release_Date);
+        if (releaseDateA.getTime() === releaseDateB.getTime()) {
+          return a.name.localeCompare(b.name);
+        }
+        return releaseDateB.getTime() - releaseDateA.getTime();
+      });
+      break;
+    case 5: // Release Old-New
+      pagesData.sort((a, b) => {
+        const parseReleaseDate = (releaseDate) => {
+          if (!releaseDate) return new Date(); 
+          const parts = releaseDate.split('-');
+          if (parts.length === 1) {
+            return new Date(parts[0], 0, 1);
+          }
+          if (parts.length === 2) {
+            return new Date(parts[1], parts[0] - 1, 1);
+          }
+          if (parts.length === 3) {
+            return new Date(parts[2], parts[1] - 1, parts[0]);
+          }
+          return new Date();
+        };
 
+        const releaseDateA = parseReleaseDate(a.release_Date);
+        const releaseDateB = parseReleaseDate(b.release_Date);
+        if (releaseDateA.getTime() === releaseDateB.getTime()) {
+          return b.name.localeCompare(a.name);
+        }
+        return releaseDateA.getTime() - releaseDateB.getTime();
+      });
+      break;
+  }
+}
+
+function filterPages() {
+  if (selectedFilter === 'All') {
+    return pagesData;
+  }
+  return pagesData.filter(page => page.category.includes(selectedFilter));
+}
+
+async function generatePageList() {
+  const pageList = document.getElementById('pageList');
+  pageList.innerHTML = "";
+  const currentScrollPosition = window.scrollY;
+  // Apply the selected sort order before rendering
+  sortPages();
+  const filteredPages = filterPages();
+
+  const updatedPages = await Promise.all(filteredPages.map(async (page, index) => {
+    const formattedName = page.formatted_Name || page.name || `Unnamed ${index}`;
+    let playtimeText = "Loading...";
+    try {
+      playtimeText = await calculatePlaytime(page.name);
+    } catch (error) {
+      playtimeText = "Error";
+    }
+    page.playtime = playtimeText;
+    return page;
+  }));
+
+  // Append the sorted and updated list
+  updatedPages.forEach((page, index) => {
+    const formattedName = page.formatted_Name || page.name || `Unnamed ${index}`;
+    const playtimeText = page.playtime;
+    let letterSpacing = "normal";
+    if (formattedName.length > 20) {
+      letterSpacing = `-${(formattedName.length - 20) * 0.02}rem`;
+    }
+
+   
         // Create the list item
         if (!(localStorage.getItem('playtime-log') && localStorage.getItem('playtime-log').includes("playtime-hide"))) {
           const li = document.createElement('li');
@@ -1125,6 +1104,7 @@
     </div>
     `;
           pageList.appendChild(li);
+          window.scrollTo(0, currentScrollPosition);
         }
         else {
           const li = document.createElement('li');
@@ -1146,32 +1126,28 @@
       </div>
     </div>
     `;
-          pageList.appendChild(li);
-        }
+    pageList.appendChild(li);
+    window.scrollTo(0, currentScrollPosition);
+  }
       });
     }
+function toggleSortDropdownMenu() {
+  const dropdown = document.getElementById('sortDropdownMenu');
+  dropdown.style.display = dropdown.style.display === 'none' ? 'block' : 'none';
+}
 
+function selectSortOrder(order) {
+  sortOrder = order;
+  generatePageList();  // Ensure the page list is generated with the new sort order
+  const sortButton = document.getElementById('sortButton');
+  const sortLabels = ['A-Z', 'Z-A', 'Added New-Old', 'Added Old-New', 'Release New-Old', 'Release Old-New'];
+  sortButton.textContent = `Sort: ${sortLabels[sortOrder]}`;
+  closeSortDropdownMenu();
+}
 
-
-
-    function toggleSortDropdownMenu() {
-      const dropdown = document.getElementById('sortDropdownMenu');
-      dropdown.style.display = dropdown.style.display === 'none' ? 'block' : 'none';
-    }
-
-    function selectSortOrder(order) {
-      sortOrder = order;
-      generatePageList();
-      const sortButton = document.getElementById('sortButton');
-      const sortLabels = ['A-Z', 'Z-A', 'Added New-Old', 'Added Old-New', 'Release New-Old', 'Release Old-New'];
-      sortButton.textContent = `Sort: ${sortLabels[sortOrder]}`;
-      closeSortDropdownMenu();
-    }
-
-
-    function closeSortDropdownMenu() {
-      document.getElementById('sortDropdownMenu').style.display = 'none';
-    }
+function closeSortDropdownMenu() {
+  document.getElementById('sortDropdownMenu').style.display = 'none';
+}
 
     function toggleDropdownMenu() {
       const dropdown = document.getElementById('filterDropdownMenu');
