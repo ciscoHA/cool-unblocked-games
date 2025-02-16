@@ -13,7 +13,7 @@ function generateNewPageList() {
     });
 
     // Limit to the first 15 items after sorting
-    const itemsToShow = pagesData.slice(0, 32);
+    const itemsToShow = pagesData.slice(0, 8);
 
     itemsToShow.forEach((page, index) => {
       // Format the full name

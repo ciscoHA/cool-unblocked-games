@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Storage Data Display</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        section {
+            margin-bottom: 30px;
+        }
+        h2 {
+            color: #333;
+        }
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        li {
+            margin: 5px 0;
+            color: #555;
+        }
+        .database {
+            font-weight: bold;
+            margin-top: 15px;
+        }
+        .store {
+            margin-left: 20px;
+        }
+        .entry {
+            margin-left: 40px;
+        }
+        .edit-button {
+            margin-left: 10px;
+            padding: 5px 10px;
+            font-size: 12px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <section id="local-storage">
+        <h2>Local Storage</h2>
+        <ul id="local-storage-list">
+            <!-- Local storage items will be displayed here -->
+        </ul>
+    </section>
+
+    <section id="indexeddb">
+        <h2>IndexedDB</h2>
+        <ul id="indexeddb-list">
+            <!-- IndexedDB data will be displayed here -->
+        </ul>
+    </section>
+
+    <script>
+        // Display Local Storage Items
+        const localStorageList = document.getElementById("local-storage-list");
+        for (let i = 0; i < localStorage.length; i++) {
+            const key = localStorage.key(i);
+            const li = document.createElement("li");
+            li.textContent = key;
+
+            // Create "Edit Data" button for each Local Storage item
+            const editButton = document.createElement("button");
+            editButton.textContent = "Edit Data";
+            editButton.classList.add("edit-button");
+            editButton.onclick = function() {
+                console.log("Editing LocalStorage Key: ", key); // Debug log for key
+                editData(key, 'localStorage'); // Call editData function with key and storage type
+            };
+            li.appendChild(editButton);
+
+            localStorageList.appendChild(li);
+        }
+
+        // Display IndexedDB Items - Get all databases
+        const indexeddbList = document.getElementById("indexeddb-list");
+
+        // Function to get all IndexedDB databases and their contents
+        function getIndexedDBData() {
+            const request = indexedDB.databases();
+
+            request.then(databases => {
+                if (databases.length === 0) {
+                    const li = document.createElement("li");
+                    li.textContent = "No IndexedDB databases found.";
+                    indexeddbList.appendChild(li);
+                } else {
+                    databases.forEach(db => {
+                        const dbName = db.name;
+                        const dbEntry = document.createElement("li");
+                        dbEntry.classList.add("database");
+                        dbEntry.textContent = `Database: ${dbName}`;
+                        indexeddbList.appendChild(dbEntry);
+
+                        // Open the database to get object stores
+                        const openRequest = indexedDB.open(dbName, db.version);
+
+                        openRequest.onsuccess = function(event) {
+                            const dbInstance = event.target.result;
+                            const objectStoreNames = dbInstance.objectStoreNames;
+
+                            // Convert the DOMStringList to an array and iterate over it
+                            const storeNamesArray = Array.from(objectStoreNames);
+                            
+                            if (storeNamesArray.length === 0) {
+                                return;
+                            }
+
+                            storeNamesArray.forEach(storeName => {
+                                const storeEntry = document.createElement("li");
+                                storeEntry.classList.add("store");
+                                storeEntry.textContent = `Store: ${storeName}`;
+                                dbEntry.appendChild(storeEntry);
+
+                                // Open a transaction for the store to access its keys
+                                const transaction = dbInstance.transaction(storeName, "readonly");
+                                const objectStore = transaction.objectStore(storeName);
+
+                                // Using openCursor to iterate through the store and retrieve keys
+                                const cursorRequest = objectStore.openCursor();
+
+                                cursorRequest.onsuccess = function(event) {
+                                    const cursor = event.target.result;
+                                    if (cursor) {
+                                        console.log("IndexedDB Cursor Key: ", cursor.key); // Debug log for IndexedDB key
+                                        const entryItem = document.createElement("li");
+                                        entryItem.classList.add("entry");
+                                        entryItem.textContent = cursor.key;
+
+                                        // Create "Edit Data" button for each IndexedDB entry
+                                        const editButton = document.createElement("button");
+                                        editButton.textContent = "Edit Data";
+                                        editButton.classList.add("edit-button");
+                                        editButton.onclick = function() {
+                                            console.log("Editing IndexedDB Key: ", cursor.key); // Debug log for key
+                                            editData(cursor.key, 'indexedDB', dbName, storeName); // Call editData with key, db, and store name
+                                        };
+                                        entryItem.appendChild(editButton);
+
+                                        storeEntry.appendChild(entryItem);
+                                        cursor.continue();
+                                    }
+                                };
+
+                                cursorRequest.onerror = function() {
+                                    const errorItem = document.createElement("li");
+                                    errorItem.classList.add("entry");
+                                    errorItem.textContent = "Error retrieving keys from store.";
+                                    storeEntry.appendChild(errorItem);
+                                };
+                            });
+                        };
+
+                        openRequest.onerror = function() {
+                            const errorItem = document.createElement("li");
+                            errorItem.classList.add("database");
+                            errorItem.textContent = `Error opening database: ${dbName}`;
+                            indexeddbList.appendChild(errorItem);
+                        };
+                    });
+                }
+            }).catch(error => {
+                const li = document.createElement("li");
+                li.textContent = "Error fetching IndexedDB databases: " + error;
+                indexeddbList.appendChild(li);
+            });
+        }
+
+        // Run the function to get IndexedDB data
+        getIndexedDBData();
+
+        // Function to handle editing data
+        function editData(key, storageType, dbName = null, storeName = null) {
+            if (!key) {
+                alert("No key provided for editing.");
+                return;
+            }
+
+            console.log("Editing key:", key, "Storage type:", storageType); // Debug log for editing function
+
+            let newValue = prompt("Enter new value for " + key);
+
+            if (newValue !== null) {
+                if (storageType === 'localStorage') {
+                    localStorage.setItem(key, newValue);
+                    alert("LocalStorage data updated!");
+                } else if (storageType === 'indexedDB' && dbName && storeName) {
+                    const openRequest = indexedDB.open(dbName, 1); // Open DB with version 1
+
+                    openRequest.onsuccess = function(event) {
+                        const dbInstance = event.target.result;
+                        const transaction = dbInstance.transaction(storeName, "readwrite");
+                        const objectStore = transaction.objectStore(storeName);
+                        const updateRequest = objectStore.put(newValue, key); // Update data
+
+                        updateRequest.onsuccess = function() {
+                            alert(`IndexedDB data for ${key} updated successfully!`);
+                        };
+
+                        updateRequest.onerror = function() {
+                            alert("Error updating IndexedDB data.");
+                        };
+                    };
+
+                    openRequest.onerror = function() {
+                        alert("Error opening IndexedDB database.");
+                    };
+                }
+            }
+        }
+    </script>
+</body>
+</html>

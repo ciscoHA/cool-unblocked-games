@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Playtime Tracker</title>
+  <style>
+    /* Style for the game list */
+    a {
+      text-decoration: none;
+      color: black;
+    }
+
+    a:hover .game-name {
+      text-decoration: underline;
+    }
+
+    .game-list {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .game-item {
+      padding: 10px;
+      background-color: #f0f0f0;
+      border-radius: 5px;
+      margin: 5px 0;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+    }
+
+    /* Hover and highlight effect */
+    .game-item:hover {
+      background-color: #cce7ff;
+    }
+
+    .game-item.highlight {
+      background-color: #ffeb3b;
+    }
+
+    /* Style for playtime display */
+    .playtime {
+      font-weight: bold;
+      color: #333;
+      margin-left: 10px; /* Space between formatted name and playtime */
+    }
+
+    /* Resize the images to be a bit bigger with a 16:9 aspect ratio */
+    .game-item img {
+      width: auto;
+      height: 70px; /* 16:9 aspect ratio */
+      margin-right: 10px;
+      object-fit: cover;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Game Playtime Tracker</h1>
+  <ul id="game-list" class="game-list">
+    <!-- List of games will be dynamically inserted here -->
+  </ul>
+
+  <script src="pages.js"></script>
+  <script>
+    // IndexedDB constants
+    const DB_NAME = "PlaytimeDB";
+    const DB_VERSION = 1;
+    const STORE_NAME = "playtimeLogs";
+
+    // Function to open the IndexedDB
+    function openDB() {
+      return new Promise((resolve, reject) => {
+        const request = indexedDB.open(DB_NAME, DB_VERSION);
+
+        request.onupgradeneeded = function (event) {
+          const db = event.target.result;
+          // Create an object store for playtime logs if it doesn't exist
+          if (!db.objectStoreNames.contains(STORE_NAME)) {
+            db.createObjectStore(STORE_NAME, { keyPath: "gameId" });
+          }
+        };
+
+        request.onsuccess = function (event) {
+          resolve(event.target.result); // Resolve with the database
+        };
+
+        request.onerror = function (event) {
+          reject("Error opening IndexedDB: " + event.target.errorCode); // Reject if there's an error
+        };
+      });
+    }
+
+    // Function to get all playtime logs
+    async function getAllPlaytimeLogs() {
+      const db = await openDB();
+      return new Promise((resolve, reject) => {
+        const transaction = db.transaction(STORE_NAME, "readonly");
+        const store = transaction.objectStore(STORE_NAME);
+        const request = store.getAll(); // Get all game logs
+
+        request.onsuccess = function (event) {
+          resolve(event.target.result); // Return all logs
+        };
+
+        request.onerror = function (event) {
+          reject("Error fetching playtime logs: " + event.target.errorCode); // Reject if error occurs
+        };
+      });
+    }
+
+    // Function to calculate playtime for a specific game
+    async function calculatePlaytime(logs) {
+      if (logs.length === 0) {
+        return 0; // Return 0 if no logs exist
+      }
+
+      const gamePlaytime = logs.length;
+
+      if (gamePlaytime === 1) {
+        return 1; // 1 minute if only one log entry
+      }
+
+      // Convert minutes to hours if over 120 minutes
+      if (gamePlaytime > 120) {
+        let hours = gamePlaytime / 60;
+        hours = hours % 1 === 0 ? hours.toFixed(0) : hours.toFixed(1); // Remove decimal if .0
+        return hours * 60; // Convert hours back to minutes for sorting
+      }
+
+      return gamePlaytime; // Return minutes
+    }
+
+    // Function to get formatted name based on gameId
+    function getFormattedName(gameId) {
+      const game = pagesData.find(page => page.name === gameId);
+      return game ? game.formatted_Name : gameId; // Default to gameId if no match found
+    }
+
+    // Function to display the game list
+    async function displayGameList() {
+      const gameListElement = document.getElementById("game-list");
+      gameListElement.innerHTML = ""; // Clear existing list
+
+      try {
+        const logs = await getAllPlaytimeLogs();
+        const gamesWithPlaytime = [];
+
+        // Create a list of games with their playtimes and formatted names
+        for (const game of logs) {
+          const playtime = await calculatePlaytime(game.logs);
+          const formattedName = getFormattedName(game.gameId);
+          gamesWithPlaytime.push({ gameId: game.gameId, playtime: playtime, formattedName: formattedName });
+        }
+
+        // Sort the games by playtime (highest to lowest)
+        gamesWithPlaytime.sort((a, b) => b.playtime - a.playtime);
+
+        // Insert all list items in one go for easier editing
+        const listItemsHTML = gamesWithPlaytime.map(game => {
+          const playtimeText = game.playtime === 0 ? "Never Played" : (game.playtime === 1 ? "1 minute" : `${game.playtime} minutes`);
+          return `
+            <a href="/games/${game.gameId}.html"> 
+              <li class="game-item">
+                <img src="/images/games/${game.gameId}.png" alt="${game.formattedName} Image">
+                <span class="game-name">${game.formattedName}</span>
+                <span class="playtime">${playtimeText}</span>
+              </li>
+            </a>
+          `;
+        }).join(''); // Join all items into a single string
+
+        // Insert the generated HTML
+        gameListElement.innerHTML = listItemsHTML;
+
+      } catch (error) {
+        console.error("Error fetching games: ", error);
+      }
+    }
+
+    // Initialize page
+    window.onload = displayGameList;
+  </script>
+</body>
+
+</html>

@@ -9,8 +9,8 @@ text-decoration: none !important;
 }
 
 a {
-  text-decoration: none;
   text-decoration-thickness: 1px !important;
+  text-decoration: none;
 }
 
 /* TITLE BARS! */
@@ -190,7 +190,9 @@ a {
 }
 
 .description a {
-  text-decoration-skip-ink: none !important; /* Firefox fix */
+  text-decoration-skip-ink: none !important; /* Firefox fix? */
+  text-decoration-thickness: 1px !important;
+
 }
 .description-left a:hover {
   text-decoration: underline;
@@ -237,8 +239,10 @@ a {
   word-wrap: break-word; /* Ensure long words break to the next line if necessary */
   word-break: break-word; /* Breaks words at the end of the line */
 }
-.description-right a { /* THIS IS BROKEN ON FIREFOX! */
+.description-right a { 
   text-decoration: underline !important;
+  text-decoration-thickness: 1px !important; /* Only works on first? */
+
 }
 
 .description-container {

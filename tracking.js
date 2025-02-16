@@ -30,7 +30,16 @@ function trackPage() {
       if (logs.length === 0) return "Under 1 Minute";
       const gamePlaytime = logs.length;
       if (gamePlaytime === 1) return "1 minute";
-      return `${gamePlaytime} minutes`;
+      
+         // Convert minutes to hours if over 120 minutes
+         if (gamePlaytime > 120) {
+          let hours = gamePlaytime / 60;
+          hours = hours % 1 === 0 ? hours.toFixed(0) : hours.toFixed(1); // Remove decimal if .0
+          return `${hours} hours`;
+      }
+
+      return `${gamePlaytime} minutes`; // Otherwise, return minutes
+   
     } catch (error) {
       console.error("[calculatePlaytimeRECENT] Error calculating playtime:", error);
       return "Under 1 Minute";
@@ -75,7 +84,7 @@ function trackPage() {
       if (page === "missing") {
         // For a "missing" entry, choose a random game from pagesData.
         let randomPage;
-        const maxAttempts = 10;
+        const maxAttempts = 10; //idk what this means lollll
         let attempts = 0;
         do {
           randomPage = pagesData[Math.floor(Math.random() * pagesData.length)];

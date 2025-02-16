@@ -1,7 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
 
-
-const relatedGameLimit = 5;  // You can change this to 200 or whatever number you want
+    const relatedGameLimit = 5;  // You can change this to 200 or whatever number you want
 
     // Get the current page name from the URL
     const currentPageURL = window.location.pathname;
@@ -12,16 +11,19 @@ const relatedGameLimit = 5;  // You can change this to 200 or whatever number yo
     const category = pageEntry?.category || "";
     const formattedName = pageEntry?.formatted_Name || "";
 
-    // Function to normalize and split tags into lowercase words
+    // Function to normalize and split tags into lowercase words, excluding "demo"
     function normalizeTags(tags) {
-        return tags.toLowerCase().split(' ').map(tag => tag.trim());
+        return tags.toLowerCase().split(' ')
+            .map(tag => tag.trim())
+            .filter(tag => tag !== "demo"); // Exclude "demo"
     }
 
     // Function to get related games based on criteria
     function getRelatedGames() {
-        // This part ensures we're scanning through all pages
+        // Exclude certain categories such as "demo"
+        const excludedCategory = "demo";
         const allRelatedGames = pagesData.filter(page =>
-            page.name !== pageName // Exclude current page itself
+            page.name !== pageName && page.category.toLowerCase() !== excludedCategory
         );
 
         return allRelatedGames;
@@ -60,16 +62,16 @@ const relatedGameLimit = 5;  // You can change this to 200 or whatever number yo
     function calculateFormattedNameMatchPercentage(gameFormattedName) {
         const normalizedCurrentFormattedName = formattedName.replace(/\s+/g, '').toLowerCase();
         const normalizedGameFormattedName = gameFormattedName.replace(/\s+/g, '').toLowerCase();
-    
+
         let matchCount = 0;
-    
+
         // Compare character by character
         for (let i = 0; i < Math.min(normalizedGameFormattedName.length, normalizedCurrentFormattedName.length); i++) {
             if (normalizedGameFormattedName[i] === normalizedCurrentFormattedName[i]) {
                 matchCount++;
             }
         }
-    
+
         // Calculate match percentage based on matching characters
         const maxLength = Math.max(normalizedGameFormattedName.length, normalizedCurrentFormattedName.length);
         return ((matchCount / maxLength) * 100).toFixed(2); // Return percentage with two decimals
@@ -79,39 +81,38 @@ const relatedGameLimit = 5;  // You can change this to 200 or whatever number yo
         const allRelatedGames = getRelatedGames(); // Get all the related games
         const relatedGamesContainer = document.getElementById('relatedGamesContainer');
         relatedGamesContainer.innerHTML = '';
-    
+
         const sortedGames = sortGames(allRelatedGames); // Sort all related games based on matches
-    
+
         // Display only the top 'relatedGameLimit' games
         sortedGames.slice(0, relatedGameLimit).forEach((game, index) => {
             const link = document.createElement('a');
             link.href = `/games/${game.name}.html`;
             link.classList.add('related-game'); // Add a class for styling
-    
+
             // Create an image element
             const image = document.createElement('img');
             image.src = `/images/games/${game.name}.png`;
             image.alt = game.formatted_Name;
-    
+
             // Set CSS styles to ensure 16:9 aspect ratio
             image.style.width = '200px';
             image.style.height = 'auto';
             image.style.aspectRatio = '16/9';  // Ensures 16:9 aspect ratio
-    
+
             // Create the span for the game's formatted name
             const nameSpan = document.createElement('span');
             nameSpan.classList.add('game-name');
             nameSpan.textContent = game.formatted_Name;
-    
+
             // Append the span inside the image link
             link.appendChild(image);
             link.appendChild(nameSpan);
-    
+
             // Append the link to the container
             relatedGamesContainer.appendChild(link);
         });
     }
-    
 
     // Call the function to show related games on page load
     showRelatedGames();
