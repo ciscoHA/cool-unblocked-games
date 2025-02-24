@@ -10,7 +10,10 @@ document.addEventListener('DOMContentLoaded', function () {
         const pageEntry = pagesData.find(page => page.name === pageName);
 
         const name = pageEntry?.formatted_Name || pageName;
-        const category = pageEntry?.category || "None";
+
+        const categories = pageEntry?.category || ["None"];
+        const categoryHTML = categories.join(", "); 
+                
         const date = pageEntry?.date || null;
         const formattedDate = date ? formatDate(date) : "Unknown";
         const releaseDate = pageEntry?.release_Date || null;
@@ -24,6 +27,13 @@ document.addEventListener('DOMContentLoaded', function () {
         const playtimeShow = localStorage.getItem('playtime-log');
         const showPlaytime = playtimeShow && playtimeShow.includes("playtime-show");
 
+        const authors = pageEntry?.authors || [];
+        const authorLinks = pageEntry?.authorLinks || [];
+        
+        const authorHTML = authors.map((author, index) => 
+            `<a href="${authorLinks[index] || '#'}" target="_blank">${author}</a>`
+          ).join(",<br>"); // Join authors with a <br> after each
+          
         let descriptionHTML = `
             <div class="description description-left">
                 <div class="description-head">
@@ -31,8 +41,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 </div>
                 <p>
                     ${name}<br>
-                    By <a href="${authorLink}" target="_blank">${author}</a><br>
-                    Tags: ${category}<br><br>
+                    Tags: ${categoryHTML}<br><br>           
+                    By ${authorHTML}<br><br>
                     Date Added: ${formattedDate}<br>
                     ${lastUpdateLine}
                     Release Date: ${formattedRelease}<br>
@@ -56,7 +66,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 </div>
                 <p>
                     ${description}<br><br>
-                    ${releaseDate.match(/-/g)?.length === 2 ? `${name} was released on the ${formattedRelease} created by ${author}` : ''}
+                    ${releaseDate.match(/-/g)?.length === 2 ? `${name} was released on the ${formattedRelease} created by ${authors.join(', ')}` : ''}
                 </p>
             </div>
 
@@ -143,7 +153,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 return `${hours} hours`;
             }
         }
-
         function formatDate(date) {
             if (!date || date.trim() === '') return 'Unknown';
             if (!date.includes('-')) return date;
@@ -160,9 +169,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 'January', 'February', 'March', 'April', 'May', 'June', 'July',
                 'August', 'September', 'October', 'November', 'December'
             ];
-            return `${getDayWithSuffix(parseInt(day))} ${monthNames[parseInt(month) - 1]} ${year}`;
+            return `${getDayWithSuffix(parseInt(day))} of ${monthNames[parseInt(month) - 1]} ${year}`;
         }
-
+        
         function getDayWithSuffix(day) {
             if (day > 3 && day < 21) return day + 'th';
             switch (day % 10) {
@@ -171,7 +180,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 case 3: return day + 'rd';
                 default: return day + 'th';
             }
-        }
+        }        
     } else {
         console.error('Could not extract page name from URL');
     }

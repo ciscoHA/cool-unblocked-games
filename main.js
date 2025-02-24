@@ -1,13 +1,16 @@
-function insertHTMLIntoBody() {
+function insertHTML() {
     // Create a new div element
     const div = document.createElement('div');
     div.className = 'fixed-background'; // Set the class directly
 
     // Append the new div to the body
     document.body.appendChild(div);
+    if (window.location.pathname.includes('/games/')) {
+        document.head.appendChild(document.createElement('script')).src = 'https://unpkg.com/@ruffle-rs/ruffle'; // Redundant code might fix some issues?
+      }      
 }
 
-insertHTMLIntoBody();
+insertHTML();
 
 // bad method :) - checks whether primary colour has a value, if it doesnt then it resets all customisation values.
 function setDefaultValuesIfPrimaryColorMissing() {
@@ -141,8 +144,6 @@ function loadScript(url) {
         document.head.appendChild(script);
     });
 }
-
-
 function attachNavbarListeners() {
     const searchInput = document.getElementById('searchInput');
     const searchResults = document.getElementById('searchResults');
@@ -168,20 +169,14 @@ function attachNavbarListeners() {
                 .replace(/&/g, ' and ')
                 .toLowerCase();
 
-            let normalizedCategory = pageData.category
-                ? pageData.category.toLowerCase().trim()
-                : 'none';
-
-            if (normalizedCategory === "none") {
-                normalizedCategory = "";
-            }
-
-            const normalizedCategoryWords = normalizedCategory.split(/\s+/);
+            const categoryArray = Array.isArray(pageData.category) ? pageData.category : [];
+            const normalizedCategoryWords = categoryArray.map(cat => cat.toLowerCase().trim());
 
             const nameMatches = queryWords.every(word => normalizedPageName.includes(word));
-            const categoryMatches = queryWords.every(word =>
+            const categoryMatches = queryWords.some(word =>
                 normalizedCategoryWords.some(categoryWord =>
-                    categoryWord.startsWith(word) && word.length >= categoryWord.length / 2)
+                    categoryWord.startsWith(word) && word.length >= categoryWord.length / 2
+                )
             );
 
             return nameMatches || categoryMatches;
@@ -286,6 +281,7 @@ function attachNavbarListeners() {
         }
     });
 }
+
 
 
 // const primaryButton = document.getElementById('primary-button');

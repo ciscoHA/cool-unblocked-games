@@ -8,14 +8,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Find the page entry from the pagesData array
     const pageEntry = pagesData.find(page => page.name === pageName);
-    const category = pageEntry?.category || "";
+    const category = pageEntry?.category || [];
     const formattedName = pageEntry?.formatted_Name || "";
 
     // Function to normalize and split tags into lowercase words, excluding "demo"
     function normalizeTags(tags) {
-        return tags.toLowerCase().split(' ')
-            .map(tag => tag.trim())
-            .filter(tag => tag !== "demo"); // Exclude "demo"
+        return tags.map(tag => tag.toLowerCase().trim()).filter(tag => tag !== "demo"); // Exclude "demo"
     }
 
     // Function to get related games based on criteria
@@ -23,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function () {
         // Exclude certain categories such as "demo"
         const excludedCategory = "demo";
         const allRelatedGames = pagesData.filter(page =>
-            page.name !== pageName && page.category.toLowerCase() !== excludedCategory
+            page.name !== pageName && !page.category.includes(excludedCategory) // Check if excluded category is in the array
         );
 
         return allRelatedGames;
@@ -50,14 +48,14 @@ document.addEventListener('DOMContentLoaded', function () {
     function calculateCategoryMatchPercentage(gameTags) {
         const currentPageTags = normalizeTags(category);  // Tags for the current page
         const gameTagsNormalized = normalizeTags(gameTags);  // Tags for the current game
-
+    
         // Find matches of current page's categories in the game's categories
         const matchingTags = currentPageTags.filter(tag => gameTagsNormalized.includes(tag));
         const matchPercentage = (matchingTags.length / currentPageTags.length) * 100;
-
+    
         return matchPercentage.toFixed(2);  // Return percentage with two decimals
     }
-
+    
     // Function to calculate formatted name match percentage (ignoring spaces)
     function calculateFormattedNameMatchPercentage(gameFormattedName) {
         const normalizedCurrentFormattedName = formattedName.replace(/\s+/g, '').toLowerCase();

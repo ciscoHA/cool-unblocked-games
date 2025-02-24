@@ -19,8 +19,9 @@ async function generatePageListONLINE() {
 
     // Filter online pages based on category and sort alphabetically by name
     const onlinePages = pagesData
-        .filter(page => typeof page.category === "string" && page.category.includes("online"))
-        .sort((a, b) => a.name.localeCompare(b.name));
+    .filter(page => Array.isArray(page.category) && page.category.includes("online"))
+    .sort((a, b) => a.name.localeCompare(b.name));
+
 
     console.log("Filtered online Pages:", onlinePages);
 
@@ -65,7 +66,7 @@ async function generatePageListONLINE() {
                   <div class="suggest-text-back-container" style="position: absolute; margin: 0.6vh; width: 16.8vw; height: calc(20.3vw * 9 / 16); overflow: hidden; z-index: 2;">
                       <div class="suggest-text-back" style="position: absolute; width: 300%; height: 300%; left: -5vw; top: 0vw; background-color: black; opacity: 0;"></div>
                   </div>
-                  <img id="suggest-imgPO${index + 1}" src="/images/games/${page.name}.png" alt="${page.name}" style="margin: 0.6vh; border-radius: 0.4vw; position: relative; height: auto;" />
+                  <img id="suggest-imgPO${index + 1}" src="/images/games-256/${page.name}.png" alt="${page.name}" style="margin: 0.6vh; border-radius: 0.4vw; position: relative; height: auto;" />
                   <p id="suggest-textPO${index + 1}" style="letter-spacing: ${letterSpacing}; position: absolute; z-index: 999; left: 1.25vw; top: calc(100% - 4.75vw - 0.9rem); opacity: 0; text-align: left;">
                       <span style="display: block; margin-bottom: -0.5rem;">${formattedName}</span>
                       <span style="font-size: 0.95rem; margin: 0; padding: 0; color: #d9d9d9 !important; letter-spacing: normal; line-height: 1; display: inline-flex; align-items: center;">
@@ -91,7 +92,7 @@ async function generatePageListONLINE() {
                   <div class="suggest-text-back-container" style="position: absolute; margin: 0.6vh; width: 16.8vw; height: calc(20.3vw * 9 / 16); overflow: hidden; z-index: 2;">
                       <div class="suggest-text-back" style="position: absolute; width: 300%; height: 300%; left: -5vw; top: 0vw; background-color: black; opacity: 0;"></div>
                   </div>
-                  <img id="suggest-imgPO${index + 1}" src="/images/games/${page.name}.png" alt="${page.name}" style="margin: 0.6vh; border-radius: 0.4vw; position: relative; height: auto;" />
+                  <img id="suggest-imgPO${index + 1}" src="/images/games-256/${page.name}.png" alt="${page.name}" style="margin: 0.6vh; border-radius: 0.4vw; position: relative; height: auto;" />
                   <p id="suggest-textPO${index + 1}" style="letter-spacing: ${letterSpacing}; position: absolute; z-index: 999; left: 1.25vw; top: calc(100% - 4.75vw); opacity: 0; text-align: left;">
                       <span style="display: block; margin-bottom: -0.5rem;">${formattedName}</span>
                   </p>

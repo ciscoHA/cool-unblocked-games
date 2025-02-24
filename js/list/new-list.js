@@ -39,7 +39,7 @@ function generateNewPageList() {
   <div class="suggest-text-back-container" style="position: absolute; margin: 0.6vh; width: 16.8vw; height: calc(20.3vw * 9 / 16); overflow: hidden; z-index: 2;">
     <div class="suggest-text-back" style="position: absolute; width: 300%; height: 300%; left: -5vw; top: 0vw; background-color: black; opacity: 0;"></div>
   </div>
-  <img id="suggest-imgN${index + 1}" src="/images/games/${page.name}.png" alt="${page.name}" style="margin: 0.6vh; border-radius: 0.4vw; position: relative; width: 16.8vw; height: auto;" />
+  <img id="suggest-imgN${index + 1}" src="/images/games-512/${page.name}.png" alt="${page.name}" style="margin: 0.6vh; border-radius: 0.4vw; position: relative; width: 16.8vw; height: auto;" />
   <p id="suggest-textN${index + 1}" style="letter-spacing: ${letterSpacing}; position: absolute; z-index: 999; left: 1.25vw; top: calc(100% - 4.75vw); opacity: 0;">
     ${formattedName}
   </p>

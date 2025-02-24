@@ -316,9 +316,9 @@
     <div class="slick-carousel">
       <div class="carousel-item">
         <div class="image-container">
-          <a class="info" href="/games/flow.html"> <!--Class info means small info text-->
-            <img src="/images/games/flow.png" alt="flOw">
-            <p>flOw</p>
+          <a class="info" href="/games/red-square-game.html"> <!--Class info means small info text-->
+            <img src="/images/games-512/red-square-game.png" alt="flOw">
+            <p>Red Square Game</p>
             <span class="info">
               <p>Recently added</p>
             </span>
@@ -328,7 +328,7 @@
       <div class="carousel-item">
         <div class="image-container">
           <a class="info" href="/games/polytrack.html">
-            <img src="/images/games/polytrack.png" alt="Polytrack">
+            <img src="/images/games-512/polytrack.png" alt="Polytrack">
             <p>Polytrack v0.4.1</p>
             <span class="info">
               <p>Rank #1 in Popularity</p>
@@ -339,7 +339,7 @@
       <div class="carousel-item">
         <div class="image-container">
           <a class="info" href="/games/among-us-online.html">
-            <img src="/images/games/among-us-online.png" alt="Among Us Online">
+            <img src="/images/games-512/among-us-online.png" alt="Among Us Online">
             <p>Among Us Online</p>
             <span class="info">
               <p>Rank #2 in Popularity</p>
@@ -350,7 +350,7 @@
       <div class="carousel-item">
         <div class="image-container">
           <a class="info" href="/games/bitlife.html">
-            <img src="/images/games/bitlife.png" alt="Bitlife">
+            <img src="/images/games-512/bitlife.png" alt="Bitlife">
             <p>Bitlife</p>
             <span class="info">
               <p>Rank #3 in Popularity</p>
@@ -361,7 +361,7 @@
       <div class="carousel-item">
         <div class="image-container">
           <a class="info" href="/games/slope.html">
-            <img src="/images/games/slope.png" alt="Slope">
+            <img src="/images/games-512/slope.png" alt="Slope">
             <p>Slope</p>
             <span class="info">
               <p>Rank #4 in Popularity</p>
@@ -372,7 +372,7 @@
       <div class="carousel-item">
         <div class="image-container">
           <a class="info" href="/games/celeste-classic-2-lanis-treck.html">
-            <img src="/images/games/celeste-classic-2-lanis-treck.png" alt="Celeste Classic 2">
+            <img src="/images/games-512/celeste-classic-2-lanis-treck.png" alt="Celeste Classic 2">
             <p>Celeste Classic 2</p>
             <span class="info">
               <p>Recently added</p>
@@ -422,7 +422,7 @@
           " onmouseover="highlightImage2('suggest-imgC1', 'suggest-text1')"
               onmouseout="removeHighlight2('suggest-imgC1', 'suggest-text1')"></div>
 
-            <img id="suggest-imgC1" src="/images/games/missing.png" alt="Recently Played" />
+            <img id="suggest-imgC1" src="/images/games-256/missing.png" alt="Recently Played" />
           </a>
         </div>
       </li>
@@ -440,7 +440,7 @@
           " onmouseover="highlightImage2('suggest-imgC1', 'suggest-text1')"
               onmouseout="removeHighlight2('suggest-imgC1', 'suggest-text1')"></div>
 
-            <img id="suggest-imgC1" src="/images/games/missing.png" alt="Recently Played" />
+            <img id="suggest-imgC1" src="/images/games-256/missing.png" alt="Recently Played" />
           </a>
         </div>
       </li>
@@ -458,7 +458,7 @@
           " onmouseover="highlightImage2('suggest-imgC1', 'suggest-text1')"
               onmouseout="removeHighlight2('suggest-imgC1', 'suggest-text1')"></div>
 
-            <img id="suggest-imgC1" src="/images/games/missing.png" alt="Recently Played" />
+            <img id="suggest-imgC1" src="/images/games-256/missing.png" alt="Recently Played" />
 
           </a>
         </div>
@@ -477,7 +477,7 @@
           " onmouseover="highlightImage2('suggest-img1', 'suggest-text1')"
               onmouseout="removeHighlight2('suggest-img1', 'suggest-text1')"></div>
 
-            <img id="suggest-imgC1" src="/images/games/missing.png" alt="Recently Played" />
+            <img id="suggest-imgC1" src="/images/games-256/missing.png" alt="Recently Played" />
 
           </a>
         </div>
@@ -500,9 +500,9 @@
         this website is so cool
         <br><br>
         Last Update:
-        <a href="/changelog.html">17/02/2025</a>
+        <a href="/changelog.html">24/02/2025</a>
         <br>
-        7 New Games!<br>Bug Fixes!
+        Swords and Sandals Crusader!<br>Red Sqaure Game<br>SuperTux Classic works now too!
       </p>
     </div>
 
@@ -1089,7 +1089,7 @@ async function generatePageList() {
             <div class="suggest-text-back-container" style="position: absolute; margin: 0.6vh; width: 16.8vw; height: calc(20.3vw * 9 / 16); overflow: hidden; z-index: 2;">
               <div class="suggest-text-back" style="position: absolute; width: 300%; height: 300%; left: -5vw; top: 0vw; background-color: black; opacity: 0;"></div>
             </div>
-            <img id="suggest-imgL${index + 1}" src="/images/games/${page.name}.png" alt="${page.name}" style="margin: 0.6vh; border-radius: 0.4vw; position: relative; width: 16.8vw; height: auto;" />
+            <img id="suggest-imgL${index + 1}" src="/images/games-256/${page.name}.png" alt="${page.name}" style="margin: 0.6vh; border-radius: 0.4vw; position: relative; width: 16.8vw; height: auto;" />
             
             <!-- Title and Playtime Text in the same p tag -->
             <p id="suggest-textL${index + 1}" style="letter-spacing: ${letterSpacing}; position: absolute; z-index: 999; left: 1.25vw; top: calc(100% - 4.75vw - 0.9rem); opacity: 0; text-align: left;">
@@ -1120,7 +1120,7 @@ async function generatePageList() {
             <div class="suggest-text-back-container" style="position: absolute; margin: 0.6vh; width: 16.8vw; height: calc(20.3vw * 9 / 16); overflow: hidden; z-index: 2;">
               <div class="suggest-text-back" style="position: absolute; width: 300%; height: 300%; left: -5vw; top: 0vw; background-color: black; opacity: 0;"></div>
             </div>
-            <img id="suggest-imgL${index + 1}" src="/images/games/${page.name}.png" alt="${page.name}" style="margin: 0.6vh; border-radius: 0.4vw; position: relative; width: 16.8vw; height: auto;" />
+            <img id="suggest-imgL${index + 1}" src="/images/games-256/${page.name}.png" alt="${page.name}" style="margin: 0.6vh; border-radius: 0.4vw; position: relative; width: 16.8vw; height: auto;" />
             
             <!-- Title and Playtime Text in the same p tag -->
             <p id="suggest-textL${index + 1}" style="letter-spacing: ${letterSpacing}; position: absolute; z-index: 999; left: 1.25vw; top: calc(100% - 4.75vw); opacity: 0; text-align: left;">
