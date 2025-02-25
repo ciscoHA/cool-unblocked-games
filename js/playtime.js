@@ -1,16 +1,16 @@
-const DB_NAME = "PlaytimeDB";
-const STORE_NAME = "playtimeLogs";
-const DB_VERSION = 1;
+const PDB_NAME = "PlaytimeDB";
+const PSTORE_NAME = "playtimeLogs";
+const PDB_VERSION = 1;
 
 // Open (or create) IndexedDB database
-function openDB() {
+function PopenB() {
     return new Promise((resolve, reject) => {
-        let request = indexedDB.open(DB_NAME, DB_VERSION);
+        let request = indexedDB.open(PDB_NAME, PDB_VERSION);
 
         request.onupgradeneeded = (event) => {
             let db = event.target.result;
-            if (!db.objectStoreNames.contains(STORE_NAME)) {
-                db.createObjectStore(STORE_NAME, { keyPath: "gameId" });
+            if (!db.objectStoreNames.contains(PSTORE_NAME)) {
+                db.createObjectStore(PSTORE_NAME, { keyPath: "gameId" });
             }
         };
 
@@ -20,7 +20,7 @@ function openDB() {
 }
 
 // Log playtime in IndexedDB
-async function logPlaytime() {
+async function PlogPlaytime() {
     const currentUrl = window.location.href;
     let pageName, nonHashedPageName;
     
@@ -43,16 +43,27 @@ async function logPlaytime() {
         hour: "2-digit", minute: "2-digit", hour12: false
     });
 
-    let db = await openDB();
-    let transaction = db.transaction(STORE_NAME, "readwrite");
-    let store = transaction.objectStore(STORE_NAME);
+    let db = await PopenB();
+    let transaction = db.transaction(PSTORE_NAME, "readwrite");
+    let store = transaction.objectStore(PSTORE_NAME);
 
     let request = store.get(pageName);
     
     request.onsuccess = () => {
         let entry = request.result || { gameId: pageName, logs: [] };
         entry.logs.push(timestamp);
-        store.put(entry);
+        let putRequest = store.put(entry);
+        
+        putRequest.onsuccess = () => {
+            console.log(`Logged playtime for ${pageName}: ${timestamp}`);
+        };
+        putRequest.onerror = () => {
+            console.error("Error saving entry:", putRequest.error);
+        };
+    };
+
+    request.onerror = () => {
+        console.error("Error fetching entry:", request.error);
     };
 
     // Also log the non-hashed version if different
@@ -61,29 +72,35 @@ async function logPlaytime() {
         nonHashedRequest.onsuccess = () => {
             let entry = nonHashedRequest.result || { gameId: nonHashedPageName, logs: [] };
             entry.logs.push(timestamp);
-            store.put(entry);
+            let nonHashedPutRequest = store.put(entry);
+            
+            nonHashedPutRequest.onsuccess = () => {
+                console.log(`Logged playtime for ${nonHashedPageName}: ${timestamp}`);
+            };
+            nonHashedPutRequest.onerror = () => {
+                console.error("Error saving non-hashed entry:", nonHashedPutRequest.error);
+            };
+        };
+
+        nonHashedRequest.onerror = () => {
+            console.error("Error fetching non-hashed entry:", nonHashedRequest.error);
         };
     }
+
+    transaction.oncomplete = () => {
+        console.log("Playtime Transaction completed successfully");
+    };
 }
 
 // Start logging at minute start
 function startLoggingAtMinuteStart() {
-    const currentPageURL = window.location.pathname;
-    const pageName = currentPageURL.split('/games/')[1]?.split('.html')[0];
-
-    const pageEntry = pagesData.find(page => page.name === pageName);
-    const category = pageEntry?.category || "";
-    const isIdleCategory = category.toLowerCase().includes("idle");
-
     const now = new Date();
     const msUntilNextMinute = 60000 - (now.getSeconds() * 1000 + now.getMilliseconds());
 
     setTimeout(() => {
-        logPlaytime();
+        PlogPlaytime(); // Log at the start of the next minute
         setInterval(() => {
-            if (document.visibilityState === "visible" || isIdleCategory) {
-                logPlaytime();
-            }
+            PlogPlaytime(); // Log every minute
         }, 60000);
     }, msUntilNextMinute);
 }
